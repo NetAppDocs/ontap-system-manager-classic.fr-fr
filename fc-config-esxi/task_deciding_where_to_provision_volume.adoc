@@ -1,0 +1,40 @@
+---
+permalink: fc-config-esxi/task_deciding_where_to_provision_volume.html 
+sidebar: sidebar 
+keywords: provision, volume, contain, lun, exist, storage, virtual, machine, svm, configure, fc, exist, svm, decide where to provision the volume 
+summary: 'Avant de provisionner un volume pour contenir vos LUN, vous devez décider d"ajouter ce volume à un serveur virtuel de stockage existant ou de créer un nouveau SVM pour le volume. Vous devrez peut-être également configurer FC sur un SVM existant.' 
+---
+= Choisissez l'emplacement de provisionnement du volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de provisionner un volume pour contenir vos LUN, vous devez décider d'ajouter ce volume à un SVM existant ou de créer un nouveau SVM pour le volume. Vous devrez peut-être également configurer FC sur un SVM existant.
+
+.Description de la tâche
+Si un SVM existant est déjà configuré avec les protocoles nécessaires et que celui-ci dispose de LIF accessibles depuis l'hôte, il est plus facile d'utiliser le SVM existant.
+
+Vous pouvez créer un nouveau SVM afin de séparer les données ou l'administration des autres utilisateurs du cluster de stockage. Il n'y a pas d'avantage à utiliser des SVM distincts pour séparer différents protocoles.
+
+
+
+== Procédure
+
+* Si vous souhaitez provisionner des volumes sur un SVM déjà configuré pour FC, vous devez vérifier que le service FC est exécuté.
++
+link:task_verifying_that_fc_service_is_running_on_existing_svm.html["Vérification de l'exécution du service FC sur un SVM existant"]
+
+* Si vous souhaitez provisionner des volumes sur un SVM existant sur lequel FC est activé mais non configuré, configurez iSCSI sur le SVM existant.
++
+link:task_configuring_iscsi_fc_creating_lun_on_existing_svm.html["Configuration d'un FC sur un SVM existant"]
+
++
+C'est le cas si vous n'avez pas suivi cette procédure pour créer le SVM lors de la configuration d'un autre protocole.
+
+* Si vous souhaitez provisionner des volumes sur un nouveau SVM, créez le SVM.
++
+link:task_creating_svm.html["Création d'un nouveau SVM"]
+
+

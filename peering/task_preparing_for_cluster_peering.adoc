@@ -1,0 +1,94 @@
+---
+permalink: peering/task_preparing_for_cluster_peering.html 
+sidebar: sidebar 
+keywords: create, creating, cluster, peer, relationship, verify, time, synchronized, external, network, procotol, ntp, server, subnet, port, passphrase, prepare, prepare for cluster peering 
+summary: 'Avant de créer une relation de peering de cluster à l"aide de l"interface classique de ONTAP System Manager avec ONTAP 9.7 ou une version antérieure, vous devez vérifier que l"heure de chaque cluster est synchronisée avec un serveur NTP (Network Time Protocol) externe et déterminer les sous-réseaux, ports et clés de phrase secrète que vous souhaitez utiliser.' 
+---
+= Préparation du peering de cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de créer une relation de peering de cluster à l'aide de l'interface de ONTAP System Manager _Classic_ avec ONTAP 9.7 ou version antérieure, vous devez vérifier que l'heure de chaque cluster est synchronisée avec un serveur NTP (Network Time Protocol) externe et déterminer les sous-réseaux, ports et phrases de passe que vous souhaitez utiliser.
+
+.Étapes
+. Si vous exécutez ONTAP 9.2 ou une version antérieure, définissez une phrase secrète à utiliser pour chaque relation de cluster.
++
+La phrase de passe doit comprendre au moins huit caractères.
+
++
+|===
+
+
+| Pour la relation entre... | La phrase de passe est... 
+
+
+ a| 
+Cluster A et cluster B
+ a| 
+
+|===
++
+Depuis ONTAP 9.3, vous pouvez générer une phrase secrète à partir du cluster distant tout en créant la relation entre clusters.
+
++
+link:task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html["Création d'une relation entre clusters (à partir de ONTAP 9.3)"]
+
+. Identifier les sous-réseaux, les adresses IP et les ports que vous utiliserez pour les LIFs intercluster.
++
+Par défaut, l'adresse IP est automatiquement sélectionnée dans le sous-réseau. Si vous souhaitez spécifier l'adresse IP manuellement, vous devez vous assurer que l'adresse IP est déjà disponible dans le sous-réseau ou peut être ajoutée ultérieurement au sous-réseau. Des informations sur les sous-réseaux sont disponibles dans l'onglet réseau.
+
++
+Créez un tableau similaire au tableau suivant pour enregistrer des informations sur les clusters.  Le tableau suivant suppose que chaque cluster possède quatre nœuds. Si un cluster comporte plus de quatre nœuds, ajoutez des lignes pour les informations supplémentaires.
+
++
+|===
+
+
+|  | Cluster A | Cluster B 
+
+
+ a| 
+Sous-réseau (ONTAP 9.2 ou version antérieure)
+ a| 
+ a| 
+
+
+
+ a| 
+Adresse IP (à partir de ONTAP 9.3, en option pour ONTAP 9.2 ou version antérieure)
+ a| 
+ a| 
+
+
+
+ a| 
+Port de nœud 1
+ a| 
+ a| 
+
+
+
+ a| 
+Port du nœud 2
+ a| 
+ a| 
+
+
+
+ a| 
+Port du nœud 3
+ a| 
+ a| 
+
+
+
+ a| 
+Port du nœud 4
+ a| 
+ a| 
+
+|===
+

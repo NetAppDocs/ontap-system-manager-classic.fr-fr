@@ -1,0 +1,17 @@
+---
+permalink: smb-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html 
+sidebar: sidebar 
+keywords: add, cifs, volume, cifs-enabled, svm, involves, creating, create, configure, configuring, share, set, permission, verify, windows, administration, host, add a cifs volume to a cifs-enabled svm 
+summary: 'L"ajout d"un volume CIFS à un SVM compatible CIFS implique la création et la configuration d"un volume, la création d"un partage et la définition de ses autorisations, et la vérification de l"accès à partir d"un hôte d"administration Windows. Vous pouvez ensuite configurer l"accès client CIFS.' 
+---
+= Ajout d'un volume CIFS à un SVM compatible CIFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'ajout d'un volume CIFS à un SVM compatible CIFS implique la création et la configuration d'un volume, la création d'un partage et la définition de ses autorisations, et la vérification de l'accès à partir d'un hôte d'administration Windows. Vous pouvez ensuite configurer l'accès client CIFS.
+
+.Avant de commencer
+CIFS doit être complètement configuré sur le SVM.

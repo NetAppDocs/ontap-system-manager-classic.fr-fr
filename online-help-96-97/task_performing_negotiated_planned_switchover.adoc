@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/task_performing_negotiated_planned_switchover.html 
+sidebar: sidebar 
+keywords: online, help, perform, negotiated, switchover, system, help 
+summary: 'Depuis System Manager 9.6, vous pouvez initier un basculement négocié (planifié) d"un site MetroCluster. Cette opération est utile lorsque vous souhaitez effectuer des tests de reprise d"activité ou des opérations de maintenance planifiées sur le site.' 
+---
+= Effectuer un basculement négocié
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez initier un basculement négocié (planifié) d'un site MetroCluster. Cette opération est utile lorsque vous souhaitez effectuer des tests de reprise d'activité ou des opérations de maintenance planifiées sur le site.
+
+.Étapes
+. [[step1]]dans System Manager, utilisez les informations d'identification de l'administrateur du cluster pour vous connecter au site MetroCluster local (site A).
+. Cliquez sur *Configuration* > *MetroCluster*
++
+La fenêtre MetroCluster Switchback Operations s'affiche.
+
+. Cliquez sur *Suivant*.
++
+La fenêtre MetroCluster Switchback Operations affiche l'état des opérations et System Manager vérifie si un basculement négocié est possible.
+
+. Effectuez l'une des opérations suivantes lorsque le processus de validation est terminé :
++
+** Si la validation a réussi, passer à l'étape link:#step5["5"].
+** Si la validation échoue, mais que le site B est actif, une erreur s'est produite, par exemple un problème avec un sous-système ou la mise en miroir NVRAM n'est pas synchronisé. Vous pouvez effectuer l'un des processus suivants :
++
+*** Corrigez le problème à l'origine de l'erreur, cliquez sur *Fermer*, puis recommencez à l'étape link:#step1["1"].
+*** Arrêtez les nœuds du site B, cliquez sur *Fermer*, puis effectuez les étapes de la section xref:task_performing_unplanned_switchover.adoc[Effectuer un basculement non planifié].
+
+
+** Si la validation échoue et que le site B est en panne, il est fort probable qu'il y ait un problème de connexion. Vérifiez que le site B est en panne, puis effectuez les étapes de la section xref:task_performing_unplanned_switchover.adoc[Effectuer un basculement non planifié].
+
+
+. [[step5]]cliquez sur *bascule du site B vers le site A* pour lancer le processus de basculement.
++
+Un message d'avertissement s'affiche, indiquant que l'opération de basculement arrête toutes les SVM de données du site B et les redémarre sur le site A.
+
+. Si vous souhaitez continuer, cliquez sur *Oui*.
++
+Le processus de basculement commence. Les États du site A et du site B sont affichés au-dessus des représentations graphiques de leurs configurations. Si le basculement échoue, un message d'erreur s'affiche. Cliquez sur *Fermer*. Corrigez les erreurs et recommencez à l'étape link:#step1["1"]
+
+. Attendez que System Manager indique que la réparation a été terminée.
++
+Une fois la réparation terminée, le site B est opérationnel et les systèmes sont en préparation pour le processus de rétablissement.
+
++
+Lorsque les préparatifs du processus de rétablissement sont terminés, le bouton *Retour du site A au site B* est actif en bas de la fenêtre.
+
+. Pour poursuivre l'opération de rétablissement, effectuez les opérations décrites dans la section xref:task_performing_switchback.adoc[Exécution d'un rétablissement].
+

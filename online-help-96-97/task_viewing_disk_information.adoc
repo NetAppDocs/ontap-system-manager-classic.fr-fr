@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_viewing_disk_information.html 
+sidebar: sidebar 
+keywords: view, disk, information, system, manager, name, online, help 
+summary: Vous pouvez utiliser la fenêtre disques de System Manager pour afficher le nom, la taille et le conteneur des disques, ainsi que des informations graphiques sur les disques de capacité et les disques de cache. 
+---
+= Affichez les informations sur les disques avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre disques de ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour afficher le nom, la taille et le conteneur des disques, ainsi que des informations graphiques sur les disques haute capacité et les disques en cache.
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *disques*.
+. Sélectionnez le disque sur lequel vous souhaitez afficher les informations dans la liste affichée des disques.
+. Vérifier les détails du disque.
+
+
+*Informations connexes*
+
+xref:reference_disks_window.adoc[Fenêtre disques]

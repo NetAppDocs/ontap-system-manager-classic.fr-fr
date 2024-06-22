@@ -1,0 +1,189 @@
+---
+permalink: online-help-96-97/concept_autosupport.html 
+sidebar: sidebar 
+keywords: autosupport, notification, message, monitor, system, health, storage, email, recipient, severity, view, 
+summary: 'Vous pouvez utiliser System Manager pour configurer des notifications AutoSupport qui vous aideront à surveiller l"état de votre système de stockage.' 
+---
+= Gérez les notifications AutoSupport avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+
+
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer les notifications AutoSupport afin de surveiller l'état du système de stockage.
+
+
+
+== Configurez les notifications AutoSupport
+
+Vous pouvez utiliser la boîte de dialogue Modifier les paramètres AutoSupport dans System Manager pour configurer les notifications AutoSupport en spécifiant une adresse e-mail à partir de laquelle les notifications par e-mail sont envoyées et en ajoutant plusieurs noms d'hôtes de messagerie.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *Modifier*.
+. Dans l'onglet *destinataire d'e-mail*, saisissez l'adresse e-mail à partir de laquelle les notifications d'e-mail sont envoyées, indiquez les destinataires et le contenu du message pour chaque destinataire d'e-mail, puis ajoutez les hôtes de messagerie.
++
+Vous pouvez ajouter jusqu'à cinq adresses e-mail des noms d'hôte.
+
+. Dans l'onglet *autres*, sélectionnez un protocole de transport pour la transmission des e-mails dans la liste déroulante et spécifiez les détails du serveur proxy HTTP ou HTTPS.
+. Cliquez sur *OK*.
+. Vérifiez que la configuration que vous avez définie pour la notification AutoSupport est correctement configurée dans la fenêtre *AutoSupport*.
+
+
+
+
+== Activez ou désactivez les paramètres AutoSupport
+
+Vous pouvez activer ou désactiver les paramètres AutoSupport sur votre système de stockage à l'aide de System Manager. Les messages AutoSupport vous permettent de surveiller l'état de santé de votre système de stockage ou d'envoyer des notifications au support technique et à votre organisation de support interne.
+
+.Description de la tâche
+L'option AutoSupport est activée par défaut.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *Activer* ou *Désactiver*.
+. Cliquez sur *OK*.
+. Vérifiez que le statut de la AutoSupport affiche correctement la modification que vous avez effectuée.
+
+
+
+
+== Ajouter des destinataires de messagerie AutoSupport
+
+Vous pouvez utiliser l'onglet *destinataire d'e-mail* de la boîte de dialogue Modifier les paramètres AutoSupport du Gestionnaire système pour ajouter des adresses électroniques des destinataires des notifications AutoSupport.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *Modifier*.
+. Dans l'onglet *destinataire de l'e-mail*, saisissez l'adresse du destinataire de l'e-mail, indiquez si le destinataire reçoit un message complet ou un message court, puis cliquez sur *Ajouter*.
+. Cliquez sur *OK*.
+. Vérifiez que les détails que vous avez spécifiés s'affichent dans la fenêtre *AutoSupport*.
+
+
+
+
+== Tester les paramètres AutoSupport
+
+Vous pouvez utiliser la boîte de dialogue Test AutoSupport de System Manager pour vérifier que vous avez correctement configuré les paramètres AutoSupport.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *Test*.
+. Dans la boîte de dialogue *Test AutoSupport*, entrez le texte de l'objet AutoSupport « Test AutoSupport » ou tout texte qui avertit les destinataires que vous testez les paramètres AutoSupport.
+. Cliquez sur *Test*.
++
+Un e-mail contenant l'objet « AutoSupport test » ou le texte que vous avez saisi dans le champ *AutoSupport Subject* est envoyé aux destinataires spécifiés.
+
+
+
+
+
+== Générez des données AutoSupport
+
+Vous pouvez utiliser System Manager pour générer des données AutoSupport pour un ou plusieurs nœuds afin de contrôler leur état et d'envoyer des notifications au support technique.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *demande AutoSupport* > *générer AutoSupport*.
++
+Par défaut, les données AutoSupport sont générées pour tous les nœuds.
+
+. Dans la boîte de dialogue *Generate AutoSupport*, effectuez les opérations suivantes :
++
+.. Si vous souhaitez générer des données AutoSupport pour un noeud spécifique, décochez la case *générer des données AutoSupport pour tous les noeuds*, puis sélectionnez le noeud.
+.. Saisissez le numéro de dossier.
+
+
+. Cliquez sur *générer*.
+. Dans la boîte de dialogue *Confirmation*, cliquez sur *OK*.
+
+
+
+
+== Afficher la synthèse AutoSupport
+
+System Manager vous permet d'afficher l'état et les détails de toutes les données AutoSupport précédentes afin de vérifier les données envoyées au support technique. Vous pouvez également consulter ces informations pour connaître l'état et les performances de votre système de stockage.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud, puis cliquez sur *demande AutoSupport* > *Afficher le résumé précédent*.
++
+Les données AutoSupport de tous les nœuds sont affichées.
+
+. Cliquez sur *OK*.
+
+
+
+
+== Types de gravité AutoSupport
+
+Les messages AutoSupport ont des types de gravité qui vous aident à comprendre l'objet de chaque message : par exemple, pour attirer l'attention immédiate sur un problème d'urgence ou uniquement pour fournir des informations.
+
+Les messages ont l'un des niveaux de gravité suivants :
+
+* *Alerte* : les messages d'alerte indiquent qu'un événement de niveau supérieur peut se produire si vous ne prenez pas d'action.
++
+Vous devez prendre une action contre les messages d'alerte dans les 24 heures.
+
+* *Urgence* : les messages d'urgence sont affichés lorsqu'une interruption s'est produite.
++
+Vous devez agir immédiatement contre les messages d'urgence.
+
+* *Erreur* : les conditions d'erreur indiquent ce qui peut se produire si vous ignorez.
+* *Avis* : condition normale mais significative.
+* *Info*: Message d'information fournit des détails sur le problème, que vous pouvez ignorer.
+* *Debug* : les messages au niveau du débogage fournissent des instructions que vous devez effectuer.
+
+
+Si votre service de support interne reçoit des messages AutoSupport par e-mail, la gravité apparaît dans l'objet de l'e-mail.
+
+
+
+== La fenêtre AutoSupport
+
+La fenêtre AutoSupport vous permet d'afficher les paramètres AutoSupport actuels de votre système. Vous pouvez également modifier les paramètres AutoSupport de votre système.
+
+
+
+=== Boutons de commande
+
+* *Activer*
++
+Active la notification AutoSupport. *Activer* est la valeur par défaut.
+
+* *Désactiver*
++
+Désactive la notification AutoSupport.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier les paramètres AutoSupport, qui vous permet de spécifier une adresse e-mail à partir de laquelle les notifications sont envoyées et d'ajouter plusieurs adresses e-mail des noms d'hôte.
+
+* *Test*
++
+Ouvre la boîte de dialogue Test AutoSupport, qui permet de générer un message de test AutoSupport.
+
+* *Demande AutoSupport*
++
+Fournit les requêtes AutoSupport suivantes :
+
++
+** *Générer AutoSupport*
++
+Génère les données AutoSupport pour un nœud sélectionné ou tous les nœuds.
+
+** *Afficher le résumé précédent*
++
+Affiche l'état et les détails de toutes les données AutoSupport précédentes.
+
+
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Zone de détails
+
+La zone de détails affiche des informations sur les paramètres AutoSupport, telles que le nom du nœud, l'état AutoSupport, le protocole de transport utilisé et le nom du serveur proxy.

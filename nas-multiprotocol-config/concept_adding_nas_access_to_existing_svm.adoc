@@ -1,0 +1,108 @@
+---
+permalink: nas-multiprotocol-config/concept_adding_nas_access_to_existing_svm.html 
+sidebar: sidebar 
+keywords: cifs, smb, nfs, access, exist, svm, lif, server, enabling, enable, configuring, configure, nis, add cifs and nfs access to an existing svm 
+summary: 'L"ajout d"un accès CIFS/SMB et NFS à un SVM existant implique la création d"une LIF de données, la configuration d"un serveur CIFS, l"activation de NFS et la configuration de NIS.' 
+---
+= Ajoutez un accès CIFS et NFS à un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'ajout d'un accès CIFS/SMB et NFS à un SVM existant implique la création d'une LIF de données, la configuration d'un serveur CIFS, l'activation de NFS et la configuration de NIS.
+
+.Avant de commencer
+* Vous devez connaître les composants réseau suivants que la SVM utilisera :
++
+** Le nœud et le port spécifique sur ce nœud où sera créée l'interface logique de données (LIF)
+** Le sous-réseau à partir duquel l'adresse IP de la LIF de données sera provisionnée, ou éventuellement l'adresse IP spécifique que vous souhaitez attribuer à la LIF de données
+** Le domaine Active Directory (AD) que ce SVM rejoindra, ainsi que les informations d'identification requises pour y ajouter le SVM
+** Informations NIS si votre site utilise NIS pour les services de noms ou le mappage de noms
+
+
+* Tout pare-feu externe doit être configuré de manière appropriée pour permettre l'accès aux services réseau.
+* L'heure sur les contrôleurs de domaine AD, les clients et le SVM doit être synchronisée dans les cinq minutes qui suivent l'un l'autre.
+* Les protocoles CIFS et NFS doivent être autorisés sur le SVM.
++
+C'est le cas si vous n'avez pas suivi cette procédure pour créer le SVM lors de la configuration d'un autre protocole.
+
+
+
+.Description de la tâche
+L'ordre dans lequel vous configurez CIFS et NFS affecte les boîtes de dialogue qui s'affichent. Dans cette procédure, vous devez configurer CIFS en premier et NFS en second.
+
+.Étapes
+. Naviguer sur la zone où vous pouvez configurer les protocoles du SVM :
++
+.. Sélectionnez le SVM que vous souhaitez configurer.
+.. Dans le volet *Détails*, en regard de *protocoles*, cliquez sur *CIFS*.
++
+image::../media/svm_add_protocol_multi_1st_cifs.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+
+
+. Dans la section *Data LIF Configuration* de la boîte de dialogue *Configure CIFS Protocol*, créer une LIF de données pour la SVM :
++
+.. Attribuez automatiquement une adresse IP à la LIF à partir d'un sous-réseau que vous spécifiez ou saisissez manuellement l'adresse.
+.. Cliquez sur *Browse* et sélectionnez un nœud et un port qui seront associés à la LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nas_mp.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
+. Dans la section *CIFS Server Configuration*, définissez le serveur CIFS et configurez-le pour accéder au domaine AD :
++
+.. Spécifiez un nom pour le serveur CIFS unique dans le domaine AD.
+.. Spécifiez le FQDN du domaine AD auquel le serveur CIFS peut se joindre.
+.. Si vous souhaitez associer une unité organisationnelle (ou) au sein du domaine AD autre que CN=Computers, entrez l'UO.
+.. Spécifiez le nom et le mot de passe d'un compte administratif disposant de privilèges suffisants pour ajouter le serveur CIFS à l'UO.
+.. Si vous souhaitez éviter tout accès non autorisé à tous les partages de ce SVM, sélectionner l'option de chiffrement des données à l'aide de SMB 3.0.
+
+
++
+image::../media/svm_setup_cifs_nfs_page_cifs_ad_nas_mp.gif[Ce graphique est décrit par le texte environnant.]
+
+. Créer un volume pour l'accès CIFS/SMB et provisionner un partage sur celui-ci :
++
+.. Nommez le partage que les clients CIFS/SMB utiliseront pour accéder au volume.
++
+Le nom que vous saisissez pour le partage sera également utilisé comme nom de volume.
+
+.. Spécifiez une taille pour le volume.
++
+image::../media/svm_setup_cifs_nfs_page_cifs_share_nas_mp.gif[Capture d'écran de la zone dans laquelle vous configurez le partage CIFS]
+
+
+
++
+Il n'est pas nécessaire de préciser l'agrégat du volume, car il est automatiquement situé sur l'agrégat disposant de l'espace le plus disponible.
+
+. Ignorer la section *provisioning d'un volume pour le stockage CIFS*, car il provisionne un volume pour l'accès CIFS uniquement, pas pour l'accès multiprotocole.
+. Cliquez sur *Envoyer et fermer*, puis sur *OK*.
+. Activer NFS :
++
+.. Dans l'onglet SVM, sélectionnez le SVM pour lequel vous souhaitez activer NFS et cliquez sur *Manage*.
+.. Dans le volet *protocoles*, cliquez sur *NFS*, puis sur *Activer*.
+
+
+. Si votre site utilise NIS pour le mappage de noms ou de noms, configurez NIS :
++
+.. Dans la fenêtre *Services*, cliquez sur *NIS*.
+.. Dans la fenêtre *NIS*, cliquez sur *Créer*.
+.. Spécifiez le domaine des serveurs NIS.
+.. Ajoutez les adresses IP des serveurs NIS.
+.. Sélectionnez *Activer le domaine pour Storage Virtual machine*, puis cliquez sur *Créer*.
+
+
++
+image::../media/nis_creation.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+
+
+
+
+== Que faire ensuite
+
+Ouvrir la export policy du volume root du SVM.

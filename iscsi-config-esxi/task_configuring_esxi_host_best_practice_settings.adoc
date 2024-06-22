@@ -1,0 +1,23 @@
+---
+permalink: iscsi-config-esxi/task_configuring_esxi_host_best_practice_settings.html 
+sidebar: sidebar 
+keywords: ensure, host, multipath, practice, setting, esxi, loss, iscsi, storage, failover, event, configure, configure the esxi host best practice settings 
+summary: 'Vous devez vous assurer que les paramètres de chemins d"accès multiples de l"hôte et des meilleures pratiques sont corrects afin que l"hôte ESXi puisse gérer correctement la perte d"une connexion iSCSI ou d"un événement de basculement du stockage.' 
+---
+= Configurez les paramètres des meilleures pratiques de l'hôte ESXi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez vous assurer que les paramètres de chemins d'accès multiples de l'hôte et des meilleures pratiques sont corrects afin que l'hôte ESXi puisse gérer correctement la perte d'une connexion iSCSI ou d'un événement de basculement du stockage.
+
+.Étapes
+. Dans la page client Web VMware vSphere *Home*, cliquez sur *vCenter* > *hosts*.
+. Cliquez avec le bouton droit de la souris sur l'hôte, puis sélectionnez *actions* > *NetApp VSC* > *Set Recommended Values*.
+. Dans la boîte de dialogue *Paramètres recommandés par NetApp*, assurez-vous que toutes les options sont sélectionnées, puis cliquez sur *OK*.
++
+Le client Web vCenter affiche la progression de la tâche.
+
+

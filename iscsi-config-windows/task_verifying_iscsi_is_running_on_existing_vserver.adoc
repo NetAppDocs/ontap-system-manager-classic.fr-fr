@@ -1,0 +1,36 @@
+---
+permalink: iscsi-config-windows/task_verifying_iscsi_is_running_on_existing_vserver.html 
+sidebar: sidebar 
+keywords: exist, storage, virtual, machine, svm, iscsi, run, verify, verify that the iscsi service is running on an existing svm 
+summary: 'Si vous choisissez d"utiliser une machine virtuelle de stockage (SVM) existante, vous devez vérifier que le service iSCSI s"exécute sur la SVM.' 
+---
+= Vérifier que le service iSCSI s'exécute sur un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous choisissez d'utiliser une machine virtuelle de stockage (SVM) existante, vous devez vérifier que le service iSCSI s'exécute sur la SVM.
+
+.Avant de commencer
+Vous devez avoir sélectionné un SVM existant sur lequel vous prévoyez de créer une nouvelle LUN.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. Dans le volet *protocoles*, cliquez sur *iSCSI*.
+. Vérifiez que le service iSCSI est en cours d'exécution.
++
+image::../media/vserver_service_iscsi_running_iscsi_windows.gif[L'illustration montre la page du protocole iSCSI avec une icône verte et le service iSCSI texte est en cours d'exécution.]
+
+. Enregistrer les interfaces iSCSI répertoriées pour le SVM.
+
+
+
+
+== Que faire ensuite
+
+Si le service iSCSI n'est pas en cours d'exécution, démarrer le service iSCSI ou créer un nouveau SVM.
+
+Si il y a moins de deux interfaces iSCSI par nœud, mettre à jour la configuration iSCSI sur le SVM ou créer un nouveau SVM pour iSCSI.

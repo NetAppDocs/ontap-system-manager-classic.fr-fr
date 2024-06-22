@@ -1,0 +1,23 @@
+---
+permalink: snmp-config/task_testing_snmp_traps.html 
+sidebar: sidebar 
+keywords: communication, traphost, automatic, validate, add, snmp, traphost, correct, trap, test, test snmp traps 
+summary: 'Vous pouvez utiliser l"interface ONTAP System Manager « classique » avec ONTAP 9.7 ou version antérieure pour tester les interruptions SNMP. Étant donné que la communication avec un Traphost n"est pas automatiquement validée lorsque vous l"ajoutez, vous devez vérifier que le Traphost SNMP peut recevoir correctement les traps.' 
+---
+= Tester les traps SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'interface ONTAP System Manager _Classic_ avec ONTAP 9.7 ou version antérieure pour tester les interruptions SNMP. Étant donné que la communication avec un Traphost n'est pas automatiquement validée lorsque vous l'ajoutez, vous devez vérifier que le Traphost SNMP peut recevoir correctement les traps.
+
+.Étapes
+. Accédez à l'écran *SNMP*.
+. Cliquez sur *Test Trap Host* pour générer une interruption à partir du cluster dans lequel vous avez ajouté un Traphost.
+. À partir de l'emplacement Traphost, vérifiez que le trap a été reçu.
++
+Utilisez n'importe quel logiciel que vous utilisez habituellement pour gérer le Traphost SNMP.
+
+

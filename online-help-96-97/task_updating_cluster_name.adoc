@@ -1,0 +1,205 @@
+---
+permalink: online-help-96-97/task_updating_cluster_name.html 
+sidebar: sidebar 
+keywords: system, manager, update, cluster, name, online, help 
+summary: 'Vous pouvez utiliser System Manager pour modifier le nom d"un cluster si nécessaire.' 
+---
+= Configurez le cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le cluster.
+
+La configuration du cluster implique la collecte des informations de configuration, la création d'interfaces de gestion du cluster et des nœuds, l'ajout de licences, la configuration de l'heure du cluster et le contrôle des paires haute disponibilité.
+
+
+
+== Mettre à jour le nom du cluster
+
+Vous pouvez utiliser System Manager pour modifier le nom d'un cluster si nécessaire.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans le volet *Détails du cluster*, cliquez sur *mettre à jour le nom du cluster*.
+. Dans la boîte de dialogue *Update Cluster Name* (mettre à jour le nom du cluster*), spécifiez un nouveau nom pour le cluster, puis cliquez sur *Submit* (soumettre).
+
+
+
+
+== Modifier le mot de passe du cluster
+
+Vous pouvez utiliser System Manager pour réinitialiser le mot de passe d'un cluster.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans le volet *Détails du cluster*, cliquez sur *Modifier le mot de passe*.
+. Dans la boîte de dialogue *Modifier le mot de passe*, spécifiez un nouveau mot de passe, confirmez le nouveau mot de passe, puis cliquez sur *Modifier*.
+
+
+
+
+== Modifier les configurations DNS
+
+System Manager permet d'ajouter des informations relatives aux hôtes pour gérer de manière centralisée les configurations DNS. Vous pouvez modifier les détails DNS lorsque vous souhaitez modifier les noms de domaine ou les adresses IP.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans le volet *Détails du cluster*, cliquez sur *Modifier la configuration DNS*.
+. Dans la zone *DNS Domains*, ajoutez ou modifiez les noms de domaine DNS.
+. Dans la zone *Nom serveurs*, ajoutez ou modifiez les adresses IP.
+. Cliquez sur *OK*.
+
+
+
+
+== Créez une interface logique de gestion du cluster
+
+Vous pouvez utiliser System Manager pour créer une interface de gestion unique pour un cluster. Vous pouvez utiliser cette LIF pour gérer toutes les activités du cluster.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans le volet *Cluster Details*, cliquez sur *Create Cluster-management LIF*.
+. Dans la boîte de dialogue *Create Cluster-Management LIF*, spécifiez un nom pour le LIF de gestion du cluster.
+. Attribuer une adresse IP à la LIF de gestion du cluster :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Spécifiez l'adresse IP à l'aide d'un sous-réseau
+ a| 
+.. Sélectionnez *à l'aide d'un sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, sélectionnez le sous-réseau à partir duquel l'adresse IP doit être attribuée.
++
+Pour une LIF intercluster, seuls les sous-réseaux associés à l'IPspace sélectionné sont affichés.
+
+.. Si vous souhaitez attribuer une adresse IP spécifique à la LIF, sélectionnez *utiliser une adresse IP spécifique*, puis saisissez l'adresse IP.
++
+L'adresse IP que vous spécifiez est ajoutée au sous-réseau si celle-ci n'est pas déjà présente dans la plage de sous-réseau.
+
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Spécifiez l'adresse IP manuellement sans utiliser de sous-réseau
+ a| 
+.. Sélectionnez *sans sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, effectuez les opérations suivantes :
++
+... Spécifiez l'adresse IP et le masque ou le préfixe réseau.
+... Facultatif : spécifiez la passerelle.
+... Si vous ne souhaitez pas utiliser la valeur par défaut du champ destination, spécifiez une nouvelle valeur de destination.
++
+Si vous ne spécifiez pas de valeur, le champ destination est renseigné avec la valeur par défaut basée sur la famille de l'adresse IP.
+
+
+
++
+Si aucune route n'existe, une nouvelle route est automatiquement créée en fonction de la passerelle et de la destination.
+
+.. Cliquez sur *OK*.
+
+
+|===
+. Sélectionnez les ports requis dans la zone *Détails du port*.
+. Cliquez sur *Créer*.
+
+
+
+
+== Modifiez le nom du nœud
+
+Vous pouvez utiliser System Manager pour modifier le nom d'un nœud si nécessaire.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans l'onglet *noeuds*, sélectionnez le noeud que vous souhaitez renommer, puis cliquez sur *Modifier le nom du noeud*.
+. Dans la boîte de dialogue *Edit Node Name*, saisissez le nouveau nom du noeud, puis cliquez sur *Submit*.
+
+
+
+
+== Création d'une interface logique de gestion de nœuds
+
+Vous pouvez utiliser System Manager pour créer une interface logique de gestion de nœuds dédiée afin de gérer un nœud spécifique dans un cluster. Vous pouvez utiliser cette LIF pour gérer les activités de maintenance système du nœud.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans l'onglet *Nodes*, sélectionnez le nœud pour lequel vous souhaitez créer une LIF de gestion de nœud, puis cliquez sur *Create Node-Management LIF*.
+. Dans la boîte de dialogue *Create Node-Management LIF*, spécifiez un nom pour le LIF Node management.
+. Attribuer l'adresse IP à la LIF de node management :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Spécifiez l'adresse IP à l'aide d'un sous-réseau
+ a| 
+.. Sélectionnez *à l'aide d'un sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, sélectionnez le sous-réseau à partir duquel l'adresse IP doit être attribuée.
++
+Pour une LIF intercluster, seuls les sous-réseaux associés à l'IPspace sélectionné sont affichés.
+
+.. Si vous souhaitez attribuer une adresse IP spécifique à la LIF, sélectionnez *utiliser une adresse IP spécifique*, puis saisissez l'adresse IP.
++
+L'adresse IP que vous spécifiez est ajoutée au sous-réseau si celle-ci n'est pas déjà présente dans la plage de sous-réseau.
+
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Spécifiez l'adresse IP manuellement sans utiliser de sous-réseau
+ a| 
+.. Sélectionnez *sans sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, effectuez les opérations suivantes :
++
+... Spécifiez l'adresse IP et le masque ou le préfixe réseau.
+... Facultatif : spécifiez la passerelle.
+... Si vous ne souhaitez pas utiliser la valeur par défaut du champ destination, spécifiez une nouvelle valeur de destination.
++
+Si vous ne spécifiez pas de valeur, le champ destination est renseigné avec la valeur par défaut basée sur la famille de l'adresse IP.
+
+
+
++
+Si aucune route n'existe, une nouvelle route est automatiquement créée en fonction de la passerelle et de la destination.
+
+.. Cliquez sur *OK*.
+
+
+|===
+. Sélectionnez les ports requis dans la zone *ports details*.
+. Cliquez sur *Créer*.
+
+
+
+
+=== Que faire ensuite
+
+Si vous souhaitez supprimer une LIF de node management existante, vous devez utiliser l'interface de ligne de commandes.
+
+
+
+== Modifier les paramètres AutoSupport
+
+System Manager permet de modifier les paramètres AutoSupport afin de spécifier une adresse e-mail à partir de laquelle les notifications sont envoyées et d'ajouter plusieurs noms d'hôtes de messagerie.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* > *AutoSupport*.
+. Sélectionnez le nœud pour lequel vous souhaitez modifier les paramètres AutoSupport, puis cliquez sur *Modifier*.
+. Dans l'onglet *destinataire d'e-mail*, saisissez l'adresse e-mail à partir de laquelle les notifications d'e-mail sont envoyées, indiquez les destinataires et le contenu du message pour chaque destinataire d'e-mail, puis ajoutez les hôtes de messagerie.
++
+Vous pouvez ajouter jusqu'à cinq adresses e-mail pour chaque hôte.
+
+. Dans l'onglet *autres*, sélectionnez un protocole de transport pour la transmission des e-mails, puis spécifiez les détails du serveur proxy HTTP ou HTTPS.
+. Cliquez sur *OK*.
+

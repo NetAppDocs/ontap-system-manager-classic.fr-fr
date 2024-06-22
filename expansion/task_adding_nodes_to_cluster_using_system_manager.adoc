@@ -1,0 +1,69 @@
+---
+permalink: expansion/task_adding_nodes_to_cluster_using_system_manager.html 
+sidebar: sidebar 
+keywords: system, manager, increase, size, capabilities, capability, storage, node, automatic, ontap, add nodes to a cluster using system manager 
+summary: 'System Manager permet d"augmenter la taille et les fonctionnalités de votre système de stockage en ajoutant des nœuds à un cluster existant. Cette fonctionnalité est automatiquement activée dans System Manager lorsque la version efficace du cluster est ONTAP 9.2.' 
+---
+= Ajout de nœuds à un cluster à l'aide de System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager permet d'augmenter la taille et les fonctionnalités de votre système de stockage en ajoutant des nœuds à un cluster existant. Cette fonctionnalité est automatiquement activée dans System Manager lorsque la version efficace du cluster est ONTAP 9.2.
+
+.Avant de commencer
+* Les nouveaux nœuds compatibles doivent être câblés au cluster.
++
+Seuls les ports qui se trouvent dans le domaine de diffusion par défaut sont répertoriés dans la fenêtre réseau.
+
+* Tous les nœuds du cluster doivent être opérationnels.
+* Tous les nœuds doivent être de la même version.
+
+
+.Étape
+. Ajoutez les nouveaux nœuds compatibles au cluster :
++
+[cols="1,3"]
+|===
+
+
+| Si vous êtes... | Procédez comme ça... 
+
+
+ a| 
+Non connecté à System Manager
+ a| 
+.. Connectez-vous à System Manager .
++
+[NOTE]
+====
+Les nouveaux nœuds compatibles sont automatiquement détectés par System Manager lors de la connexion. Vous êtes invité à ajouter les nouveaux nœuds compatibles au cluster.
+
+====
+.. Cliquez sur *Ajouter des nœuds au cluster*.
+.. Modifier le nom des nœuds.
+.. Spécifier les licences de nœud.
+.. Cliquez sur *soumettre et continuer*.
+
+
+
+
+ a| 
+Connecté à System Manager
+ a| 
+.. Selon la version de System Manager que vous exécutez, effectuez l'une des opérations suivantes :
++
+*** ONTAP 9.4 ou version antérieure : cliquez sur *Configuration* > *extension de cluster*.
+*** À partir de ONTAP 9.5 : cliquez sur *Configuration* > *Cluster* > *expansion*
+System Manager recherche les nouveaux nœuds ajoutés. Si des avertissements s'affichent, vous devez les corriger avant de continuer. Si de nouveaux nœuds compatibles sont détectés, passez à l'étape suivante.
+
+
+.. Modifier le nom des nœuds.
+.. Spécifier les licences de nœud.
+.. Cliquez sur *soumettre et continuer*.
+
+
+|===
+

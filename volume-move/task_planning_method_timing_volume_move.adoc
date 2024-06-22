@@ -1,0 +1,67 @@
+---
+permalink: volume-move/task_planning_method_timing_volume_move.html 
+sidebar: sidebar 
+keywords: system, manager, volume, manual, cutover, lun, report, node, advance, procedure, command-line, interface, cli, plan, plan the method and timing of a volume move 
+summary: 'Vous pouvez utiliser l"interface ONTAP System Manager « classique » avec ONTAP 9.7 ou version antérieure pour déplacer un volume et décider s"il faut une mise en service manuelle. Si vous devez mettre à jour les nœuds de reporting des LUN, vous devez suivre une procédure avancée dans l"interface de ligne de commandes. Vous pouvez également planifier le déplacement d"un volume.' 
+---
+= Planifier la méthode et la synchronisation du déplacement d'un volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'interface ONTAP System Manager _Classic_ avec ONTAP 9.7 ou version antérieure pour déplacer un volume et décider s'il faut effectuer une mise en service manuelle. Si vous devez mettre à jour les nœuds de reporting des LUN, vous devez suivre une procédure avancée dans l'interface de ligne de commandes. Vous pouvez également planifier le déplacement d'un volume.
+
+.Description de la tâche
+Il est possible de déplacer le volume source d'une relation SnapMirror ou SnapVault pendant que le volume est en miroir. Les services SnapMirror rencontrent une brève pause lors de la phase de mise en service de la tâche de déplacement du volume.
+
+Le volume de destination peut également être déplacé. Lors de la phase itérative, les mises à jour de SnapMirror ou de SnapVault et les opérations de déplacement de volumes s'exécutent simultanément. Lors de l'évaluation de la possibilité d'une mise en service, la priorité entre la mise en service et les mises à jour SnapMirror ou SnapVault est déterminée selon le principe du « premier arrivé, premier servi ». Jusqu'à la fin de la première opération, d'autres opérations sont bloquées.
+
+.Étapes
+. Décider de la nécessité d'une mise en service manuelle
++
+_Transfert_ est au moment où l'opération de déplacement se termine et où ONTAP commence à transmettre les données du volume du nouvel agrégat. La mise en service peut s'effectuer automatiquement ou vous pouvez déclencher la mise en service manuellement.
+
++
+Si les pratiques courantes de votre entreprise nécessitent de contrôler l'évolution des systèmes de stockage, vous pouvez effectuer manuellement la mise en service finale du déplacement pendant une fenêtre de maintenance.
+
++
+Une mise en service ne nécessite pas de panne, mais vous pouvez utiliser une fenêtre de maintenance pour contrôler _quand_ elle se produit.
+
++
+[NOTE]
+====
+Le déplacement de volumes s'effectue sans interruption, que la mise en service soit automatique ou manuelle.
+
+====
+. Si le volume contient des LUN et que le cluster contient quatre nœuds ou plus, utilisez l'interface de ligne de commandes pour mettre à jour les nœuds de reporting des LUN si le volume est déplacé vers une autre paire haute disponibilité.
++
+Si le volume ne contient pas de LUN ou si le cluster contient uniquement deux nœuds, vous pouvez ignorer cette étape.
+
+. *Facultatif:* planifier un temps en utilisant les considérations suivantes:
++
+** Un déplacement de volumes peut prendre plus de temps que prévu, car ces déplacements sont conçus pour se produire en arrière-plan sans interruption, de manière à préserver l'accès client et les performances globales du système.
++
+Par exemple, ONTAP accélère les ressources disponibles pour l'opération de déplacement de volume.
+
+** Si vous souhaitez que le déplacement se produise aussi rapidement que possible, vous devez sélectionner un temps avec moins d'activité de cluster, en particulier les activités suivantes :
++
+*** Opérations d'E/S sur le volume
+*** Les tâches utilisant des ressources en arrière-plan, par exemple, lorsque l'utilisation du CPU du contrôleur est inférieure à 50 %
+*** Tâches utilisant l'interconnexion de cluster
+
+
+** Un déplacement ne peut pas être lancé lorsque le volume est affecté par les opérations suivantes : hors ligne, restriction ou destruction ; resynchronisation, interruption de SnapMirror, Ou restaurer, et restaurer des snapshots.
++
+Vous devez attendre la fin de l'une de ces opérations pour pouvoir démarrer le déplacement.
+
+** Lors de l'opération de déplacement de volume, un rétablissement MetroCluster ne peut pas avoir lieu, bien qu'un basculement puisse avoir lieu.
+** Les backs MetroCluster sont bloqués lorsque les opérations de déplacement de volumes sont en cours pour les volumes appartenant au site commuté. Les dispositifs de commutation ne sont pas bloqués lorsque des opérations de déplacement de volume sont en cours pour les volumes locaux vers le site survivant.
+** Les mélangeurs MetroCluster forcés peuvent se produire lorsque des opérations de déplacement de volume sont en cours.
+
+
+
+
+.Informations associées
+link:task_verifying_lun_reporting_nodes_after_moving_volume.html["Vérification des nœuds de reporting LUN après le déplacement d'un volume"]

@@ -1,0 +1,285 @@
+---
+permalink: online-help-96-97/task_editing_vault_relationships.html 
+sidebar: sidebar 
+keywords: edit, vault, relationships, system, manager, online, help, cluster, schedule 
+summary: 'Vous pouvez utiliser System Manager pour modifier une relation de coffre-fort en sélectionnant une stratégie ou une planification existante dans le cluster, ou en créant une nouvelle règle ou planification. Cependant, vous ne pouvez pas modifier les paramètres d"une stratégie ou d"une planification existante.' 
+---
+= Gérez les relations de coffre-fort avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour, reprendre, arrêter, initialiser et supprimer des relations vault en plus de créer des relations de coffre-fort à partir d'un SVM de destination.
+
+
+
+== Modifier les relations
+
+Vous pouvez utiliser System Manager pour modifier une relation de coffre-fort en sélectionnant une stratégie ou une planification existante dans le cluster, ou en créant une nouvelle règle ou planification. Cependant, vous ne pouvez pas modifier les paramètres d'une stratégie ou d'une planification existante.
+
+.Avant de commencer
+Les clusters source et destination doivent se trouver dans une relation peer-to-peer en bonne santé.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de coffre-fort pour laquelle vous souhaitez modifier la stratégie ou la planification, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier la relation*, sélectionnez l'action appropriée :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme suit... 
+
+
+ a| 
+Sélectionnez une stratégie existante
+ a| 
+Cliquez sur *Parcourir*, puis sélectionnez une stratégie existante.    Vous pouvez sélectionner une règle dont le nombre maximal d'étiquettes correspond à la règle Snapshot attachée au volume source.
+
+
+
+ a| 
+Création d'une nouvelle règle
+ a| 
+.. Cliquez sur *Créer une stratégie*.
+.. Spécifiez un nom pour la règle.
+.. Définissez la priorité des transferts programmés.
++
+Faible indique que le transfert a la priorité la moins élevée et qu'il est généralement programmé après des transferts de priorité normale. Par défaut, la priorité est définie sur Normal.
+
+.. Cochez la case *Activer la compression réseau* pour compresser les données en cours de transfert.
+.. Spécifiez une étiquette SnapMirror et le nombre de rétention de la destination pour la stratégie de coffre-fort.
++
+Vous devez vous assurer qu'une copie Snapshot portant la même étiquette est créée sur le volume source pour que la nouvelle étiquette SnapMirror soit efficace.
+
+.. Cliquez sur *Créer*.
+
+
+|===
+. Spécifiez un planning pour la relation :
++
+|===
+| Si... | Procédez comme suit... 
+
+
+ a| 
+Vous souhaitez affecter un planning existant
+ a| 
+Sélectionnez un programme existant dans la liste.
+
+
+
+ a| 
+Vous souhaitez créer une planification
+ a| 
+.. Cliquez sur *Créer un programme*.
+.. Spécifiez un nom pour le planning.
+.. Sélectionnez l'une des options suivantes :
++
+*** *De base*
++
+Vous pouvez sélectionner cette option pour spécifier uniquement le jour de la semaine, l'heure et l'intervalle de transfert.
+
+*** *Avancé*
++
+Vous pouvez sélectionner cette option pour spécifier une planification de style cron.
+
+
+
+.. Cliquez sur *Créer*.
+
+
+
+
+ a| 
+Vous ne souhaitez pas affecter un planning
+ a| 
+Sélectionnez *aucun*.
+
+|===
+. Cliquez sur *OK*.
+
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]
+
+
+
+== Initialiser les relations
+
+Vous pouvez utiliser System Manager pour initialiser une relation de coffre-fort si vous ne l'avez pas déjà initialisée lors de la création de la relation. Le transfert de base des données est initié du volume FlexVol source vers le volume FlexVol de destination.
+
+.Avant de commencer
+Les clusters source et destination doivent se trouver dans une relation peer-to-peer en bonne santé.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation à initialiser et cliquez sur *opérations* > *initialiser*.
+. Dans la fenêtre *Initialize*, cliquez sur *Initialize*.
+
+
+.Résultats
+Une copie Snapshot est créée et transférée vers la destination.
+
+Cette copie Snapshot est utilisée comme base pour les copies Snapshot incrémentielles ultérieures.
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]
+
+
+
+== Créer des relations à partir d'un SVM de destination
+
+Vous pouvez utiliser System Manager pour créer une relation de copie à partir de la machine virtuelle de stockage de destination (SVM) et affecter une stratégie de copie à distance pour créer un coffre-fort de sauvegarde. En cas de perte ou de corruption de données sur un système, les données sauvegardées peuvent être restaurées à partir de la destination du coffre-fort de sauvegarde.
+
+.Avant de commencer
+* Le cluster source doit exécuter ONTAP 8.2.2 ou version ultérieure.
+* La licence SnapVault ou la licence SnapMirror doit être activée à la fois sur le cluster source et sur le cluster destination.
++
+[NOTE]
+====
+Pour certaines plateformes, il n'est pas obligatoire que la licence SnapVault ou SnapMirror soit activée pour le cluster source si le cluster de destination dispose de la licence SnapVault ou de la licence SnapMirror et que la licence DPO soit activée.
+
+====
+* Le cluster source et le cluster destination doivent avoir une relation peer-to-peer en bonne santé.
+* Le SVM de destination doit disposer d'espace disponible.
+* L'agrégat source et l'agrégat de destination doivent être des agrégats 64 bits.
+* Un volume source de type lecture/écriture (rw) doit exister.
+* Une règle de coffre-fort (XDP) doit exister.
++
+Si aucune stratégie de coffre-fort n'existe, vous devez créer une stratégie de coffre-fort ou accepter la stratégie de coffre-fort par défaut (XDPDefault) qui est automatiquement attribuée.
+
+* Les volumes FlexVol doivent être en ligne et en lecture/écriture.
+* Le type d'agrégat SnapLock doit être identique.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit être activée sur le cluster distant.
+
+
+.Description de la tâche
+* System Manager ne prend pas en charge une relation en cascade.
++
+Par exemple, un volume de destination dans une relation ne peut pas être le volume source dans une autre relation.
+
+* Vous ne pouvez pas créer de relation de copie sécurisée entre un SVM source synchrone et un SVM de destination synchrone dans une configuration MetroCluster.
+* Vous pouvez créer une relation de copie à distance entre les SVM source-synchrone dans une configuration MetroCluster.
+* Vous pouvez créer une relation de copie à partir d'un volume d'un SVM source synchrone vers un volume d'une SVM contenant les données.
+* Vous pouvez créer une relation de copie à partir d'un volume d'un SVM contenant des données vers un volume DP (Data protection) sur un SVM source synchrone.
+* Vous pouvez créer une relation de copie sécurisée uniquement entre un volume non SnapLock (primaire) et un volume de destination SnapLock (secondaire).
+* Un maximum de 25 volumes peuvent être protégés en une seule sélection.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Dans la fenêtre *relations*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Browse SVM*, sélectionner un SVM pour le volume de destination.
+. Dans la boîte de dialogue *Créer une relation de protection*, sélectionnez *coffre-fort* dans la liste déroulante *Type de relation*.
+. Spécifier le cluster, le SVM et le volume source
++
+Si le cluster spécifié exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM de peering sont répertoriés. Si le cluster spécifié exécute ONTAP 9.3 ou version ultérieure, les SVM peering et les SVM autorisés sont répertoriés.
+
+. Indiquez un suffixe de nom de volume.
++
+Le suffixe du nom du volume est ajouté aux noms des volumes source pour générer les noms des volumes de destination.
+
+. Si vous créez un volume SnapLock, indiquez la période de conservation par défaut.
++
+La période de conservation par défaut peut être définie sur n'importe quelle valeur comprise entre 1 jour et 70 ans ou infinie.
+
+. *Facultatif:* cliquez sur *Parcourir*, puis modifiez la stratégie du coffre-fort.
+. Sélectionnez un planning pour la relation dans la liste des planifications existantes.
+. *Facultatif:* sélectionnez *Initialize relation* pour initialiser la relation de coffre-fort.
+. Activez les agrégats SnapLock, puis sélectionnez un agrégat SnapLock Compliance ou un agrégat SnapLock Enterprise.
+. Activez les agrégats basés sur FabricPool, puis sélectionnez une règle de Tiering appropriée.
+. Cliquez sur *Validate* pour vérifier si les volumes sélectionnés disposent d'étiquettes correspondantes.
+. Cliquez sur *Créer*.
+
+
+.Résultats
+Si vous choisissez de créer un volume de destination, un volume de type _dp_ est créé avec les paramètres par défaut suivants :
+
+* Croissance automatique activée.
+* La déduplication est activée ou désactivée selon les préférences de l'utilisateur ou le paramètre de déduplication du volume source.
+* La compression est désactivée.
+* L'attribut de langue est défini pour correspondre à l'attribut de langue du volume source.
+
+
+Une relation de coffre-fort est créée entre le volume de destination et le volume source. La copie Snapshot de base est transférée vers le volume de destination si vous avez accepté d'initialiser la relation.
+
+
+
+== Update des relations
+
+Vous pouvez utiliser System Manager pour lancer manuellement une mise à jour incrémentielle non planifiée. Une mise à jour manuelle peut être nécessaire pour éviter toute perte de données due à une panne de courant à venir, à une maintenance planifiée ou à une migration de données.
+
+.Avant de commencer
+La relation de coffre-fort doit être initialisée.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation pour laquelle vous souhaitez mettre à jour les données, puis cliquez sur *opérations* > *mise à jour*.
+. Choisissez l'une des options suivantes :
++
+** Sélectionnez *selon la stratégie* pour effectuer un transfert incrémentiel à partir de la copie Snapshot commune récente entre les volumes source et de destination.
+** Sélectionnez *Sélectionner la copie snapshot* et spécifiez la copie Snapshot à transférer.
+
+
+. *Facultatif:* sélectionnez *Limit Transfer Bandwidth to* pour limiter la bande passante réseau utilisée pour les transferts et spécifier la vitesse de transfert maximale.
+. Cliquez sur *mettre à jour*.
+. Vérifiez l'état du transfert dans l'onglet *Détails*.
+
+
+
+
+== Supprimer les relations
+
+Vous pouvez utiliser System Manager pour mettre fin à une relation de copie à distance entre un volume source et un volume de destination, puis libérer les copies Snapshot de la source.
+
+.Description de la tâche
+La libération de la relation supprime définitivement les copies Snapshot de base utilisées par la relation de coffre-fort sur le volume source. Pour recréer la relation de coffre-fort, vous devez exécuter l'opération de resynchronisation à partir du volume source à l'aide de l'interface de ligne de commande (CLI).
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez le volume pour lequel vous souhaitez supprimer la relation de coffre-fort, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
++
+Vous pouvez également cocher la case copies Snapshot de la base de diffusion pour supprimer les copies Snapshot de base utilisées par la relation de copie à distance sur le volume source.
+
++
+Si la relation n'est pas libérée, vous devez utiliser l'interface de ligne de commande pour exécuter l'opération de version sur le cluster source afin de supprimer les copies Snapshot de base créées pour la relation de copie à distance du volume source.
+
+
+
+
+
+== Reprenez les relations
+
+Vous pouvez reprendre une relation de coffre-fort mise en veille à l'aide de System Manager. Lorsque vous reprenez la relation, le transfert de données normal vers le volume FlexVol de destination reprend et toutes les activités du coffre-fort sont redémarrées.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation pour laquelle vous souhaitez reprendre le transfert de données, puis cliquez sur *opérations* > *reprendre*.
+. Dans la fenêtre *reprendre*, cliquez sur *reprendre*.
+
+
+.Résultats
+Les transferts de données normaux sont repris. En cas de transfert planifié pour la relation, le transfert est démarré à partir du prochain planning.
+
+
+
+== Mise en veille des relations
+
+Vous pouvez utiliser System Manager pour désactiver les transferts de données vers le volume FlexVol de destination en suspendues la relation de coffre-fort.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation pour laquelle vous souhaitez arrêter les transferts de données programmés, puis cliquez sur *opérations* > *Quiesce*.
+. Dans la fenêtre *Quiesce*, cliquez sur *Quiesce*.
+
+
+.Résultats
+S'il n'y a pas de transfert en cours, l'état du transfert s'affiche comme suspendu. Si un transfert est en cours, le transfert n'est pas affecté et le statut du transfert est affiché comme suspendu jusqu'à ce que le transfert soit terminé.
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

@@ -1,0 +1,100 @@
+---
+permalink: online-help-96-97/task_creating_vault_relationship_from_source_svm.html 
+sidebar: sidebar 
+keywords: system, manager, online, help, vault, policy, relationship, create, source 
+summary: 'Vous pouvez utiliser System Manager pour créer une relation de copie à partir de la machine virtuelle de stockage source (SVM) et pour affecter une stratégie de coffre-fort à la relation de copie à distance pour créer un coffre-fort de sauvegarde. En cas de perte ou de corruption de données sur un système, les données sauvegardées peuvent être restaurées à partir de la destination du coffre-fort de sauvegarde.' 
+---
+= Créer une relation de copie à partir d'un SVM source avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer une relation de copie à partir de la machine virtuelle de stockage source (SVM), et attribuer une règle de copie à la relation de copie à distance pour créer un coffre-fort de sauvegarde. En cas de perte ou de corruption de données sur un système, les données sauvegardées peuvent être restaurées à partir de la destination du coffre-fort de sauvegarde.
+
+.Avant de commencer
+* La licence SnapVault ou la licence SnapMirror doit être activée à la fois sur le cluster source et sur le cluster de destination.
++
+[NOTE]
+====
+** Pour certaines plateformes, il n'est pas obligatoire que la licence SnapVault ou la licence SnapMirror soit activée pour le cluster source si le cluster de destination dispose de la licence SnapVault ou SnapMirror et que la licence Data protection Optimization \(DPO\) soit activée.
+** Une fois la licence DPO activée sur le cluster de destination, vous devez actualiser le navigateur du cluster source pour activer le `Protect` option.
+
+
+====
+* Le cluster source et le cluster destination ainsi que le SVM source et le SVM destination doivent être relationship de manière saine.
+* L'agrégat de destination doit disposer d'espace disponible.
+* L'agrégat source et l'agrégat de destination doivent être des agrégats 64 bits.
+* Une règle de coffre-fort (XDP) doit exister.
++
+Si aucune stratégie de coffre-fort n'existe, vous devez créer une stratégie de coffre-fort ou accepter la stratégie de coffre-fort par défaut (nommée XDPDefault) qui est automatiquement attribuée.
+
+* Les volumes FlexVol doivent être en ligne et de type lecture/écriture.
+* Le type d'agrégat SnapLock doit être identique.
+* Un maximum de 25 volumes peuvent être protégés en une seule sélection.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit être activée sur le cluster distant.
+
+
+.Description de la tâche
+* System Manager ne prend pas en charge une relation en cascade.
++
+Par exemple, un volume de destination dans une relation ne peut pas être le volume source dans une autre relation.
+
+* Vous ne pouvez créer une relation de verrouillage-coffre-fort qu'entre un volume (primaire) non SnapLock et un volume (secondaire) de destination SnapLock.
+* Si le chiffrement est activé sur le volume source et que le cluster de destination exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, le chiffrement est désactivé par défaut sur le volume de destination.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez les volumes pour lesquels vous souhaitez créer des relations de coffre-fort, puis cliquez sur *plus d'actions* > *protéger*.
++
+L'option *Protect* n'est disponible que pour un volume en lecture/écriture.
+
+. Sélectionnez le type *Replication* :
++
+|===
+| Si vous avez sélectionné le type de réplication comme... | Procédez comme ça... 
+
+
+ a| 
+Asynchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez le type de relation.
++
+Le type de relation peut être mis en miroir, coffre-fort ou miroir et coffre-fort.
+
+.. Sélectionnez un cluster et un SVM.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+
+
+ a| 
+Synchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez la stratégie de synchronisation.
++
+La stratégie de synchronisation peut être StrictSync ou Sync.
+
+.. Sélectionnez un cluster et un SVM.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+|===
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*, mettez à jour la stratégie de protection et le planning de protection, activez les propriétés SnapLock sur le volume de destination, sélectionnez un agrégat compatible FabricPool, puis initialisez la relation de protection.
+. Cliquez sur *Enregistrer*.
+
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

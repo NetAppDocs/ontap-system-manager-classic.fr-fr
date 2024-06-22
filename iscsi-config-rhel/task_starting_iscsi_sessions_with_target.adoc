@@ -1,0 +1,39 @@
+---
+permalink: iscsi-config-rhel/task_starting_iscsi_sessions_with_target.html 
+sidebar: sidebar 
+keywords: linux, host, iscsi, connection, node, target, storage, cluster, establish, session, start the iscsi sessions with the target 
+summary: 'L"hôte Linux doit disposer d"une connexion iSCSI avec chaque nœud (cible) du cluster de stockage. Vous définissez les sessions à partir de l"hôte.' 
+---
+= Démarrer les sessions iSCSI avec la cible
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'hôte Linux doit disposer d'une connexion iSCSI avec chaque nœud (cible) du cluster de stockage. Vous définissez les sessions à partir de l'hôte.
+
+.Description de la tâche
+Dans ONTAP, l'hôte iSCSI doit avoir des chemins d'accès à chaque nœud du cluster. DM-Multipath sélectionne les meilleurs chemins d'accès à utiliser. En cas d'échec des chemins, DM-Multipath sélectionne les chemins alternatifs.
+
+.Étapes
+. Démarrez le service iSCSI à partir de l'invite de commande de l'hôte Linux :
++
+`service iscsid force-start`
+
+. Découvrir la cible iSCSI :
++
+`iscsiadm --mode discovery --op update --type sendtargets --portal targetIP`
+
++
+L'adresse IP de chaque cible découverte s'affiche sur une ligne distincte.
+
+. Établir des sessions iSCSI en se connectant à chaque cible :
++
+`iscsiadm --mode node -l all`
+
+. Vous pouvez afficher la liste des sessions iSCSI actives :
++
+`iscsiadm --mode session`
+
+

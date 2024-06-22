@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_cloning_luns.html 
+sidebar: sidebar 
+keywords: clone, lun, create, multiple, copy, system, manager, online, help 
+summary: 'Les clones de LUN permettent de créer plusieurs copies inscriptibles et lisibles d"une LUN. Vous pouvez utiliser System Manager pour créer une copie temporaire d"une LUN à des fins de test ou pour mettre une copie de vos données à la disposition d"autres utilisateurs sans leur permettre d"accéder aux données de production.' 
+---
+= Cloner des LUN avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer une copie temporaire d'une LUN à des fins de test ou pour rendre disponible une copie de vos données à d'autres utilisateurs sans leur permettre d'accéder aux données de production. Les clones de LUN permettent de créer plusieurs copies inscriptibles et lisibles d'une LUN.
+
+.Avant de commencer
+* Vous devez avoir installé la licence FlexClone sur le système de stockage.
+* Lorsque la réservation d'espace est désactivée sur une LUN, l'espace requis pour le volume contenant la LUN doit être suffisant pour prendre en charge les modifications apportées au clone.
+
+
+.Description de la tâche
+* Lorsque vous créez un clone de LUN, la suppression automatique du clone de LUN est activée par défaut dans System Manager.
++
+Le clone de LUN est supprimé lorsque ONTAP déclenche la suppression automatique pour économiser de l'espace.
+
+* Vous ne pouvez pas cloner des LUN qui se trouvent sur des volumes SnapLock.
+
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *LUN Management*, sélectionnez le LUN à cloner, puis cliquez sur *Clone*.
+. Pour modifier le nom par défaut, indiquez un nouveau nom pour le clone de LUN.
+. Cliquez sur *Clone*.
+. Vérifiez que le clone de LUN que vous avez créé est répertorié dans la fenêtre *LUN*.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

@@ -1,0 +1,36 @@
+---
+permalink: fc-config-windows/task_record_wwpn_for_each_host_fc_port.html 
+sidebar: sidebar 
+keywords: worldwide, port, name, wwpn, require, zone, fc, switch, create, igroup, host, lun, record, record the wwpn for each host fc port 
+summary: 'Le nom de port mondial (WWPN) est nécessaire pour segmenter les commutateurs FC et créer les igroups qui permettent à l"hôte d"accéder à sa LUN.' 
+---
+= Enregistrez le WWPN pour chaque port FC hôte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le nom de port mondial (WWPN) est nécessaire pour segmenter les commutateurs FC et créer les igroups qui permettent à l'hôte d'accéder à sa LUN.
+
+.Avant de commencer
+Vous devez avoir installé l'utilitaire HBA du fournisseur pour les HBA de votre hôte et vérifier que les HBA exécutent des versions de pilote, de micrologiciel et de BIOS prises en charge pour votre configuration.
+
+.Description de la tâche
+Le WWPN est utilisé dans l'ensemble des configurations. Vous n'avez pas à enregistrer le nom de nœud mondial (WWNN).
+
+.Étapes
+. Exécutez l'utilitaire HBA pour votre type de HBA FC.
+. Sélectionnez l'adaptateur HBA.
+. Notez le WWPN de chaque port.
++
+L'exemple suivant montre Emulex HBA Manager, anciennement OneCommand Manager.
+
++
+image::../media/emulex_hba_fc_fc_windows.gif[L'image représente un HBA 2 ports affiché dans OneCommand Manager avec les valeurs WWPN pour chaque port.]
+
++
+D'autres utilitaires, tels que QConvergeConsole, fournissent les informations équivalentes.
+
+. Répétez l'étape précédente pour chaque HBA FC de l'hôte.
+

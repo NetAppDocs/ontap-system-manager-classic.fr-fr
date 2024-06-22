@@ -1,0 +1,36 @@
+---
+permalink: iscsi-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html 
+sidebar: sidebar 
+keywords: lun, verify, host, write, data, verify that the host can write to and read from the lun 
+summary: 'Avant d"utiliser la LUN, vérifiez que l"hôte peut écrire les données sur la LUN et les lire de nouveau.' 
+---
+= Vérifiez que l'hôte peut écrire sur la LUN et la lire
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'utiliser la LUN, vérifiez que l'hôte peut écrire les données sur la LUN et les lire de nouveau.
+
+.Avant de commencer
+La LUN doit être initialisée et formatée avec un système de fichiers.
+
+.Description de la tâche
+Si le nœud de cluster de stockage sur lequel la LUN est créée peut être basculée vers son nœud partenaire, vérifiez que les données sont sollicitées alors que le nœud est défaillant. Ce test peut être impossible si le cluster de stockage est en production.
+
+Si l'un des tests échoue, vérifiez que le service iSCSI est en cours d'exécution et vérifiez les chemins iSCSI vers la LUN.
+
+.Étapes
+. Sur l'hôte, copiez un ou plusieurs fichiers vers la LUN.
+. Copiez les fichiers dans un autre dossier sur le disque d'origine.
+. Comparez les fichiers copiés à l'original.
++
+Vous pouvez utiliser le `comp` Commande à l'invite de commande de Windows pour comparer deux fichiers.
+
+. *Facultatif:* basculez le nœud du cluster de stockage contenant la LUN et vérifiez que vous pouvez toujours accéder aux fichiers de la LUN.
+. Utilisez le DSM natif pour afficher les chemins vers la LUN et vérifier que vous prévoyez le nombre attendu de chemins.
++
+Vous devez voir deux chemins d'accès au nœud du cluster de stockage sur lequel la LUN est créée, et deux chemins d'accès au nœud partenaire.
+
+

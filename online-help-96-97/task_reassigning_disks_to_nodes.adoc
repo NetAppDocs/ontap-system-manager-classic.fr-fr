@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_reassigning_disks_to_nodes.html 
+sidebar: sidebar 
+keywords: system, manager, reassign, disks, node, online, help, node, aggregate, storage, pool 
+summary: 'System Manager peut être utilisé pour réallouer les disques de spare d"un nœud à un autre pour augmenter la capacité d"un agrégat ou d"un pool de stockage.' 
+---
+= Réallouer des disques vers des nœuds avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour réaffecter la propriété des disques de spare d'un nœud à un autre pour augmenter la capacité d'un agrégat ou d'un pool de stockage.
+
+.Description de la tâche
+* Vous pouvez réaffecter des disques si les conditions suivantes sont vraies :
++
+** Le type de conteneur des disques sélectionnés doit être "`spare`" ou "`shaired`".
+** Les disques doivent être connectés aux nœuds dans une configuration haute disponibilité.
+** Les disques doivent être visibles pour le nœud.
+
+
+* Vous _ne pouvez pas_ réaffecter un disque si les conditions suivantes sont vraies :
++
+** Le type de conteneur du disque sélectionné est "rouge" et la partition de données n'est pas disponible.
+** Le disque est associé à un pool de stockage.
+
+
+* Vous ne pouvez pas réaffecter la partition de données des disques partagés si le basculement du stockage n'est pas activé sur les nœuds associés aux disques partagés.
+* Pour les disques de partition, vous pouvez uniquement réaffecter la partition de données des disques.
+* Pour les configurations MetroCluster, vous ne pouvez pas utiliser System Manager pour réallouer des disques.
++
+Vous devez utiliser l'interface de ligne de commande pour réaffecter des disques pour les configurations MetroCluster.
+
+
+
+[NOTE]
+====
+Dans les versions ultérieures de ONTAP, vous utilisez l'interface de ligne de commandes de ONTAP pour supprimer la propriété des disques, puis attribuer un nouveau propriétaire.
+
+====
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *disques*.
+. Dans la fenêtre *disques*, sélectionnez l'onglet *Inventaire*.
+. Sélectionnez les disques que vous souhaitez réaffecter, puis cliquez sur *affecter*.
+. Dans la boîte de dialogue *Avertissement*, cliquez sur *Continuer*.
+. Dans la boîte de dialogue *Assign Disks*, sélectionnez le noeud auquel vous souhaitez réaffecter les disques.
+. Cliquez sur *attribuer*.
+
+
+.Informations associées
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["Supprimer la propriété des disques à l'aide de l'interface de ligne de commande ONTAP (ONTAP 9.3 et versions ultérieures)"]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["Affectation automatique des disques à l'aide de l'interface de ligne de commande ONTAP (ONTAP 9.3 et versions ultérieures)"]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/manual-assign-disks-ownership-manage-task.html["Assignation manuelle des disques à l'aide de l'interface de ligne de commandes ONTAP (ONTAP 9.3 et versions ultérieures)"]
+

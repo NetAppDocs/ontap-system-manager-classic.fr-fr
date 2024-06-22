@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_aborting_mirror_relationships.html 
+sidebar: sidebar 
+keywords: abort, mirror, transfer, online, help, volume, replication 
+summary: Vous pouvez abandonner une opération de réplication de volume avant la fin du transfert de données. Vous pouvez annuler une mise à jour programmée, une mise à jour manuelle ou un transfert de données initial. 
+---
+= Abandonner un transfert miroir avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour abandonner une opération de réplication de volume avant la fin du transfert de données. Vous pouvez annuler une mise à jour programmée, une mise à jour manuelle ou un transfert de données initial.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation pour laquelle vous souhaitez arrêter le transfert de données et cliquez sur *opérations* > *abandonner*.
+. Cliquez sur la case *Oui, je souhaite abandonner le transfert* pour confirmer l'opération.
+. Cochez la case *conserver les données partiellement transférées* pour conserver les données déjà transférées vers le volume de destination.
+. Cliquez sur *abandonner*.
++
+L'état du transfert est affiché sous la forme « Aborting » jusqu'à ce que l'opération soit terminée et affichée sous la forme « Idle » après la fin de l'opération.
+
+
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

@@ -1,0 +1,40 @@
+---
+permalink: nfs-config/task_opening_export_policy_svm_root_volume.html 
+sidebar: sidebar 
+keywords: add, rule, default, export, policy, allow, client, access, storage, virtual, machine, svm, volume, open the export policy of the svm root volume, create a new nfs-enabled svm 
+summary: 'Vous devez ajouter une règle à l"export policy par défaut pour permettre à tous les clients d"accéder via NFSv3. Sans cette règle, tous les clients NFS se voient refuser l"accès au SVM et à ses volumes.' 
+---
+= Ouvrir la export policy du volume root du SVM (Create a New NFS-enabled SVM)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez ajouter une règle à l'export policy par défaut pour permettre à tous les clients d'accéder via NFSv3. Sans cette règle, tous les clients NFS se voient refuser l'accès au SVM et à ses volumes.
+
+.Description de la tâche
+Vous devez spécifier tout accès NFS comme l'export policy par défaut, puis limiter l'accès aux volumes individuels en créant des export policy personnalisées pour les volumes individuels.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Sélectionner la export policy nommée *default*, qui est appliquée au volume root du SVM.
+. Dans le volet inférieur, cliquez sur *Ajouter*.
+. Dans la boîte de dialogue *Create Export Rule*, créez une règle qui ouvre l'accès à tous les clients NFS :
++
+.. Dans le champ *client Specification*, entrez `0.0.0.0/0` ainsi, la règle s'applique à tous les clients.
+.. Conservez la valeur par défaut *1* pour l'index de règle.
+.. Sélectionnez *NFSv3*.
+.. Désactivez toutes les cases à cocher à l'exception de la case *UNIX* sous *lecture seule*.
+.. Cliquez sur *OK*.
+
+
++
+image::../media/export_rule_for_root_volume_nfs.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+
+
+.Résultats
+Les clients NFSv3 peuvent désormais accéder à tous les volumes créés sur le SVM.

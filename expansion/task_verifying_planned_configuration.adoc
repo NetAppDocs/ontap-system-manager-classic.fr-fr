@@ -1,0 +1,92 @@
+---
+permalink: expansion/task_verifying_planned_configuration.html 
+sidebar: sidebar 
+keywords: expand, cluster, ensure, follow, plan, configuration, support, require, license, exist, ontap, verify, verify the planned configuration 
+summary: 'Avant d"étendre un cluster, vous devez vous assurer que : la configuration planifiée est prise en charge, que les licences requises existent, que le site est prêt, que les commutateurs de cluster prennent en charge l"extension et que les nœuds existants utilisent la même version de ONTAP 9.' 
+---
+= Vérifiez la configuration planifiée
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'étendre un cluster, vous devez vous assurer que : la configuration planifiée est prise en charge, que les licences requises existent, que le site est prêt, que les commutateurs de cluster prennent en charge l'extension et que les nœuds existants utilisent la même version de ONTAP 9.
+
+.Avant de commencer
+Vous devez disposer de deux ensembles d'informations d'identification : le nom d'utilisateur et le mot de passe requis pour vous connecter au cluster en tant qu'administrateur, ainsi que le nom d'utilisateur et le mot de passe requis pour vous connecter au site de support NetApp.
+
+.Étapes
+. Vérifiez la configuration planifiée :
++
+.. Vérifiez que la plateforme des nouveaux contrôleurs peut être associée aux contrôleurs existants du cluster.
+.. Vérifiez que le cluster étendu ne dépasse pas les limites système pour les plateformes.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+.. Si votre cluster est configuré pour SAN, vérifiez que le cluster étendu ne dépasse pas les limites de configuration pour FC, FCoE et iSCSI.
++
+https://docs.netapp.com/us-en/ontap/san-config/index.html["Configuration SAN"^]
+
+
+
++
+Si ces exigences ne sont pas remplies, vous ne pouvez pas poursuivre l'extension.
+
+. Assurez-vous que les licences couvrent les nouveaux nœuds :
++
+.. Sur le cluster existant, affichez les licences à l'aide de `system license show` commande.
++
+[listing]
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+.. Examinez la sortie pour identifier les licences verrouillées par des nœuds (identifiées par le type `license`) qui sera nécessaire pour les nœuds supplémentaires.
+.. Assurez-vous que les licences incluses avec les nœuds supplémentaires sont cohérentes avec les licences verrouillées par des nœuds existantes du cluster.
++
+http://mysupport.netapp.com/licenses["Recherche de licences logicielles NetApp"^]
+
+
+
++
+Si vous ne disposez pas des licences requises pour les nœuds supplémentaires, vous devez acheter des licences supplémentaires avant de continuer.
+
+. Vérifiez que le site est prêt pour l'ensemble des nouveaux équipements.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
++
+Si le site n'est pas prêt, vous devez préparer le site avant de poursuivre l'expansion.
+
+. Vérifier que les commutateurs existants prennent en charge les contrôleurs supplémentaires.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
++
+Si le cluster est sans commutateur ou si les commutateurs existants ne prennent pas en charge les nœuds supplémentaires, vous devez obtenir les commutateurs de cluster, que vous pourrez installer ultérieurement lors du processus d'extension.
+
+. Vérifiez que tous les nœuds du cluster existant exécutent la même version de ONTAP 9, y compris la même version mineure et le même correctif, le cas échéant, à l'aide du `cluster image show` commande.
++
+[listing]
+----
+cluster1::> cluster image show
+                 Current                 Installation
+Node             Version                 Date
+---------------- ----------------------- ------------
+cluster1-1       8.3RC1                  12/15/2014 17:37:26
+cluster1-2       8.3RC1                  12/15/2014 17:37:42
+2 entries were displayed.
+----
++
+Notez la version du logiciel ONTAP pour référence ultérieure dans ce workflow.
+
+

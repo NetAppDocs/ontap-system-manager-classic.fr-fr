@@ -1,0 +1,138 @@
+---
+permalink: online-help-96-97/task_provisioning_cache_by_adding_disks.html 
+sidebar: sidebar 
+keywords: ssd, system, manager, storage, pool, root, aggregate, provision, cache, online, help, ssd, disks, flash, pool 
+summary: 'System Manager peut être utilisé pour ajouter des disques SSD en tant que pools de stockage ou disques SSD dédiés pour provisionner le cache. Lorsque vous ajoutez des disques SSD, vous pouvez convertir un agrégat non-racine ou un agrégat racine qui ne contient pas de disques partitionnés en agrégats Flash Pool, ou augmenter la taille de cache d"un agrégat Flash Pool existant.' 
+---
+= Provisionnez le cache en ajoutant des disques SSD avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet d'ajouter des disques SSD en tant que pools de stockage ou disques SSD dédiés pour provisionner le cache. Lorsque vous ajoutez des disques SSD, vous pouvez convertir un agrégat non-racine ou un agrégat racine qui ne contient pas de disques partitionnés en agrégats Flash Pool, ou augmenter la taille de cache d'un agrégat Flash Pool existant.
+
+.Description de la tâche
+* Le cache SSD ajouté n'ajoute pas à la taille de l'agrégat et vous pouvez ajouter un groupe SSD RAID à un agrégat, même lorsqu'il est de sa taille maximale.
+* Vous ne pouvez pas utiliser des SSD partitionnés lorsque vous ajoutez du cache à l'aide de System Manager.
+
+
+
+
+== Provisionnez le cache sur les agrégats en ajoutant des disques SSD
+
+System Manager permet d'ajouter des pools de stockage ou des disques SSD dédiés pour provisionner le cache en convertissant un agrégat de disques durs non racines existant ou un agrégat racine qui ne contient pas de disques partitionnés en un agrégat Flash Pool.
+
+.Avant de commencer
+* L'agrégat doit être en ligne.
+* Le pool de stockage doit contenir suffisamment de disques SSD de secours ou d'unités d'allocation, qui peuvent être attribués en tant que disques de cache.
+* Tous les nœuds du cluster doivent exécuter ONTAP 8.3 ou une version ultérieure.
++
+Si le cluster est dans un état de version mixte, vous pouvez utiliser l'interface de ligne de commande pour créer un agrégat Flash Pool, puis provisionner le cache SSD.
+
+* Vous devez avoir identifié un agrégat non-racine 64 bits valide composé de disques durs pouvant être converti en agrégat Flash Pool.
+* L'agrégat ne doit pas contenir de LUN de baies.
+
+
+.Description de la tâche
+Vous devez connaître les bonnes pratiques propres à une plateforme et à des charges de travail spécifiques pour la taille et la configuration des niveaux SSD de l'agrégat Flash Pool.
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Dans la fenêtre *Storage tiers*, sélectionnez l'agrégat, puis cliquez sur *More actions* > *Add cache*.
++
+[NOTE]
+====
+L'ajout de cache n'est pas pris en charge sur les agrégats compatibles avec FabricPool.
+
+====
+. Dans la boîte de dialogue *Add cache*, effectuez l'action appropriée :
++
+|===
+| Si vous avez sélectionné la source de cache comme... | Procédez comme ça... 
+
+
+ a| 
+Pools de stockage
+ a| 
+.. Sélectionnez le pool de stockage à partir duquel le cache peut être obtenu.
+.. Spécifiez la taille du cache.
+.. Modifiez le type de RAID, si nécessaire.
+
+
+
+
+ a| 
+Infrastructure SSD dédiée
+ a| 
+Sélectionnez la taille du SSD et le nombre de disques SSD à inclure et, si vous le souhaitez, modifiez la configuration RAID :
+
+.. Cliquez sur *Modifier*.
+.. Dans la boîte de dialogue Modifier la configuration RAID, spécifiez le type RAID et la taille du groupe RAID, puis cliquez sur *Enregistrer*.
+
+
+|===
+. Cliquez sur *Ajouter*.
++
+Pour les agrégats mis en miroir, une boîte de dialogue *Add cache* s'affiche avec les informations qui permettront d'ajouter deux fois le nombre de disques sélectionnés.
+
+. Dans la boîte de dialogue *Ajouter un cache*, cliquez sur *Oui*.
+
+
+.Résultats
+Les disques de cache sont ajoutés à l'agrégat sélectionné.
+
+
+
+== Augmentation du cache pour les agrégats Flash Pool par l'ajout de disques SSD
+
+System Manager permet d'ajouter des disques SSD soit en tant que pools de stockage, soit en tant que disques SSD dédiés, afin d'augmenter la taille d'un agrégat Flash Pool.
+
+.Avant de commencer
+* L'agrégat Flash Pool doit être en ligne.
+* Le pool de stockage doit contenir suffisamment de disques SSD de secours ou d'unités d'allocation, qui peuvent être attribués en tant que disques de cache.
+
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+. Dans la fenêtre *Aggregates*, sélectionnez l'agrégat Flash Pool, puis cliquez sur *Add cache*.
+. Dans la boîte de dialogue *Add cache*, effectuez l'action appropriée :
++
+|===
+| Si vous avez sélectionné la source de cache comme... | Procédez comme ça... 
+
+
+ a| 
+Pools de stockage
+ a| 
+Sélectionnez le pool de stockage à partir duquel le cache peut être obtenu et spécifiez la taille du cache.
+
+
+
+ a| 
+Infrastructure SSD dédiée
+ a| 
+Sélectionnez la taille de SSD et le nombre de disques SSD à inclure.
+
+|===
+. Cliquez sur *Ajouter*.
++
+Pour les agrégats en miroir, une boîte de dialogue Ajouter un cache s'affiche avec les informations qui vont être ajoutées deux fois le nombre de disques sélectionnés.
+
+. Dans la boîte de dialogue *Ajouter un cache*, cliquez sur *Oui*.
+
+
+.Résultats
+Les disques de cache sont ajoutés à l'agrégat Flash Pool sélectionné.
+
+*Informations connexes*
+
+http://www.netapp.com/us/media/tr-4070.pdf["Rapport technique NetApp 4070 : conception et implémentation de Flash Pool"^]
+
+xref:concept_how_storage_pool_works.adoc[Fonctionnement du pool de stockage]

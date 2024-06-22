@@ -1,0 +1,268 @@
+---
+permalink: online-help-96-97/concept_licenses.html 
+sidebar: sidebar 
+keywords: system, manager, view, manage, delete, software, licenses, cluster, node, types, entitlement, risk, 
+summary: Vous pouvez utiliser System Manager pour afficher, gérer ou supprimer toutes les licences logicielles installées sur un cluster ou un nœud. 
+---
+= Gérez les licences avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour afficher, gérer ou supprimer toutes les licences logicielles installées sur un cluster ou un nœud.
+
+
+
+== Supprimez les licences
+
+Vous pouvez utiliser la fenêtre licences de System Manager pour supprimer toute licence logicielle installée sur un cluster ou un nœud.
+
+Pour plus d'informations sur la gestion des licences à l'aide de ONTAP 9.8 et versions ultérieures, consultez les informations suivantes :
+
+* link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Gestion des licences Overview (administrateurs du cluster uniquement)"^]
+* https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Activation de nouvelles fonctionnalités en ajoutant des clés de licence"^]
+
+
+.Avant de commencer
+La licence logicielle que vous souhaitez supprimer ne doit pas être utilisée par un service ou une fonction.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *licences*.
+. Dans la fenêtre *Licenses*, effectuez l'action appropriée :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme ça... 
+
+
+ a| 
+Supprimer un package de licences spécifique sur un nœud ou une licence maître
+ a| 
+Cliquez sur l'onglet *Détails*.
+
+
+
+ a| 
+Supprime un pack de licences spécifique sur tous les nœuds du cluster
+ a| 
+Cliquez sur l'onglet *Packages*.
+
+|===
+. Sélectionnez le package de licences logicielles que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
++
+Vous ne pouvez supprimer qu'un seul package de licences à la fois.
+
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+.Résultats
+La licence logicielle est supprimée de votre système de stockage. La licence supprimée est également supprimée de la liste des licences dans la fenêtre licences.
+
+
+
+== Types de licences et risque de droits
+
+La compréhension des différents types de licence et des risques associés vous aide à gérer les risques associés aux licences d'un cluster.
+
+
+
+=== Types de licence
+
+Un pack peut disposer d'un ou plusieurs des types de licences suivants installés dans le cluster :
+
+* Licence standard ou verrouillée par nœud
++
+Une licence verrouillée par nœud est émise pour un nœud avec un numéro de série de système spécifique (également appelé numéro de série de _contrôleur_). Cette licence n'est valide que pour le nœud qui possède le numéro de série correspondant.
+
++
+L'installation d'une licence verrouillée par un nœud permet à un nœud de bénéficier de la fonctionnalité sous licence. Pour que le cluster utilise la fonctionnalité sous licence, au moins un nœud doit être sous licence pour la fonctionnalité. Il se peut qu'il soit hors conformité pour utiliser la fonctionnalité sous licence sur un nœud qui ne dispose pas d'un droit pour la fonctionnalité.
+
++
+Les versions ONTAP 8.2 et ultérieures traitent une licence installée avant Data ONTAP 8.2 comme une licence standard. Par conséquent, dans ONTAP 8.2 et versions ultérieures, tous les nœuds du cluster disposent automatiquement de la licence standard pour le pack auquel la fonctionnalité précédemment sous licence fait partie.
+
+* Licence maître ou site
++
+Une licence principale ou de site n'est pas liée à un numéro de série de système spécifique. Lorsque vous installez une licence de site, tous les nœuds du cluster ont droit à la fonctionnalité sous licence.
+
++
+Si votre cluster dispose d'une licence maître et que vous supprimez un nœud du cluster, le nœud ne dispose pas de la licence de site et le nœud n'a plus droit à la fonctionnalité sous licence. Si vous ajoutez un noeud à un cluster qui possède une licence maître, le noeud a automatiquement droit à la fonctionnalité qui est accordée par la licence de site.
+
+* Licence de démonstration ou temporaire
++
+Une licence de démonstration ou temporaire expire après un certain délai. Cette licence vous permet d'essayer certaines fonctionnalités logicielles sans avoir à acheter de droits. Une licence temporaire est une licence à l'échelle du cluster et n'est liée à aucun numéro de série spécifique d'un nœud.
+
++
+Si votre cluster dispose d'une licence temporaire pour un package et que vous supprimez un nœud du cluster, ce nœud ne supporte pas la licence d'évaluation avec lui.
+
+* Licence de capacité (ONTAP Select et FabricPool uniquement)
++
+Une instance ONTAP Select est sous licence en fonction du volume de données que l'utilisateur souhaite gérer. Par exemple, l'utilisateur peut acheter une licence de capacité de 10 To pour permettre à ONTAP Select de gérer jusqu'à 10 To de données. Si vous disposez de plus de capacité de stockage que ONTAP Select sous licence pour gérer, ONTAP Select ne fonctionnera pas. Par défaut, la capacité de stockage maximale pouvant être connectée à une instance ONTAP Select est de 2 To jusqu'à l'achat et l'installation d'une licence de capacité (par exemple, une licence de capacité de 5 To, une licence de capacité de 10 To, etc.).
+
++
+À partir de ONTAP 9.2, les agrégats compatibles avec FabricPool requièrent l'utilisation d'une licence de capacité avec un niveau de stockage tiers (par exemple, AWS). La licence de capacité FabricPool définit la quantité de données qui peut être stockée dans le Tier cloud.
+
+
+
+
+
+=== Risque d'attribution des droits
+
+Un risque d'autorisation survient en raison de l'installation non uniforme d'une licence verrouillée par un nœud. Si la licence verrouillée par nœud est installée sur tous les nœuds, il n'y a aucun risque d'autorisation.
+
+Le niveau de risque de droit peut être élevé, le risque moyen, l'absence de risque ou le risque inconnu, selon certaines conditions :
+
+* Risque élevé
++
+** En cas d'utilisation sur un nœud particulier, mais la licence verrouillée par nœud n'est pas installée sur ce nœud
+** Si la licence de démonstration installée sur le cluster expire et qu'elle est utilisée sur n'importe quel nœud
+
+
++
+[NOTE]
+====
+Si une licence de site est installée sur un cluster, le risque d'accès n'est jamais élevé.
+
+====
+* Risque moyen
++
+Si une licence de site n'est pas installée et que la licence verrouillée par nœud est installée de manière non uniforme sur les nœuds d'un cluster
+
+* Pas de risque
++
+Il n'existe aucun risque d'autorisation si une licence verrouillée par un nœud est installée sur tous les nœuds ou si une licence de site est installée sur le cluster, quelle que soit l'utilisation.
+
+* Inconnu
++
+Le risque est inconnu si l'API n'est parfois pas en mesure de récupérer les données liées au risque d'autorisation qui est associé à un cluster ou aux nœuds du cluster.
+
+
+
+
+
+== La fenêtre licences
+
+Votre système de stockage arrive en usine avec un logiciel préinstallé. Si vous souhaitez ajouter ou supprimer une licence logicielle après avoir reçu le système de stockage, vous pouvez utiliser la fenêtre licences.
+
+[NOTE]
+====
+System Manager ne surveille pas les licences d'évaluation et ne fournit aucun avertissement lorsqu'une licence d'évaluation arrive à expiration. Une licence d'évaluation est une licence temporaire qui expire après une certaine période.
+
+====
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la fenêtre Ajouter une licence, qui vous permet d'ajouter de nouvelles licences logicielles.
+
+* *Supprimer*
++
+Supprime la licence logicielle que vous sélectionnez dans la liste des licences logicielles.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Onglet packages
+
+Affiche des informations sur les modules de licence installés sur votre système de stockage.
+
+* *Paquet*
++
+Affiche le nom du package de licences.
+
+* *Risque d'admissibilité*
++
+Indique le niveau de risque résultant de problèmes de droits de licence pour un cluster. Le niveau de risque de droit peut être élevé (image:../media/high_risk_entitlementrisk.gif[""]), risque moyen (image:../media/medium_risk_entitlementrisk.gif[""]), aucun risque (image:../media/no_risk_entitlementrisk.gif[""]), inconnu (image:../media/unknown_risk_entitlementrisk.gif[""]) ou sans licence (-).
+
+* *Description*
++
+Affiche le niveau de risque en raison de problèmes de droits de licence pour un cluster.
+
+
+
+
+
+=== Zone de détails du package de licences
+
+La zone située sous la liste des packages de licences affiche des informations supplémentaires sur le package de licences sélectionné. Cette zone contient des informations sur le cluster ou le nœud sur lequel la licence est installée, le numéro de série de la licence, l'utilisation au cours de la semaine précédente, l'installation ou non de la licence, la date d'expiration de la licence et le fait que la licence soit héritée ou non.
+
+
+
+=== Onglet Détails
+
+Affiche des informations supplémentaires sur les modules de licence installés sur votre système de stockage.
+
+* *Paquet*
++
+Affiche le nom du package de licences.
+
+* *Cluster/Node*
++
+Affiche le cluster ou le nœud sur lequel le pack de licence est installé.
+
+* *Numéro de série*
++
+Affiche le numéro de série du pack de licence installé sur le cluster ou le nœud.
+
+* *Type*
++
+Affiche le type de package de licences, qui peut être le suivant :
+
++
+** Temporaire : spécifie que la licence est une licence temporaire, qui n'est valide que pendant la période de démonstration.
+** Maître : spécifie que la licence est une licence maître, qui est installée sur tous les nœuds du cluster.
+** Node Locked : spécifie que la licence est une licence verrouillée par nœud, installée sur un seul nœud du cluster.
+** Capacité :
++
+*** Pour ONTAP Select, spécifie que la licence est une licence de capacité, qui définit la quantité totale de capacité de données que l'instance est autorisée à gérer.
+*** Pour FabricPool, spécifie que la licence est une licence de capacité, qui définit la quantité de données pouvant être gérées dans le stockage tiers connecté (par exemple, AWS).
+
+
+
+
+* *État*
++
+Affiche l'état du package de licences, qui peut être le suivant :
+
++
+** Evaluation : indique que la licence installée est une licence d'évaluation.
+** Installation : indique que la licence installée est une licence achetée valide.
+** AVERTISSEMENT : indique que la licence installée est une licence achetée valide et qu'elle approche de la capacité maximale.
+** Application : indique que la licence installée est une licence achetée valide et qu'elle a dépassé la date d'expiration.
+** En attente de licence : indique que la licence n'a pas encore été installée.
+
+
+* *Héritage*
++
+Indique si la licence est une licence héritée.
+
+* *Capacité maximale*
++
+** Pour ONTAP Select, affiche la quantité maximale de stockage pouvant être associée à l'instance ONTAP Select.
+** Pour FabricPool, affiche la quantité maximale de stockage en mode objet tiers pouvant être utilisé comme stockage Tier cloud.
+
+
+* *Capacité actuelle*
++
+** Pour ONTAP Select, affiche la quantité totale de stockage actuellement associée à l'instance ONTAP Select.
+** Pour FabricPool, affiche la quantité totale de stockage en mode objet tiers actuellement utilisé comme stockage Tier dans le cloud.
+
+
+* *Date d'expiration*
++
+Affiche la date d'expiration du pack de licences logicielles.
+
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["Administration du système"]
+
+xref:task_creating_cluster.adoc[Création d'un cluster]

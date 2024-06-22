@@ -1,0 +1,69 @@
+---
+permalink: online-help-96-97/task_editing_application.html 
+sidebar: sidebar 
+keywords: edit, application, online, help, provisioned, snapshot, copy 
+summary: 'Vous pouvez modifier une application provisionnée pour augmenter la taille du stockage ou gérer les copies Snapshot de l"application.' 
+---
+= Modifiez une application avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier une application provisionnée et augmenter ainsi la taille du stockage ou gérer les copies Snapshot de l'application.
+
+.Description de la tâche
+En tant qu'administrateur de cluster, après avoir provisionné une application, vous pouvez la modifier pour modifier la taille du stockage. Vous pouvez également créer, restaurer ou supprimer des copies Snapshot de l'application. L'exemple suivant décrit comment modifier une application *conteneur NAS*.
+
+.Étapes
+. Cliquez sur *applications et niveaux* > *applications*
+. Cliquez sur le nom de l'application conteneur NAS.
++
+[NOTE]
+====
+Si quelqu'un ajoute de nouvelles applications via l'interface de ligne de commande ou l'API REST pendant que vous affichez la liste des applications, vous ne pourrez pas afficher ces nouvelles applications lorsque vous faites défiler la liste.
+
+====
++
+L'onglet *Présentation* de la fenêtre Détails de l'application : nas affiche les paramètres de l'application.
+
+. Cliquez sur *Modifier*.
++
+L'option Modifier le conteneur NAS : affiche le paramètre de taille de stockage actuel et l'adresse *NFS Access - accorder l'accès à l'hôte*.
+
+. Modifiez la valeur *taille totale du stockage*.
+. Dans le champ unités de taille, sélectionnez dans le menu déroulant pour spécifier les unités de taille correctes (octets, Mo, Go ou To).
+. Dans le champ *ONTAP niveau de service*, sélectionnez dans le menu déroulant pour spécifier la valeur.
+. Cliquez sur *Enregistrer*.
+. Revenez à la fenêtre *Détails de l'application : nas* et sélectionnez l'onglet **copies instantanées**.
++
+La liste des copies Snapshot de cette application provisionnée s'affiche. Vous pouvez utiliser le champ *Search* pour rechercher les copies Snapshot par nom.
+
+. Gérez les copies Snapshot en effectuant les tâches suivantes :
++
+|===
+| Tâche | Actions 
+
+
+ a| 
+Création
+ a| 
+Cliquez sur *Créer* pour créer une nouvelle copie Snapshot.
+
+
+
+ a| 
+Restaurer
+ a| 
+Cliquez sur les cases à cocher en regard des copies Snapshot à restaurer, puis cliquez sur *Restaurer*.
+
+
+
+ a| 
+Supprimer
+ a| 
+Cliquez sur les cases à cocher en regard des copies Snapshot à supprimer, puis cliquez sur *Supprimer*.
+
+|===
+

@@ -1,0 +1,79 @@
+---
+permalink: online-help-96-97/index.html 
+sidebar: sidebar 
+keywords: system, manager, online, help, management, interface, understand, cluster 
+summary: 'System Manager est une interface graphique de gestion qui vous permet de gérer les systèmes et objets de stockage (tels que les disques, les volumes et les agrégats) et d"exécuter des tâches de gestion courantes en rapport avec les systèmes de stockage depuis un navigateur Web. En tant qu"administrateur de cluster, vous pouvez utiliser System Manager pour gérer l"ensemble du cluster et ses ressources.' 
+---
+= Gestion du cluster à l'aide de OnCommand® System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager est une interface graphique de gestion basée sur HTML5 qui vous permet de gérer les systèmes et objets de stockage (tels que les disques, les volumes et les agrégats) et d'effectuer des tâches de gestion courantes liées aux systèmes de stockage depuis un navigateur Web. System Manager est inclus dans le logiciel ONTAP en tant que service Web, activé par défaut et accessible via un navigateur. En tant qu'administrateur de cluster, vous pouvez utiliser System Manager pour gérer l'ensemble du cluster et ses ressources.
+
+[NOTE]
+====
+Le nom de System Manager a été modifié par rapport aux versions précédentes. Les versions 9.5 et précédentes ont été nommées OnCommand System Manager. Les versions 9.6 et ultérieures s'appellent désormais ONTAP System Manager.
+
+====
+System Manager vous permet d'effectuer de nombreuses tâches courantes, telles que :
+
+* Création d'un cluster, configuration d'un réseau et configuration des détails de support du cluster.
+* Configurez et gérez des objets de stockage tels que des disques, des agrégats, des volumes, des qtrees et des quotas.
+* Configuration des protocoles, tels que CIFS et NFS, et provisionnement du partage de fichiers
+* Configurez les protocoles, tels que FC, FCoE, NVMe et iSCSI, pour l'accès au bloc.
+* Créez et configurez des composants réseau tels que les sous-réseaux, les domaines de diffusion, les interfaces de données et de gestion, ainsi que les groupes d'interfaces.
+* Configuration et gestion de la mise en miroir et des relations à l'archivage.
+* Exécutez les opérations de gestion des clusters, de gestion des nœuds de stockage et des machines virtuelles de stockage (SVM).
+* Créer et configurer des SVM, gérer les objets de stockage associés à des SVM et gérer les services de SVM.
+* Contrôle et gestion des configurations haute disponibilité dans un cluster.
+* Configurez les processeurs de service pour connecter, gérer, surveiller et administrer le nœud à distance, quel que soit l'état du nœud.
+
+
+
+
+== Icônes de la fenêtre Tableau de bord
+
+Lorsque vous affichez le tableau de bord du système de stockage, vous pouvez voir les icônes suivantes :
+
+|===
+| Icône | Nom | Description 
+
+
+ a| 
+image:../media/statuswarning.gif["Image d'avertissement dans le tableau de bord de System Manager"]
+ a| 
+Avertissement
+ a| 
+Il y a des problèmes mineurs, mais aucun ne nécessite une attention immédiate.
+
+
+
+ a| 
+image:../media/statuserror.gif["Image en cas d'erreur dans le tableau de bord de System Manager"]
+ a| 
+Erreur
+ a| 
+Les problèmes susceptibles d'entraîner des temps d'indisponibilité, ce qui nécessite donc une attention particulière.
+
+
+
+ a| 
+image:../media/statuscritical.gif["Image critique dans le tableau de bord System Manager"]
+ a| 
+Primordial
+ a| 
+Le système de stockage ne transmet pas de données ou ne peut pas être contacté. Une attention immédiate est requise.
+
+
+
+ a| 
+image:../media/arrowright.gif["Image pour la navigation dans le tableau de bord de System Manager"]
+ a| 
+Flèche de lien
+ a| 
+Si elle s'affiche en regard d'un article de ligne dans un volet du tableau de bord, cliquez dessus pour accéder à une autre page à partir de laquelle vous pouvez obtenir plus d'informations sur l'élément de ligne ou apporter des modifications à l'élément de ligne.
+
+|===

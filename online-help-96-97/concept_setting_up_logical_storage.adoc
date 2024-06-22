@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_setting_up_logical_storage.html 
+sidebar: sidebar 
+keywords: online, help, set, up, logical, storage, svm, volume 
+summary: La configuration du stockage logique consiste à créer des SVM et des volumes de stockage virtuel. 
+---
+= Configuration du stockage logique à l'aide de System Manager Classic - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer le stockage logique à l'aide de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures). La configuration du stockage logique consiste à créer des SVM et des volumes de stockage virtuel.

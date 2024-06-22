@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/concept_flash_pool_statistics.html 
+sidebar: sidebar 
+keywords: flash, pool, statistics, system, manager, ssd, tier, read, write, workload, aggregate, online, help 
+summary: 'System Manager permet d"afficher les charges de travail de lecture et d"écriture en temps réel relatives au niveau des disques SSD pour un agrégat Flash Pool sélectionné.' 
+---
+= Consultez les statistiques Flash Pool avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour afficher les charges de travail de lecture et d'écriture du niveau SSD en temps réel pour un agrégat Flash Pool sélectionné.
+
+
+
+== Fenêtre Statistiques sur les agrégats Flash Pool
+
+Vous pouvez afficher les charges de travail de lecture et d'écriture du niveau SSD en temps réel pour un agrégat Flash Pool sélectionné.
+
+Cette page n'est pas disponible pour un cluster contenant des nœuds disposant d'une configuration entièrement optimisée pour la technologie Flash.
+
+* *Affichage des statistiques de l'agrégat Flash Pool*
++
+Dans la liste des agrégats Flash Pool, vous pouvez sélectionner l'agrégat Flash Pool dont vous souhaitez afficher les statistiques.
+
+
+
+
+
+=== Charge de travail de lecture SSD cache
+
+Affiche une vue graphique du nombre total de demandes de lecture envoyées à l'agrégat Flash Pool par rapport aux opérations de lecture effectuées par le niveau SSD.
+
+
+
+=== Charge de travail en écriture du SSD cache
+
+La présente une vue graphique du nombre total de demandes d'écriture envoyées à l'agrégat Flash Pool par rapport aux opérations d'écriture effectuées par le niveau de SSD.

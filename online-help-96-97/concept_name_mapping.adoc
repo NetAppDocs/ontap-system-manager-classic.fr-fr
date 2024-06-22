@@ -1,0 +1,132 @@
+---
+permalink: online-help-96-97/concept_name_mapping.html 
+sidebar: sidebar 
+keywords: name, mapping, system, manager, specify, user, platform, online, help, command, button, rules 
+summary: Vous pouvez utiliser System Manager pour spécifier des entrées de mappage de noms afin de mapper les utilisateurs de différentes plates-formes. 
+---
+= Mappage de nom avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour spécifier des entrées de mappage de noms afin de mapper les utilisateurs de différentes plateformes.
+
+
+
+== Règles de conversion du mappage de noms
+
+Un système ONTAP conserve un ensemble de règles de conversion pour chaque SVM. Chaque règle se compose de deux éléments : un _pattern_ et un _remplacement_. Les conversions commencent au début de la liste appropriée et effectuent une substitution basée sur la première règle correspondante. Le motif est une expression régulière de style UNIX. Le remplacement est une chaîne contenant des séquences d'échappement représentant des sous-expressions du motif, comme dans UNIX `sed` programme.
+
+
+
+== Mappage de nom
+
+Vous pouvez utiliser la fenêtre mappage de noms pour spécifier les entrées de mappage de noms afin de mapper les utilisateurs de différentes plates-formes.
+
+
+
+=== Mappages de noms
+
+Vous pouvez créer et utiliser des mappages de noms pour mapper vos utilisateurs UNIX aux utilisateurs Windows, aux utilisateurs Windows ou aux utilisateurs Kerberos aux utilisateurs UNIX.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+La boîte de dialogue Add Name Mapping Entry (Ajouter une entrée de mappage de nom) permet de créer un mappage de nom sur les SVM (Storage Virtual machines).
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'entrée de mappage de nom, qui permet de modifier un mappage de nom sur les SVM.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer les entrées de mappage de noms, qui permet de supprimer une entrée de mappage de noms.
+
+* *Permuter*
++
+Ouvre la boîte de dialogue échange d'entrées de mappage de noms, qui permet d'échanger des positions des deux entrées de mappage de noms sélectionnées.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des mappages de noms
+
+* *Position*
++
+Spécifie la position du mappage de nom dans la liste des priorités. Les mappages de noms sont appliqués dans l'ordre dans lequel ils se produisent dans la liste des priorités.
+
+* *Modèle*
++
+Spécifie le motif de nom d'utilisateur qui doit correspondre.
+
+* *Remplacement*
++
+Spécifie le modèle de remplacement pour le nom d'utilisateur.
+
+* *Direction*
++
+Spécifie la direction du mappage de noms. Les valeurs possibles sont krb_unix pour un mappage de noms Kerberos-to-UNIX, win_unix pour un mappage de noms Windows-to-UNIX et unix_win pour un mappage de noms UNIX-to-Windows.
+
+
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Ajouter une entrée de mappage de groupe, qui permet de créer un mappage de groupe sur les SVM.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'entrée de mappage de groupe, qui permet de modifier le mappage de groupe sur les SVM.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer les entrées de mappage de groupe, qui permet de supprimer une entrée de mappage de groupe.
+
+* *Permuter*
++
+Ouvre la boîte de dialogue échange d'entrées de mappage de groupe, qui permet d'échanger des positions des deux entrées de mappage de groupe sélectionnées.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des mappages de groupes
+
+* *Position*
++
+Spécifie la position du mappage de groupe dans la liste des priorités. Les mappages de groupes sont appliqués dans l'ordre dans lequel ils se produisent dans la liste des priorités.
+
+* *Modèle*
++
+Spécifie le motif de nom d'utilisateur qui doit correspondre.
+
+* *Remplacement*
++
+Spécifie le modèle de remplacement pour les noms d'utilisateur.
+
+* *Direction*
++
+Spécifie la direction du mappage de groupe. Les valeurs possibles sont `krb_unix` Pour un mappage de groupe Kerberos-to-UNIX, `win_unix` Pour un mappage de groupe Windows à UNIX, et `unix_win` Pour un mappage de groupe UNIX vers Windows.
+
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["Gestion SMB/CIFS"]

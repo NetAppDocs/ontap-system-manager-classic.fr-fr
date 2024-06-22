@@ -1,0 +1,42 @@
+---
+permalink: iscsi-config-esxi/task_verifying_host_can_write_to_read_from_lun.html 
+sidebar: sidebar 
+keywords: lun, verify, host, write, data, verify that the host can write to and read from the lun 
+summary: 'Avant d"utiliser la LUN, vérifiez que l"hôte peut écrire les données sur la LUN et les lire de nouveau.' 
+---
+= Vérifiez que l'hôte peut écrire sur la LUN et la lire
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'utiliser la LUN, vérifiez que l'hôte peut écrire les données sur la LUN et les lire de nouveau.
+
+.Description de la tâche
+Si le nœud de cluster sur lequel la LUN est créée peut être basculée vers son nœud partenaire, vérifiez la lecture des données pendant que le nœud est défaillant. Ce test peut être impossible si le cluster est en production.
+
+.Étapes
+. Sur la page Web vSphere *Home* du client, cliquez sur *hosts and clusters*.
+. Dans le volet de navigation, cliquez sur l'onglet *Storage*.
+. Développez le datacenter, puis sélectionnez le nouveau datastore.
+. Dans le volet central, cliquez sur *gérer* > *fichiers*.
++
+Le contenu du datastore s'affiche.
+
+. Créez un nouveau dossier dans le datastore et téléchargez un fichier dans le nouveau dossier.
++
+Vous devrez peut-être installer le plug-in client Integration.
+
+. Vérifiez que vous pouvez accéder au fichier que vous venez d'écrire.
+. *Facultatif:* basculez le nœud du cluster contenant le LUN et vérifiez que vous pouvez toujours écrire et lire un fichier.
++
+Si l'un des tests échoue, vérifiez que le service iSCSI est exécuté sur le cluster de stockage et vérifiez les chemins iSCSI vers la LUN.
+
+. *Facultatif:* si vous avez basculé sur le noeud du cluster, veillez à remettre le noeud et à renvoyer toutes les LIFs à leurs ports de base.
+. Pour un cluster ESXi, affichez le datastore de chaque hôte ESXi du cluster et vérifiez que le fichier que vous avez téléchargé s'affiche.
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestion de la haute disponibilité"^]

@@ -1,0 +1,89 @@
+---
+permalink: online-help-96-97/task_creating_qos_policy_groups.html 
+sidebar: sidebar 
+keywords: online, help, create, qos, policy, groups, system, manager, quality, service 
+summary: 'System Manager peut être utilisé pour créer des groupes de règles de qualité de service (QoS) du stockage afin de limiter le débit des workloads et de surveiller leur performance.' 
+---
+= Gérez les groupes de règles de QoS avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer des groupes de règles de qualité de service (QoS) pour limiter le débit des charges de travail et surveiller leur performance.
+
+
+
+== Création de « policy Groups » de QoS
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *groupes de stratégies QoS*.
+. Dans la fenêtre *QoS Policy Groups*, cliquez sur *Create*.
+. Dans la boîte de dialogue *Créer groupe de stratégies*, spécifiez un nom de groupe pour la stratégie.
+. Spécifiez la limite de débit minimum.
++
+** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+. Spécifiez la limite de débit maximum.
++
+** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et en B/s, en Ko/s, en Mo/s, etc.
+** Si vous ne spécifiez pas la limite de débit maximale, le système affiche automatiquement « illimitée » comme valeur.
++
+Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
+. Cliquez sur *OK*.
+
+
+
+
+== Suppression des « policy Groups » QoS
+
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de supprimer le groupe de règles de qualité de service (QoS) de stockage qui n'est plus nécessaire.
+
+.Avant de commencer
+Vous devez avoir non affecté tous les objets de stockage affectés à ce groupe de règles.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *groupes de stratégies QoS*.
+. Dans la fenêtre *QoS Policy Groups*, sélectionnez le groupe de stratégies à supprimer, puis cliquez sur *Delete*.
+. Dans la boîte de dialogue de confirmation, cliquez sur *Supprimer*.
+
+
+
+
+== Modifier les « policy Groups » de QoS
+
+La boîte de dialogue Modifier le groupe de règles de ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) permet de modifier le nom et le débit maximum d'un groupe de règles de qualité de service (QoS) de stockage existant.
+
+.Description de la tâche
+* Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+* Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *groupes de stratégies QoS*.
+. Sélectionnez le groupe de stratégies QoS que vous souhaitez modifier, puis cliquez sur *Modifier*.
++
+** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et en B/s, en Ko/s, en Mo/s, etc.
+** Si vous ne spécifiez pas la limite de débit maximale, la valeur est définie sur illimitée et l'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+. Dans la boîte de dialogue *Edit Policy Group*, modifiez les détails du groupe de stratégies QoS, puis cliquez sur *Save*.
+

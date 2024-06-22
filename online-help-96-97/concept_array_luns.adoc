@@ -1,0 +1,184 @@
+---
+permalink: online-help-96-97/concept_array_luns.html 
+sidebar: sidebar 
+keywords: system, manager, array, lun, aggregate, assign, online, help, classic 
+summary: System Manager peut être utilisé pour attribuer des LUN de baies à un agrégat existant et gérer les LUN de baies. 
+---
+= Gérez les LUN de baie avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) peut être utilisé pour attribuer des LUN de baie à un agrégat existant et gérer des LUN de baie.
+
+
+
+== Attribuez des LUN de baies
+
+System Manager peut être utilisé pour attribuer des LUN de baie non attribuées à un agrégat existant afin d'augmenter la taille de l'agrégat.
+
+.Description de la tâche
+* Vous pouvez affecter des LUN de baies si les conditions suivantes sont vraies :
++
+** Le type de conteneur des LUN de baie sélectionnées doit être « non affectées ».
+** Les disques doivent être connectés aux nœuds dans une paire haute disponibilité.
+** Les disques doivent être visibles pour le nœud.
+
+
+* Dans le cas de configurations MetroCluster, System Manager ne peut pas être utilisé pour attribuer des LUN de baie comme unités de rechange.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates & disques* > *Array LUNs*.
+. Sélectionnez les LUN de la baie, puis cliquez sur *affecter*.
+. Dans la boîte de dialogue *Assign Array LUNs*, sélectionnez le nœud auquel vous souhaitez affecter les LUN de la baie.
+. Cliquez sur *attribuer*.
+
+
+
+
+== Réaffectez des LUN de baie de rechange aux nœuds
+
+System Manager peut être utilisé pour réaffecter la propriété des LUN de baie de rechange d'un nœud à un autre pour augmenter la capacité d'un agrégat.
+
+.Description de la tâche
+* Vous pouvez réaffecter des LUN de baie si les conditions suivantes sont vraies :
++
+** Le type de conteneur des LUN de baie sélectionnées doit être "`spare`".
+** Les disques doivent être connectés aux nœuds dans une paire haute disponibilité.
+** Les disques doivent être visibles pour le nœud.
+
+
+* Dans le cas de configurations MetroCluster, System Manager ne peut pas être utilisé pour réallouer des LUN de la baie en tant que disques de rechange.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates & disques* > *Array LUNs*.
+. Sélectionnez les LUN de baie de rechange que vous souhaitez réattribuer, puis cliquez sur *attribuer*.
+. Dans la boîte de dialogue *Avertissement*, cliquez sur *Continuer*.
+. Dans la boîte de dialogue *Assign Array LUNs*, sélectionnez le nœud auquel vous souhaitez réattribuer les LUN de baie de rechange.
+. Cliquez sur *attribuer*.
+
+
+
+
+== Remise à zéro des LUN de baie de secours
+
+System Manager permet d'effacer toutes les données et de formater les LUN de la baie de disques de rechange en écrivant des zéros sur les LUN de la baie. Ces LUN de baie peuvent ensuite être utilisées dans de nouveaux agrégats.
+
+.Description de la tâche
+Lorsque vous mettez à zéro les LUN de baie de rechange, toutes les unités de rechange dans le cluster, y compris les disques, sont mises à zéro. Vous pouvez zéro les LUN de baie de rechange pour un nœud spécifique ou pour l'ensemble du cluster.
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates & disques* > *Array LUNs*.
+. Cliquez sur *zéro pièces de rechange*.
+. Dans la boîte de dialogue *Zero Spares*, sélectionnez un nœud ou « tous les nœuds » à partir duquel vous souhaitez mettre à zéro les LUN de la baie.
+. Cochez la case *mettre à zéro toutes les pièces de rechange non remises à zéro* pour confirmer l'opération de remise à zéro.
+. Cliquez sur *zéro pièces de rechange*.
+
+
+
+
+== À propos des disques et des LUN de baies
+
+Un disque est l'unité de stockage de base pour les systèmes de stockage qui utilisent le logiciel ONTAP pour accéder aux tiroirs disques natifs. Une baie LUN est l'unité de stockage de base que les baies de stockage tierces proposent aux systèmes de stockage qui exécutent le logiciel ONTAP.
+
+Le logiciel ONTAP vous permet d'attribuer la propriété à vos disques et LUN de baies, et de les ajouter à un agrégat. Le logiciel ONTAP fournit également plusieurs méthodes pour gérer vos disques, notamment pour les supprimer, les remplacer et les désinfecter. Les LUN de baie sont fournies par la baie de stockage tierce, ce qui vous permet d'utiliser la baie de stockage tierce pour toutes les autres tâches de gestion des LUN de baie.
+
+Vous pouvez créer un agrégat en utilisant des disques ou des LUN de baie. Une fois l'agrégat créé, gérez-le à l'aide du logiciel ONTAP de la même manière, qu'il ait été créé à partir de disques ou de LUN de baies.
+
+
+
+== Fenêtre LUN de baie
+
+La fenêtre Array LUNs vous permet d'affecter la propriété à vos LUN de baie et de les ajouter à un agrégat.
+
+Le lien Array LUNs du volet de navigation de gauche s'affiche uniquement si des LUN de baie de rechange sont présentes, ou si la licence V_StorageAttach est installée.
+
+
+
+=== Boutons de commande
+
+* *Affecter*
++
+Vous permet d'affecter ou de réaffecter la propriété de LUN de baie à un nœud.
+
+* *Zéro pièces de rechange*
++
+Efface toutes les données et formate les LUN et les disques de la baie de rechange.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des LUN de baie
+
+Affiche des informations telles que le nom, l'état et le fournisseur de chaque LUN de matrice.
+
+* *Nom*
++
+Spécifie le nom de la LUN de la baie.
+
+* *État*
++
+Spécifie l'état de la LUN de la baie.
+
+* *Fournisseur*
++
+Indique le nom du fournisseur.
+
+* *Espace utilisé*
++
+Spécifie l'espace utilisé par la LUN de la baie.
+
+* *Taille totale*
++
+Spécifie la taille de la LUN de baie.
+
+* *Conteneur*
++
+Spécifie l'agrégat auquel appartient la LUN de baie.
+
+* *Nom du noeud*
++
+Spécifie le nom du nœud auquel appartient la LUN de matrice.
+
+* *Propriétaire*
++
+Affiche le nom du nœud de rattachement auquel la LUN de matrice est affectée.
+
+* *Propriétaire actuel*
++
+Affiche le nom du nœud qui possède actuellement la LUN de la baie.
+
+* *Nom du tableau*
++
+Spécifie le nom de la matrice.
+
+* *Piscine*
++
+Affiche le nom du pool auquel la LUN de matrice sélectionnée est affectée.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste LUN de la matrice affiche des informations détaillées sur la LUN de la baie sélectionnée.
+
+*Informations connexes*
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["Conditions requises pour l'installation et référence de la virtualisation FlexArray"]

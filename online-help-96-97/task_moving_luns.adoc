@@ -1,0 +1,62 @@
+---
+permalink: online-help-96-97/task_moving_luns.html 
+sidebar: sidebar 
+keywords: move, lun, qtree, storage, virtual, machine, svm, online, help 
+summary: 'System Manager peut être utilisé pour déplacer une LUN de son volume contenant vers un autre volume ou qtree au sein d"une machine virtuelle de stockage (SVM). Vous pouvez déplacer le LUN vers un volume hébergé sur un agrégat contenant des disques hautes performances, ce qui améliore les performances lors de l"accès à la LUN.' 
+---
+= Déplacez les LUN avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour déplacer une LUN du volume contenant vers un autre volume ou qtree au sein d'une machine virtuelle de stockage (SVM). Vous pouvez déplacer le LUN vers un volume hébergé sur un agrégat contenant des disques hautes performances, ce qui améliore les performances lors de l'accès à la LUN.
+
+.Description de la tâche
+* Vous ne pouvez pas déplacer une LUN vers un qtree au sein d'un même volume.
+* Si vous avez créé une LUN à partir d'un fichier via l'interface de ligne de commandes, vous ne pouvez pas déplacer la LUN à l'aide de System Manager.
+* Le déplacement de LUN s'effectue sans interruption ; il peut être effectué lorsque la LUN est en ligne et assure le service des données.
+* Vous ne pouvez pas utiliser System Manager pour déplacer la LUN si l'espace alloué sur le volume de destination n'est pas suffisant pour contenir la LUN, et même si la croissance automatique est activée sur le volume.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+* Vous ne pouvez pas déplacer des LUN sur des volumes SnapLock.
+
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *gestion des LUN*, sélectionnez le LUN que vous souhaitez déplacer de la liste des LUN, puis cliquez sur *déplacer*.
+. *Facultatif :* dans la zone *Move Options* de la boîte de dialogue *Move LUN*, spécifiez un nouveau nom pour la LUN si vous souhaitez modifier le nom par défaut.
+. Sélectionnez l'objet de stockage vers lequel vous souhaitez déplacer la LUN et effectuez l'une des opérations suivantes :
++
+|===
+| Pour déplacer la LUN vers... | Alors... 
+
+
+ a| 
+Un nouveau volume
+ a| 
+.. Sélectionnez un agrégat dans lequel vous souhaitez créer le nouveau volume.
+.. Spécifiez un nom pour le volume.
+
+
+
+
+ a| 
+Un volume ou qtree existant
+ a| 
+.. Sélectionnez un volume vers lequel vous souhaitez déplacer la LUN.
+.. Si le volume sélectionné contient des qtrees, sélectionnez le qtree vers lequel vous souhaitez déplacer le LUN.
+
+
+|===
+. Cliquez sur *déplacer*.
+. Confirmez l'opération de déplacement de LUN et cliquez sur *Continuer*.
++
+Pendant une courte période, la LUN s'affiche à la fois sur le volume d'origine et sur le volume de destination. Une fois l'opération de déplacement terminée, la LUN s'affiche sur le volume de destination.
+
++
+Le volume de destination ou qtree est affiché en tant que nouveau chemin de conteneur de la LUN.
+
+

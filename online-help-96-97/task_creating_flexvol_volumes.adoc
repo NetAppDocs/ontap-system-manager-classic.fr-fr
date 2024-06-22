@@ -1,0 +1,233 @@
+---
+permalink: online-help-96-97/task_creating_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: flexvol, create, volume, online, help 
+summary: 'Vous pouvez créer un volume FlexVol pour vos données à l"aide de la boîte de dialogue Créer un volume dans System Manager. Vous devez toujours créer un volume distinct pour vos données et non stocker ces données dans le volume racine.' 
+---
+= Créez des volumes FlexVol avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez créer un volume FlexVol pour vos données à l'aide de la boîte de dialogue Créer un volume de ONTAP System Manager Classic (disponible sur ONTAP 9.7 et versions antérieures). Vous devez toujours créer un volume distinct pour vos données et non stocker ces données dans le volume racine.
+
+.Avant de commencer
+* Le cluster doit contenir un agrégat non-root et un SVM (Storage Virtual machine).
+* Si vous souhaitez créer des volumes en lecture/écriture, vous devez avoir configuré les protocoles pour le SVM et vous devez avoir installé la licence SnapMirror ou la licence SnapVault.
++
+Si vous n'avez pas configuré les protocoles, mais que vous avez installé l'une de ces licences, vous pouvez créer uniquement des volumes de protection des données (DP).
+
+* Pour créer un volume chiffré, vous devez avoir installé la licence de chiffrement de volume à l'aide de System Manager, et vous devez avoir activé « Configuration du gestionnaire de clés » à l'aide de l'interface de ligne de commande.
++
+Vous devez actualiser votre navigateur Web après l'activation de « Configuration du gestionnaire de clés ».
+
+
+
+.Description de la tâche
+* Vous ne pouvez activer la qualité de service (QoS) du stockage que pour un volume en lecture/écriture (rw).
+* Lorsque vous créez un volume DP sur le SVM source synchrone dans une configuration MetroCluster, le volume n'est pas répliqué sur le SVM de destination synchrone.
+* Lorsque vous créez un volume DP dans une configuration MetroCluster, le volume source n'est pas répliqué (mis en miroir ou copié) dans le SVM de destination.
+* Dans une configuration MetroCluster, System Manager affiche uniquement les agrégats suivants pour la création des volumes :
++
+** En mode normal, lorsque vous créez des volumes sur les SVM source synchrone ou des SVM service des données sur le site primaire, seuls les agrégats qui appartiennent au cluster du site primaire sont affichés.
+** En mode commuté, lorsque vous créez des volumes sur des SVM de destination synchrone ou des SVM de service des données sur le site survivant, seuls les agrégats avec basculement sont affichés.
+
+
+* Vous ne pouvez pas chiffrer un volume dans Cloud Volumes ONTAP.
+* Si le chiffrement est activé sur le volume source et si le cluster de destination exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, le chiffrement est désactivé par défaut sur le volume de destination.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Cliquez sur *Créer* > *Créer FlexVol*.
+. Parcourir et sélectionner le SVM dans lequel vous souhaitez créer le volume.
++
+La boîte de dialogue Créer un volume s'affiche. La boîte de dialogue comprend les onglets suivants :
+
++
+** Généralités
+** Efficacité du stockage
+** SnapLock
+** Qualité de service
+** La protection
+
+
+. Dans l'onglet *général*, effectuez les opérations suivantes :
++
+.. Spécifiez un nom pour le volume FlexVol.
+.. Cliquez sur le bouton *FabricPool* pour spécifier que le volume est un volume FabricPool.
+.. Cliquez sur *choisir* pour sélectionner un agrégat.
++
+Vous pouvez sélectionner uniquement les agrégats compatibles FabricPool si le volume est un volume FabricPool FlexVol et uniquement les agrégats non compatibles avec FabricPool si le volume est un volume FlexVol non FabricPool. Si vous choisissez un agrégat chiffré (NAE), le volume que vous créez hérite du chiffrement de l'agrégat.
+
+.. Sélectionnez un type de stockage.
+.. Spécifiez la taille du volume et les unités de mesure.
+.. Indiquez la quantité d'espace à réserver pour les copies Snapshot.
+.. Sélectionnez une option de réserve d'espace dans le menu déroulant *Réserve d'espace*.
+.. Cochez la case *Volume Encryption* pour activer le chiffrement du volume. Cette option n'est disponible que si vous avez activé la licence Volume Encryption et si la plate-forme correspondante est capable de prendre en charge le chiffrement.
+
+
+. Dans l'onglet *efficacité du stockage*, effectuez les opérations suivantes :
++
+.. Sélectionnez le type de stockage pour lequel vous créez ce volume.
++
+Vous devez sélectionner *Data protection* si vous créez un volume de destination SnapMirror. Ce volume vous permet d'accéder en lecture seule.
+
+.. Spécifiez la règle de Tiering du volume.
+.. Spécifiez la taille du volume et le pourcentage de la taille totale du volume que vous souhaitez réserver pour les copies Snapshot.
++
+L'espace réservé par défaut pour les copies Snapshot est de zéro pour les volumes SAN et VMware. Pour les volumes NAS, la valeur par défaut est de 5 %.
+
+.. Sélectionnez *Default*, *Thin Provisioned* ou *Thick Provisioned* pour le volume.
++
+Lorsque le provisionnement fin est activé, l'espace est alloué au volume depuis l'agrégat uniquement lorsque les données sont écrites sur le volume.
+
++
+[NOTE]
+====
+*** Pour les systèmes de stockage AFF, l'intérêt du provisionnement fin est « par défaut » et pour d'autres systèmes de stockage, la valeur du provisionnement fin est « par défaut ».
+*** Pour les agrégats compatibles avec FabricPool, la valeur du provisionnement fin est « par défaut ».
+
+
+====
+.. Spécifiez si vous souhaitez activer la déduplication sur le volume.
++
+System Manager utilise la planification de déduplication par défaut. Si la taille du volume spécifiée dépasse la limite requise pour l'exécution de la déduplication, le volume est créé et la déduplication n'est pas activée.
+
++
+Pour les systèmes avec personnalisation optimisée pour la technologie 100 % Flash, compression à la volée et `auto` la planification de la déduplication est activée par défaut.
+
+
+
+. Dans l'onglet *qualité de service*, effectuez les opérations suivantes :
++
+.. Cochez la case *gérer la qualité de service du stockage* si vous souhaitez activer la QoS du stockage pour le volume FlexVol afin de gérer les performances des charges de travail.
+.. Créez un nouveau groupe de règles de QoS du stockage ou sélectionnez un groupe de règles existant pour contrôler les performances des entrées/sorties (E/S) du volume FlexVol :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme ça... 
+
+
+ a| 
+Création d'une « policy group »
+ a| 
+... Sélectionnez *Nouveau groupe de stratégies*.
+... Spécifiez le nom du groupe de règles.
+... Spécifiez la limite de débit minimum.
++
+**** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet de définir la limite de débit minimale du groupe de règles.
+**** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+**** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+... Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+**** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+**** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS, B/s, Ko/s, Mo/s, etc.
+**** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur.
++
+Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
+
+
+
+
+ a| 
+Sélectionnez un groupe de stratégies existant
+ a| 
+... Sélectionnez *Groupe de stratégies existant*, puis cliquez sur *choisir* pour sélectionner un groupe de stratégies existant dans la boîte de dialogue Sélectionner un groupe de stratégies.
+... Spécifiez la limite de débit minimum.
++
+**** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet de définir la limite de débit minimale du groupe de règles.
+**** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+**** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+... Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+**** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+**** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS, B/s, Ko/s, Mo/s, etc.
+**** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur.
++
+Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
++
+Si le groupe de règles est attribué à plusieurs objets, le débit maximal que vous spécifiez est partagé entre les objets.
+
+
+
+|===
+
+
+. Dans l'onglet *protection*, effectuez les opérations suivantes :
++
+.. Spécifiez si vous souhaitez activer *protection du volume*.
++
+Un volume FlexGroup non FabricPool peut être protégé grâce à un volume FabricPool FlexGroup.
+
++
+Un volume FabricPool FlexGroup peut être protégé par un volume FlexGroup non FabricPool.
+
+.. Sélectionnez le type *Replication* :
+
+
++
+|===
+| Si vous avez sélectionné le type de réplication comme... | Procédez comme ça... 
+
+
+ a| 
+Asynchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez le type de relation.
++
+Le type de relation peut être mis en miroir, coffre-fort ou miroir et coffre-fort.
+
+.. Sélectionnez un cluster et un SVM pour le volume de destination.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+
+
+ a| 
+Synchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez la stratégie de synchronisation.
++
+La stratégie de synchronisation peut être StrictSync ou Sync.
+
+.. Sélectionnez un cluster et un SVM pour le volume de destination.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+|===
+. Cliquez sur *Créer*.
+. Vérifiez que le volume que vous avez créé est inclus dans la liste des volumes de la fenêtre *Volume*.
++
+Le volume est créé avec une sécurité de style UNIX et des autorisations UNIX 700 de « réexécution en écriture » pour le propriétaire.
+
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

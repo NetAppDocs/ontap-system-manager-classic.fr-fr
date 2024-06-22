@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_creating_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: create, flexclone, volume, system, manager, online, help 
+summary: 'System Manager peut être utilisé pour créer un volume FlexClone si vous avez besoin d"une copie inscriptible à un point dans le temps d"un volume FlexVol existant. Éventuellement, vous pouvez créer une copie d"un volume à des fins de test ou fournir l"accès au volume à d"autres utilisateurs sans leur donner accès aux données de production.' 
+---
+= Créez des volumes FlexClone avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer un volume FlexClone si vous avez besoin d'une copie inscriptible instantanée d'un volume FlexVol existant. Éventuellement, vous pouvez créer une copie d'un volume à des fins de test ou fournir l'accès au volume à d'autres utilisateurs sans leur donner accès aux données de production.
+
+.Avant de commencer
+* La licence FlexClone doit être installée sur le système de stockage.
+* Le volume que vous souhaitez cloner doit être en ligne et doit être un volume non root.
+
+
+.Description de la tâche
+La copie Snapshot de base utilisée pour créer un volume FlexClone d'une destination SnapMirror est marquée comme étant occupé et ne peut pas être supprimée. Si un volume FlexClone est créé à partir d'une copie Snapshot qui n'est pas la copie Snapshot la plus récente et que cette copie Snapshot n'existe plus sur le volume source, toutes les mises à jour de SnapMirror vers le volume de destination échouent.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume FlexVol que vous souhaitez cloner dans la liste des volumes.
+. Cliquez sur *plus d'actions* > *Clone* > *Créer* > *Volume*.
+. Tapez le nom du volume FlexClone que vous souhaitez créer.
+. *Facultatif:* si vous souhaitez activer le provisionnement fin pour le nouveau volume FlexClone, sélectionnez *provisionnement fin*.
++
+Par défaut, ce paramètre est identique à celui du volume parent.
+
+. Créez une copie Snapshot ou sélectionnez une copie Snapshot existante que vous souhaitez utiliser en tant que copie Snapshot de base pour créer le volume FlexClone.
+. Cliquez sur *Clone*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

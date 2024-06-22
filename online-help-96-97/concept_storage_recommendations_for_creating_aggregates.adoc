@@ -1,0 +1,42 @@
+---
+permalink: online-help-96-97/concept_storage_recommendations_for_creating_aggregates.html 
+sidebar: sidebar 
+keywords: storage, recommendations, create, aggregate, system, manager, online, help 
+summary: 'Depuis System Manager 9.4, vous pouvez créer des agrégats selon les recommandations de stockage. Toutefois, vous devez déterminer si la création d"agrégats basés sur des recommandations de stockage est prise en charge dans votre environnement. Si votre environnement ne prend pas en charge la création d"agrégats sur la base de recommandations de stockage, vous devez définir la règle RAID et la configuration des disques, puis créer les agrégats manuellement.' 
+---
+= Recommandations de stockage pour la création d'agrégats avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.4, vous pouvez créer des agrégats selon les recommandations de stockage. Toutefois, vous devez déterminer si la création d'agrégats basés sur des recommandations de stockage est prise en charge dans votre environnement. Si votre environnement ne prend pas en charge la création d'agrégats sur la base de recommandations de stockage, vous devez définir la règle RAID et la configuration des disques, puis créer les agrégats manuellement.
+
+System Manager analyse les disques de spare du cluster et génère une recommandation sur la manière dont les disques de spare doivent être utilisés pour créer des agrégats conformément aux meilleures pratiques. System Manager affiche le récapitulatif des agrégats recommandés, avec leur nom et leur taille utilisable.
+
+Dans de nombreux cas, des recommandations en matière de stockage seront optimales pour votre environnement. Toutefois, si votre cluster exécute ONTAP 9.3 ou une version antérieure, ou si votre environnement inclut les configurations suivantes, vous devez créer les agrégats manuellement :
+
+* Agrégats utilisant des LUN de baies tierces
+* Disques virtuels avec Cloud Volumes ONTAP ou ONTAP Select
+* Configurations MetroCluster
+* Fonctionnalité SyncMirror
+* Disques MSATA
+* Les agrégats Flash Pool
+* Plusieurs types ou tailles de disques sont connectés au nœud
+
+
+En outre, si l'une des conditions de disque suivantes existe dans votre environnement, vous devez corriger l'état du disque avant d'utiliser les recommandations de stockage pour créer des agrégats :
+
+* Disques manquants
+* Fluctuation des numéros de disque disponibles
+* Disques non assignés
+* Pièces de rechange non remises à zéro (pour les versions ONTAP antérieures à 9.6)
+* Disques soumis à un test de maintenance
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestion des disques et des agrégats"]
+
+xref:task_zeroing_disks.adoc[Mise à zéro des disques de secours]

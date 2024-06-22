@@ -1,0 +1,72 @@
+---
+permalink: iscsi-config-rhel/task_verifying_that_host_can_write_to_read_fom_lun.html 
+sidebar: sidebar 
+keywords: multipath, device, verify, host, data, verify that the host can write to and read from a multipath device 
+summary: 'Avant d"utiliser un périphérique multichemin, vérifiez que l"hôte peut écrire des données sur le périphérique multichemin et les lire à nouveau.' 
+---
+= Vérifiez que l'hôte peut écrire sur un périphérique multivoie et le lire
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'utiliser un périphérique multichemin, vérifiez que l'hôte peut écrire des données sur le périphérique multichemin et les lire à nouveau.
+
+.Avant de commencer
+DM-Multipath doit être configuré sur l'hôte Linux pour les nœuds du cluster de stockage auxquels vous accédez.
+
+.Description de la tâche
+Si le nœud de cluster de stockage auquel le périphérique multivoie correspond peut basculer vers son nœud partenaire, vérifiez la lecture des données pendant que le nœud est défaillant. Cette vérification peut ne pas être possible si le cluster de stockage est en production.
+
+.Étapes
+. Exécutez des E/S sur le périphérique à chemins d'accès multiples spécifié :
++
+`dd if=/dev/zero of=<multipath_device_name\>`
+
+. Vérifiez que les E/S s'exécutent sur le périphérique multivoie en indiquant le nombre de secondes à actualiser les statistiques (par exemple, toutes les deux secondes, comme illustré) :
++
+`iostat 2`
+
++
+Lorsque les E/S sont en cours d'exécution sur le périphérique multivoie, les différents compteurs d'E/S changent de sortie de manière dynamique, ce qui indique que les E/S fonctionnent correctement sur le périphérique multivoie.
+
++
+[listing]
+----
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+            0.00    0.00    0.01    0.00    0.00   99.98
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.18         1.34         2.29     832606    1428026
+dm-0              0.37         1.29         2.29     801530    1427984
+dm-1              0.00         0.00         0.00       2576          0
+dm-2              0.00         0.00         0.00       1770         24
+sdd               0.17         1.18        17.87     734688   11128584
+sde               0.17         1.18        18.01     734560   11219016
+sdf               0.00         0.00         0.00       1344          0
+sdg               0.00         0.00         0.00       1344          0
+dm-3              0.68         4.71        71.96    2932496   44816008
+sdh               0.17         1.18        18.22     734360   11343920
+sdi               0.17         1.18        17.86     734272   11124488
+sdj               0.00         0.00         0.00       1344          0
+sdk               0.00         0.00         0.00       1344          0
+.............
+----
+. Si possible, exécutez le `takeover` commande sur le nœud de cluster de stockage :
++
+`storage failover takeover -ofnode <node_name\>`
+
+. Vérifiez que les E/S sont toujours en cours d'exécution sur le périphérique multichemin en exécutant de nouveau le `iostat` commande.
+. Exécutez le `giveback` commande sur le nœud de cluster de stockage :
++
+`storage failover giveback -ofnode <node_name\>`
+
+. Fait `iostat` Sortie pour vérifier que les E/S sont toujours en cours d'exécution.
+
+
+
+
+== Que faire ensuite
+
+Si l'un des tests échoue, vérifiez que le service iSCSI est en cours d'exécution et vérifiez à nouveau la configuration DM-Multipath ainsi que les chemins iSCSI vers le périphérique multichemin.

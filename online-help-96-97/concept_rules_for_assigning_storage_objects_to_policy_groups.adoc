@@ -1,0 +1,65 @@
+---
+permalink: online-help-96-97/concept_rules_for_assigning_storage_objects_to_policy_groups.html 
+sidebar: sidebar 
+keywords: rulw, assign, storage, object, policy, group, svm, nested, online, help 
+summary: Il est important de connaître les règles qui déterminent comment attribuer des objets de stockage à des groupes de règles de QoS de stockage. 
+---
+= Règles d'assignation d'objets de stockage à des « policy groups »
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il est important de connaître les règles qui déterminent comment attribuer des objets de stockage à des groupes de règles de QoS de stockage.
+
+
+
+== Les objets de stockage et les groupes de règles doivent appartenir au même SVM
+
+Un objet de stockage doit être contenu par le SVM auquel appartient le « policy group ». Vous spécifiez la SVM à laquelle appartient la « policy group » lors de la création de la « policy group ». Plusieurs « policy group » peuvent appartenir à la même SVM.
+
+Dans l'illustration suivante, le groupe de règles pg1 appartient au SVM vs1. Vous ne pouvez pas affecter des volumes vol2 ou vol3 au groupe de règles pg1, car ces volumes sont contenus par un autre SVM.
+
+image::../media/qos_rule_same_vserver.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
+== Les objets de stockage imbriqués ne peuvent pas appartenir à des groupes de règles
+
+Vous ne pouvez pas affecter un objet de stockage à un groupe de règles si son objet contenant ou ses objets enfants appartiennent à un groupe de règles. Le tableau suivant répertorie les restrictions.
+
+|===
+| Si vous attribuez... | Vous ne pouvez alors pas affecter... 
+
+
+ a| 
+SVM vers une « policy group »
+ a| 
+Tout objet de stockage contenu par la SVM vers une « policy group »
+
+
+
+ a| 
+Volume vers une « policy group »
+ a| 
+Le volume contenant un SVM ou toute LUN enfant vers un « policy group »
+
+
+
+ a| 
+LUN vers une « policy group »
+ a| 
+La LUN contenant le volume ou le SVM à une « policy group »
+
+
+
+ a| 
+Fichier dans une « policy group »
+ a| 
+Fichier contenant le volume ou SVM vers une « policy group »
+
+|===
+Dans l'illustration suivante, le SVM vs3 est attribué au groupe de règles pg2. Vous ne pouvez pas affecter des volumes vol4 ou vol5 à un groupe de règles car un objet de la hiérarchie de stockage (SVM vs3) est affecté à un groupe de règles.
+
+image::../media/qos_rule_one_object.gif[Ce graphique est décrit par le texte environnant.]

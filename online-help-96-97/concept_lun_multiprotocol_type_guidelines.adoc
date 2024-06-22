@@ -1,0 +1,147 @@
+---
+permalink: online-help-96-97/concept_lun_multiprotocol_type_guidelines.html 
+sidebar: sidebar 
+keywords: guidelines, lun, multiprotocol, type, operating, system, host, layout, data, minimum, maximum, size, online, help 
+summary: 'Le type multiprotocole LUN, ou type de système d"exploitation, spécifie le système d"exploitation de l"hôte qui accède à la LUN. Il détermine également la disposition des données sur la LUN, ainsi que sa taille minimale et maximale.' 
+---
+= Consignes relatives à l'utilisation du type multiprotocole de LUN dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures), le type de LUN multiprotocole, ou type de système d'exploitation, spécifie le système d'exploitation qui permet d'accéder à la LUN par l'hôte. Il détermine également la disposition des données sur la LUN, ainsi que sa taille minimale et maximale.
+
+[NOTE]
+====
+Toutes les versions de ONTAP ne prennent pas en charge tous les types multiprotocoles de LUN. Pour obtenir les dernières informations, consultez la matrice d'interopérabilité.
+
+====
+Le tableau ci-dessous décrit les valeurs de type multiprotocole LUN et les consignes d'utilisation de chaque type :
+
+|===
+| Type multiprotocole de la LUN | Quand utiliser 
+
+
+ a| 
+AIX
+ a| 
+Si votre système d'exploitation hôte est AIX.
+
+
+
+ a| 
+HP-UX
+ a| 
+Si votre système d'exploitation hôte est HP-UX.
+
+
+
+ a| 
+Hyper-V
+ a| 
+Si vous utilisez Windows Server 2008 ou Windows Server 2012 Hyper-V et que vos LUN contiennent des disques durs virtuels (VHD). Si vous utilisez hyper_v pour votre type de LUN, vous devez également utiliser hyper_v pour votre type de système d'exploitation igroup.
+
+[NOTE]
+====
+Pour les LUN brutes, vous pouvez utiliser le type de système d'exploitation enfant utilisé par le type multiprotocole LUN.
+
+====
+
+
+ a| 
+Linux
+ a| 
+Si votre système d'exploitation hôte est Linux.
+
+
+
+ a| 
+NetWare
+ a| 
+Si votre système d'exploitation hôte est NetWare.
+
+
+
+ a| 
+OpenVMS
+ a| 
+Si votre système d'exploitation hôte est OpenVMS.
+
+
+
+ a| 
+Solaris
+ a| 
+Si votre système d'exploitation hôte est Solaris et que vous n'utilisez pas d'étiquettes Solaris EFI.
+
+
+
+ a| 
+EFI Solaris
+ a| 
+Si vous utilisez des étiquettes Solaris EFI.
+
+[NOTE]
+====
+L'utilisation de tout autre type de LUN multiprotocole avec des étiquettes Solaris EFI peut entraîner des problèmes d'alignement des LUN.
+
+====
+
+
+ a| 
+VMware
+ a| 
+Si vous utilisez un serveur ESX et que vos LUN seront configurées avec VMFS.
+
+[NOTE]
+====
+Si vous configurez les LUN avec RDM, vous pouvez utiliser le système d'exploitation invité comme type multiprotocole LUN.
+
+====
+
+
+ a| 
+Windows 2003 MBR
+ a| 
+Si votre système d'exploitation hôte est Windows Server 2003 à l'aide de la méthode de partitionnement MBR.
+
+
+
+ a| 
+Windows 2003 GPT
+ a| 
+Si vous voulez utiliser la méthode de partitionnement GPT et que votre hôte peut l'utiliser. Windows Server 2003, Service Pack 1 et versions ultérieures peuvent utiliser la méthode de partitionnement GPT et toutes les versions 64 bits de Windows le prennent en charge.
+
+
+
+ a| 
+Windows 2008 ou version ultérieure
+ a| 
+Si votre système d'exploitation hôte est Windows Server 2008 ou version ultérieure ; les méthodes de partitionnement MBR et GPT sont toutes deux prises en charge.
+
+
+
+ a| 
+Xen
+ a| 
+Si vous utilisez Xen et que vos LUN seront configurées avec Linux LVM avec Dom0.
+
+[NOTE]
+====
+Pour les LUN brutes, vous pouvez utiliser le type de système d'exploitation invité utilisé par le type multiprotocole LUN.
+
+====
+|===
+*Informations connexes*
+
+xref:task_creating_luns.adoc[Création des LUN]
+
+https://mysupport.netapp.com/NOW/products/interoperability["Interopérabilité NetApp"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148981["Guide d'installation et de configuration de Solaris Host Utilities 6.1"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148983["Solaris Host Utilities 6.1 : référence rapide des commandes"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148982["Notes de mise à jour de Solaris Host Utilities 6.1"]

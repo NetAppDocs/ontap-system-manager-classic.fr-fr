@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/task_deleting_flexgroup_volumes.html 
+sidebar: sidebar 
+keywords: delete, flexgroup, volumes, online, help, system, manager 
+summary: 'Si vous n"avez plus besoin du volume FlexGroup, vous pouvez utiliser System Manager pour supprimer un volume FlexGroup.' 
+---
+= Supprimez les volumes FlexGroup avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de supprimer un volume FlexGroup si le volume FlexGroup n'est plus nécessaire.
+
+.Avant de commencer
+* La Junction path du volume FlexGroup doit être démonté.
+* Le volume FlexGroup doit être hors ligne.
+
+
+.Description de la tâche
+System Manager ne prend pas en charge le niveau de gestion composant pour les volumes FlexGroup.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume FlexGroup que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *OK*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

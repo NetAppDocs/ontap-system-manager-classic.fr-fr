@@ -1,0 +1,70 @@
+---
+permalink: expansion/task_updating_lun_paths_for_new_nodes.html 
+sidebar: sidebar 
+keywords: cluster, configure, san, lif, add, update, path, lun, node, update lun paths for the new nodes 
+summary: Si le cluster est configuré pour SAN, vous devez créer des LIF SAN sur les nouveaux nœuds ajoutés, puis mettre à jour les chemins. 
+---
+= Mettre à jour les chemins de LUN pour les nouveaux nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si le cluster est configuré pour SAN, vous devez créer des LIF SAN sur les nouveaux nœuds ajoutés, puis mettre à jour les chemins.
+
+.Description de la tâche
+Cette procédure est requise uniquement si le cluster contient des LUN. Si le cluster ne contient que des fichiers, vous pouvez ignorer cette procédure.
+
+.Étapes
+. Pour chaque SVM (Storage Virtual machine) du cluster, créez de nouvelles LIF sur les nouveaux nœuds :
++
+.. Identifier les SVM qui utilisent les protocoles FC ou iSCSI à l'aide du `vserver show` commande avec `-fields allowed-protocols` paramètre et vérification de la sortie.
++
+[listing]
+----
+cluster1::> vserver show -fields allowed-protocols
+vserver allowed-protocols
+------- -----------------
+vs1     cifs,ndmp
+vs2     fcp
+vs3     iscsi
+...
+----
+.. Pour chaque SVM qui utilise FC ou iSCSI, créez au moins deux LIF de données sur chacun des nouveaux nœuds ajoutés en utilisant le `network interface create` commande avec `-role data` paramètre.
++
+[listing]
+----
+cluster1::> network interface create -vserver vs1 -lif lif5 -role data
+-data-protocol iscsi -home-node cluster1-3 -home-port e0b
+-address 192.168.2.72 -netmask 255.255.255.0
+----
+.. Pour chaque SVM, vérifier qu'il possède des LIF sur tous les nœuds du cluster à l'aide de `network interface show` commande avec `-vserver` paramètre.
+
+
+. Mettre à jour les ensembles de ports :
++
+.. Déterminez si des ensembles de ports existent à l'aide du `lun portset show` commande.
+.. Si vous souhaitez que les nouvelles LIF soient visibles pour les hôtes existants, ajoutez chaque nouvelle LIF aux ensembles de ports à l'aide de la `lun portset add` Commande--une fois pour chaque LIF.
+
+
+. Si vous utilisez FC ou FCoE, mettez à jour la segmentation :
++
+.. Vérifiez que la segmentation est correctement configurée pour permettre aux ports initiateurs sur l'hôte de se connecter aux nouveaux ports cibles sur les nouveaux nœuds.
+.. Mettez à jour la segmentation du commutateur pour connecter les nouveaux nœuds aux initiateurs existants.
++
+La configuration de la segmentation varie en fonction du commutateur que vous utilisez.
+
+.. Si vous prévoyez de déplacer des LUN vers les nouveaux nœuds, exposez les nouveaux chemins d'accès aux hôtes à l'aide de `lun mapping add-reporting-nodes` commande.
+
+
+. Sur tous les systèmes d'exploitation hôtes, effectuez une nouvelle analyse pour découvrir les nouveaux chemins ajoutés.
+. En fonction des systèmes d'exploitation hôtes, supprimez les chemins obsolètes.
+. Ajoutez ou supprimez des chemins d'accès à votre configuration MPIO.
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/san-config/index.html["Configuration SAN"^]
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["Administration SAN"^]

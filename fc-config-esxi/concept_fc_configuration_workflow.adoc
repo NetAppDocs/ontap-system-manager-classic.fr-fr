@@ -1,0 +1,16 @@
+---
+permalink: fc-config-esxi/concept_fc_configuration_workflow.html 
+sidebar: sidebar 
+keywords: storage, available, fc, provision, volume, lun, storage, virtual, machine, svm, connect, host, workflow, fc configuration workflow 
+summary: 'Lorsque vous mettez le stockage disponible pour un hôte via FC, vous provisionnez un volume et une LUN sur la machine virtuelle de stockage, puis vous connectez à la LUN depuis l"hôte.' 
+---
+= Workflow de configuration FC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous mettez le stockage disponible pour un hôte via FC, vous provisionnez un volume et une LUN sur la machine virtuelle de stockage (SVM), puis vous connectez à la LUN depuis l'hôte.
+
+image::../media/fc_esx_workflow.gif[Cette illustration représente un organigramme du flux de travail FC. Les étapes du workflow correspondent aux rubriques.]

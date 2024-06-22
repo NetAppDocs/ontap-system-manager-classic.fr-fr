@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/reference_dashboard_window.html 
+sidebar: sidebar 
+keywords: system, manager, dashboard, window, multiple, panel, online, help 
+summary: 'La fenêtre Tableau de bord contient plusieurs panneaux qui fournissent des informations cumulées d"un coup d"œil sur votre système et ses performances.' 
+---
+= Fenêtre Tableau de bord pour System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La fenêtre Tableau de bord de ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) contient plusieurs panneaux présentant un nombre cumulé d'informations sur votre système et ses performances.
+
+Vous pouvez utiliser la fenêtre Tableau de bord pour afficher des informations sur les alertes et notifications importantes, l'efficacité et la capacité des agrégats et des volumes, les nœuds disponibles dans un cluster, l'état des nœuds d'une paire haute disponibilité, les applications et objets les plus actifs, et les metrics de performance d'un cluster ou d'un nœud.
+
+* *Alertes et notifications*
++
+Affiche toutes les alertes en rouge, telles que les événements EMS urgents, les détails des nœuds hors ligne, les détails des disques cassés, les droits de licence qui sont à haut risque et les détails des ports réseau hors ligne. Affiche toutes les notifications en jaune, telles que les notifications de contrôle de l'état au cours des 24 dernières heures au niveau du cluster, les droits de licence à risque moyen, les informations sur les disques non attribués, le nombre de LIF migrées, les opérations de déplacement de volumes qui ont échoué, pour les opérations de déplacement de volumes qui nécessitaient des interventions administratives au cours des 24 dernières heures.
+
++
+Le panneau alertes et notifications affiche jusqu'à trois alertes et notifications au-delà desquelles un lien Afficher tout s'affiche. Vous pouvez cliquer sur le lien Afficher tout pour afficher plus d'informations sur les alertes et les notifications.
+
++
+L'intervalle d'actualisation du panneau alertes et notifications est d'une minute.
+
+* *Présentation du cluster*
++
+Affiche les agrégats et les volumes qui approchent de la capacité, l'efficacité de stockage d'un cluster ou d'un nœud et les détails de protection des principaux volumes.
+
++
+L'onglet capacité affiche les principaux agrégats en ligne qui approchent de la capacité, par ordre décroissant d'espace utilisé.
+
++
+L'onglet capacité fournit un lien vers le nombre de volumes ayant la capacité la plus élevée utilisée lorsque vous entrez une valeur valide dans le champ volumes dépassant la capacité utilisée. Il affiche également la quantité de données inactives disponibles dans le cluster.
+
++
+L'onglet Efficiency affiche les économies réalisées en termes d'efficacité du stockage pour un cluster ou un nœud. Vous pouvez afficher l'espace logique total utilisé, l'espace physique total utilisé et les économies globales. Vous pouvez sélectionner un cluster ou un nœud spécifique pour consulter les économies réalisées en termes d'efficacité du stockage. Pour System Manager 9.5, l'espace utilisé pour les copies Snapshot est _non_ inclus dans les valeurs de l'espace logique total utilisé, de l'espace physique total utilisé et des économies globales. Depuis System Manager 9.6, l'espace utilisé pour les copies Snapshot est toutefois inclus dans les valeurs de l'espace logique total utilisé, de l'espace physique total utilisé et des économies globales.
+
++
+L'intervalle de mise à jour du panneau Présentation du cluster est de 15 minutes.
+
++
+L'onglet protection affiche des informations sur les volumes au niveau du cluster qui ne disposent pas de relations de protection définies. Seuls les volumes FlexVol et FlexGroup répondant aux critères suivants sont affichés :
+
++
+** Les volumes sont des volumes RW et sont en ligne.
+** L'agrégat contenant les volumes est en ligne.
+** Les volumes ont des relations de protection et ne sont pas encore initialisés.
+Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont pas de relation de protection définie.
+
+
++
+L'onglet protection affiche également les cinq SVM les plus nombreux qui ne disposent pas de relations de protection définies.
+
+* *Nœuds*
++
+Affiche une représentation schématique du nombre et des noms des nœuds disponibles dans le cluster, ainsi que l'état des nœuds d'une paire haute disponibilité. Vous devez positionner le curseur sur la représentation graphique des nœuds pour afficher l'état des nœuds d'une paire HA.
+
++
+Vous pouvez afficher plus d'informations sur tous les nœuds en cliquant sur le lien nœuds. Vous pouvez également cliquer sur la représentation illustré pour afficher le modèle des nœuds et le nombre d'agrégats, de pools de stockage, de tiroirs et de disques disponibles dans les nœuds. Vous pouvez gérer les nœuds à l'aide du lien gérer les nœuds. Vous pouvez gérer les nœuds d'une paire haute disponibilité à l'aide du lien Manage HA.
+
++
+L'intervalle de rafraîchissement du panneau nœuds est de 15 minutes.
+
+* *Applications et objets*
++
+Vous pouvez utiliser le panneau applications et objets pour afficher des informations sur les applications, les clients et les fichiers d'un cluster.
+
++
+L'onglet applications affiche des informations sur les cinq principales applications du cluster. Vous pouvez voir les cinq principales applications basées sur les IOPS et la latence (de faible à élevé ou de élevée à faible) ou la capacité (de faible à élevé ou de élevée à faible).
+
++
+Cliquez sur le graphique à barres spécifique pour afficher plus d'informations sur l'application. L'espace total, l'espace utilisé et l'espace disponible sont affichés pour la capacité, les détails d'IOPS pour les opérations d'entrée/sortie par seconde et les détails de latence sont affichés pour la latence.
+
++
+Vous pouvez cliquer sur *Afficher les détails* pour ouvrir la fenêtre applications de l'application spécifique.
+
++
+L'onglet objets affiche des informations sur les cinq principaux clients et fichiers actifs du cluster. Vous pouvez afficher les cinq principaux clients et fichiers actifs sur la base du débit ou du nombre d'IOPS.
+
++
+[NOTE]
+====
+Ces informations s'affichent uniquement pour les protocoles CIFS et NFS.
+
+====
++
+L'intervalle de rafraîchissement du panneau applications et objets est d'une minute.
+
+* *Performance*
++
+Affiche les mesures de performances moyennes, les mesures de performances en lecture et les mesures de performances en écriture du cluster en fonction de la latence, des IOPS et du débit. Les mesures de performances moyennes sont affichées par défaut. Vous pouvez cliquer sur lecture ou sur écriture pour afficher respectivement les mesures de performances en lecture et les mesures de performances en écriture. Vous pouvez afficher les mesures de performances du cluster ou d'un nœud.
+
++
+Si les informations relatives aux performances du cluster ne peuvent pas être récupérées depuis la ONTAP, vous ne pouvez pas afficher le graphique respectif. Dans ce cas, System Manager affiche le message d'erreur spécifique.
+
++
+L'intervalle d'actualisation des graphiques du panneau performances est de 15 secondes.
+
+
+
+
+
+== Contrôle d'un cluster à l'aide du tableau de bord
+
+Le tableau de bord de System Manager vous permet de contrôler l'état et les performances d'un cluster. Vous pouvez également identifier les problèmes matériels et les problèmes de configuration du stockage à l'aide du tableau de bord.
+
+.Étapes
+. Cliquez sur l'onglet *Dashboard* pour afficher les panneaux du tableau de bord d'intégrité et de performances.
+

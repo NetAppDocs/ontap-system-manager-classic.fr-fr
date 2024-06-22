@@ -1,0 +1,28 @@
+---
+permalink: volume-restore-snapvault/concept_volume_restore_workflow.html 
+sidebar: sidebar 
+keywords: source, volume, data, corrupt, restore, snapvault, backup, destination, restoring, exist, operation, volume restore workflow 
+summary: 'Lorsque le volume source est indisponible ou que des données sont corrompues, vous pouvez effectuer une restauration à partir d"une sauvegarde SnapVault. La restauration d"un volume à partir d"une sauvegarde SnapVault implique la sélection du volume de destination SnapVault, la restauration vers un nouveau volume ou un volume existant et la vérification de l"opération de restauration.' 
+---
+= Flux de production de restauration de volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque le volume source est indisponible ou que des données sont corrompues, vous pouvez effectuer une restauration à partir d'une sauvegarde SnapVault. La restauration d'un volume à partir d'une sauvegarde SnapVault implique la sélection du volume de destination SnapVault, la restauration vers un nouveau volume ou un volume existant et la vérification de l'opération de restauration.
+
+image::../media/volume_restore_workflow.gif[Cette illustration représente un organigramme du workflow de restauration de volume SnapVault. Les étapes du workflow correspondent aux rubriques. »>]
+
+Des informations supplémentaires sont disponibles pour vous aider à gérer les relations de sauvegarde SnapVault et à utiliser d'autres méthodes de protection des données pour assurer la disponibilité des ressources de données.
+
+* xref:../volume-disaster-prep/index.html[Préparation de la reprise après incident de volume]
++
+Décrit la procédure de configuration rapide d'un volume de destination sur un autre cluster ONTAP en préparation de la reprise après incident.
+
+* xref:../volume-disaster-recovery/index.html[Reprise après incident de volume]
++
+Décrit la procédure d'activation rapide d'un volume de destination depuis un autre cluster ONTAP après un incident, ainsi que la procédure de restauration de la relation SnapMirror à son état d'origine en activant le volume source après sa restauration.
+
+

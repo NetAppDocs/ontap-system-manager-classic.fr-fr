@@ -1,0 +1,715 @@
+---
+permalink: online-help-96-97/reference_application_specific_lun_settings.html 
+sidebar: sidebar 
+keywords: system, manager, oracle, sql, lun, application, specific, online, help 
+summary: 'System Manager prend en charge Oracle, SQL et d"autres types d"applications tout en créant des LUN optimisées pour le SAN FC sur un cluster AFF. Les paramètres de LUN tels que la taille de LUN sont déterminés par des règles spécifiques au type d"application. Pour SQL et Oracle, des paramètres de LUN sont créés automatiquement.' 
+---
+= Paramètres des LUN spécifiques à l'application avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) prend en charge Oracle, SQL et d'autres types d'applications tout en créant des LUN optimisées pour SAN FC sur un cluster AFF. Les paramètres de LUN tels que la taille de LUN sont déterminés par des règles spécifiques au type d'application. Pour SQL et Oracle, des paramètres de LUN sont créés automatiquement.
+
+Si votre cluster contient deux nœuds ou plus, System Manager utilise uniquement les deux premiers nœuds sélectionnés par l'API pour créer des LUN. Les agrégats de données sont déjà créés dans chacun des deux nœuds. La taille de chaque volume créé est égale à la capacité disponible de l'agrégat. Les volumes sont à provisionnement fin et la réservation d'espace est désactivée sur les LUN.
+
+La règle d'efficacité du stockage est activée par défaut avec la planification définie sur « q uotidienne » et la qualité de service (QoS) définie sur « Best_effort ». Par défaut, la mise à jour de l'heure d'accès (atime) est activée sur le cluster. Cependant, les mises à jour du temps d'accès sont désactivées par System Manager lors de la création des volumes. Par conséquent, à chaque lecture ou écriture d'un fichier, le champ durée d'accès de l'annuaire n'est pas mis à jour.
+
+[NOTE]
+====
+L'activation de la mise à jour du délai d'accès entraîne une dégradation des performances du système qui assure le service des données du cluster.
+
+====
+
+
+== Paramètres LUN pour SQL
+
+Par défaut, les LUN et les volumes sont provisionnés pour une seule instance du serveur SQL avec 2 bases de données de 1 To chacune et 24 cœurs physiques. L'espace est provisionné pour les LUN et les volumes en fonction de règles spécifiques pour le serveur SQL. L'équilibrage de la charge s'effectue pour les LUN sur la paire haute disponibilité. Vous pouvez modifier le nombre de bases de données. Pour chaque base de données, huit LUN de données et un LUN de journal sont créés. Une LUN temporaire est créée pour chaque instance SQL.
+
+Le tableau suivant fournit des informations sur le provisionnement de l'espace pour les valeurs par défaut de SQL :
+
+|===
+| Nœud | Agrégat | Type de LUN | Nom du volume | Nom de la LUN | Formule pour la taille de LUN | Taille de la LUN (Go) 
+
+
+ a| 
+nœud 1
+ a| 
+nœud1_aggr1
+ a| 
+les données
+ a| 
+db01_data01
+ a| 
+db01_data01
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data02
+ a| 
+db01_data02
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data03
+ a| 
+db01_data03
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data04
+ a| 
+db01_data04
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data01
+ a| 
+db02_data01
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data02
+ a| 
+db02_data02
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data03
+ a| 
+db02_data03
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data04
+ a| 
+db02_data04
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+db01_log
+ a| 
+db01_log
+ a| 
+Taille de la base de données ÷ 20
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+temp
+ a| 
+temp_sql
+ a| 
+temp_sql
+ a| 
+Taille de la base de données ÷ 3
+ a| 
+330
+
+
+
+ a| 
+nœud 2
+ a| 
+nœud2_aggr1
+ a| 
+les données
+ a| 
+db01_data05
+ a| 
+db01_data05
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data06
+ a| 
+db01_data06
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data07
+ a| 
+db01_data07
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db01_data08
+ a| 
+db01_data08
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data05
+ a| 
+db02_data05
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data06
+ a| 
+db02_data06
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data07
+ a| 
+db02_data07
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+db02_data08
+ a| 
+db02_data08
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+125
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+db02_log
+ a| 
+db02_log
+ a| 
+Taille de la base de données ÷ 20
+ a| 
+50
+
+|===
+
+
+== Paramètres de LUN pour Oracle
+
+Par défaut, les LUN et les volumes sont provisionnés pour une base de données de 2 To. L'espace est provisionné pour les LUN et les volumes en fonction de règles spécifiques pour Oracle. Par défaut, Oracle Real application clusters (RAC) n'est pas sélectionné.
+
+Le tableau suivant fournit des informations sur le provisionnement de l'espace pour les valeurs par défaut d'Oracle :
+
+|===
+| Nœud | Agrégat | Type de LUN | Nom du volume | Nom de la LUN | Formule pour la taille de LUN | Taille de la LUN (Go) 
+
+
+ a| 
+nœud 1
+ a| 
+nœud1_aggr1
+ a| 
+les données
+ a| 
+ora_vol01
+ a| 
+ora_lundata01
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol02
+ a| 
+ora_lundata02
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol03
+ a| 
+ora_lundata03
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol04
+ a| 
+ora_lundata04
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+ora_vol05
+ a| 
+ora_lunlog1
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+binaires
+ a| 
+ora_vol06
+ a| 
+ora_orabin1
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+
+
+ a| 
+nœud 2
+ a| 
+nœud2_aggr1
+ a| 
+les données
+ a| 
+ora_vol07
+ a| 
+ora_lundata05
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol08
+ a| 
+ora_lundata06
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol09
+ a| 
+ora_lundata07
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol10
+ a| 
+ora_lundata08
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+ora_vol11
+ a| 
+ora_lunlog2
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+|===
+Pour Oracle RAC, des LUN sont provisionnés pour les fichiers grid. Seuls deux nœuds RAC sont pris en charge pour Oracle RAC.
+
+Le tableau suivant fournit des informations sur le provisionnement de l'espace pour les valeurs par défaut d'Oracle RAC :
+
+|===
+| Nœud | Agrégat | Type de LUN | Nom du volume | Nom de la LUN | Formule pour la taille de LUN | Taille de la LUN (Go) 
+
+
+ a| 
+nœud 1
+ a| 
+nœud1_aggr1
+ a| 
+les données
+ a| 
+ora_vol01
+ a| 
+ora_lundata01
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol02
+ a| 
+ora_lundata02
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol03
+ a| 
+ora_lundata03
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol04
+ a| 
+ora_lundata04
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+ora_vol05
+ a| 
+ora_lunlog1
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+binaires
+ a| 
+ora_vol06
+ a| 
+ora_orabin1
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+grille
+ a| 
+ora_vol07
+ a| 
+ora_lundgrid1
+ a| 
+10 GO
+ a| 
+10
+
+
+
+ a| 
+nœud 2
+ a| 
+nœud2_aggr1
+ a| 
+les données
+ a| 
+ora_vol08
+ a| 
+ora_lundata05
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol09
+ a| 
+ora_lundata06
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol10
+ a| 
+ora_lundata07
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+les données
+ a| 
+ora_vol11
+ a| 
+ora_lundata08
+ a| 
+Taille de la base de données ÷ 8
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+journal
+ a| 
+ora_vol12
+ a| 
+ora_lunlog2
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+binaires
+ a| 
+ora_vol13
+ a| 
+ora_orabin2
+ a| 
+Taille de la base de données ÷ 40
+ a| 
+50
+
+|===
+
+
+== Paramètres de LUN pour un autre type d'application
+
+Chaque LUN est provisionnée dans un volume. L'espace est provisionné dans les LUN en fonction de la taille spécifiée. L'équilibrage de la charge s'effectue sur les nœuds pour toutes les LUN.

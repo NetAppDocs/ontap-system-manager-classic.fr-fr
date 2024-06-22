@@ -1,0 +1,48 @@
+---
+permalink: online-help-96-97/concept_date_time.html 
+sidebar: sidebar 
+keywords: date, time, settings, cluster, system, manager, online, help 
+summary: 'Vous pouvez utiliser System Manager pour gérer les paramètres de date et d"heure d"un cluster.' 
+---
+= Gérez les paramètres de date et d'heure d'un cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les paramètres de date et d'heure d'un cluster.
+
+
+
+== Fenêtre de date et d'heure
+
+La fenêtre Date et heure vous permet d'afficher les paramètres actuels de date et d'heure de votre système de stockage et de modifier les paramètres lorsque cela est nécessaire.
+
+
+
+=== Boutons de commande
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier la date et l'heure, qui permet de modifier les serveurs de temps.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Zone de détails
+
+La zone de détails affiche des informations sur la date, l'heure, le fuseau horaire, le service NTP et les serveurs d'heure de votre système de stockage.
+
+*Informations connexes*
+
+xref:task_setting_time_zone_for_cluster.adoc[Configuration du fuseau horaire d'un cluster]
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[Configuration d'un réseau lorsqu'une plage d'adresses IP est désactivée]
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["Administration du système"]

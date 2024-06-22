@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/reference_effective_data_ontap_disk_types.html 
+sidebar: sidebar 
+keywords: ontap, disk, type, online, help 
+summary: 'Depuis la version Data ONTAP 8.1, certains types de disques ONTAP sont considérés comme équivalents pour la création, l"ajout d"agrégats et la gestion des disques de secours. ONTAP attribue un type de disque efficace à chaque type de disque. Vous pouvez combiner des disques durs disposant du même type de disque efficace.' 
+---
+= Utilisez un type de disque ONTAP efficace pour mélanger les disques durs avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis la version Data ONTAP 8.1, certains types de disques ONTAP sont considérés comme équivalents pour la création, l'ajout d'agrégats et la gestion des disques de secours. ONTAP attribue un type de disque efficace à chaque type de disque. Vous pouvez utiliser ONTAP System Manager classique (disponible dans les versions 9.7 et ultérieures) pour combiner des disques durs ayant le même type de disque efficace.
+
+Lorsque le `raid.disktype.enable` l'option est définie sur `off`, Vous pouvez mélanger certains types de disques durs au sein du même agrégat. Lorsque le `raid.disktype.enable` l'option est définie sur `on`, Le type de disque effectif est le même que le type de disque ONTAP. Les agrégats ne peuvent être créés qu'avec un seul type de disque. La valeur par défaut de l' `raid.disktype.enable` l'option est `off`.
+
+Depuis Data ONTAP 8.2, cette option `raid.mix.hdd.disktype.capacity` doit être réglé sur `on` Pour mélanger des disques de type BSA, FSA et ATA. L'option `raid.mix.hdd.disktype.performance` doit être réglé sur `on` Pour mélanger les disques de type FCAL et SAS.
+
+Le tableau suivant montre comment les types de disques sont associés au type de disque effectif :
+
+|===
+| Type de disque ONTAP | Type de disque efficace 
+
+
+ a| 
+FCAL
+ a| 
+SAS
+
+
+
+ a| 
+SAS
+ a| 
+SAS
+
+
+
+ a| 
+ATA
+ a| 
+FSAS
+
+
+
+ a| 
+BSA
+ a| 
+FSAS
+
+
+
+ a| 
+FCAL et SAS
+ a| 
+SAS
+
+
+
+ a| 
+MSATA
+ a| 
+MSATA
+
+
+
+ a| 
+FSAS
+ a| 
+FSAS
+
+|===

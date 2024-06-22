@@ -1,0 +1,282 @@
+---
+permalink: online-help-96-97/concept_export_policies.html 
+sidebar: sidebar 
+keywords: system, manager, create, edit, manage, export, policy, online, help, volume, rules, svm, qtree, rename 
+summary: 'System Manager permet de créer, modifier et gérer des règles d"exportation.' 
+---
+= Gérez les règles d'exportation à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer, modifier et gérer des règles d'exportation.
+
+
+
+== Créer une export-policy
+
+System Manager peut être utilisé pour créer une export policy afin que les clients puissent accéder à des volumes spécifiques.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer une stratégie d'exportation*, spécifiez un nom pour la stratégie d'exportation.
+. Si vous souhaitez créer une export policy en copiant les règles à partir d'une export policy existante, cochez la case *Copy Rules from*, puis sélectionnez la machine virtuelle de stockage (SVM) et l'export policy.
++
+Vous ne devez pas sélectionner le SVM de destination pour la reprise sur incident dans le menu déroulant pour créer une export policy.
+
+. Dans la zone **règles d'exportation**, cliquez sur *Ajouter* pour ajouter des règles à la politique d'exportation.
+. Cliquez sur *Créer*.
+. Vérifiez que la stratégie d'exportation que vous avez créée s'affiche dans la fenêtre *Export Policies*.
+
+
+
+
+== Renommez les export-policies
+
+Vous pouvez utiliser System Manageerto pour renommer une stratégie d'exportation existante.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Sélectionnez la stratégie d'exportation à renommer, puis cliquez sur *Renommer la stratégie*.
+. Dans la boîte de dialogue *Renommer la stratégie*, spécifiez un nouveau nom de stratégie, puis cliquez sur *Modifier*.
+. Vérifiez les modifications que vous avez effectuées dans la fenêtre *Export Policies*.
+
+
+
+
+== Supprimer les export-policies
+
+System Manager peut être utilisé pour supprimer les règles d'exportation qui ne sont plus nécessaires.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Sélectionnez la stratégie d'exportation à supprimer, puis cliquez sur *Supprimer la stratégie*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Ajout de règles à une export-policy
+
+Vous pouvez utiliser System Manager pour ajouter des règles à une export policy, qui permet de définir l'accès des clients aux données.
+
+.Avant de commencer
+Vous devez avoir créé l'export policy à laquelle vous souhaitez ajouter les règles d'exportation.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Sélectionnez la stratégie d'exportation à laquelle vous souhaitez ajouter des règles et, dans l'onglet *règles d'exportation*, cliquez sur *Ajouter*.
+. Dans la boîte de dialogue *Créer une règle d'exportation*, effectuez les opérations suivantes :
++
+.. Spécifiez le client qui requiert l'accès aux données.
++
+Vous pouvez indiquer plusieurs clients comme valeurs séparées par des virgules.
+
++
+Vous pouvez spécifier le client dans l'un des formats suivants :
+
++
+*** En tant que nom d'hôte ; par exemple, host1
+*** Comme adresse IPv4 ; par exemple, 10.1.12.24
+*** En tant qu'adresse IPv4 avec un masque de réseau ; par exemple, 10.1.16.0/255.255.255.0
+*** En tant qu'adresse IPv6, par exemple FE80::0202:B3FF:FE1E:8329
+*** Comme adresse IPv6 avec un masque de réseau, par exemple 2001:db8:::/32
+*** En tant que groupe réseau, le nom du groupe réseau étant précédé d'un symbole AT (@), par exemple @netgroup
+*** Comme nom de domaine précédé d'un point (.); par exemple, .example.com
+
+
++
+[NOTE]
+====
+Vous ne devez pas entrer une plage d'adresses IP, par exemple 10.1.12.10 à 10.1.12.70. Les entrées de ce format sont interprétées comme une chaîne de texte et sont traitées comme un nom d'hôte.
+
+====
++
+Vous pouvez entrer l'adresse IPv4 `0.0.0.0/0` pour fournir un accès à tous les hôtes.
+
+.. Si vous souhaitez modifier le numéro d'index de la règle, sélectionnez le numéro d'index de règle approprié.
+.. Sélectionnez un ou plusieurs protocoles d'accès.
++
+Si vous ne sélectionnez aucun protocole d'accès, la valeur par défaut « tous » est attribuée à la règle d'exportation.
+
+.. Sélectionnez un ou plusieurs types de sécurité et règles d'accès.
+
+
+. Cliquez sur *OK*.
+. Vérifiez que la règle d'exportation que vous avez ajoutée s'affiche dans l'onglet *règles d'exportation* de la stratégie d'exportation sélectionnée.
+
+
+
+
+== Modifier les règles des export-policy
+
+System Manager permet de modifier le client spécifié, les protocoles d'accès et les autorisations d'accès d'une règle d'export-policy.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Dans la fenêtre *Export Policies*, sélectionnez la stratégie d'exportation pour laquelle vous souhaitez modifier la règle d'exportation, puis dans l'onglet *Export Rules*, sélectionnez la règle que vous souhaitez modifier, puis cliquez sur *Edit*.
+. Modifiez les paramètres suivants si nécessaire :
++
+** Spécification du client
+** Protocoles d'accès
+** Accédez aux informations
+
+
+. Cliquez sur *OK*.
+. Vérifiez que les modifications mises à jour de la règle d'exportation sont affichées dans l'onglet *règles d'exportation*.
+
+
+
+
+== Supprimer les règles d'export-policy
+
+System Manager peut être utilisé pour supprimer les règles d'export-policy qui ne sont plus nécessaires.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *Exporter les stratégies*.
+. Sélectionnez l'export policy pour laquelle vous souhaitez supprimer la règle d'exportation.
+. Dans l'onglet *règles d'exportation*, sélectionnez la règle d'exportation à supprimer, puis cliquez sur *Supprimer*.
+. Dans la zone de confirmation, cliquez sur *Supprimer*.
+
+
+
+
+== Comment les règles d'exportation contrôlent l'accès des clients aux volumes ou aux qtrees
+
+Les règles d'exportation contiennent une ou plusieurs _export rules_ qui traitent chaque demande d'accès client. Le résultat du processus détermine si le client est refusé ou accordé et quel niveau d'accès. Un export policy avec règles d'export doit exister sur la machine virtuelle de stockage (SVM) afin que les clients puissent accéder aux données.
+
+Vous associez exactement une export policy à chaque volume ou qtree pour configurer l'accès client au volume ou qtree. Le SVM peut contenir plusieurs export policy. Vous pouvez ainsi effectuer les opérations suivantes pour les SVM avec plusieurs volumes ou qtrees :
+
+* Assigner différentes export policy à chaque volume ou qtree du SVM pour le contrôle d'accès client individuel à chaque volume ou qtree du SVM.
+* Assigner la même export policy à plusieurs volumes ou qtree du SVM pour un contrôle d'accès client identique sans avoir à créer une nouvelle export policy pour chaque volume ou qtree.
+
+
+Si un client effectue une demande d'accès qui n'est pas autorisée par la stratégie d'exportation applicable, la requête échoue et un message d'autorisation est refusé. Si un client ne correspond à aucune règle de l'export policy, l'accès est refusé. Si une export policy est vide, alors tous les accès sont implicitement refusés.
+
+Vous pouvez modifier une export-policy de manière dynamique sur un système exécutant ONTAP.
+
+
+
+== Export Policies
+
+Vous pouvez utiliser la fenêtre Export Policies pour créer, afficher et gérer des informations sur les stratégies d'exportation et ses règles d'exportation associées.
+
+
+
+=== Export-règles
+
+La fenêtre Export Policies vous permet d'afficher et de gérer les export policies créées pour la machine virtuelle de stockage (SVM).
+
+* *Boutons de commande*
++
+** Création
++
+Ouvre la boîte de dialogue Créer une stratégie d'exportation, qui permet de créer une stratégie d'exportation et d'ajouter des règles d'exportation. Vous pouvez également copier des règles d'exportation depuis un SVM existant.
+
+** Renommer
++
+Ouvre la boîte de dialogue Renommer la stratégie, qui permet de renommer la stratégie d'exportation sélectionnée.
+
+** Supprimer
++
+Ouvre la boîte de dialogue Supprimer la stratégie d'exportation, qui permet de supprimer la stratégie d'exportation sélectionnée.
+
+** Actualisez
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+
+
+=== Règles d'exportation
+
+L'onglet règles d'exportation permet d'afficher des informations sur les règles d'exportation créées pour une export policy particulière. Vous pouvez également ajouter, modifier et supprimer des règles.
+
+* *Boutons de commande*
++
+** Autres
++
+Ouvre la boîte de dialogue Créer une règle d'exportation, qui permet d'ajouter une règle d'exportation à la règle d'exportation sélectionnée.
+
+** Modifier
++
+Ouvre la boîte de dialogue Modifier la règle d'exportation, qui permet de modifier les attributs de la règle d'exportation sélectionnée.
+
+** Supprimer
++
+Ouvre la boîte de dialogue Supprimer la règle d'exportation, qui permet de supprimer la règle d'exportation sélectionnée.
+
+** Monter
++
+Déplace l'index des règles de la règle d'exportation sélectionnée.
+
+** Descendre
++
+Déplace vers le bas l'index des règles de la règle d'exportation sélectionnée.
+
+** Actualisez
++
+Met à jour les informations dans la fenêtre.
+
+
+
+* *Liste des règles d'exportation*
++
+** Index des règles
++
+Spécifie la priorité en fonction de laquelle les règles d'exportation sont traitées. Vous pouvez utiliser les boutons déplacer vers le haut et déplacer vers le bas pour choisir la priorité.
+
+** Client
++
+Spécifie le client auquel la règle s'applique.
+
+** Protocoles d'accès
++
+Affiche le protocole d'accès spécifié pour la règle d'exportation.
+
++
+Si vous n'avez pas spécifié de protocole d'accès, la valeur par défaut « tous » est prise en compte.
+
+** Règle de lecture seule
++
+Spécifie un ou plusieurs types de sécurité pour l'accès en lecture seule.
+
+** Règle de lecture/écriture
++
+Spécifie un ou plusieurs types de sécurité pour l'accès en lecture/écriture.
+
+** Accès super-utilisateur
++
+Spécifie le type ou les types de sécurité pour l'accès superutilisateur.
+
+
+
+
+
+
+
+=== Onglet objets affectés
+
+L'onglet objets affectés vous permet d'afficher les volumes et les qtrees affectés à la stratégie d'exportation sélectionnée. Vous pouvez également voir si le volume est chiffré ou non.
+
+*Informations connexes*
+
+xref:task_setting_up_cifs.adoc[Configuration de CIFS]

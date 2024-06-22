@@ -1,0 +1,114 @@
+---
+permalink: online-help-96-97/concept_jobs.html 
+sidebar: sidebar 
+keywords: jobs, system, manager, job, task, display, information, progress, asynchronous, volume, operation, copy, move, mirror, data, queue, cluster, administrator, online, help 
+summary: 'System Manager peut être utilisé pour gérer des tâches, par exemple l"affichage des informations sur les tâches et la surveillance de leur progression.' 
+---
+= Gérez les tâches avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer des tâches telles que l'affichage des informations sur les tâches et la surveillance de leur progression.
+
+
+
+== Emplois
+
+_Jobs_ sont des tâches asynchrones et généralement des opérations de volume longues, telles que la copie, le déplacement ou la mise en miroir de données. Les travaux sont placés dans une file d'attente de travaux et sont exécutés lorsque des ressources sont disponibles. L'administrateur de cluster peut effectuer toutes les tâches associées à la gestion des tâches.
+
+Un travail peut être l'une des catégories suivantes :
+
+* Un travail_affilié_serveur est placé en file d'attente par le cadre de gestion pour être exécuté dans un nœud spécifique.
+* Un travail_affilié_cluster est placé en file d'attente par le framework de gestion pour être exécuté dans n'importe quel nœud du cluster.
+* Un _private_ job est spécifique à un noeud et n'utilise pas la base de données répliquée (RDB) ou tout autre mécanisme de cluster.
++
+Vous avez besoin du niveau de privilège avancé ou supérieur pour exécuter les commandes de gestion des travaux privés.
+
+
+
+Vous pouvez gérer les tâches de la manière suivante :
+
+* Affichage des informations sur le travail, notamment :
++
+** Tâches par nœud
+** Travaux affiliés à un cluster
+** Tâches terminées
+** Historique des tâches
+
+
+* Suivi de la progression d'une tâche
+* Affichage d'informations sur l'état d'initialisation des gestionnaires de travaux.
+
+
+Vous pouvez déterminer le résultat d'un travail terminé en vérifiant le journal des événements.
+
+
+
+== Fenêtre travail
+
+Vous pouvez utiliser la fenêtre travail pour gérer des tâches telles que l'affichage des informations sur le travail et la surveillance de la progression d'un travail.
+
+
+
+=== Bouton de commande
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Onglets
+
+* *Emplois actuels*
++
+Cet onglet affiche des informations sur les tâches en cours.
+
+* *Historique du travail*
++
+Cet onglet affiche des informations sur tous les travaux.
+
+
+
+
+
+=== Liste des tâches
+
+* *ID travail*
++
+Affiche l'ID du travail.
+
+* *Heure de début*
++
+Affiche l'heure de début du travail.
+
+* *Nom du travail*
++
+Affiche le nom du travail.
+
+* *Nœud*
++
+Affiche le nom du nœud.
+
+* *État*
++
+Affiche l'état du travail.
+
+* *Description du poste*
++
+Affiche la description du travail.
+
+* *Progrès*
++
+Affiche l'état du travail.
+
+* *Nom de l'annexe*
++
+Affiche le nom du planning.
+
+

@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_changing_raid_configuration_when_creating_aggregate.html 
+sidebar: sidebar 
+keywords: system, manager, raid, configuration, aggregate, online, help 
+summary: 'Lors de la création d"un agrégat, vous pouvez modifier les valeurs par défaut des options de taille de groupe RAID et de type RAID de l"agrégat à l"aide de System Manager.' 
+---
+= Modifiez la configuration RAID lors de la création d'un agrégat avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lors de la création d'un agrégat, vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier les valeurs par défaut des options de type RAID et de taille de groupe RAID de l'agrégat.
+
+.Description de la tâche
+Si le type de disque de l'agrégat est FSAS ou MSATA et que la taille du disque est supérieure ou égale à 10 To, RAID-TEC est le seul type de RAID disponible.
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Dans la fenêtre *Storage tiers*, cliquez sur *Add Aggregate*.
+. Dans la boîte de dialogue *Créer un agrégat*, effectuez les opérations suivantes :
++
+.. Cliquez sur *Modifier*.
+.. Dans la boîte de dialogue *Modifier la configuration RAID*, indiquez le type de RAID et la taille du groupe RAID.
++
+Les disques partagés prennent en charge deux types RAID : RAID DP et RAID-TEC.
+
++
+La taille recommandée du groupe RAID est de 12 à 20 disques pour les disques durs et de 20 à 28 disques pour les disques SSD.
+
+.. Cliquez sur *Enregistrer*.
+
+
+

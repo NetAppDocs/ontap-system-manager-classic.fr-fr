@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_viewing_aggregate_information.html 
+sidebar: sidebar 
+keywords: view, aggregate, information, online, help, system, manager 
+summary: 'Vous pouvez utiliser la fenêtre Aggregates de System Manager pour afficher le nom, l"état et les informations d"espace sur un agrégat.' 
+---
+= Affichez les informations d'agrégat avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre Aggregates de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour afficher le nom, l'état et les informations relatives à l'espace d'un agrégat.
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Cliquer sur le nom de l'agrégat pour afficher les détails de l'agrégat sélectionné.
+

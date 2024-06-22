@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/concept_storage_virtual_machines.html 
+sidebar: sidebar 
+keywords: system, manager, svm, clister, online, help 
+summary: System Manager permet de gérer les SVM dans votre cluster. 
+---
+= Gérez des machines virtuelles de stockage avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les SVM dans votre cluster.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["Administration SAN"^]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["Concepts relatifs à ONTAP"^]

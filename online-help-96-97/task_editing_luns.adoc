@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_editing_luns.html 
+sidebar: sidebar 
+keywords: edit, lun, properties, online, help, system, manager 
+summary: 'Vous pouvez utiliser la boîte de dialogue des propriétés de LUN dans System Manager pour modifier le nom, la description, la taille, le paramètre de réservation d"espace ou les hôtes initiateurs mappés d"une LUN.' 
+---
+= Modifiez les LUN à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ONTAP System Manager classique (disponible dans la version ONTAP 9.7 et antérieure), vous pouvez utiliser la boîte de dialogue des propriétés de LUN pour modifier le nom, la description, la taille, le paramètre de réservation d'espace ou les hôtes initiateurs mappés d'une LUN.
+
+.Description de la tâche
+Lorsque vous redimensionnez une LUN, vous devez effectuer les étapes recommandées sur le côté hôte pour le type d'hôte et l'application qui utilise la LUN.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *gestion des LUN*, sélectionnez le LUN que vous souhaitez modifier dans la liste des LUN, puis cliquez sur *Modifier*.
+. Apportez les modifications requises.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

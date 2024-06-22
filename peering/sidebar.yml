@@ -1,0 +1,31 @@
+---
+section: peering
+title: Configuration cluster et SVM peering
+entries:
+- title: Présentation
+  url: "/peering/index.html"
+- title: Conditions préalables au peering de clusters
+  url: "/peering/reference_prerequisites_for_cluster_peering.html"
+- title: Flux de travail de peering de cluster et de SVM
+  url: "/peering/concept_cluster_peering_workflow.html"
+  entries:
+  - title: Préparation du peering de cluster
+    url: "/peering/task_preparing_for_cluster_peering.html"
+  - title: Configuration des relations entre pairs (à partir de ONTAP 9.3)
+    url: "/peering/concept_creating_peer_relationships_93_later.html"
+    entries:
+    - title: Création des LIFs intercluster (à partir de ONTAP 9.3)
+      url: "/peering/task_creating_intercluster_lifs.html"
+    - title: Création d'une relation entre clusters (à partir de ONTAP 9.3)
+      url: "/peering/task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html"
+    - title: Création d'une relation SVM peer-to-peer
+      url: "/peering/task_creating_svm_peers.html"
+  - title: Configurer des relations de pairs (ONTAP 9.2 et versions antérieures)
+    url: "/peering/concept_creating_peer_relationship_between_clusters_92_earlier.html"
+    entries:
+    - title: Création d'interfaces intercluster sur tous les nœuds (ONTAP 9.2 ou version
+        antérieure)
+      url: "/peering/task_creating_intercluster_interfaces_on_all_nodes.html"
+    - title: Création d'une relation de cluster entre pairs (ONTAP 9.2 ou version
+        antérieure)
+      url: "/peering/task_creating_cluster_peer_relationships_92_earlier.html"

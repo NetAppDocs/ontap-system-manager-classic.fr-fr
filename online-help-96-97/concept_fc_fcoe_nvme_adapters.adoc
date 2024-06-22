@@ -1,0 +1,32 @@
+---
+permalink: online-help-96-97/concept_fc_fcoe_nvme_adapters.html 
+sidebar: sidebar 
+keywords: system, manager, manage, fc, fcoe, nvme, adapter, online, help, edit, adapter, speed, settings 
+summary: Vous pouvez utiliser System Manager pour gérer les adaptateurs FC/FCoE et NVMe. 
+---
+= Gérez les adaptateurs FC/FCoE et NVMe avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les adaptateurs FC/FCoE et NVMe.
+
+
+
+== Modifiez les paramètres de vitesse des adaptateurs FC/FCoE et NVMe
+
+Vous pouvez modifier les paramètres de vitesse de l'adaptateur FC/FCoE et NVMe en utilisant la boîte de dialogue Modifier les paramètres FC/FCoE et NVMe adapter de System Manager.
+
+.Étapes
+. Cliquez sur *réseau* > *FC/FCoE et adaptateurs NVMe*.
+. Sélectionnez la carte que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier les paramètres de la carte FC/FCoE et de la carte NVMe*, définissez la vitesse de la carte sur *Manuel* ou *automatique*, puis cliquez sur *Enregistrer*.
+
+
+*Informations connexes*
+
+xref:reference_network_window.adoc[Fenêtre réseau]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]

@@ -1,0 +1,512 @@
+---
+permalink: online-help-96-97/concept_managing_network.html 
+sidebar: sidebar 
+keywords: system, manager, storage, create, manage, ipspace, broadcast, domain, subnet, network, interface, ethernet, port, fc, fcoe, adapter, online, help 
+summary: System Manager permet de gérer le réseau de votre système de stockage en créant et en gérant les IPspaces, les domaines de diffusion, les sous-réseaux, les interfaces réseau, les ports Ethernet, Et les adaptateurs FC/FCoE. 
+---
+= Gérez le réseau avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer le réseau de votre système de stockage en créant et en gérant les IPspaces, les domaines de diffusion, les sous-réseaux, les interfaces réseau, les ports Ethernet, Et les adaptateurs FC/FCoE.
+
+
+
+== Fenêtre réseau
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre réseau pour afficher la liste des composants réseau, tels que les sous-réseaux, les interfaces réseau, les ports Ethernet, les domaines de diffusion, Les adaptateurs FC/FCoE et NVMe, ainsi que les IPspaces, et pour créer, modifier ou supprimer ces composants dans votre système de stockage.
+
+
+
+=== Onglets
+
+* *Sous-réseau*
++
+Vous permet d'afficher une liste de sous-réseaux et de créer, modifier ou supprimer des sous-réseaux de votre système de stockage.
+
+* * Interfaces réseau*
++
+Vous permet d'afficher la liste des interfaces réseau, de créer, de modifier ou de supprimer des interfaces de votre système de stockage, de migrer les LIF, de modifier le statut de l'interface et de renvoyer l'interface vers le port de base.
+
+* *Ports Ethernet*
++
+Vous permet d'afficher et de modifier les ports d'un cluster et de créer, modifier ou supprimer des groupes d'interfaces et des ports VLAN.
+
+* *Domaines de diffusion*
++
+Permet d'afficher une liste de domaines de diffusion et de créer, modifier ou supprimer des domaines de votre système de stockage.
+
+* *Adaptateurs FC/FCoE et NVMe*
++
+Vous permet d'afficher les ports d'un cluster et de modifier les paramètres des adaptateurs FC/FCoE et NVMe.
+
+* *IPSpaces*
++
+Vous permet d'afficher la liste des IPspaces et des domaines de diffusion, et de créer, modifier ou supprimer un IPspace de votre système de stockage.
+
+
+
+
+
+=== Onglet sous-réseau
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un sous-réseau, qui vous permet de créer de nouveaux sous-réseaux contenant des informations de configuration pour créer une interface réseau.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le sous-réseau, qui vous permet de modifier certains attributs d'un sous-réseau tels que le nom, l'adresse de sous-réseau, la plage d'adresses IP et les détails de la passerelle.
+
+* *Supprimer*
++
+Supprime le sous-réseau sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des sous-réseaux
+
+* *Nom*
++
+Spécifie le nom du sous-réseau.
+
+* *Masque IP/sous-réseau de sous-réseau*
++
+Spécifie les détails de l'adresse de sous-réseau.
+
+* *Passerelle*
++
+Spécifie l'adresse IP de la passerelle.
+
+* *Disponible*
++
+Spécifie le nombre d'adresses IP disponibles dans le sous-réseau.
+
+* *Utilisé*
++
+Spécifie le nombre d'adresses IP utilisées dans le sous-réseau.
+
+* *Nombre total*
++
+Spécifie le nombre total d'adresses IP (disponibles et utilisées) dans le sous-réseau.
+
+* *Domaine de diffusion*
++
+Spécifie le domaine de diffusion auquel appartient le sous-réseau.
+
+* *IPspace*
++
+Spécifie l'IPspace auquel appartient le sous-réseau.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste de sous-réseaux affiche des informations détaillées sur le sous-réseau sélectionné, y compris la plage de sous-réseaux et un graphique indiquant le nombre disponible, utilisé et total d'adresses IP.
+
+
+
+=== Limitations de l'onglet interfaces réseau
+
+* Pour les LIF de cluster, les LIF de node-management, les LIF VIP et les LIF BGP, vous ne pouvez pas utiliser System Manager pour effectuer les actions suivantes :
++
+** Créez, modifiez, supprimez, activez ou désactivez les LIF
+** Migrez les LIFs ou renvoyez-les au port de home
+
+
+* Pour les LIF de gestion du cluster, vous pouvez utiliser System Manager pour migrer les LIF ou renvoyer les LIF vers le port de home Port.
++
+Cependant, vous ne pouvez pas créer, modifier, supprimer, activer, Ou désactiver les LIFs.
+
+* Pour les LIF intercluster, System Manager permet de créer, modifier, supprimer, activer ou désactiver les LIF.
++
+Toutefois, vous ne pouvez pas migrer les LIFs ou les renvoyer vers le port home port.
+
+* Vous ne pouvez pas créer, modifier ou supprimer des interfaces réseau dans les configurations suivantes :
++
+** Une configuration MetroCluster
+** Les SVM configurés pour la reprise après incident (DR).
+
+
+
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer une interface réseau, qui permet de créer des interfaces réseau et des LIF intercluster afin de fournir des données et de gérer les SVM.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'interface réseau, que vous pouvez utiliser pour activer l'accès de gestion pour une LIF de données.
+
+* *Supprimer*
++
+Supprime l'interface réseau sélectionnée.
+
++
+Ce bouton est activé uniquement si la LIF de données est désactivée.
+
+* *Statut*
++
+Ouvrez le menu déroulant qui permet d'activer ou de désactiver l'interface réseau sélectionnée.
+
+* *Migrer*
++
+Vous permet de migrer une LIF de données ou une LIF de cluster management vers un autre port sur le même nœud ou un nœud différent au sein du cluster.
+
+* *Envoyer à domicile*
++
+Vous permet de renvoyer la LIF sur son port de maison.
+
++
+Ce bouton de commande est activé uniquement lorsque l'interface sélectionnée est hébergée sur un port non-home et lorsque le port d'accueil est disponible.
+
++
+Ce bouton de commande est désactivé lorsque l'un des nœuds du cluster est arrêté.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des interfaces
+
+Vous pouvez déplacer le pointeur sur l'icône à code couleur pour afficher le statut opérationnel de l'interface :
+
+* Le vert indique que l'interface est activée.
+* Le rouge indique que l'interface est désactivée.
+* *Nom de l'interface*
++
+Spécifie le nom de l'interface réseau.
+
+* *Machine virtuelle de stockage*
++
+Spécifie le SVM auquel appartient l'interface.
+
+* *Adresse IP/WWPN*
++
+Spécifie l'adresse IP ou le nom WWPN (World Port Name) de l'interface.
+
+* *Port actuel*
++
+Spécifie le nom du nœud et du port sur lequel l'interface est hébergée.
+
+* *Accès au protocole de données*
++
+Spécifie le protocole utilisé pour accéder aux données.
+
+* *Accès de gestion*
++
+Indique si l'accès de gestion est activé sur l'interface.
+
+* *Sous-réseau*
++
+Spécifie le sous-réseau auquel appartient l'interface.
+
+* *Rôle mx*
++
+Spécifie le rôle opérationnel de l'interface, qui peut être des données, intercluster, cluster, cluster management ou node management.
+
+
+
+
+
+=== Zone de détails
+
+La zone sous la liste des interfaces affiche des informations détaillées sur l'interface sélectionnée : propriétés de basculement telles que le port home, le port actuel, la vitesse des ports, la stratégie de basculement, le groupe de basculement et l'état de basculement, ainsi que les propriétés générales telles que le statut administratif, le rôle, l'IPspace, le domaine de diffusion, le masque réseau, Passerelle et état DDNS.
+
+
+
+=== Onglet ports Ethernet
+
+
+
+=== Boutons de commande
+
+* *Créer un groupe d'interface*
++
+Ouvre la boîte de dialogue Créer un groupe d'interfaces, qui vous permet de créer des groupes d'interfaces en choisissant les ports et en déterminant l'utilisation des ports et la distribution du trafic réseau.
+
+* *Créer un VLAN*
++
+Ouvre la boîte de dialogue Créer un VLAN, qui vous permet de créer un VLAN en choisissant un port Ethernet ou un groupe d'interfaces et en ajoutant des balises VLAN.
+
+* *Modifier*
++
+Ouvre l'une des boîtes de dialogue suivantes :
+
++
+** Boîte de dialogue Modifier le port Ethernet : permet de modifier les paramètres du port Ethernet.
+** Boîte de dialogue Modifier le VLAN : permet de modifier les paramètres du VLAN.
+** Boîte de dialogue Modifier le groupe d'interfaces : permet de modifier les groupes d'interfaces.
+
+
++
+Vous ne pouvez modifier que les VLAN qui ne sont pas associés à un domaine de diffusion.
+
+* *Supprimer*
++
+Ouvre l'une des boîtes de dialogue suivantes :
+
++
+** Boîte de dialogue Supprimer le VLAN : permet de supprimer un VLAN.
+** Boîte de dialogue Supprimer le groupe d'interfaces : permet de supprimer un groupe d'interfaces.
+
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des ports
+
+Vous pouvez déplacer le pointeur sur l'icône à code couleur pour afficher l'état opérationnel du port :
+
+* Le vert indique que le port est activé.
+* Le rouge indique que le port est désactivé.
+* *Port*
++
+Affiche le nom du port physique, le port VLAN ou le groupe d'interfaces.
+
+* *Nœud*
++
+Affiche le nœud sur lequel est située l'interface physique.
+
+* *Domaine de diffusion*
++
+Affiche le domaine de diffusion du port.
+
+* *IPspace*
++
+Affiche l'IPspace auquel appartient le port.
+
+* *Type*
++
+Affiche le type d'interface tel que le groupe d'interfaces, l'interface physique, le vip ou le VLAN.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste des ports affiche des informations détaillées sur les propriétés des ports.
+
+* *Onglet Détails*
++
+Affiche les détails administratifs et les détails de fonctionnement.
+
++
+Dans le cadre des détails opérationnels, l'onglet affiche le statut de santé des ports. Les ports peuvent être sains ou dégradés. Un port dégradé est un port sur lequel se produisent des fluctuations continues du réseau ou un port qui n'est pas connecté à d'autres ports du même domaine de diffusion.
+
++
+De plus, l'onglet affiche également le nom de l'interface, les détails du SVM et l'adresse IP des interfaces réseau hébergées sur le port sélectionné. Elle indique également si l'interface se trouve sur le port home ou non.
+
+* *Onglet performances*
++
+Affiche les graphiques de mesures de performances des ports ethernet, notamment le taux d'erreur et le débit.
+
++
+La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Vous devez actualiser votre navigateur pour afficher les graphiques mis à jour.
+
+
+
+
+
+=== Onglet broadcast Domain
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un domaine de diffusion, qui permet de créer de nouveaux domaines de diffusion contenant des ports.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le domaine de diffusion, qui permet de modifier les attributs d'un domaine de diffusion, tels que le nom, la taille de MTU et les ports associés.
+
+* *Supprimer*
++
+Supprime le domaine de diffusion sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des broadcast domain
+
+* *Domaine de diffusion*
++
+Spécifie le nom du domaine de diffusion.
+
+* *MTU*
++
+Spécifie la taille de MTU.
+
+* *IPspace*
++
+Spécifie l'IPspace.
+
+* *État de mise à jour du port combiné*
++
+Spécifie l'état des mises à jour de port lorsque vous créez ou modifiez un domaine de diffusion. Toute erreur dans les mises à jour de port s'affiche dans une fenêtre distincte, que vous pouvez ouvrir en cliquant sur le lien associé.
+
+
+
+
+
+=== Zone de détails
+
+La zone située en dessous de la liste broadcast domain affiche tous les ports d'un broadcast domain. Dans un IPspace non par défaut, si un domaine de diffusion possède des ports avec des erreurs de mise à jour, ces ports ne sont pas affichés dans la zone détaillée. Vous pouvez déplacer le pointeur sur l'icône à code couleur pour afficher l'état opérationnel des ports :
+
+* Le vert indique que le port est activé.
+* Le rouge indique que le port est désactivé.
+
+
+
+
+=== Onglet adaptateurs FC/FCoE et NVMe
+
+
+
+=== Boutons de commande
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier les paramètres FC/FCoE et NVMe, qui vous permet de modifier la vitesse de l'adaptateur.
+
+* *Statut*
++
+Permet de mettre l'adaptateur en ligne ou de le mettre hors ligne.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des adaptateurs FC/FCoE et NVMe
+
+* *WWNN*
++
+Spécifie l'identifiant unique de l'adaptateur FC/FCoE et NVMe.
+
+* *Nom du noeud*
++
+Spécifie le nom du nœud qui utilise l'adaptateur.
+
+* *Slot*
++
+Spécifie l'emplacement qui utilise l'adaptateur.
+
+* *WWPN*
++
+Spécifie le nom WWPN (FC Worldwide port Name) de l'adaptateur.
+
+* *Statut*
++
+Indique si le statut de l'adaptateur est en ligne ou hors ligne.
+
+* *Vitesse*
++
+Indique si les paramètres de vitesse sont automatiques ou manuels.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste des adaptateurs FC/FCoE et NVMe affiche des informations détaillées sur les adaptateurs sélectionnés.
+
+* *Onglet Détails*
++
+Affiche les détails de la carte tels que le type de support, l'adresse du port, la vitesse de liaison de données, l'état de connexion, l'état de fonctionnement, l'état de la structure et la vitesse de l'adaptateur.
+
+* *Onglet performances*
++
+Affiche les graphiques de mesures de performance de l'adaptateur FC/FCoE et NVMe, y compris les IOPS et le temps de réponse.
+
++
+La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Vous devez actualiser votre navigateur pour afficher les graphiques mis à jour.
+
+
+
+
+
+=== L'onglet IPspaces
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un IPspace, qui vous permet de créer un nouvel IPspace.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'IPspace, qui permet de renommer un IPspace existant.
+
+* *Supprimer*
++
+Supprime l'IPspace sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des IPspaces
+
+* *Nom*
++
+Spécifie le nom de l'IPspace.
+
+* *Domaines de diffusion*
++
+Spécifie le domaine de diffusion.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste des IPspaces affiche la liste des machines de stockage virtuelles (SVM) dans l'IPspace sélectionné.

@@ -1,0 +1,174 @@
+---
+permalink: online-help-96-97/reference_disks_window.html 
+sidebar: sidebar 
+keywords: command, button, disk, window, inventory, detail, online, help 
+summary: Vous pouvez utiliser la fenêtre disques pour afficher tous les disques de votre système de stockage. 
+---
+= Fenêtre des disques dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre disques dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour afficher tous les disques de votre système de stockage.
+
+
+
+== Boutons de commande
+
+* *Affecter*
++
+Attribue ou rassure la propriété des disques sur un nœud.
+
++
+Ce bouton n'est activé que si le type de conteneur des disques sélectionnés est non affecté, libre ou partagé.
+
+* *Zéro pièces de rechange*
++
+Efface toutes les données et formate les disques de réserve et les LUN de la matrice.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+== Onglets
+
+
+
+== Récapitulatif
+
+Affiche des informations détaillées sur les disques du cluster, y compris la taille des disques de spare et attribués. L'onglet affiche également sous forme graphique des informations sur les disques de spare, les agrégats et les agrégats racine pour les disques durs, ainsi que des informations sur les disques de spare, les disques d'un pool de stockage, les agrégats, les agrégats Flash Pool et les agrégats racine pour les disques en cache (SSD).
+
+Le panneau du disque dur n'est pas affiché pour les systèmes dotés d'une personnalité entièrement optimisée pour la technologie Flash.
+
+Le panneau de détails fournit des informations supplémentaires sur les disques de secours partitionnés et non partitionnés (type de disque, nœud, taille de disque, tours/min, somme de contrôle, nombre de disques disponibles et capacité disponible), au format tabulaire.
+
+
+
+== Inventaire
+
+* *Nom*
++
+Affiche le nom du disque.
+
+* *Type de conteneur*
++
+Affiche l'objet pour lequel le disque est utilisé. Les valeurs possibles sont agrégats, rompus, étranger, maintenance des étiquettes, entretien, Partagé, Spare, non affecté, Volume, Inconnu, Et non pris en charge.
+
+* *Type de partition*
++
+Affiche le type de partition du disque.
+
+* *Nom du noeud*
++
+Affiche le nom du nœud qui contient l'agrégat.
+
++
+Ce champ est disponible uniquement au niveau du cluster.
+
+* *Propriétaire*
++
+Affiche le nom du nœud d'origine auquel ce disque est affecté.
+
+* *Propriétaire actuel*
++
+Affiche le nom du nœud qui possède actuellement ce disque.
+
+* *Propriétaire racine*
++
+Affiche le nom du nœud qui possède actuellement la partition racine de ce disque.
+
+* *Propriétaire de données*
++
+Affiche le nom du nœud qui possède actuellement la partition de données de ce disque.
+
+* *Propriétaire de données 1*
++
+Affiche le nom du nœud qui possède actuellement la partition data1 du disque.
+
+* *Propriétaire de données 2*
++
+Affiche le nom du nœud qui possède actuellement la partition data2 du disque.
+
+* *Pool de stockage*
++
+Affiche le nom du pool de stockage auquel le disque est associé.
+
+* *Type*
++
+Affiche le type de disque.
+
+* *Version du micrologiciel*
++
+Affiche la version du micrologiciel du disque.
+
+* *Modèle*
++
+Affiche le modèle du disque.
+
+* *RPM*
++
+Affiche la vitesse effective du lecteur de disque lorsque l'option est sélectionnée `raid.mix.hdd.rpm.capacity` est activé et affiche la vitesse réelle du lecteur de disque lorsque l'option est activée `raid.mix.hdd.rpm.capacity` est désactivé.
+
++
+Ce champ ne s'applique pas aux disques SSD.
+
+* *Taille effective*
++
+Affiche l'espace utilisable disponible sur le disque.
+
+* *Espace physique*
++
+Affiche l'espace physique total du disque.
+
+* *Étagère*
++
+Affiche le shelf sur laquelle sont situés les disques physiques.
+
++
+Ce champ est masqué par défaut.
+
+* *Baie*
++
+Affiche la baie du tiroir pour le disque physique.
+
++
+Ce champ est masqué par défaut.
+
+* *Piscine*
++
+Affiche le nom du pool auquel le disque sélectionné est affecté.
+
++
+Ce champ est masqué par défaut.
+
+* *Somme de contrôle*
++
+Affiche le type de la somme de contrôle.
+
++
+Ce champ est masqué par défaut.
+
+* *ID transporteur*
++
+Spécifie des informations sur les disques situés dans le support multi-disques spécifié. L'ID est une valeur de 64 bits.
+
++
+Ce champ est masqué par défaut.
+
+
+
+
+
+== Section Détails de l'inventaire
+
+La zone sous l'onglet Inventaire affiche des informations détaillées sur le disque sélectionné, y compris des informations sur l'agrégat ou le volume (le cas échéant), l'ID de fournisseur, l'état de remise à zéro (en pourcentage), le numéro de série du disque et des détails d'erreur en cas de panne de disque. Pour les disques partagés, la zone Détails de l'inventaire affiche les noms de tous les agrégats, y compris les agrégats racine et non racine.
+
+*Informations connexes*
+
+xref:task_viewing_disk_information.adoc[Affichage des informations sur le disque]

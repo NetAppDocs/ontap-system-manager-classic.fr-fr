@@ -1,0 +1,53 @@
+---
+permalink: online-help-96-97/task_updating_cifs_group_policy_configuration.html 
+sidebar: sidebar 
+keywords: update, cifs, group, policy, configuration, online, help, enable, disable, modify, reload, set, up 
+summary: 'Vous devez mettre à jour la stratégie de groupe une fois la configuration de la règle modifiée par l"intermédiaire de l"interface de ligne de commande. Vous pouvez utiliser la fenêtre CIFS de System Manager pour mettre à jour la stratégie de groupe.' 
+---
+= Gérez la configuration des règles de groupe CIFS avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre CIFS dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour et gérer les règles de groupe.
+
+
+
+== Mettre à jour la configuration des règles de groupe CIFS
+
+Vous devez mettre à jour la stratégie de groupe une fois la configuration de la règle modifiée par l'intermédiaire de l'interface de ligne de commande.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Cliquez sur l'onglet *domaine*.
+. Dans la zone *Stratégie de groupe*, sélectionnez la configuration de stratégie de groupe à mettre à jour, puis cliquez sur *mettre à jour*.
+
+
+
+
+== Activer ou désactiver la configuration d'une stratégie de groupe CIFS
+
+Vous pouvez activer ou désactiver la configuration des règles de groupe CIFS depuis la fenêtre CIFS dans System Manager.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Cliquez sur l'onglet *domaine*.
+. Dans la zone *Stratégie de groupe*, sélectionnez la configuration de stratégie de groupe que vous souhaitez activer ou désactiver, puis cliquez sur *Activer* ou *Désactiver*, selon les besoins.
+
+
+
+
+== Rechargez la stratégie de groupe CIFS
+
+Vous devez recharger une stratégie de groupe CIFS si le statut de la règle est modifié. Vous pouvez utiliser la fenêtre CIFS dans System Manager pour recharger la stratégie de groupe.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Cliquez sur l'onglet *domaine*.
+. Dans la zone *Stratégie de groupe*, sélectionnez la configuration de stratégie de groupe à recharger, puis cliquez sur *recharger*.
+

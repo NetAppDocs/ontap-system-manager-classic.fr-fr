@@ -1,0 +1,293 @@
+---
+permalink: online-help-96-97/task_configuring_managing_cloud_tiers.html 
+sidebar: sidebar 
+keywords: configure, manage, cloud, tier, online, help, fabricpool, aggregate, storage, system, add, ssd, provision, storage, fabricpool, aggregate, manually, tiering, policy 
+summary: 'Le stockage des données en niveaux peut améliorer l"efficacité de votre système de stockage. Vous gérez les niveaux de stockage à l"aide d"agrégats compatibles avec FabricPool. Les niveaux cloud stockent les données dans un Tier selon que la fréquence d"accès aux données est élevée.' 
+---
+= Configurez et gérez les tiers cloud avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+
+
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour configurer et gérer des tiers cloud. Le stockage des données en niveaux peut améliorer l'efficacité de votre système de stockage. Vous gérez les niveaux de stockage à l'aide d'agrégats compatibles avec FabricPool. Les niveaux cloud stockent les données dans un Tier selon que la fréquence d'accès aux données est élevée.
+
+.Avant de commencer
+* Vous devez exécuter ONTAP 9.2 ou version ultérieure.
+* Vous devez disposer d'agrégats 100 % Flash (100 % SSD)
+
+
+image::../media/fabricpool_workflow.gif[workflow FabricPool]
+
+
+
+= Ajouter un Tier cloud
+
+[role="lead"]
+System Manager peut être utilisé pour ajouter un niveau cloud à un agrégat SSD ou à un agrégat de disques de machine virtuelle (VMDK). Le Tier cloud fournit un stockage pour les données rarement utilisées.
+
+.Avant de commencer
+* Vous devez disposer de l'ID de clé d'accès et de la clé secrète pour vous connecter au magasin d'objets.
+* Vous devez avoir créé un compartiment dans le magasin d'objets.
+* La connectivité réseau doit exister entre le cluster et le niveau du cloud.
+* Si la communication entre le niveau cloud et le cluster est chiffrée à l'aide de SSL ou TLS, les certificats requis doivent être installés.
+
+
+.Description de la tâche
+Ces magasins d'objets peuvent être utilisés en tant que tiers cloud :
+
+* StorageGRID
+* Alibaba Cloud (en commençant par System Manager 9.6)
+* Amazon Web Services (AWS) simple Storage Service (S3)
+* Amazon Web Services (AWS) commercial Cloud Service (C2S)
+* Stockage Microsoft Azure Blob
+* Cloud IBM
+* Google Cloud
+
+
+[NOTE]
+====
+* Azure Stack, un service Azure sur site, n'est pas pris en charge.
+* Si vous souhaitez utiliser un magasin d'objets comme Tier cloud pour les autres que StorageGRID, vous devez disposer de la licence de capacité FabricPool. Vous pouvez ajouter la licence en cliquant sur *Ajouter une licence*.
+* Si vous souhaitez utiliser un environnement de stockage objet Cloud IBM (tel que Cleversafe) avec FabricPool, vous devez spécifier un certificat d'autorité de certification (CA). Vous pouvez spécifier le certificat de l'autorité de certification en déplaçant le bouton bascule *certificat de magasin d'objets* et en spécifiant les informations d'identification du certificat.
+
+
+====
+.Étapes
+. Cliquez sur *Storage* > *Aggregates et disques* > *Cloud Tier*.
+. Cliquez sur *Ajouter*.
++
+Une boîte de dialogue s'affiche et répertorie tous les fournisseurs de magasin d'objets pris en charge.
+
+. Dans la liste, sélectionnez le fournisseur de magasin d'objets que vous souhaitez désigner comme Tier cloud.
++
+La fenêtre Ajouter un Tier de cloud s'affiche.
+
+. Sélectionnez une région dans la liste déroulante du champ *région*.
++
+En fonction de votre sélection, le champ *Nom de service (FQDN)* est automatiquement renseigné avec le noeud final du serveur.
+
+. Spécifiez l'ID de clé d'accès du Tier cloud, la clé secrète du Tier cloud et le nom du conteneur.
++
+Si vous avez sélectionné le type AWS commercial Cloud Service (C2S), vous devez spécifier l'URL CAP, les certificats d'autorité de certification de serveur et les certificats client.
+
+. Si vous souhaitez modifier l'un des paramètres suivants, cliquez sur l'icône Options avancées image:../media/advanced_options.gif[""] Pour afficher la boîte de dialogue *Options avancées* dans laquelle vous pouvez effectuer les modifications :
++
+** Numéro de port utilisé pour accéder au niveau de Cloud
+** Activez ou désactivez l'option *SSL* qui vous permet de transférer les données en toute sécurité vers le niveau cloud
+
+
+. *Facultatif :* si vous souhaitez ajouter un Tier cloud pour StorageGRID ou utiliser un environnement de stockage objet cloud IBM (tel que Cleversafe) avec FabricPool, vous devez spécifier un certificat d'autorité de certification. Spécifiez le certificat de l'autorité de certification en déplaçant le bouton bascule *certificat de magasin d'objets* et en copiant le contenu du certificat. Collez ensuite le contenu du certificat dans la certification signée.
+. Dans la liste *IPspace*, sélectionnez l'IPspace utilisé pour vous connecter au niveau cloud.
+. Cliquez sur *Enregistrer* pour enregistrer le niveau de cloud.
+. Cliquez sur *Save and Attach Aggregates* pour enregistrer le niveau cloud et connecter des agrégats au niveau cloud.
+
+
+
+
+== Associez un agrégat à un Tier cloud
+
+System Manager peut être utilisé pour attacher un agrégat 100 % Flash à un Tier cloud. Vous pouvez stocker les données peu utilisées dans des tiers cloud.
+
+.Avant de commencer
+Vous devez avoir ajouté un Tier cloud au cluster.
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates et disques* > *Cloud Tier*.
+. Dans la colonne *utilisé dans agrégats*, cliquez sur *attacher agrégats*.
++
+La fenêtre attacher des agrégats s'affiche.
+
+. Sélectionnez l'agrégat que vous souhaitez relier au Tier cloud.
+. Cliquez sur *Enregistrer*.
+
+
+
+
+== Provisionnement du stockage via la création manuelle d'un agrégat compatible FabricPool
+
+System Manager peut être utilisé pour créer un agrégat compatible FabricPool afin de rattacher un Tier cloud à l'agrégat SSD.
+
+.Avant de commencer
+* Vous devez avoir créé un Tier cloud et le fixer au cluster dans lequel réside l'agrégat SSD.
+* Un Tier cloud sur site doit avoir été créé.
+* Une connexion réseau dédiée doit exister entre le niveau de cloud et l'agrégat.
+
+
+.Description de la tâche
+Ces magasins d'objets peuvent être utilisés en tant que tiers cloud :
+
+* StorageGRID
+* Alibaba Cloud (en commençant par System Manager 9.6)
+* Amazon Web Services (AWS) simple Storage Service (S3)
+* Amazon Web Services (AWS) commercial Cloud Service (C2S)
+* Stockage Microsoft Azure Blob
+* Cloud IBM
+* Google Cloud
+
+
+[NOTE]
+====
+* Azure Stack, qui est un service Azure sur site, n'est pas pris en charge.
+* Si vous souhaitez utiliser un magasin d'objets comme Tier cloud pour les autres que StorageGRID, vous devez disposer de la licence de capacité FabricPool.
+
+
+====
+.Étapes
+. Créer un agrégat FabricPool à l'aide de l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Activez l'option *Créer un agrégat* manuellement pour créer un agrégat.
+. Créez un agrégat compatible FabricPool :
++
+.. Préciser le nom de l'agrégat, le type de disque et le nombre de disques ou de partitions à inclure dans l'agrégat.
++
+[NOTE]
+====
+Seuls les agrégats 100 % Flash (100 % SSD) prennent en charge les agrégats compatibles avec FabricPool.
+
+====
++
+La règle de disque de secours minimum est appliquée au groupe de disques ayant la taille de disque la plus grande.
+
+.. *Facultatif:* modifiez la configuration RAID de l'agrégat :
++
+... Cliquez sur *Modifier*.
+... Dans la boîte de dialogue Modifier la configuration RAID, indiquez le type RAID et la taille du groupe RAID.
++
+Les disques partagés prennent en charge deux types RAID : RAID-DP et RAID-TEC.
+
+... Cliquez sur *Enregistrer*.
+
+
+
+
+. Cochez la case *FabricPool*, puis sélectionnez un Tier de cloud dans la liste.
+. Cliquez sur *Créer*.
+
+
+
+
+== Modification de la règle de Tiering d'un volume
+
+System Manager peut être utilisé pour modifier la règle de Tiering par défaut d'un volume afin de déterminer si les données du volume sont déplacées vers le Tier cloud lorsque celles-ci deviennent inactives.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume pour lequel vous souhaitez modifier la stratégie de hiérarchisation, puis cliquez sur *plus d'actions* > *Modifier la stratégie de hiérarchisation*.
+. Sélectionnez la stratégie de hiérarchisation requise dans la liste *Tiering Policy*, puis cliquez sur *Save*.
+
+
+
+
+== Modifiez un niveau de cloud
+
+System Manager permet de modifier les informations de configuration du Tier cloud. Les détails de configuration que vous pouvez modifier incluent le nom, le nom de domaine complet (FQDN), le port, l'ID de clé d'accès, la clé secrète et le certificat de magasin d'objets.
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates et disques* > *Cloud Tier*.
+. Sélectionnez le niveau de Cloud que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la fenêtre *Edit Cloud Tier*, modifiez le nom du niveau de cloud, FQDN, port, ID de clé d'accès, clé secrète, et le certificat de magasin d'objets, le cas échéant.
++
+Si vous avez sélectionné le niveau cloud AWS commercial Cloud Service (C2S), vous pouvez modifier les certificats d'autorité de certification du serveur et les certificats client.
+
+. Cliquez sur *Enregistrer*.
+
+
+
+
+== Supprimer un Tier cloud
+
+System Manager permet de supprimer un Tier de cloud dont vous n'avez plus besoin.
+
+.Avant de commencer
+Vous devez avoir supprimé l'agrégat FabricPool associé au Tier cloud.
+
+.Étapes
+. Cliquez sur *Storage* > *Aggregates et disques* > *Cloud Tier*.
+. Sélectionnez le Tier de cloud que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+
+
+
+
+== En quoi correspondent les tiers cloud et les règles de Tiering
+
+Les tiers cloud fournissent un stockage pour les données rarement utilisées. Vous pouvez associer un agrégat 100 % Flash (100 % SSD) à un Tier cloud pour stocker les données rarement utilisées. Vous pouvez utiliser des règles de Tiering pour décider si les données doivent être déplacées vers un Tier cloud.
+
+Vous pouvez définir l'une des règles de Tiering suivantes sur un volume :
+
+* *Instantané uniquement*
++
+Déplace les copies Snapshot de uniquement les volumes qui ne sont actuellement pas référencés par le système de fichiers actif. La règle de Tiering snapshot uniquement est la règle de Tiering par défaut.
+
+* *Auto*
++
+Déplace les données inactives et les copies Snapshot depuis le système de fichiers actif vers le Tier cloud.
+
+* *Sauvegarde (pour System Manager 9.5)*
++
+Déplacement des données récemment transférées d'un volume de protection des données (DP) vers le Tier cloud.
+
+* *Tout (à partir de System Manager 9.6)*
++
+Déplacement de toutes les données vers le Tier cloud.
+
+* *Aucun*
++
+Empêche le déplacement des données du volume vers un Tier cloud.
+
+
+
+
+
+== De quelles données inactives
+
+Les données rarement utilisées dans un Tier de performance sont appelées données inactives. Par défaut, les données inutilisées pendant une période de 31 jours sont inactives.
+
+Les données inactives sont affichées au niveau des agrégats, du cluster et du volume. Les données inactives d'un agrégat ou d'un cluster ne sont affichées que si l'analyse inactive est terminée sur cet agrégat ou ce cluster. Par défaut, les données inactives sont affichées pour les agrégats et les agrégats SSD compatibles avec FabricPool. Les données inactives ne s'affichent pas pour FlexGroups.
+
+
+
+== La fenêtre Cloud Tier
+
+System Manager permet d'ajouter, de modifier et de supprimer des niveaux de cloud, et d'afficher les détails des niveaux de cloud.
+
+La fenêtre Cloud Tier affiche le nombre total de tiers cloud sous licence dans le cluster, l'espace sous licence utilisé dans le cluster et l'espace disponible dans le cluster. La fenêtre Cloud Tier affiche également la capacité cloud sans licence utilisée.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Permet d'ajouter un Tier cloud.
+
+* *Attacher des agrégats*
++
+Permet de rattacher des agrégats à un niveau cloud.
+
+* *Supprimer*
++
+Permet de supprimer un Tier de cloud sélectionné.
+
+* *Modifier*
++
+Permet de modifier les propriétés d'un Tier de cloud sélectionné.
+
+
+
+
+
+=== Zone de détails
+
+Vous pouvez afficher des informations détaillées sur les tiers cloud, notamment la liste des tiers cloud, les détails des magasins d'objets, les agrégats utilisés et la capacité utilisée.
+
+Si vous créez un Tier cloud autre que Alibaba Cloud, Amazon AWS S3, AWS commercial Cloud Service (C2S), Google Cloud, IBM Cloud, Microsoft Azure Blob Storage ou StorageGRID à l'aide de l'interface de ligne de commandes, ce Tier cloud s'affiche comme autres dans System Manager. Vous pouvez ensuite joindre des agrégats à ce niveau cloud.
+
+*Informations connexes*
+
+xref:task_installing_ca_certificate_if_you_use_storagegrid_webscale.adoc[Installation d'un certificat d'autorité de certification si vous utilisez StorageGRID]
+
+xref:reference_storage_tiers_window.adoc[La fenêtre Storage tiers]

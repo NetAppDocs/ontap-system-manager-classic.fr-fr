@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_deleting_protection_policies.html 
+sidebar: sidebar 
+keywords: delete, protection, policies, online, help, system, manager 
+summary: Si vous ne souhaitez plus utiliser cette règle, vous pouvez utiliser System Manager pour supprimer une règle de protection. 
+---
+= Suppression de stratégies de protection
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous ne souhaitez plus utiliser cette règle, vous pouvez utiliser System Manager pour supprimer une règle de protection.
+
+.Description de la tâche
+Les règles de mise en miroir ou les règles de copie à distance au niveau du cluster ne sont pas affichées.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionnez la machine virtuelle de stockage (SVM), puis cliquez sur *SVM Settings*.
+. Dans la fenêtre *protection Policies*, sélectionnez la stratégie à supprimer, puis cliquez sur *Supprimer*.
+. Dans la boîte de dialogue *Supprimer la stratégie*, cliquez sur *Supprimer*.
+

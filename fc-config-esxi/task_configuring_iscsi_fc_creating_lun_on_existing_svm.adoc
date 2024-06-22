@@ -1,0 +1,45 @@
+---
+permalink: fc-config-esxi/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html 
+sidebar: sidebar 
+keywords: configure, fc, exist, storage, virtual, machine, svm, fc, protocol, enable, information, configure, configurin, configure fc on an existing svm 
+summary: 'Vous pouvez configurer FC sur une machine virtuelle de stockage existante. Le protocole FC doit déjà être activé, mais pas configuré sur le SVM. Ces informations sont destinées aux SVM pour lesquels vous configurez plusieurs protocoles, mais qui n"ont pas encore configuré FC.' 
+---
+= Configurer FC sur un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer FC sur une machine virtuelle de stockage (SVM) existante. Le protocole FC doit déjà être activé, mais pas configuré sur le SVM. Ces informations sont destinées aux SVM pour lesquels vous configurez plusieurs protocoles, mais qui n'ont pas encore configuré FC.
+
+.Avant de commencer
+Votre structure FC doit être configurée et les ports physiques de votre choix doivent être connectés à la structure.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Sélectionnez le SVM que vous souhaitez configurer.
+. Dans le volet Détails du SVM**, vérifier que *FC/FCoE* est affiché avec un arrière-plan gris, ce qui indique que le protocole est activé mais pas entièrement configuré.
++
+Si *FC/FCoE* est affiché avec un arrière-plan vert, le SVM est déjà configuré.
+
++
+image::../media/existing_svm_protocols_fc_esxi.gif[L'image montre la page de détails avec les quatre protocoles ayant un arrière-plan gris.]
+
+. Cliquez sur le lien du protocole *FC/FCoE* avec l'arrière-plan gris.
++
+La fenêtre configurer le protocole FC/FCoE s'affiche.
+
+. Configurer le service FC et les LIF depuis la page *configurer le protocole FC/FCoE* :
++
+.. Cochez la case *configurer les LIF de données pour FC*.
+.. Entrez `2` Dans le champ *LIFs par nœud*.
++
+Deux LIF sont requises pour chaque nœud afin d'assurer la disponibilité et la mobilité des données.
+
+.. Ignorez la zone facultative *Provision d'un LUN pour le stockage FCP*, car le LUN est provisionné par Virtual Storage Console pour VMware vSphere dans une étape ultérieure.
+.. Cliquez sur *Envoyer et fermer*.
+
+
+. Consultez la page *Résumé*, enregistrez les informations sur le LIF, puis cliquez sur *OK*.
+

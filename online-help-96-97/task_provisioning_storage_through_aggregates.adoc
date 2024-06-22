@@ -1,0 +1,318 @@
+---
+permalink: online-help-96-97/task_provisioning_storage_through_aggregates.html 
+sidebar: sidebar 
+keywords: provision, storage, aggregates, snaplock, fabricpool, online, help, flash, pool 
+summary: 'Vous pouvez créer un agrégat suivant des recommandations de stockage ou manuellement, selon vos besoins. Vous pouvez créer des agrégats Flash Pool, des agrégats SnapLock et des agrégats compatibles FabricPool pour fournir du stockage à un ou plusieurs volumes à l"aide de System Manager.' 
+---
+= Provisionnement du stockage via des agrégats avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer un agrégat basé sur des recommandations de stockage ou manuellement, selon vos besoins. Vous pouvez créer des agrégats Flash Pool, des agrégats SnapLock et des agrégats compatibles FabricPool pour fournir du stockage à un ou plusieurs volumes à l'aide de System Manager.
+
+.Avant de commencer
+Vous devez disposer de suffisamment de disques de spare pour créer un agrégat.
+
+.Description de la tâche
+Vous ne pouvez pas effectuer les actions suivantes en utilisant System Manager :
+
+* Combiner des disques de différentes tailles, même s'il y a suffisamment de disques de secours de différentes tailles.
++
+Vous pouvez au départ créer un agrégat de même taille avec des disques de même taille, puis ajouter des disques d'une taille différente par la suite.
+
+* Combinez des disques avec différents types de checksums.
++
+Vous pouvez au départ créer un agrégat avec un seul type de checksum et ajouter plus tard du stockage d'un autre type de checksum.
+
+
+
+
+
+== Créez un agrégat basé sur des recommandations de stockage
+
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer un agrégat basé sur des recommandations de stockage. System Manager analyse la configuration de votre système de stockage et fournit des recommandations en matière de stockage, telles que le nombre d'agrégats qui seront créés, les nœuds disponibles et les disques de spare disponibles.
+
+.Description de la tâche
+* Vous ne pouvez pas créer un agrégat basé sur les recommandations de stockage dans les configurations Cloud Volumes ONTAP, ONTAP Select et MetroCluster.
+* Les erreurs, le cas échéant, s'affichent à l'écran.
++
+Vous pouvez corriger ces erreurs, puis créer un agrégat en fonction des recommandations de stockage, ou créer un agrégat manuellement.
+
+
+
+.Étapes
+. Créer un agrégat en utilisant l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Passez en revue les recommandations relatives au stockage, puis cliquez sur *Envoyer*.
++
+La boîte de dialogue informations affiche l'état des agrégats.
+
+. Cliquez sur *Exécuter en arrière-plan* pour accéder à la fenêtre *Aggregates*.
+. Cliquez sur *Actualiser* pour afficher les agrégats créés.
+
+
+
+
+== Créer manuellement un agrégat
+
+Vous pouvez créer manuellement un agrégat composé uniquement de disques durs ou de disques SSD en utilisant ONTAP System Manager classique (disponible sur ONTAP 9.7 et versions antérieures).
+
+.Avant de commencer
+Tous les disques doivent être de même taille.
+
+.Description de la tâche
+* Si vous créez un agrégat sur un cluster à quatre nœuds dans ONTAP Select, l'option d'agrégat en miroir est sélectionnée par défaut.
+* Depuis ONTAP 9.0, vous pouvez créer des agrégats dont la taille de disque est supérieure ou égale à 10 To.
+* Si le type de disque de l'agrégat est FSAS ou MSATA et que la taille du disque est supérieure ou égale à 10 To, RAID-TEC est le seul type de RAID disponible.
+
+
+.Étapes
+. Créer un agrégat en utilisant l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Activez l'option *Créer un agrégat* manuellement pour créer un agrégat.
+. Pour créer un agrégat :
++
+.. Préciser le nom de l'agrégat, le type de disque et le nombre de disques ou de partitions à inclure dans l'agrégat.
++
+La règle de disque de secours minimum est appliquée au groupe de disques ayant la taille de disque la plus grande.
+
+.. *Facultatif:* modifiez la configuration RAID de l'agrégat :
++
+... Cliquez sur *Modifier*.
+... Dans la boîte de dialogue *Modifier la configuration RAID*, indiquez le type RAID et la taille du groupe RAID.
++
+Les disques partagés prennent en charge deux types RAID : RAID DP et RAID-TEC.
+
+... Cliquez sur *Enregistrer*.
+
+
+.. Si vous souhaitez mettre en miroir l'agrégat, cochez la case *Symétrie cet agrégat*.
++
+Pour les configurations MetroCluster, la création d'agrégats sans miroir est limitée. Par conséquent, l'option de mise en miroir est activée par défaut pour les configurations MetroCluster.
+
+
+
+. Cliquez sur *Créer*.
+
+
+.Résultats
+L'agrégat est créé avec la configuration spécifiée, et est ajouté à la liste des agrégats dans la fenêtre Aggregates.
+
+
+
+== Créer un agrégat Flash Pool manuellement
+
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer manuellement un agrégat Flash Pool, ou convertir un agrégat de disques durs existant en un agrégat Flash Pool en ajoutant des disques SSD. Lorsque vous créez un nouvel agrégat de disques durs, vous pouvez lui provisionner un cache SSD et créer un agrégat Flash Pool.
+
+.Avant de commencer
+* Vous devez connaître les bonnes pratiques propres à chaque plateforme et les bonnes pratiques propres aux charges de travail pour la taille et la configuration des niveaux SSD des agrégats Flash Pool.
+* Tous les disques durs doivent être dans l'état mis à zéro.
+* Si vous souhaitez ajouter des disques SSD à l'agrégat, tous les disques SSD existants et des disques SSD dédiés doivent être de la même taille.
+
+
+.Description de la tâche
+* Vous ne pouvez pas utiliser de disques SSD partitionnés lors de la création d'agrégats Flash Pool.
+* Si la source du cache est un pool de stockage, vous ne pouvez pas mettre en miroir les agrégats.
+* Depuis ONTAP 9.0, vous pouvez créer des agrégats dont la taille de disque est supérieure ou égale à 10 To.
+* Si le type de disque de l'agrégat est FSAS ou MSATA et que la taille du disque est supérieure ou égale à 10 To, RAID-TEC est la seule option disponible pour le type RAID.
+
+
+.Étapes
+. Créer un agrégat en utilisant l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Activez l'option *Créer un agrégat* manuellement pour créer un agrégat.
+. Dans la fenêtre *Create aggragrégat*, spécifiez le nom de l'agrégat, le type de disque et le nombre de disques ou de partitions à inclure pour les disques durs dans l'agrégat.
+. Si vous souhaitez mettre en miroir l'agrégat, cochez la case *Symétrie cet agrégat*.
++
+Pour les configurations MetroCluster, la création d'agrégats sans miroir est limitée. Par conséquent, l'option de mise en miroir est activée par défaut pour les configurations MetroCluster.
+
+. Cliquez sur *utiliser Flash Pool cache avec cet agrégat*.
+. Spécifiez la source du cache :
++
+|===
+| Si vous souhaitez sélectionner la source du cache comme... | Alors... 
+
+
+ a| 
+Pools de stockage
+ a| 
+.. Sélectionnez *pools de stockage* comme source de cache.
+.. Sélectionnez le pool de stockage à partir duquel le cache peut être obtenu, puis spécifiez la taille du cache.
+.. Modifiez le type de RAID, si nécessaire.
+
+
+
+
+ a| 
+Infrastructure SSD dédiée
+ a| 
+.. Sélectionnez *disques SSD dédiés* comme source de cache.
+.. Sélectionnez la taille du SSD et le nombre de disques SSD à inclure dans l'agrégat.
+.. Modifier la configuration RAID, le cas échéant :
++
+... Cliquez sur *Modifier*.
+... Dans la boîte de dialogue Modifier la configuration RAID, indiquez le type RAID et la taille du groupe RAID.
+... Cliquez sur *Enregistrer*.
+
+
+
+
+|===
+. Cliquez sur *Créer*.
+
+
+.Résultats
+L'agrégat Flash Pool est créé avec la configuration spécifiée et est ajouté à la liste des agrégats dans la fenêtre Aggregates.
+
+
+
+== Créer un agrégat SnapLock manuellement
+
+Vous pouvez utiliser System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer manuellement un agrégat SnapLock Compliance ou un agrégat SnapLock Enterprise. Vous pouvez créer des volumes SnapLock sur ces agrégats, qui fournissent les fonctionnalités WORM (Write Once, Read Many).
+
+.Avant de commencer
+La licence SnapLock doit avoir été ajoutée.
+
+.Description de la tâche
+* Dans les configurations MetroCluster, vous ne pouvez créer que des agrégats SnapLock Enterprise.
+* Pour les LUN de baie, seuls les agrégats SnapLock Enterprise sont pris en charge.
+* Depuis ONTAP 9.0, vous pouvez créer des agrégats dont la taille de disque est supérieure ou égale à 10 To.
+* Si le type de disque de l'agrégat est FSAS ou MSATA et que la taille du disque est supérieure ou égale à 10 To, RAID-TEC est la seule option disponible pour le type RAID.
+* Depuis ONTAP 9.1, vous pouvez créer un agrégat SnapLock sur une plateforme AFF.
+
+
+.Étapes
+. Créer un agrégat SnapLock en utilisant l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Activez l'option *Créer un agrégat* manuellement pour créer un agrégat.
+. Pour créer un agrégat SnapLock :
++
+.. Préciser le nom de l'agrégat, le type de disque et le nombre de disques ou de partitions à inclure dans l'agrégat.
++
+Après avoir créé cet agrégat, vous ne pouvez plus modifier le nom d'un agrégat SnapLock Compliance.
+
++
+La règle de disque de secours minimum est appliquée au groupe de disques ayant la taille de disque la plus grande.
+
+.. *Facultatif:* modifiez la configuration RAID de l'agrégat :
++
+... Cliquez sur *Modifier*.
+... Dans la boîte de dialogue Modifier la configuration RAID, indiquez le type RAID et la taille du groupe RAID.
++
+Les disques partagés prennent en charge deux types RAID : RAID-DP et RAID-TEC.
+
+... Cliquez sur *Enregistrer*.
+
+
+.. Spécifier le type de SnapLock.
+.. Si vous n'avez pas initialisé la fonction ComplanceClock du système, cochez la case *initialiser la conformité*.
++
+Cette option n'est pas affichée si l'option ComplanceClock est déjà initialisée sur le nœud.
+
++
+[NOTE]
+====
+Vous devez vous assurer que l'heure actuelle du système est correcte. La fonction ComplanceClock est définie en fonction de l'horloge système. Une fois la fonction ComplanceClock définie, vous ne pouvez pas modifier ou arrêter la fonction ComplanceClock.
+
+====
+.. *Facultatif:* si vous voulez mettre en miroir l'agrégat, cochez la case *Symétrie cet agrégat*.
++
+Pour les configurations MetroCluster, la création d'agrégats sans miroir est limitée. Par conséquent, l'option de mise en miroir est activée par défaut pour les configurations MetroCluster.
+
++
+Par défaut, l'option de mise en miroir est désactivée pour les agrégats SnapLock Compliance.
+
+
+
+. Cliquez sur *Créer*.
+
+
+
+
+== Créer manuellement un agrégat compatible FabricPool
+
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer manuellement un agrégat compatible FabricPool, ou convertir un agrégat SSD existant en agrégat compatible FabricPool en ajoutant un Tier cloud à l'agrégat SSD.
+
+.Avant de commencer
+* Vous devez avoir créé un Tier cloud et le fixer au cluster dans lequel réside l'agrégat SSD.
+* Un Tier cloud sur site doit avoir été créé.
+* Une connexion réseau dédiée doit exister entre le niveau de cloud et l'agrégat.
+
+
+.Description de la tâche
+Ces magasins d'objets peuvent être utilisés en tant que tiers cloud :
+
+* StorageGRID
+* Alibaba Cloud (depuis System Manager 9.6)
+* Amazon Web Services (AWS) simple Storage Service (S3)
+* Amazon Web Services (AWS) commercial Cloud Service (C2S)
+* Stockage Microsoft Azure Blob
+* Cloud IBM
+* Google Cloud
+
+
+[NOTE]
+====
+* Azure Stack, qui est un service Azure sur site, n'est pas pris en charge.
+* Si vous souhaitez utiliser un magasin d'objets comme Tier cloud pour les autres que StorageGRID, vous devez disposer de la licence de capacité FabricPool.
+
+
+====
+.Étapes
+. Créer un agrégat FabricPool à l'aide de l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage* > *Ajouter agrégat*.
+** Cliquez sur *Storage* > *Aggregate & Disks* > *Aggregates* > *Create*.
+
+
+. Activez l'option *Créer un agrégat* manuellement pour créer un agrégat.
+. Créez un agrégat compatible FabricPool :
++
+.. Préciser le nom de l'agrégat, le type de disque et le nombre de disques ou de partitions à inclure dans l'agrégat.
++
+[NOTE]
+====
+Seuls les agrégats 100 % Flash (100 % SSD) prennent en charge les agrégats compatibles avec FabricPool.
+
+====
++
+La règle de disque de secours minimum est appliquée au groupe de disques ayant la taille de disque la plus grande.
+
+.. *Facultatif:* modifiez la configuration RAID de l'agrégat :
++
+... Cliquez sur *Modifier*.
+... Dans la boîte de dialogue Modifier la configuration RAID, indiquez le type RAID et la taille du groupe RAID.
++
+Les disques partagés prennent en charge deux types RAID : RAID-DP et RAID-TEC.
+
+... Cliquez sur *Enregistrer*.
+
+
+
+
+. Cochez la case *FabricPool*, puis sélectionnez un Tier de cloud dans la liste.
+. Cliquez sur *Créer*.
+
+
+*Informations connexes*
+
+http://www.netapp.com/us/media/tr-4070.pdf["Rapport technique NetApp 4070 : conception et implémentation de Flash Pool"^]

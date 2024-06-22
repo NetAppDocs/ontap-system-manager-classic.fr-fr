@@ -1,0 +1,27 @@
+---
+permalink: iscsi-config-esxi/task_creating_aggregate.html 
+sidebar: sidebar 
+keywords: exist, aggregate, physical, storage, provision, create, create an aggregate 
+summary: 'Si vous ne souhaitez pas utiliser d"agrégat existant, vous pouvez créer un nouvel agrégat afin d"allouer du stockage physique au volume que vous provisionnez.' 
+---
+= Créer un agrégat
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous ne souhaitez pas utiliser d'agrégat existant, vous pouvez créer un nouvel agrégat afin d'allouer du stockage physique au volume que vous provisionnez.
+
+.Étapes
+. Saisissez l'URL `+https://IP-address-of-cluster-management-LIF+` Dans un navigateur Web, connectez-vous à System Manager à l'aide des informations d'identification de l'administrateur du cluster.
+. Accédez à la fenêtre *Aggregates*.
+. Cliquez sur *Créer.*
+. Suivez les instructions à l'écran pour créer l'agrégat en utilisant la configuration RAID-DP par défaut, puis cliquez sur *Create*.
++
+image::../media/aggregate_creation_iscsi_esxi.gif[Création d'un écran d'agrégat dans System Manager]
+
+
+
+.Résultats
+L'agrégat est créé avec la configuration spécifiée et ajouté à la liste des agrégats dans la fenêtre Aggregates.

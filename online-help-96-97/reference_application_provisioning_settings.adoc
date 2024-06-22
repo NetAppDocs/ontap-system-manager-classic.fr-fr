@@ -1,0 +1,405 @@
+---
+permalink: online-help-96-97/reference_application_provisioning_settings.html 
+sidebar: sidebar 
+keywords: application, provisioning, setting, microsoft, sql, database, applications, san, mongodb, oracle, host, access, initiator, sap, hana, smb 
+summary: 'Lors de la configuration d"un modèle basique ou optimisé pour une base de données, un serveur ou un poste de travail virtuel, vous devez fournir des détails à System Manager. Une fois qu"une application est provisionnée, vous pouvez modifier les détails et spécifier un redimensionnement (taille accrue uniquement). Cette section décrit les champs de chaque modèle. Seuls les champs requis pour la mise en service ou la modification des paramètres de l"application spécifique sont affichés.' 
+---
+= Paramètres de provisionnement des applications dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez fournir des informations détaillées lors de la configuration d'un modèle de base ou amélioré pour une base de données, un serveur ou un poste de travail virtuel dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures). Une fois qu'une application est provisionnée, vous pouvez modifier les détails et spécifier un redimensionnement (taille accrue uniquement). Cette section décrit les champs de chaque modèle. Seuls les champs requis pour la mise en service ou la modification des paramètres de l'application spécifique sont affichés.
+
+
+
+== Détails des applications de base de données Microsoft SQL sur SAN
+
+Vous entrez les informations suivantes pour provisionner des applications de base de données Microsoft SQL sur SAN ou modifier les paramètres :
+
+* *Nom de la base de données*
++
+Obligatoire : nom de la base de données que vous configurez ; cette chaîne est utilisée comme préfixe lors du provisionnement du stockage pour chaque base de données.
+
+* *Taille de la base de données*
++
+Obligatoire : taille de la base de données, en unités MB, GB, TB ou PB.
+
+* *Niveau de service ONTAP pour base de données*
++
+Obligatoire : niveau de service de la base de données.
+
+* *Taille du journal*
++
+Obligatoire : taille du journal de la base de données en unités MB, GB, TB ou PB.
+
+* *Niveau de service ONTAP pour le journal*
++
+Obligatoire : niveau de service du journal.
+
+* *Tempdb*
++
+Obligatoire : taille de la base de données tempdb en Mo, Go, TB ou PB.
+
+* *Protocole d'exportation*
++
+Obligatoire : le protocole d'exportation est SAN
+
+* *Nombre de cœurs de serveur (sur le serveur SQL)*
++
+Indique le nombre de cœurs CPU sur le serveur de bases de données par incréments de 2.
+
+* *Nombre de nœuds de contrôleur HA*
++
+Spécifie si des objets de stockage doivent être créés sur une paire de nœuds haute disponibilité.
+
+
+
+
+
+== Détails du provisionnement d'une base de données SAP HANA
+
+* *Nœuds SAP HANA actifs*
++
+Le nombre de nœuds SAP HANA actifs. Le nombre maximum de nœuds est de 16.
+
+* *Taille de mémoire par nœud HANA*
++
+Taille de la mémoire d'un seul nœud SAP HANA.
+
+* *Taille de disque de données par nœud HANA*
++
+Taille de disque de données pour chaque nœud.
+
++
+[NOTE]
+====
+S'il est défini sur 0, le champ de taille de mémoire ci-dessus est utilisé pour calculer la taille de la zone de données.
+
+====
+
+
+
+
+== Détails sur les applications de base de données Microsoft SQL sur SMB
+
+Pour provisionner des applications de base de données Microsoft SQL sur SMB ou modifier les paramètres, entrez les informations suivantes :
+
+* *Nom de la base de données*
++
+Obligatoire : nom de la base de données que vous configurez ; cette chaîne est utilisée comme préfixe lors du provisionnement du stockage pour chaque base de données.
+
+* *Taille de la base de données*
++
+Obligatoire : taille de la base de données, en unités MB, GB, TB ou PB.
+
+* *Niveau de service de base de données*
++
+Obligatoire : niveau de service de la base de données.
+
+* *Nombre de cœurs de serveur (sur le serveur SQL)*
++
+Indique le nombre de cœurs CPU sur le serveur de bases de données par incréments de 2.
+
+* *Taille du journal*
++
+Obligatoire : taille du journal de la base de données en unités MB, GB, TB ou PB.
+
+* *Log Service Level*
++
+Obligatoire : niveau de service du journal.
+
+* *Provision pour tempdb*
++
+Obligatoire : indique si tempdb est provisionné.
+
+* *Protocole d'exportation*
++
+Obligatoire : le protocole d'exportation est SMB ou SAN.
+
++
+SMB peut être sélectionné uniquement lorsque le cluster est sous licence pour CIFS, qui a été configuré pour la SVM.
+
+* *Accorder l'accès à l'utilisateur*
++
+Obligatoire : niveau d'accès de l'application.
+
+* *Permission*
++
+Obligatoire : niveau d'autorisation de l'application.
+
+
+
+
+
+== Détails d'un compte SQL Server
+
+Vous entrez les informations suivantes pour fournir un contrôle total de l'accès aux comptes du serveur SQL :
+
+[NOTE]
+====
+Le compte d'installation est accordé `SeSecurityPrivilege`.
+
+====
+* *Compte de service SQL Server*
++
+Obligatoire : il s'agit d'un compte de domaine existant ; spécifiez comme `domain\user`.
+
+* *Compte de service de l'agent SQL Server*
++
+Facultatif : il s'agit de ce compte de domaine si le service de l'agent du serveur SQL est configuré, spécifiez au format domaine\utilisateur.
+
+
+
+
+
+== Détails des applications de bases de données Oracle
+
+Vous entrez les informations suivantes pour provisionner des applications de base de données Oracle ou modifier les paramètres :
+
+* *Nom de la base de données*
++
+Obligatoire : nom de la base de données que vous configurez ; cette chaîne est utilisée comme préfixe lors du provisionnement du stockage pour chaque base de données.
+
+* *Taille de fichier de données*
++
+Obligatoire : taille du fichier de données, en Mo, Go, To ou po.
+
+* *Niveau de service ONTAP pour Datafile*
++
+Obligatoire : niveau de service du fichier de données.
+
+* *Redo Log Group Size*
++
+Obligatoire : taille du groupe de journaux de reprise, en Mo, Go, To ou PB.
+
+* *Niveau de service ONTAP pour le groupe de journaux de redo*
++
+Obligatoire : niveau de service du groupe de journaux de reprise.
+
+* *Taille du journal d'archives*
++
+Obligatoire : taille du journal d'archivage, en unités Mo, Go, To ou PB.
+
+* *Niveau de service ONTAP pour le journal d'archives*
++
+Obligatoire : niveau de service du groupe d'archives.
+
+* *Protocole d'exportation*
++
+Le protocole d'exportation : SAN ou NFS
+
+* *Initiateurs*
++
+Liste des initiateurs (WWPN ou IQN) séparée par des virgules dans le groupe initiateur.
+
+* *Accorder l'accès à l'hôte*
++
+Nom d'hôte permettant à l'application d'accéder à.
+
+
+
+
+
+== Détails des applications MongoDB
+
+Vous entrez les informations suivantes pour provisionner des applications MongoDB ou modifier les paramètres :
+
+* *Nom de la base de données*
++
+Obligatoire : nom de la base de données que vous configurez ; cette chaîne est utilisée comme préfixe lors du provisionnement du stockage pour chaque base de données.
+
+* *Taille de l'ensemble de données*
++
+Obligatoire : taille du fichier de données, en Mo, Go, To ou po.
+
+* *Niveau de service ONTAP pour ensemble de données*
++
+Obligatoire : niveau de service du fichier de données.
+
+* *Facteur de réplication*
++
+Obligatoire : nombre de réplications.
+
+* *Mappage pour l'hôte principal*
++
+Obligatoire : nom de l'hôte principal.
+
+* *Mappage pour l'hôte de réplica 1*
++
+Obligatoire : nom du premier réplica hôte.
+
+* *Mappage pour l'hôte réplique 2*
++
+Obligatoire : nom du deuxième réplica hôte.
+
+
+
+
+
+== Détails des applications de bureau virtuel
+
+Vous entrez les informations suivantes pour provisionner des infrastructures de postes de travail virtuels (VDI) ou modifier les paramètres :
+
+* *Taille moyenne des postes de travail (utilisée pour SAN Virtual Desktop)*
++
+Cette fonction permet de déterminer la taille du provisionnement fin de chaque volume en unités de Mo, Go, To ou po.
+
+* *Taille du bureau*
++
+Cette fonction permet de déterminer la taille des volumes à provisionner en unités de Mo, Go, To ou po.
+
+* *Niveau de service ONTAP pour les ordinateurs de bureau*
++
+Obligatoire : niveau de service du fichier de données.
+
+* *Nombre de bureaux*
++
+Ce numéro permet de déterminer le nombre de volumes créés.
+
++
+[NOTE]
+====
+Cette opération n'est pas utilisée pour provisionner les machines virtuelles.
+
+====
+* *Sélectionnez hyperviseur*
++
+L'hyperviseur utilisé pour ces volumes ; l'hyperviseur détermine le protocole de datastore approprié. Les options sont VMware, Hyper-V ou XenServer/KVM.
+
+* *Persistence du bureau*
++
+Détermine si le poste de travail est persistant ou non permanent. La sélection de la persistance des postes de travail définit les valeurs par défaut du volume, telles que les planifications Snapshot et les règles de déduplication post-traitement. L'efficacité à la volée est activée par défaut sur tous les volumes.
+
++
+[NOTE]
+====
+Ces règles peuvent être modifiées manuellement après le provisionnement.
+
+====
+* *Préfixe datastore*
++
+La valeur saisie permet de générer les noms des datastores et, le cas échéant, le nom de la export policy ou le nom de partage.
+
+* *Protocole d'exportation*
++
+Le protocole d'exportation : SAN ou NFS
+
+* *Initiateurs*
++
+Liste des initiateurs (WWPN ou IQN) séparée par des virgules dans le groupe initiateur.
+
+* *Accorder l'accès à l'hôte*
++
+Nom d'hôte permettant à l'application d'accéder à.
+
+
+
+
+
+== Détails de l'initiateur
+
+Entrez les informations suivantes pour configurer l'initiateur :
+
+* *Groupe initiateur*
++
+Vous pouvez sélectionner un groupe existant ou en créer un nouveau.
+
+* *Nom du groupe initiateur*
++
+Nom du nouveau groupe initiateur.
+
+* *Initiateurs*
++
+Liste des initiateurs (WWPN ou IQN) séparée par des virgules dans le groupe initiateur.
+
+
+
+Les champs suivants s'appliquent uniquement au provisionnement _SAP HANA_ :
+
+* *Type de système d'exploitation initiateur*
++
+Type de système d'exploitation du nouveau groupe initiateur.
+
+* *Ensemble de ports FCP*
++
+l'ensemble de ports FCP auquel le groupe initiateur est lié.
+
+
+
+
+
+== Configuration de l'accès à l'hôte
+
+Pour configurer l'accès de l'hôte aux volumes, entrez les informations suivantes :
+
+* *Configuration d'exportation de volume*
++
+Sélectionnez l'export policy à appliquer aux volumes lors de la création. Les options sont les suivantes :
+
++
+** Tout autoriser
++
+Cette option implique qu'une règle d'exportation est créée, ce qui permet l'accès en lecture/écriture à tous les clients.
+
+** Créer une stratégie personnalisée
++
+Cette option permet de spécifier une liste d'adresses IP d'hôte pour recevoir un accès en lecture-écriture.
+
+
+
++
+[NOTE]
+====
+Vous pouvez modifier l'export policy de volume ultérieurement à l'aide des flux de production System Manager.
+
+====
+* *Adresses IP de l'hôte*
++
+Il s'agit d'une liste d'adresses IP séparées par des virgules.
+
++
+[NOTE]
+====
+Pour les systèmes basés sur NFS, une nouvelle export policy est créée à l'aide du préfixe datastore et une règle y est créée pour donner l'accès à la liste des IP.
+
+====
+
+
+
+
+== Détails de l'application
+
+Lorsque l'application est ajoutée, vous pouvez afficher les paramètres de configuration dans l'onglet *Présentation* de la fenêtre Détails de l'application. D'autres détails, tels que NFS ou CIFS Access et permissions, sont affichés en fonction du type d'application configuré.
+
+* *Type*
++
+Il s'agit du type d'application générale, de base de données ou d'infrastructure virtuelle créée.
+
+* *SVM*
++
+Nom de la machine virtuelle du serveur sur laquelle l'application a été créée.
+
+* *Taille*
++
+Taille totale du volume.
+
+* *Disponible*
++
+Quantité d'espace actuellement disponible dans le volume.
+
+* *Protection*
++
+Type de protection des données configuré.
+
+
+
+Vous pouvez développer les volets *composants* et *volumes* pour obtenir des informations sur les performances relatives à l'espace utilisé, aux IOPS et à la latence.
+
+[NOTE]
+====
+La taille utilisée affichée dans le volet composants est différente de la taille utilisée affichée dans l'interface de ligne de commandes.
+
+====

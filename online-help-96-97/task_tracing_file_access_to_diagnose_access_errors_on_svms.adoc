@@ -1,0 +1,66 @@
+---
+permalink: online-help-96-97/task_tracing_file_access_to_diagnose_access_errors_on_svms.html 
+sidebar: sidebar 
+keywords: trace, file, access, diagnost, error, svm, system, manager, online, help 
+summary: 'Depuis System Manager 9.6, vous pouvez diagnostiquer les erreurs d"accès aux fichiers CIFS ou NFS sur un SVM (Storage Virtual machine).' 
+---
+= Suivi de l'accès aux fichiers pour diagnostiquer les erreurs d'accès sur les SVM avec System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez diagnostiquer les erreurs d'accès aux fichiers CIFS ou NFS sur un SVM (Storage Virtual machine).
+
+.Description de la tâche
+Des problèmes d'accès aux fichiers, tels qu'une erreur « accès refusé », sont susceptibles de survenir en cas de problèmes de configuration, de permissions ou de mappage d'utilisateur. Vous pouvez utiliser System Manager pour résoudre les problèmes d'accès aux fichiers en consultant les résultats du suivi d'accès pour le fichier ou le partage auquel un utilisateur souhaite accéder. System Manager indique si le fichier ou le partage dispose d'autorisations efficaces de lecture, d'écriture ou d'exécution, ainsi que les raisons pour lesquelles l'accès est ou n'est pas effectif.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner le SVM qui contient les fichiers ou les partages pour lesquels les erreurs d'accès aux fichiers ont été reçues.
+. Cliquez sur *Trace File Access*.
++
+La fenêtre Trace File Access du SVM sélectionné affiche les prérequis et les étapes nécessaires au suivi des autorisations d'accès aux fichiers.
+
+. Cliquez sur *Continuer* pour lancer le processus de traçage des fichiers.
+. Sélectionner le protocole utilisé pour accéder aux fichiers ou aux partages sur la SVM sélectionnée.
+. Dans le champ *Nom d'utilisateur*, entrez le nom de l'utilisateur qui tente d'accéder au fichier ou au partage.
+. *Facultatif:* cliquez image:../media/advanced_options.gif[""] pour spécifier plus de détails pour restreindre l'étendue du tracé.
++
+La boîte de dialogue Options avancées vous permet de spécifier les détails suivants :
+
++
+** *Adresse IP du client* : spécifiez l'adresse IP du client.
+** *Fichier* : spécifiez le nom du fichier ou le chemin du fichier à tracer.
+** *Afficher dans les résultats de trace* : spécifiez si vous souhaitez afficher uniquement les entrées refusées ou toutes les entrées.
+Cliquez sur *appliquer* pour appliquer les détails que vous avez spécifiés et revenir à la fenêtre accès au fichier de trace.
+
+
+. Cliquez sur *commencer le traçage*.
++
+Le tracé est lancé et un tableau de résultats s'affiche. La table est vide jusqu'à ce que les utilisateurs reçoivent des erreurs lors de la demande d'accès aux fichiers. Le tableau des résultats est actualisé toutes les 15 secondes et affiche les messages dans l'ordre chronologique inverse.
+
+. Informez l'utilisateur ou les utilisateurs concernés qu'ils doivent essayer d'accéder aux fichiers dans les 60 minutes qui suivent.
++
+Les détails des demandes d'accès au fichier refusé sont affichés dans le tableau des résultats lorsque des erreurs se produisent pour le nom d'utilisateur spécifié pendant la durée de la trace. La colonne motifs identifie les problèmes qui empêchent l'utilisateur d'accéder aux fichiers et les raisons de leur survenue.
+
+. *Facultatif:* dans la colonne *motifs* de la table des résultats, cliquez sur *Afficher les autorisations* pour afficher les autorisations du fichier auquel l'utilisateur tente d'accéder.
++
+** Lorsque le résultat de la trace affiche un message indiquant que l'accès n'est pas accordé pour « Synchroniser », « contrôle de lecture », « attributs de lecture », « Exécuter », « Lire EA », « Écrire », ou « Lire », le message indique que l'accès souhaité n'a pas été accordé pour l'ensemble des autorisations répertoriées. Pour afficher l'état des autorisations réelles, vous devez afficher les autorisations à l'aide du lien fourni.
+** Si vous avez spécifié le protocole CIFS, la boîte de dialogue autorisations de partage et de fichier effectif s'affiche, répertoriant à la fois les autorisations de fichier et de partage associées au partage et au fichier auquel l'utilisateur tente d'accéder.
+** Si vous avez spécifié le protocole NFS, la boîte de dialogue autorisations de fichier effectives s'affiche, répertoriant les autorisations de fichier associées au fichier auquel l'utilisateur tente d'accéder.
+Une coche indique que les autorisations sont accordées et un « X » indique que les autorisations ne sont pas accordées.
+
+
++
+Cliquez sur *OK* pour revenir à la fenêtre accès au fichier de trace.
+
+. *Facultatif:* le tableau de résultats affiche les données en lecture seule. Vous pouvez effectuer les actions suivantes avec les résultats du tracé :
++
+** Cliquez sur *Copier dans le presse-papiers* pour copier les résultats dans le presse-papiers.
+** Cliquez sur *Exporter les résultats de trace* pour exporter les résultats dans un fichier CSV (valeurs séparées par des virgules).
+
+
+. Lorsque vous souhaitez mettre fin à l'opération de traçage, cliquez sur *Arrêter le traçage*.
+

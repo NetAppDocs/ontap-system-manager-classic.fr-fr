@@ -1,0 +1,113 @@
+---
+permalink: online-help-96-97/reference_trace_file_access_window.html 
+sidebar: sidebar 
+keywords: system, manager, commnd, button, trace, file, access, window, online, help, cif, entry, list 
+summary: 'Depuis System Manager 9.6, vous pouvez utiliser la fenêtre Trace File Access pour diagnostiquer des problèmes lorsque vous rencontrez des problèmes d"accès aux fichiers et aux partages sur un SVM via les protocoles CIFS ou NFS.' 
+---
+= Fenêtre d'accès aux fichiers de trace dans System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis ONTAP System Manager 9.6, vous pouvez utiliser la fenêtre Trace File Access pour diagnostiquer des problèmes lorsque vous rencontrez des problèmes d'accès aux fichiers et aux partages sur un SVM à l'aide des protocoles CIFS ou NFS.
+
+
+
+== Boutons de commande
+
+* *Continuer*
++
+Démarre le processus de configuration et de lancement d'une trace d'accès aux fichiers sur le SVM sélectionné.
+
+* *Protocoles*
++
+Permet de sélectionner le protocole utilisé pour accéder aux fichiers et aux partages sur le SVM sélectionné, CIFS ou NFS.
+
+* *Icône Options avancées*
++
+Permet de spécifier des détails supplémentaires pour restreindre la portée du tracé.
+
+* *Afficher dans les résultats de trace*
++
+Vous permet de spécifier dans la boîte de dialogue Options avancées si vous souhaitez que les résultats de suivi affichent uniquement les demandes d'accès aux fichiers refusées ou pour afficher toutes les demandes d'accès aux fichiers - celles qui ont réussi et celles qui ont été refusées.
+
+* *Début du traçage*
++
+Permet de démarrer le tracé. Les résultats montrent des problèmes d'accès pour les demandes d'accès aux fichiers soumises au cours des 60 prochaines minutes.
+
+* *Arrêter le traçage*
++
+Permet d'arrêter le tracé.
+
+* *Afficher les autorisations*
++
+Permet d'afficher les autorisations. Lorsque vous utilisez le protocole CIFS, vous pouvez afficher les autorisations de partage et de fichier efficaces. Lorsque vous utilisez le protocole NFS, vous pouvez afficher les autorisations de fichiers efficaces.
+
+* *Copier dans le presse-papiers*
++
+Permet de copier le tableau de résultats dans le presse-papiers.
+
+* *Exporter les résultats de trace*
++
+Permet d'exporter les résultats de trace dans un fichier au format valeurs séparées par des virgules (.csv).
+
+
+
+
+
+== Champs de saisie
+
+* *Nom d'utilisateur*
++
+Saisissez le nom de l'utilisateur qui a reçu les erreurs de demande d'accès aux fichiers que vous souhaitez tracer.
+
+* *Résultats de trace de recherche*
++
+Entrez les informations que vous souhaitez trouver dans les résultats de la recherche, puis cliquez sur *entrée*.
+
+* *Adresse IP du client*
++
+Dans la boîte de dialogue Options avancées, vous pouvez spécifier l'adresse IP du client comme détails supplémentaires pour affiner l'étendue du tracé.
+
+* *Fichier*
++
+Dans la boîte de dialogue Options avancées, vous pouvez spécifier le chemin du fichier ou du fichier auquel vous souhaitez accéder en tant que détail pour réduire la portée du tracé.
+
+
+
+.Liste de résultats pour le traçage du protocole CIFS
+Lorsque vous spécifiez le protocole CIFS, la liste des résultats affiche les données suivantes pour votre trace en fonction des paramètres que vous avez spécifiés. Les données sont affichées dans l'ordre chronologique inverse. Si vous arrêtez le traçage, les résultats restent dans la liste jusqu'à ce que vous démarquiez un autre tracé.
+
+* Partager : nom du partage auquel le système a tenté d'accéder, qu'il ait réussi ou non.
+* Chemin d'accès : chemin d'accès au fichier auquel le système a tenté d'accéder, que ce soit réussi ou non.
+* Adresse IP du client : adresse IP du client à partir duquel les demandes d'accès ont été lancées.
+* Raisons : la tentative d'accès au fichier ou au partage a réussi ou non.
++
+[NOTE]
+====
+Lorsque le résultat de la trace affiche un message indiquant que l'accès n'est pas accordé pour « Synchroniser », « contrôle de lecture », « attributs de lecture », « Exécuter », « Lire EA », « Écrire », ou « Lire », le message indique que l'accès souhaité n'a pas été accordé pour l'ensemble des autorisations répertoriées. Pour afficher l'état des autorisations réelles, vous devez afficher les autorisations à l'aide du lien fourni.
+
+====
+
+
+.Liste de résultats pour le suivi de protocole NFS
+Lorsque vous spécifiez le protocole NFS, la liste des résultats affiche les données suivantes pour votre trace en fonction des paramètres que vous avez spécifiés. Les données sont affichées dans l'ordre chronologique inverse. Si vous arrêtez le traçage, les résultats restent dans la liste jusqu'à ce que vous démarquiez un autre tracé.
+
+* Chemin d'accès : chemin d'accès au fichier auquel le système a tenté d'accéder, que ce soit réussi ou non.
+* Adresse IP du client : adresse IP du client à partir duquel les demandes d'accès ont été lancées.
+* Raisons : la tentative d'accès au fichier ou au partage a réussi ou non.
++
+[NOTE]
+====
+Lorsque le résultat de la trace affiche un message indiquant que l'accès n'est pas accordé pour « Synchroniser », « contrôle de lecture », « attributs de lecture », « Exécuter », « Lire EA », « Écrire », ou « Lire », le message indique que l'accès souhaité n'a pas été accordé pour l'ensemble des autorisations répertoriées. Pour afficher l'état des autorisations réelles, vous devez afficher les autorisations à l'aide du lien fourni.
+
+====
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["Gestion SMB/CIFS"]
+
+xref:../nas-multiprotocol-config/index.html[Configuration multiprotocole SMB/CIFS et NFS]

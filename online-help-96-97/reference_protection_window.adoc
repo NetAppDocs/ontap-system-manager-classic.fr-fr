@@ -1,0 +1,114 @@
+---
+permalink: online-help-96-97/reference_protection_window.html 
+sidebar: sidebar 
+keywords: command, buttons, protection, window, relationship, vault, mirror, online, help, ls 
+summary: 'Vous pouvez utiliser la fenêtre protection pour créer et gérer des relations de miroir, des relations de coffre-fort et des relations de miroir et de coffre-fort et pour afficher des détails sur ces relations. La fenêtre protection n"affiche pas de relations de partage de charge (LS) ni de relations de protection des données de transition (TDP).' 
+---
+= Fenêtre de protection avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre protection avec ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des relations de miroir, des relations de coffre-fort, ainsi que des relations de miroir et de coffre-fort, et pour afficher des informations détaillées sur ces relations. La fenêtre protection n'affiche pas de relations de partage de charge (LS) ni de relations de protection des données de transition (TDP).
+
+
+
+== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer une relation de protection, que vous pouvez utiliser pour créer une relation de miroir, une relation de coffre-fort ou une relation de miroir et de coffre-fort à partir d'un volume de destination.
+
++
+System Manager n'affiche pas de machine virtuelle de stockage (SVM) configurée pour la reprise après incident dans la boîte de dialogue Créer une relation de protection.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier la relation de protection, que vous pouvez utiliser pour modifier la planification et la stratégie d'une relation.
+
++
+Pour une relation de coffre-fort, une relation de miroir et de coffre-fort, ou une relation de miroir flexible de version, vous pouvez modifier le type de relation en modifiant le type de stratégie.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer la relation de protection, que vous pouvez utiliser pour supprimer une relation.
+
+* * Opérations*
++
+Affiche les opérations pouvant être effectuées sur une relation de protection.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+== Liste des relations de protection
+
+* *Source Storage Virtual machine*
++
+Affiche le SVM qui contient le volume à partir duquel les données sont mises en miroir ou archivées dans une relation.
+
+* *Volume source*
++
+Affiche le volume à partir duquel les données sont mises en miroir ou archivées dans une relation.
+
+* *Volume de destination*
++
+Affiche le volume vers lequel les données sont mises en miroir ou archivées dans une relation.
+
+* * Est sain*
++
+Indique si la relation est saine ou non.
+
+* *Type d'objet*
++
+Affiche le type d'objet de la relation, par exemple Volume, FlexGroup ou SVM.
+
+* *État des relations*
++
+Affiche l'état de la relation, tel que Snapmirrored, Uninitialized ou Broken off.
+
+* *État du transfert*
++
+Affiche l'état de la relation.
+
+* *Type de relation*
++
+Affiche le type de relation, tel que miroir, coffre-fort ou miroir et coffre-fort.
+
+* *Temps de décalage*
++
+L'heure de décalage correspond à la différence entre l'heure actuelle et l'horodatage de la dernière copie Snapshot qui a été transférée vers le système de destination. Le temps de décalage sera toujours au moins autant que la durée du dernier transfert réussi, à moins que les horloges des systèmes source et de destination ne soient pas synchronisées. La différence de fuseau horaire est automatiquement calculée en fonction du temps de décalage.
+
+* *Nom de la politique*
++
+Affiche le nom de la règle affectée à la relation.
+
+* *Type de police*
++
+Affiche le type de stratégie affecté à la relation. Le type de règle peut être StrictSync, Sync, Asynchronous Mirror, Asynchronous Vault ou Asynchronous Mirror Vault.
+
+
+
+
+
+== Zone de détails
+
+* *Onglet Détails*
++
+Affiche des informations générales sur la relation sélectionnée, telles que le cluster source et le cluster de destination, la vitesse de transfert des données, l'état de la relation, des informations détaillées sur le taux de compression réseau, l'état du transfert de données, le type de transfert de données actuel, le type de dernier transfert de données, la dernière copie Snapshot, Et l'horodatage de la dernière copie Snapshot.
+
+* *Onglet Détails de la police*
++
+Affiche des détails sur la stratégie attribuée à la relation de protection sélectionnée. Cet onglet affiche également l'étiquette SnapMirror et les planifications de copies Snapshot dans le volume source qui correspondent à l'étiquette spécifiée.
+
+* *Onglet copies snapshot*
++
+Affiche le nombre de copies Snapshot avec l'attribut d'étiquette SnapMirror pour la relation de protection sélectionnée et l'horodatage de la dernière copie Snapshot.
+
+

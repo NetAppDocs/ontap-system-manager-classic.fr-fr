@@ -1,0 +1,59 @@
+---
+permalink: online-help-96-97/task_performing_unplanned_switchover.html 
+sidebar: sidebar 
+keywords: perform, unplanned, switchover, system, manager, metrocluster, site, online, help 
+summary: 'Depuis System Manager 9.6, vous pouvez effectuer un basculement non planifié d"un site MetroCluster. Cette opération est utile en cas d"interruption ou d"incident.' 
+---
+= Effectuer un basculement non planifié
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez effectuer un basculement non planifié d'un site MetroCluster. Cette opération est utile en cas d'interruption ou d'incident.
+
+.Avant de commencer
+Votre MetroCluster fonctionne normalement. Toutefois, les nœuds du cluster local (site A) sont actifs, mais les nœuds du cluster distant (site B) sont en panne.
+
+.Étapes
+. [[step1]]Vérifiez que le site B est en panne.
++
+Une erreur de connexion peut rendre le site B défaillant.
+
++
+[NOTE]
+====
+Le démarrage du processus de basculement avec le site B vers le haut peut entraîner des résultats désastreux.
+
+====
+. Dans System Manager, connectez-vous au site MetroCluster local (site A) à l'aide des informations d'identification de l'administrateur du cluster.
+. Cliquez sur *Configuration* > *MetroCluster*
++
+La fenêtre MetroCluster Switchback Operations s'affiche.
+
+. Cliquez sur *Suivant*.
++
+La fenêtre MetroCluster Switchback Operations affiche l'état des opérations et System Manager vérifie si un basculement négocié est possible.
+
+. Une fois le processus de validation terminé, cliquez sur *basculer le site B vers le site A* pour lancer le processus de basculement.
++
+Un message d'avertissement s'affiche, vous avertissant que l'opération de basculement passe du site B au site A. Le statut du site B doit être « INACCESSIBLE » et tous les noeuds du site B sont indiqués en rouge.
+
++
+[NOTE]
+====
+Comme indiqué à l'étape link:#step1["1"], Le site B doit en fait être en panne et pas seulement non connecté. Notez également que le basculement peut entraîner une perte de données.
+
+====
+. Si vous souhaitez continuer, assurez-vous que la case est cochée, puis cliquez sur *Oui*.
++
+Le processus de basculement commence. Les États du site A et du site B sont affichés au-dessus des représentations graphiques de leurs configurations. Si le basculement échoue, un message d'erreur s'affiche. Cliquez sur *Fermer*. Corrigez les erreurs et recommencez à l'étape link:task_performing_negotiated_planned_switchover.html#step1["1"]
+
+. Effectuer toutes les activités de maintenance requises pour le site B.
+. S'assurer que le site B est en service.
++
+Le processus de guérison commence. Lorsque System Manager affiche la réparation, le site B est opérationnel et les systèmes sont en préparation pour le processus de rétablissement. Le bouton *Retour du site A au site B* apparaît en bas de la fenêtre.
+
+. Passez à la section xref:task_performing_switchback.adoc[Exécution d'un rétablissement] pour lancer l'opération de rétablissement.
+

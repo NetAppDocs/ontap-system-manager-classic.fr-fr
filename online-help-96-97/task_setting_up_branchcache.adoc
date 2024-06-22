@@ -1,0 +1,97 @@
+---
+permalink: online-help-96-97/task_setting_up_branchcache.html 
+sidebar: sidebar 
+keywords: cifs, svm, system, manager, online, help, branchcache, set, up, modify, settings, delete 
+summary: 'Vous pouvez utiliser System Manager pour configurer BranchCache sur une machine virtuelle de stockage (SVM) compatible CIFS, afin de permettre la mise en cache du contenu sur les ordinateurs locaux des clients demandeurs.' 
+---
+= Configurez BranchCache avec System Manager, version ONTAP 9.7 et antérieure
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer BranchCache sur un serveur virtuel de stockage compatible CIFS (SVM), afin de permettre la mise en cache du contenu sur les ordinateurs locaux des clients demandeurs.
+
+.Avant de commencer
+* CIFS doit être sous licence et un serveur CIFS doit être configuré.
+* Pour BranchCache version 1, SMB 2.1 ou version ultérieure doit être activé.
+* Pour BranchCache version 2, SMB 3.0 doit être activé et les clients Windows distants doivent prendre en charge BranchCache 2.
+
+
+.Description de la tâche
+* Vous pouvez configurer BranchCache sur des SVM.
+* Vous pouvez créer une configuration de BranchCache pour l'ensemble des partages si vous souhaitez offrir des services de mise en cache pour l'ensemble du contenu contenu contenu qui est contenu dans l'ensemble des partages SMB sur le serveur CIFS.
+* Vous pouvez créer une configuration de BranchCache par partage si vous souhaitez proposer des services de mise en cache pour le contenu qui est hébergé dans des partages SMB sélectionnés sur le serveur CIFS.
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *BranchCache*, cliquez sur *Configuration*.
+. Dans la boîte de dialogue *BranchCache*, entrez les informations suivantes :
++
+.. Spécifiez le chemin d'accès au magasin de hachage.
++
+Le chemin peut être vers un répertoire existant où vous souhaitez stocker les données de hachage. Le chemin de destination doit être en lecture-écriture. Les chemins en lecture seule, tels que les répertoires Snapshot, ne sont pas autorisés.
+
+.. Spécifiez la taille maximale (en Ko, Mo, Go, To ou po) d'un magasin de données de hachage.
++
+Si les données de hachage dépassent cette valeur, des hachages plus anciens sont supprimés pour libérer de l'espace dans des hachages plus récents. La taille par défaut d'un magasin de hachage est de 1 Go.
+
+.. Spécifiez le mode de fonctionnement de la configuration de BranchCache.
++
+Le mode de fonctionnement par défaut est défini sur tous les partages.
+
+.. Spécifiez une clé de serveur pour empêcher les clients d'imiter le serveur BranchCache.
++
+Vous pouvez définir la clé du serveur à une valeur spécifique. Ainsi, si plusieurs serveurs fournissent des données de BranchCache pour les mêmes fichiers, les clients peuvent utiliser des hachages à partir de n'importe quel serveur à l'aide de la même clé de serveur. Si la clé du serveur contient des espaces, vous devez inclure la clé du serveur entre guillemets.
+
+.. Sélectionnez la version BranchCache requise.
++
+Par défaut, toutes les versions prises en charge par le client sont sélectionnées.
+
+
+
+. Cliquez sur *configurer*.
+
+
+
+
+== Modifiez les paramètres de BranchCache
+
+Vous pouvez utiliser la fenêtre CIFS dans System Manager pour modifier les paramètres de BranchCache configurés pour un serveur virtuel de stockage (SVM) compatible CIFS. Vous pouvez modifier le chemin du magasin de hachage, la taille du magasin de hachage, le mode de fonctionnement et les versions de BranchCache prises en charge.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *BranchCache*, cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modifier les paramètres BranchCache*, modifiez les informations requises :
++
+** Chemin du magasin de hachage
++
+Si vous modifiez le chemin du magasin de hachage, vous avez la possibilité de conserver les données de hachage mises en cache du magasin de hachage précédent.
+
+** Taille du magasin de hachage
+** Mode de fonctionnement
+** Version BranchCache
+
+
+. Cliquez sur *Modifier*.
+
+
+
+
+== Supprimez la configuration de BranchCache
+
+System Manager peut être utilisé pour supprimer la configuration de BranchCache si vous ne souhaitez plus fournir de services de mise en cache sur le serveur virtuel de stockage (SVM) configuré pour BranchCache.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *BranchCache*, cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
++
+Vous pouvez également supprimer des hachages existants du magasin de hachage.
+
+

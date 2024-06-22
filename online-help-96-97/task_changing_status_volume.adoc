@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_changing_status_volume.html 
+sidebar: sidebar 
+keywords: flexvol, change, status, volume, online, help, system, manager 
+summary: 'Vous pouvez utiliser System Manager pour modifier l"état d"un volume FlexVol lorsque vous souhaitez mettre un volume hors ligne, rétablir la disponibilité d"un volume ou restreindre l"accès à un volume.' 
+---
+= Modifiez l'état d'un volume avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier l'état d'un volume FlexVol lorsque vous souhaitez mettre un volume hors ligne, remettre un volume en ligne ou restreindre l'accès à un volume.
+
+.Avant de commencer
+* Pour qu'un volume soit la cible d'une opération de copie de volume ou d'une opération de réplication SnapMirror, le volume doit être dans l'état restreint.
+* Si vous souhaitez mettre un volume NAS hors ligne, le volume NAS doit être démonté.
+
+
+.Description de la tâche
+Vous pouvez mettre un volume hors ligne pour effectuer une maintenance sur le volume, déplacer le volume ou détruire le volume. Lorsqu'un volume est hors ligne, les clients n'ont pas accès en lecture ou en écriture à un volume. Vous ne pouvez pas mettre un volume racine hors ligne.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume pour lequel vous souhaitez modifier l'état.
+. Dans le menu *plus d'actions* > *changer l'état en*, sélectionnez l'état du volume requis.
+. Cliquez sur *OK* dans la boîte de dialogue de confirmation pour modifier l'état du volume.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

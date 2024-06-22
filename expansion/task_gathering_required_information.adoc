@@ -1,0 +1,70 @@
+---
+permalink: expansion/task_gathering_required_information.html 
+sidebar: sidebar 
+keywords: expand, cluster, network, information, require, configure, node-management, lif, service, ip, adress, node, gather the required network information 
+summary: Avant de développer un cluster, vous devez obtenir les informations de mise en réseau requises afin de configurer plus tard les LIFs de node-management et les adresses IP de Service Processor pour les deux nœuds. 
+---
+= Collectez les informations réseau requises
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de développer un cluster, vous devez obtenir les informations de mise en réseau requises afin de configurer plus tard les LIFs de node-management et les adresses IP de Service Processor pour les deux nœuds.
+
+.Étapes
+. Obtenez les détails suivants pour configurer deux LIF de node-management--un pour chacun des nœuds que vous prévoyez d'ajouter au cluster :
++
+** Adresse IP
+** Masque de réseau
+** Passerelle
+** Port
+
+
+. Si votre site comporte généralement des entrées DNS pour les LIFs de node-management, assurez-vous que des entrées DNS sont créées pour les nouveaux nœuds.
+. Déterminer si le cluster utilise une configuration réseau automatique ou manuelle pour le processeur de service à l'aide de `system service-processor network auto-configuration show` commande.
++
+Si un nom de sous-réseau est affiché dans l' `SP IPv4 Subnet Name` ou `SP IPv6 Subnet Name` Le cluster utilise la mise en réseau automatique du processeur de service. Si les deux colonnes sont vides, le cluster utilise la mise en réseau manuelle du processeur de service.
+
++
+Dans le résultat suivant, le sous-réseau 1 indique que le SP cluster1 utilise la configuration réseau automatique :
+
++
+[listing]
+----
+cluster1::> system service-processor network auto-configuration show
+Cluster Name         SP IPv4 Subnet Name          SP IPv6 Subnet Name
+-------------------- ---------------------------- -------------------
+cluster1             sub1                            -
+----
++
+Dans le résultat suivant, les champs de sous-réseau vides indiquent que le SP cluster1 utilise une configuration réseau manuelle :
+
++
+[listing]
+----
+cluster1::> system service-processor network auto-configuration show
+Cluster Name         SP IPv4 Subnet Name          SP IPv6 Subnet Name
+-------------------- ---------------------------- -------------------
+cluster1             -                            -
+----
+. En fonction de la configuration réseau du processeur de service, effectuez l'une des actions suivantes :
++
+** Si le processeur de service utilise une configuration réseau manuelle, obtenez deux adresses IP que vous utiliserez ultérieurement lors de la configuration du processeur de service sur les nouveaux nœuds.
+** Si le processeur de service utilise la configuration réseau automatique, vérifiez que le sous-réseau utilisé par le processeur de service possède des adresses IP disponibles pour les deux nouveaux nœuds à l'aide de `network subnet show` commande.
+Dans la sortie suivante, le sous-réseau sous-1 a 2 adresses disponibles :
+
+
++
+[listing]
+----
+cluster1::>  network subnet show
+IPspace: Default
+Subnet                     Broadcast                   Avail/
+Name      Subnet           Domain    Gateway           Total   Ranges
+--------- ---------------- --------- --------------- --------- ---------------
+sub1      10.53.33.1/18    Default   10.53.0.1          2/4    10.53.33.3-10.53.33.6
+...
+----
+

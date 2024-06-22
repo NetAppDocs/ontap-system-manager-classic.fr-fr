@@ -1,0 +1,94 @@
+---
+permalink: online-help-96-97/concept_ldap_configuration_services.html 
+sidebar: sidebar 
+keywords: ldap, configuration, service, system, manager, online, help, storage, virtual, machine, ldap, client, window 
+summary: System Manager permet de gérer les configurations LDAP. 
+---
+= Gérez les configurations LDAP à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les configurations LDAP.
+
+
+
+== Modifier les clients LDAP actifs
+
+System Manager peut être utilisé pour associer un client LDAP actif à une machine virtuelle de stockage (SVM) qui vous permet d'utiliser LDAP comme service de noms ou pour le mappage de noms.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Services*, cliquez sur *Configuration LDAP*.
+. Dans la fenêtre *LDAP Configuration*, cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Active LDAP client*, sélectionnez le client LDAP que vous souhaitez modifier et effectuez les opérations suivantes :
++
+** Modifier les serveurs de domaine Active Directory.
+** Modifiez les serveurs Active Directory préférés.
+
+
+. Cliquez sur *OK*.
+. Vérifiez que les modifications apportées sont mises à jour dans la fenêtre *LDAP Configuration*.
+
+
+
+
+== Supprimer les clients LDAP actifs
+
+Vous pouvez utiliser System Manager pour supprimer un client LDAP actif si vous souhaitez qu'une machine virtuelle de stockage (SVM) ne soit pas associée à celle-ci.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. Dans le volet *Services*, cliquez sur *Configuration LDAP*.
+. Cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Fenêtre Configuration LDAP
+
+Vous pouvez utiliser la fenêtre de configuration LDAP pour modifier ou supprimer des clients LDAP actifs au niveau de la machine virtuelle de stockage (SVM).
+
+
+
+=== Boutons de commande
+
+* *Modifier*
++
+Ouvre la boîte de dialogue client LDAP actif, qui vous permet de modifier les propriétés du client LDAP actif, comme les serveurs de domaine Active Directory et les serveurs Active Directory préférés.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer le client LDAP actif, qui permet de supprimer le client LDAP actif.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Zone de configuration LDAP
+
+Affiche les détails du client LDAP actif.
+
+* *Nom du client LDAP*
++
+Affiche le nom du client LDAP actif.
+
+* *Serveurs de domaine Active Directory*
++
+Affiche le domaine Active Directory du client LDAP actif.
+
+* *Serveurs Active Directory préférés*
++
+Affiche le serveur Active Directory préféré pour le client LDAP actif.
+
+

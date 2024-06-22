@@ -1,0 +1,53 @@
+---
+permalink: nfs-config-esxi/concept_adding_nfs_access_to_existing_svm.html 
+sidebar: sidebar 
+keywords: nfs, access, exist, create, data, logical, interface, lif, configure, esxi, host, verify, add, add nfs access to an existing SVM 
+summary: 'Pour ajouter un accès NFS à un SVM existant, vous devez d"abord créer une interface logique (LIF) de données. Vous pouvez ensuite configurer l"accès NFS sur l"hôte ESXi et vérifier que NFS est activé pour ESXi à l"aide de Virtual Storage Console.' 
+---
+= Ajoutez un accès NFS à un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour ajouter un accès NFS à un SVM existant, vous devez d'abord créer une interface logique (LIF) de données. Vous pouvez ensuite configurer l'accès NFS sur l'hôte ESXi et vérifier que NFS est activé pour ESXi à l'aide de Virtual Storage Console.
+
+.Avant de commencer
+* Vous devez connaître les composants réseau suivants que le système utilisera :
++
+** Le nœud et le port spécifique sur ce nœud où la LIF de données sera créée
+** Le sous-réseau à partir duquel l'adresse IP de la LIF de données sera provisionnée, ou éventuellement l'adresse IP spécifique que vous souhaitez attribuer à la LIF de données
+
+
+* Tout pare-feu externe doit être configuré de manière appropriée pour permettre l'accès aux services réseau.
+* Le protocole NFS doit être autorisé sur la SVM.
++
+C'est le cas si vous n'avez pas suivi cette procédure pour créer le SVM lors de la configuration d'un autre protocole.
+
+
+
+.Étapes
+. Accédez au volet *Details* dans lequel vous pouvez configurer les protocoles de la SVM :
++
+.. Sélectionnez le SVM que vous souhaitez configurer.
+.. Dans le volet *Détails*, en regard de *protocoles*, cliquez sur *NFS*.
++
+image::../media/svm_add_protocol_nfs_nfs_esxi.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+
+
+. Dans la boîte de dialogue *Configure NFS Protocol*, créer une LIF de données :
++
+.. Attribuez automatiquement une adresse IP à la LIF à partir d'un sous-réseau que vous spécifiez ou saisissez manuellement l'adresse.
+.. Cliquez sur *Browse* et sélectionnez un nœud et un port qui seront associés à la LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nfs_esxi.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
++
+Ne saisissez aucune information pour provisionner un volume. Vous pouvez par la suite provisionner des datastores à l'aide de Virtual Storage Console.
+
+. Cliquez sur *Envoyer et fermer*, puis sur *OK*.
+

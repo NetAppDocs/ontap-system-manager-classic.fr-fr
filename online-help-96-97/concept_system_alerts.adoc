@@ -1,0 +1,217 @@
+---
+permalink: online-help-96-97/concept_system_alerts.html 
+sidebar: sidebar 
+keywords: system, manager, monitor, cluster, health, alerts, delete, 
+summary: 'Vous pouvez utiliser System Manager pour surveiller différentes parties d"un cluster.' 
+---
+= Gérez les alertes système avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour surveiller différents composants d'un cluster.
+
+
+
+== Confirmation des alertes d'intégrité du système
+
+System Manager permet d'accuser réception des alertes d'intégrité du système pour les sous-systèmes et de y répondre. Vous pouvez utiliser les informations affichées pour effectuer l'action recommandée et corriger le problème signalé par l'alerte.
+
+.Étapes
+. Cliquez sur *événements et travaux* > *alertes système*.
+. Dans la fenêtre *alertes système*, cliquez sur l'icône en forme de flèche située en regard du nom du sous-système.
+. Sélectionnez l'alerte que vous souhaitez accuser réception, puis cliquez sur *accuser réception*.
+. Saisissez votre nom, puis cliquez sur *Acknowledge*.
+
+
+
+
+== Supprime les alertes d'intégrité du système
+
+Vous pouvez utiliser System Manager pour supprimer les alertes d'état du système qui ne nécessitent aucune intervention de votre part.
+
+.Étapes
+. Cliquez sur *événements et travaux* > *alertes système*.
+. Dans la fenêtre *alertes système*, cliquez sur l'icône en forme de flèche située en regard du nom du sous-système.
+. Sélectionnez l'alerte que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Saisissez votre nom, puis cliquez sur *Supprimer*.
+
+
+
+
+== Supprime les alertes d'intégrité du système
+
+Vous pouvez utiliser System Manager pour supprimer les alertes d'état du système auxquelles vous avez déjà répondu.
+
+.Étapes
+. Cliquez sur *événements et travaux* > *alertes système*.
+. Dans la fenêtre *alertes système*, cliquez sur l'icône en forme de flèche située en regard du nom du sous-système.
+. Sélectionnez l'alerte à supprimer, puis cliquez sur *Supprimer*.
+. Cliquez sur *OK*.
+
+
+
+
+== Contrôles disponibles de l'état du cluster
+
+Plusieurs moniteurs d'état permettent de surveiller différentes parties d'un cluster. Les contrôles d'état vous aident à corriger des erreurs au sein des systèmes ONTAP en détectant des événements, en vous envoyant des alertes et en supprimant les événements tels qu'ils sont clairs.
+
+[cols="1a,1a,1a"]
+|===
+| Nom du contrôle de l'état (identifiant) | Nom du sous-système (identifiant) | Objectif 
+
+
+ a| 
+Commutateur du cluster(commutateur du cluster)
+ a| 
+Commutateur (commutateur - état)
+ a| 
+Surveille les commutateurs du réseau de cluster et les commutateurs du réseau de gestion en termes de température, d'utilisation, de configuration des interfaces, de redondance (commutateurs du réseau de cluster uniquement), et de fonctionnement des ventilateurs et de l'alimentation. Le contrôle de l'état du commutateur de cluster communique avec les commutateurs via SNMP. SNMPv2c est le paramètre par défaut.
+
+[NOTE]
+====
+Depuis ONTAP 9.2, ce moniteur peut détecter et signaler le redémarrage d'un commutateur de cluster depuis la dernière période d'interrogation.
+
+====
+
+
+ a| 
+Structure MetroCluster
+ a| 
+Commutateur
+ a| 
+Surveille la topologie de la configuration MetroCluster back-end de la structure et détecte les erreurs de configuration, comme le câblage et la segmentation incorrects ou les défaillances ISL.
+
+
+
+ a| 
+État de santé du MetroCluster
+ a| 
+Interconnexion, RAID et stockage
+ a| 
+Surveille les adaptateurs FC-VI, les adaptateurs d'initiateurs FC, les agrégats et disques situés derrière le côté gauche et les ports d'intercluster
+
+
+
+ a| 
+Connectivité nœud(nœud-Connect)
+ a| 
+Continuité de l'activité CIFS
+ a| 
+Surveille les connexions SMB afin de garantir la continuité de l'activité aux applications Hyper-V.
+
+
+
+ a| 
+Stockage (SAS-Connect)
+ a| 
+Surveille les tiroirs, les disques et les adaptateurs au niveau du nœud pour s'assurer que les chemins et les connexions sont appropriés.
+
+
+
+ a| 
+Système
+ a| 
+sans objet
+ a| 
+Rassemble les informations d'autres moniteurs de santé.
+
+
+
+ a| 
+Connectivité système (system-Connect)
+ a| 
+Stockage (SAS-Connect)
+ a| 
+Surveille les tiroirs au niveau du cluster pour détecter les chemins appropriés vers deux nœuds en cluster haute disponibilité.
+
+|===
+
+
+== Moyens de répondre aux alertes d'intégrité du système
+
+Lorsqu'une alerte d'intégrité du système se produit, vous pouvez la valider, en savoir plus sur celui-ci, réparer l'état sous-jacent et éviter qu'elle ne se reproduise.
+
+Lorsqu'un contrôle de l'état soulève une alerte, vous pouvez répondre de l'une des manières suivantes :
+
+* Obtenez des informations sur l'alerte, qui inclut la ressource affectée, la gravité de l'alerte, la cause probable, l'effet possible et les actions correctives.
+* Obtenez des informations détaillées sur l'alerte, telles que l'heure à laquelle l'alerte a été générée et si quelqu'un d'autre a déjà reconnu l'alerte.
+* Consultez les informations relatives à l'état de la ressource ou du sous-système affecté, par exemple un tiroir ou un disque spécifique.
+* Reconnaissez l'alerte pour indiquer qu'une personne travaille sur le problème et identifiez-vous comme « vérificateur ».
+* Résolvez le problème en prenant les mesures correctives fournies dans l'alerte, telles que la résolution du câblage pour résoudre un problème de connectivité.
+* Supprimez l'alerte si le système ne l'a pas supprimée automatiquement.
+* Supprimez une alerte pour l'empêcher d'affecter l'état de santé d'un sous-système.
++
+La suppression est utile lorsque vous comprenez un problème. Après avoir supprimé une alerte, elle peut toujours se produire, mais l'état de santé du sous-système s'affiche sous la forme « ok-avec-supprimé » lorsque l'alerte supprimée se produit.
+
+
+
+
+
+== Fenêtre System Alerts
+
+Pour en savoir plus sur les alertes d'état du système, utilisez la fenêtre alertes système. Vous pouvez également valider, supprimer et supprimer des alertes dans la fenêtre.
+
+
+
+=== Boutons de commande
+
+* *Acknowledge*
++
+Vous permet d'accuser réception de l'alerte sélectionnée pour indiquer que le problème est traité et d'identifier la personne qui clique sur le bouton comme « vérificateur ».
+
+* *Supress*
++
+Permet de supprimer l'alerte sélectionnée pour empêcher le système de vous informer à nouveau de la même alerte et de vous identifier en tant que « Souppresseur ».
+
+* *Supprimer*
++
+Supprime l'alerte sélectionnée.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des alertes
+
+* *Sous-système (non D'alertes)*
++
+Affiche le nom du sous-système, tel que la connexion SAS, l'état de santé du commutateur, LA CONTINUITÉ de L'ACTIVITÉ CIFS ou MetroCluster, pour lequel l'alerte est générée.
+
+* *ID d'alerte*
++
+Affiche l'ID de l'alerte.
+
+* *Nœud*
++
+Affiche le nom du nœud pour lequel l'alerte est générée.
+
+* *Gravité*
++
+Affiche la gravité de l'alerte comme Inconnu, autre, informations, dégradé, mineur, Majeur, critique ou mortel.
+
+* *Ressource*
++
+Affiche la ressource qui a généré l'alerte, par exemple un tiroir ou un disque spécifique.
+
+* *Heure*
++
+Affiche l'heure à laquelle l'alerte a été générée.
+
+
+
+
+
+=== Zone de détails
+
+La zone de détails affiche des informations détaillées sur l'alerte, telles que l'heure à laquelle l'alerte a été générée et si l'alerte a été acquittée. Cette zone contient également des informations sur la cause probable et l'effet possible de la condition générée par l'alerte, ainsi que les actions recommandées pour corriger le problème signalé par l'alerte.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["Administration du système"]

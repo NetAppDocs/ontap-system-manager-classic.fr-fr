@@ -1,0 +1,143 @@
+---
+permalink: online-help-96-97/concept_configuration_update.html 
+sidebar: sidebar 
+keywords: configuration, update, system, manager, administration, detail, storage, virtual, machine, svm, online, help, window, tab, node, command, button 
+summary: 'System Manager peut être utilisé pour configurer les détails d"administration des SVM.' 
+---
+= Mise à jour de la configuration avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer les détails d'administration des serveurs virtuels de stockage.
+
+
+
+== Configurer les détails d'administration d'un SVM
+
+System Manager peut être utilisé pour configurer rapidement les détails d'administration d'une machine virtuelle de stockage (SVM). Vous pouvez choisir de déléguer l'administration de la SVM aux administrateurs de la SVM.
+
+.Description de la tâche
+En tant qu'administrateur SVM, System Manager ne peut pas gérer les SVM délégués. Vous pouvez gérer lesSVMuniquement en utilisant l'interface de ligne de commandes.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans l'onglet *SVM*, sélectionnez le nœud, puis cliquez sur *configurer les détails d'administration*.
+. Dans la section *Détails de l'administrateur*, configurez un mot de passe pour l' `vsadmin` compte utilisateur.
+. Si vous voulez une LIF dédiée pour la gestion des SVM, sélectionnez *Create une LIF pour la gestion des SVM*, puis spécifiez les détails réseau.
++
+Une LIF de SVM dédiée est requise pour les protocoles SAN, où les protocoles de gestion et de données ne peuvent pas partager la même LIF. Les LIFs management du SVM ne peuvent être créées que sur les ports data.
+
+. Spécifiez les détails du réseau :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Spécifiez l'adresse IP à l'aide d'un sous-réseau
+ a| 
+.. Sélectionnez *à l'aide d'un sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, sélectionnez le sous-réseau à partir duquel l'adresse IP doit être attribuée.
++
+Pour les LIF intercluster, seuls les sous-réseaux associés à l'IPspace sélectionné sont affichés.
+
+.. Si vous souhaitez attribuer une adresse IP spécifique à l'interface, sélectionnez *utiliser une adresse IP spécifique*, puis saisissez l'adresse IP.
++
+L'adresse IP que vous spécifiez est ajoutée au sous-réseau si cette adresse IP n'est pas déjà présente dans la plage de sous-réseau.
+
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Spécifiez l'adresse IP manuellement sans utiliser de sous-réseau
+ a| 
+.. Sélectionnez *sans sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, effectuez les opérations suivantes :
++
+... Spécifiez l'adresse IP et le masque ou le préfixe réseau.
+... Facultatif : spécifiez la passerelle.
++
+Le champ de destination est renseigné avec la valeur par défaut en fonction de la famille de l'adresse IP.
+
+... Si vous ne voulez pas la valeur par défaut, spécifiez une nouvelle valeur de destination.
+Si aucune route n'existe, une nouvelle route est automatiquement créée en fonction de la passerelle et de la destination.
+
+
+.. Cliquez sur *OK*.
+
+
+|===
+. Spécifier un port pour créer une LIF de données :
++
+.. Cliquez sur *Parcourir*.
+.. Dans la boîte de dialogue *Select Network Port ou adapter*, sélectionnez un port, puis cliquez sur *OK*.
+
+
+
+
+
+
+== Fenêtre mises à jour de la configuration
+
+Vous pouvez utiliser la fenêtre Configuration Updates pour mettre à jour les détails de configuration du cluster, de la machine virtuelle de stockage (SVM) et des nœuds.
+
+
+
+=== Onglets
+
+* *Nœuds*
++
+Permet de configurer les détails du nœud.
+
+* *SVM*
++
+Permet de configurer les détails de la SVM.
+
+
+
+
+
+=== Onglet nœuds
+
+
+
+=== Boutons de commande
+
+* *Modifier le nom du noeud*
++
+Ouvre la boîte de dialogue Modifier le nom du nœud, qui permet de modifier le nom du nœud.
+
+* *Créer une LIF de gestion de nœud*
++
+Ouvre la boîte de dialogue Créer une LIF de gestion des nœuds, qui permet de créer une LIF de gestion des nœuds pour gérer un nœud spécifique.
+
+* *Modifier AutoSupport*
++
+Ouvre la boîte de dialogue Modifier les paramètres AutoSupport, qui vous permet de spécifier une adresse e-mail à partir de laquelle les notifications sont envoyées et d'ajouter plusieurs adresses e-mail des noms d'hôte.
+
+
+
+
+
+=== Onglet SVM
+
+
+
+=== Bouton de commande
+
+* *Configurer les détails de l'administration*
++
+Ouvre la boîte de dialogue configurer les détails d'administration, qui permet de configurer les détails d'administration de la SVM.
+
+
+
+*Informations connexes*
+
+xref:task_creating_cluster.adoc[Création d'un cluster]
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[Configuration d'un réseau lorsqu'une plage d'adresses IP est désactivée]

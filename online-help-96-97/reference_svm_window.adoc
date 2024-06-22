@@ -1,0 +1,219 @@
+---
+permalink: online-help-96-97/reference_svm_window.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, window, svm, online, help, command, button, peer 
+summary: 'Vous pouvez utiliser la fenêtre Storage Virtual machines pour gérer vos serveurs de stockage virtuels (SVM) et afficher des informations les concernant.' 
+---
+= Fenêtre des machines virtuelles de stockage dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre Storage Virtual machines de ONTAP System Manager classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer vos machines virtuelles de stockage et leur afficher des informations.
+
+Vous ne pouvez pas gérer (créer, supprimer, démarrer ou arrêter) d'un SVM configuré pour la reprise après incident à l'aide de System Manager. En outre, vous ne pouvez pas afficher les objets de stockage associés au SVM configuré pour la reprise après incident dans l'interface applicative.
+
+
+
+== Boutons de commande
+
+* *Créer*
++
+Ouvre l'assistant d'installation de Storage Virtual machine (SVM), qui permet de créer un nouveau SVM.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'ordinateur virtuel de stockage qui permet de modifier les propriétés, telles que le commutateur de service de nom, le commutateur de mappage de nom et la liste d'agrégats, d'un SVM sélectionné.
+
+* *Supprimer*
++
+Supprime les SVM sélectionnés.
+
+* *Démarrer*
++
+Démarre le SVM sélectionné.
+
+* *Stop*
++
+Arrête le SVM sélectionné.
+
+* *Paramètres SVM*
++
+Gère le stockage, les règles et la configuration du SVM sélectionné.
+
+* * Opérations de protection*
++
+Offre les options suivantes :
+
++
+** *Initialiser*
++
+Permet d'initialiser la relation SVM pour réaliser un transfert de base depuis le SVM source vers le SVM destination.
+
+** *Mise à jour*
++
+Permet de mettre à jour les données à partir du SVM source vers le SVM de destination.
+
+** *Activer SVM de destination*
++
+Permet d'activer le SVM de destination.
+
+** *Resync à partir du SVM source*
++
+Permet d'initier la resynchronisation de la relation interrompue.
+
+** *Resync from destination SVM (Reverse Resync)*
++
+Permet de resynchroniser la relation entre la SVM de destination et la SVM source.
+
+** *Réactiver SVM source*
++
+Permet de réactiver la SVM source.
+
+
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+* *Accès au fichier de trace*
++
+Permet de suivre l'accessibilité d'un fichier ou d'un partage sur le SVM sélectionné pour un nom d'utilisateur spécifié.
+
+
+
+
+
+== Liste des SVM
+
+La liste des SVM affiche le nom de chaque SVM et les protocoles autorisés y sont.
+
+System Manager permet d'afficher uniquement les SVM de données.
+
+* *Nom*
++
+Affiche le nom du SVM.
+
+* *État*
++
+Affiche l'état du SVM, tel qu'en cours d'exécution, au démarrage, à l'arrêt ou à l'arrêt.
+
+* *Sous-type*
++
+Affiche le sous-type du SVM, qui peut être l'un des suivants :
+
++
+** valeur par défaut
++
+Spécifie que la SVM est un SVM servant les données.
+
+** destination dp
++
+Spécifie que la SVM est configurée pour la reprise après incident.
+
+** source synchrone
++
+Spécifie que la SVM se trouve sur le site principal d'une configuration MetroCluster.
+
+** destination-synchronisation
++
+Spécifie que le SVM se trouve sur le site survivant d'une configuration MetroCluster.
+
+
+
+* *Protocoles autorisés*
++
+Affiche les protocoles autorisés, tels que CIFS et NFS, sur chaque SVM.
+
+* *IPspace*
++
+Affiche l'IPspace du SVM associé.
+
+* *Type de volume*
++
+Affiche le type de volume autorisé, tel que le volume FlexVol, sur chaque SVM.
+
+* *Protégé*
++
+Indique si le SVM est protégé ou non.
+
+* *État de configuration*
++
+Indique si l'état de configuration du SVM est verrouillé ou déverrouillé.
+
+
+
+
+
+== Zone de détails
+
+La zone sous la liste des SVM affiche des informations détaillées, telles que le type de volumes autorisés, Language et Snapshot policy, concernant le SVM sélectionné.
+
+On peut également configurer les protocoles autorisés sur ce SVM. Si vous n'avez pas configuré les protocoles lors de la création du SVM, vous pouvez cliquer sur le lien Protocol pour configurer le protocole.
+
+Vous ne pouvez pas configurer les protocoles pour une SVM configurée pour la reprise d'activité à l'aide de System Manager.
+
+[NOTE]
+====
+Si le service FCP est déjà démarré pour l'SVM, un clic sur le lien FC/FCoE ouvre la fenêtre Network interfaces.
+
+====
+La couleur indique l'état de la configuration du protocole :
+
+|===
+| État | Description 
+
+
+ a| 
+Vert
+ a| 
+Les LIF existent et le protocole est configuré. Vous pouvez cliquer sur le lien pour afficher les détails de la configuration.
+
+[NOTE]
+====
+La configuration peut être partiellement terminée. Cependant, le service est en cours d'exécution. Vous pouvez créer les LIFs et terminer la configuration depuis la fenêtre Network interfaces.
+
+====
+
+
+ a| 
+Jaune
+ a| 
+Indique l'un des éléments suivants :
+
+* Les LIF existent. Le service est créé mais n'est pas en cours d'exécution.
+* Les LIF existent. Le service n'est pas créé.
+* Le service est créé. Les LIF n'existent pas.
+
+
+
+
+ a| 
+Gris
+ a| 
+Le protocole n'est pas configuré. Vous pouvez cliquer sur le lien du protocole pour configurer le protocole.
+
+
+
+ a| 
+Bordure grise
+ a| 
+La licence de protocole a expiré ou est manquante. Vous pouvez cliquer sur le lien du protocole pour ajouter les licences dans la page licences.
+
+|===
+Vous pouvez également ajouter l'interface de gestion et afficher des informations détaillées, telles que les relations de protection, la stratégie de protection, le domaine NIS, etc.
+
+La zone *Détails* comprend également un lien permettant d'afficher le certificat SSL public d'un SVM. Lorsque vous cliquez sur ce lien, vous pouvez effectuer les tâches suivantes :
+
+* Afficher les détails du certificat, le numéro de série, la date de début et la date d'expiration.
+* Copiez le certificat dans le presse-papiers.
+* Envoyez le certificat par e-mail.
+
+
+
+
+== Zone des machines virtuelles de stockage d'égal
+
+Affiche la liste des SVM qui sont associés au SVM sélectionné et fournit des détails sur les applications qui utilisent la relation peer-to-peer.

@@ -1,0 +1,151 @@
+---
+permalink: online-help-96-97/concept_ldap_client_services.html 
+sidebar: sidebar 
+keywords: ldap, client, service, system, manager, add, edit, delete, client, configuration, online, help, cluster, level, storage, virtual, machine, 
+summary: 'System Manager permet d"ajouter, de modifier et de supprimer des configurations client LDAP.' 
+---
+= Configurez les services client LDAP avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour ajouter, modifier et supprimer des configurations de client LDAP.
+
+
+
+== Ajoutez une configuration client LDAP
+
+Vous pouvez utiliser System Manager pour ajouter une configuration client LDAP au niveau du cluster ou au niveau des SVM (Storage Virtual machine) si vous souhaitez utiliser les services LDAP. Vous devez d'abord configurer un client LDAP pour utiliser les services LDAP.
+
+.Description de la tâche
+Au niveau du SVM, il est possible d'ajouter un client LDAP uniquement pour une SVM sélectionnée.
+
+.Étapes
+. Pour ajouter une configuration client LDAP, utilisez l'une des méthodes suivantes :
++
+** Niveau du cluster : cliquez sur *image:../media/advanced_options.gif[""]* > *LDAP*.
+** Niveau SVM : cliquez sur *SVM* > *Paramètres SVM* > *client LDAP*.
+
+
+. Cliquez sur *Ajouter*.
+. Saisissez le nom du client LDAP.
+. Ajoutez le domaine Active Directory ou le serveur LDAP.
+. Cliquez sur image:../media/advanced_options.gif[""] (Options avancées), sélectionnez *Schema*, puis cliquez sur *appliquer*.
+. Spécifiez le *DN de base* et *Port TCP*.
+. Cliquez sur *liaison*, puis spécifiez les détails d'authentification.
+. Cliquez sur *Enregistrer et fermer*.
+. Vérifiez que le client LDAP que vous avez ajouté s'affiche.
+
+
+
+
+== Supprimez une configuration client LDAP
+
+System Manager permet de supprimer une configuration client LDAP au niveau du cluster ou du SVM.
+
+.Description de la tâche
+Au niveau du SVM, vous pouvez supprimer un client LDAP uniquement pour une SVM sélectionnée.
+
+.Étapes
+. Pour supprimer une configuration client LDAP :
++
+** Niveau du cluster : cliquez sur *image:../media/advanced_options.gif[""]* > *LDAP*.
+** Niveau SVM : cliquez sur *SVM* > *Paramètres SVM* > *client LDAP*.
+
+
+. Sélectionnez le client LDAP que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+. Vérifiez que le client LDAP que vous avez supprimé n'est plus affiché.
+
+
+
+
+== Modifier une configuration client LDAP
+
+System Manager peut être utilisé pour modifier une configuration client LDAP au niveau du cluster ou au niveau des SVM (Storage Virtual machine).
+
+.Description de la tâche
+Au niveau du SVM, il est possible de modifier un client LDAP uniquement pour une SVM sélectionnée.
+
+.Étapes
+. Pour modifier une configuration client LDAP :
++
+** Niveau du cluster : cliquez sur *image:../media/advanced_options.gif[""]* > *LDAP*.
+** Niveau SVM : cliquez sur *SVM* > *Paramètres SVM* > *client LDAP*.
+
+
+. Sélectionnez le client LDAP que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Edit LDAP client*, modifiez la configuration du client LDAP comme nécessaire.
+. Cliquez sur *Enregistrer et fermer*.
+. Vérifiez que les modifications apportées à la configuration du client LDAP sont affichées.
+
+
+
+
+== Client LDAP
+
+Vous pouvez utiliser la fenêtre client LDAP pour créer des clients LDAP pour l'authentification utilisateur, l'autorisation d'accès aux fichiers, la recherche d'utilisateur et les services de mappage entre NFS et CIFS au niveau du SVM (Storage Virtual machine).
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Créer un client LDAP, qui permet de créer et de configurer des clients LDAP.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le client LDAP, qui permet de modifier les configurations du client LDAP. Vous pouvez également modifier les clients LDAP actifs.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer le ou les clients LDAP, qui permet de supprimer les configurations du client LDAP. Vous pouvez également supprimer un client LDAP actif.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des clients LDAP
+
+Affiche (au format tabulaire) des détails sur les clients LDAP.
+
+* *Configuration du client LDAP*
++
+Affiche le nom de la configuration du client LDAP que vous avez spécifiée.
+
+* *Machine virtuelle de stockage*
++
+Affiche le nom du SVM pour chaque configuration client LDAP.
+
+* *Schéma*
++
+Affiche le schéma pour chaque client LDAP.
+
+* *Niveau de liaison minimum*
++
+Affiche le niveau de liaison minimum pour chaque client LDAP.
+
+* *Domaine Active Directory*
++
+Affiche le domaine Active Directory pour chaque configuration de client LDAP.
+
+* *Serveurs LDAP*
++
+Affiche le serveur LDAP pour chaque configuration client LDAP.
+
+* *Serveurs Active Directory préférés*
++
+Affiche le serveur Active Directory préféré pour chaque configuration client LDAP.
+
+
+
+*Informations connexes*
+
+xref:concept_ldap.adoc[LDAP]

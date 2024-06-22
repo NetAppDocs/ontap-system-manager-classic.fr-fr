@@ -1,0 +1,38 @@
+---
+section: iscsi-config-windows
+title: Configuration iSCSI pour Windows
+entries:
+- title: Présentation
+  url: "/iscsi-config-windows/index.html"
+- title: Configuration et flux de production de provisionnement iSCSI
+  url: "/iscsi-config-windows/concept_iscsi_configuration_workflow.html"
+  entries:
+  - title: Vérifiez que la configuration iSCSI est prise en charge
+    url: "/iscsi-config-windows/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: Renseignez la fiche technique de configuration iSCSI
+    url: "/iscsi-config-windows/reference_completing_iscsi_configuration_worksheet.html"
+  - title: Notez le nom du nœud de l'initiateur iSCSI
+    url: "/iscsi-config-windows/task_recording_iscsi_node_name.html"
+  - title: Installez les utilitaires d'hôtes unifiés Windows
+    url: "/iscsi-config-windows/task_installing_windows_unified_host_utilities.html"
+  - title: Créer un agrégat
+    url: "/iscsi-config-windows/task_creating_aggregate.html"
+  - title: Choisissez l'emplacement de provisionnement du volume
+    url: "/iscsi-config-windows/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: Vérifier que le service iSCSI s'exécute sur un SVM existant
+      url: "/iscsi-config-windows/task_verifying_iscsi_is_running_on_existing_vserver.html"
+    - title: Créer une LUN
+      url: "/iscsi-config-windows/task_creating_lun_its_containing_volume.html"
+    - title: Configurer iSCSI sur un SVM existant
+      url: "/iscsi-config-windows/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: Créer un nouveau SVM
+      url: "/iscsi-config-windows/task_creating_svm.html"
+  - title: Démarrer les sessions iSCSI avec la cible
+    url: "/iscsi-config-windows/task_starting_iscsi_sessions_with_target.html"
+  - title: Découvrir de nouveaux disques
+    url: "/iscsi-config-windows/task_discovering_new_disks.html"
+  - title: Initialiser et formater la LUN
+    url: "/iscsi-config-windows/task_initializing_formatting_lun.html"
+  - title: Vérifiez que l'hôte peut écrire sur la LUN et la lire
+    url: "/iscsi-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html"

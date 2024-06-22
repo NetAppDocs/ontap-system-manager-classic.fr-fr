@@ -1,0 +1,65 @@
+---
+permalink: volume-disaster-recovery/task_returning_recovered_volume_to_source_role.html 
+sidebar: sidebar 
+keywords: resynchronize, resynchronizing, data, destination, volume, source, activate, snapmirror, relationship, reactivate, reactivate the source volume 
+summary: Après avoir resynchronisé les données du volume de destination sur le volume source, vous devez activer le volume source en rompant la relation SnapMirror. Vous devez ensuite resynchroniser le volume de destination pour protéger le volume source réactivé. 
+---
+= Réactiver le volume source
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir resynchronisé les données du volume de destination sur le volume source, vous devez activer le volume source en rompant la relation SnapMirror. Vous devez ensuite resynchroniser le volume de destination pour protéger le volume source réactivé.
+
+.Description de la tâche
+Les opérations de rupture et de resynchronisation inverse sont exécutées à partir du cluster *source*.
+
+L'image suivante montre que les volumes source et de destination sont en lecture/écriture lorsque vous rompez la relation SnapMirror. Après l'opération de resynchronisation inverse, les données sont répliquées depuis le volume source actif vers le volume de destination en lecture seule.
+
+image::../media/reactivatng_source.gif[Image illustre les opérations d'arrêt et de resynchronisation de SnapMirror]
+
+.Étapes
+. Selon la version de System Manager que vous exécutez, effectuez l'une des opérations suivantes :
++
+** ONTAP 9.4 ou version antérieure : cliquez sur *protection* > *relations*.
+** À partir de ONTAP 9.5 : cliquez sur *protection* > *relations de volume*.
+
+
+. Sélectionner la relation SnapMirror entre les volumes source et de destination
+. Cliquez sur *Operations* > *Quiesce*.
+. Cochez la case de confirmation, puis cliquez sur *Quiesce*.
+. Cliquez sur *Operations* > *Break*.
+. Cochez la case de confirmation, puis cliquez sur *Break*.
++
+image::../media/snapmirror_return_break.gif[Capture d'écran affichant la boîte de dialogue casser.]
+
+. Cliquez sur *Operations* > *Reverse Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Reverse Resync*.
++
+image::../media/snapmirror_return_reverse_resync.gif[Capture d'écran affichant la boîte de dialogue Reverse Resync.]
+
++
+Depuis ONTAP 9.3, la règle SnapMirror de la relation est définie sur `MirrorAllSnapshots` Et la planification SnapMirror est définie sur `None`.
+
++
+Si vous exécutez ONTAP 9.2 ou version antérieure, la règle SnapMirror de la relation est définie sur `DPDefault` Et la planification SnapMirror est définie sur `None`.
+
+. Accédez au volume source sur la page volumes, puis vérifiez que la relation SnapMirror que vous avez créée est répertoriée et l'état de la relation est `Snapmirrored`.
+. Sur le cluster de destination, spécifiez une règle SnapMirror et planifiez correspondant à la configuration de protection de la relation SnapMirror d'origine pour la nouvelle relation SnapMirror :
++
+.. Selon la version de System Manager que vous exécutez, effectuez l'une des opérations suivantes :
++
+*** ONTAP 9.4 ou version antérieure : cliquez sur *protection* > *relations*.
+*** À partir de ONTAP 9.5 : cliquez sur *protection* > *relations de volume*.
+
+
+.. Sélectionnez la relation SnapMirror entre la source réactivée et les volumes de destination, puis cliquez sur *Edit*.
+.. Sélectionnez la règle et la planification SnapMirror, puis cliquez sur *OK*.
+
+
+
+
+.Résultats
+Le volume source dispose d'un accès en lecture/écriture et est protégé par le volume de destination.

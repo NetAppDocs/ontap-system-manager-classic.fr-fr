@@ -1,0 +1,27 @@
+---
+permalink: nfs-config-esxi/task_verifying_nfs_access_from_esxi_host.html 
+sidebar: sidebar 
+keywords: provision, datastore, esxi, verify, nfs, access, creating, create, virtual, machine, power, verify nfs access from an esxi host 
+summary: 'Une fois le datastore provisionné, vous pouvez vérifier que l"hôte ESXi dispose d"un accès NFS en créant une machine virtuelle sur le datastore et en la mettant sous tension.' 
+---
+= Vérifier l'accès NFS à partir d'un hôte ESXi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le datastore provisionné, vous pouvez vérifier que l'hôte ESXi dispose d'un accès NFS en créant une machine virtuelle sur le datastore et en la mettant sous tension.
+
+.Étapes
+. Dans la page Web vSphere * Home* du client, cliquez sur *hosts and clusters*.
+. Dans le volet de navigation, développez le centre de données pour localiser le datastore que vous avez créé précédemment.
+. Cliquez sur *Créer une nouvelle machine virtuelle* et fournissez les informations requises dans l'assistant.
++
+Pour vérifier l'accès NFS, sélectionnez le datacenter, l'hôte ESXi et le datastore que vous avez créé précédemment.
+
++
+La machine virtuelle apparaît dans l'inventaire du client Web vSphere.
+
+. Mise sous tension de la machine virtuelle
+

@@ -1,0 +1,49 @@
+---
+permalink: fc-config-rhel/task_creating_lun_its_containing_volume.html 
+sidebar: sidebar 
+keywords: create, lun, wizard, igroup, map, create a lun 
+summary: 'L"assistant de création de LUN permet de créer une LUN. L"assistant crée également le groupe initiateur et mappe la LUN sur le groupe initiateur, ce qui permet à l"hôte spécifié d"accéder à la LUN.' 
+---
+= Créer une LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'assistant de création de LUN permet de créer une LUN. L'assistant crée également le groupe initiateur et mappe la LUN sur le groupe initiateur, ce qui permet à l'hôte spécifié d'accéder à la LUN.
+
+.Avant de commencer
+* Un agrégat doit disposer d'un espace libre suffisant pour contenir la LUN.
+* Il doit y avoir un SVM (Storage Virtual machine) avec le protocole FC activé et les interfaces logiques (LIF) appropriées créées.
+* Vous devez avoir enregistré les noms de ports (WWPN) mondiaux des ports FC hôtes.
+
+
+.Description de la tâche
+Si la convention de nommage de votre entreprise, il est conseillé d'utiliser les noms des LUN, des volumes, etc. Sinon, vous devez accepter les noms par défaut.
+
+.Étapes
+. Accédez à la fenêtre *LUN*.
+. Sélectionnez *Créer.*
+. Parcourir et sélectionner un SVM dans lequel vous souhaitez créer les LUN.
++
+L'assistant de création de LUN s'affiche.
+
+. Sur la page *Propriétés générales*, sélectionnez le type de LUN *Linux* pour les LUN utilisés directement par l'hôte Linux.
++
+Ne cochez pas la case *Thin Provisioned*.
+
++
+image::../media/lun_creation_thin_provisioned_linux_fc_rhel.gif[L'illustration montre la boîte de dialogue avec la case à cocher provisionnement fin non sélectionnée.]
+
+. Sur la page *conteneur de LUN*, sélectionnez un volume FlexVol existant.
++
+Vous devez vous assurer qu'il y a suffisamment d'espace dans le volume. Si un espace suffisant n'est pas disponible dans les volumes existants, vous pouvez créer un nouveau volume.
+
+. Sur la page *Initiators Mapping*, sélectionnez *Add Initiator Group*, saisissez les informations requises dans l'onglet *General*, puis dans l'onglet *Initiators*, saisissez tous les WWPN des ports FC hôte que vous avez enregistrés.
+. Confirmez les détails, puis sélectionnez *Finish* pour terminer l'assistant.
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["Administration du système"]

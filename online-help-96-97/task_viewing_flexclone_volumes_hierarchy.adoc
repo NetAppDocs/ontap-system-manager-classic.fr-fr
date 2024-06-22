@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_viewing_flexclone_volumes_hierarchy.html 
+sidebar: sidebar 
+keywords: flexclone, volume, system, manager, parent, volume, online, help 
+summary: System Manager peut être utilisé pour afficher la hiérarchie des volumes FlexClone et leurs volumes parents. 
+---
+= Afficher la hiérarchie de volume FlexClone - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour afficher la hiérarchie des volumes FlexClone et leurs volumes parents.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume requis dans la liste des volumes.
+. Cliquez sur *plus d'actions* > *Clone* > *Afficher hiérarchie*.
+
+
+.Résultats
+Les volumes qui ont au moins un volume FlexClone enfant sont affichés. Les volumes FlexClone sont affichés en tant que enfants de leurs volumes parents respectifs.
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

@@ -1,0 +1,40 @@
+---
+permalink: volume-move/task_updating_lun_reporting_nodes_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, move, lun, ha, pair, remote, node, lun, map, slm, reporting-node, partner, lun reporting nodes 
+summary: 'Si le volume que vous avez déplacé contient des LUN et que le volume se trouve maintenant sur une paire HA différente, vous devez supprimer tous les nœuds distants de la liste des nœuds de rapport du mappage de LUN sélectif (SLM). Le mappage de LUN contient alors uniquement le nœud propriétaire et son partenaire haute disponibilité, ce qui garantit que seuls les chemins de LUN optimisés sont utilisés.' 
+---
+= Mettez à jour les nœuds de rapports de LUN après le déplacement d'un volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si le volume que vous avez déplacé contient des LUN et que le volume se trouve maintenant sur une paire HA différente, vous devez supprimer tous les nœuds distants de la liste des nœuds de rapport du mappage de LUN sélectif (SLM). Le mappage de LUN contient alors uniquement le nœud propriétaire et son partenaire haute disponibilité, ce qui garantit que seuls les chemins de LUN optimisés sont utilisés.
+
+.Description de la tâche
+Cette procédure est nécessaire uniquement si vous avez déplacé le volume de sa paire HA vers une autre paire HA. Si le volume se trouve sur un autre nœud de la même paire HA, vous pouvez ignorer cette procédure.
+
+.Étapes
+. Supprimez tous les nœuds distants de la liste des nœuds-rapports à l'aide de la `lun mapping remove-reporting-nodes` commande avec `-remote-nodes` paramètre.
++
+[listing]
+----
+cluster1::> lun mapping remove-reporting-nodes -vserver SVM1 -volume vol1 -igroup ig1 -remote-nodes true
+----
+. Vérifiez que le mappage de LUN ne contient que le nœud propriétaire et son partenaire en utilisant le `lun mapping show` commande avec `-fields reporting-nodes` paramètre.
++
+[listing]
+----
+cluster1::> lun mapping show -vserver SVM1 -volume vol1 -fields reporting-nodes
+vserver  path        igroup   reporting-nodes
+-------- ----------- -------- ---------------------------------------------
+SVM1     /vol/vol1   ig1      cluster1-3,cluster1-4
+----
+. Supprimer les entrées de périphérique obsolètes du système d'exploitation hôte.
+. Effectuez une nouvelle analyse à partir de l'hôte pour actualiser les chemins disponibles de l'hôte.
++
+Reportez-vous à la documentation de votre hôte pour connaître les étapes spécifiques à suivre pour relancer l'analyse de vos hôtes.
+
+

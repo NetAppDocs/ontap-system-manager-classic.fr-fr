@@ -1,0 +1,43 @@
+---
+permalink: online-help-96-97/task_creating_flexclone_files.html 
+sidebar: sidebar 
+keywords: create, flexclone, file, parent, test, applications, online, help 
+summary: 'System Manager peut être utilisé pour créer un fichier FlexClone, qui est une copie inscriptible d"un fichier parent. Vous pouvez utiliser ces copies pour tester les applications.' 
+---
+= Créez des fichiers FlexClone avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer un fichier FlexClone, qui est une copie inscriptible d'un fichier parent. Vous pouvez utiliser ces copies pour tester les applications.
+
+.Avant de commencer
+* Le fichier cloné doit faire partie du système de fichiers actif.
+* La licence FlexClone doit être installée sur le système de stockage.
+
+
+.Description de la tâche
+* Les fichiers FlexClone sont pris en charge uniquement pour les volumes FlexVol.
++
+Vous pouvez créer un fichier FlexClone d'un fichier parent au sein d'un volume en accédant au fichier parent à partir du volume dans lequel il réside et non du volume parent.
+
+* Vous ne pouvez pas créer de fichier FlexClone sur un volume SnapLock.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume dans lequel vous souhaitez créer un fichier FlexClone dans la liste des volumes.
+. Cliquez sur *plus d'actions* > *Clone* > *Créer* > *fichier*.
+. Dans la boîte de dialogue *Créer un fichier FlexClone*, sélectionnez le fichier à cloner, puis spécifiez un nom pour le fichier FlexClone.
+. Cliquez sur *Clone*.
+
+
+.Résultats
+Le fichier FlexClone est créé dans le même volume que le fichier parent.
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

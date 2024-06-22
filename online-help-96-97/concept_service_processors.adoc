@@ -1,0 +1,156 @@
+---
+permalink: online-help-96-97/concept_service_processors.html 
+sidebar: sidebar 
+keywords: service, processors, monitor, manage, storage, system, manager, temperature, voltage, current, fan, speed, online, help, isolate, management, network, traffic, sp, bmc, e0m, interface, subnet, performance, routing, ip, address, edit 
+summary: Un processeur de services peut vous permettre de surveiller et de gérer les paramètres de votre système de stockage, tels que la température, la tension et le courant, ainsi que les vitesses des ventilateurs, via System Manager. 
+---
+= Utilisez un processeur de service avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser un processeur de services avec ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour surveiller et gérer les paramètres du système de stockage tels que la température, la tension, le courant et la vitesse des ventilateurs.
+
+
+
+== Isolez le trafic du réseau de gestion
+
+Il est recommandé de configurer le processeur de service/BMC et l'interface de gestion e0M sur un sous-réseau dédié au trafic de gestion. L'exécution du trafic de données sur le réseau de gestion peut entraîner des problèmes de dégradation des performances et de routage.
+
+Le port Ethernet de gestion de la plupart des contrôleurs de stockage (indiqué par une icône de clé anglaise à l'arrière du châssis) est connecté à un commutateur Ethernet interne. Le commutateur interne fournit la connectivité au SP/BMC et à l'interface de gestion e0M, que vous pouvez utiliser pour accéder au système de stockage via les protocoles TCP/IP tels que Telnet, SSH et SNMP.
+
+Si vous prévoyez d'utiliser à la fois le périphérique de gestion à distance et le e0M, vous devez les configurer sur le même sous-réseau IP. Étant donné qu'il s'agit d'interfaces à faible bande passante, il est recommandé de configurer le processeur de service/BMC et e0M sur un sous-réseau dédié au trafic de gestion.
+
+Si vous ne pouvez pas isoler le trafic de gestion ou si votre réseau de gestion dédié est exceptionnellement grand, vous devez essayer de maintenir le volume de trafic réseau le plus bas possible. Un trafic de diffusion ou de multidiffusion excessif peut dégrader les performances du SP/BMC.
+
+[NOTE]
+====
+Certains contrôleurs de stockage, comme le AFF A800, disposent de deux ports externes, l'un pour BMC et l'autre pour e0M. Pour ces contrôleurs, il n'est pas nécessaire de configurer BMC et e0M sur le même sous-réseau IP.
+
+====
+
+
+== Attribuez des adresses IP aux processeurs de service
+
+Vous pouvez utiliser System Manager pour attribuer des adresses IP à tous vos processeurs de service en même temps et pour utiliser ces processeurs de service pour surveiller et gérer différents paramètres système de vos systèmes de stockage.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Dans la fenêtre *Service Processor*, cliquez sur *Global Settings*.
+. Dans la boîte de dialogue *Paramètres globaux*, choisissez la source d'attribution des adresses IP :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Attribuez automatiquement des adresses IP à partir d'un serveur DHCP
+ a| 
+Sélectionnez *DHCP*.
+
+
+
+ a| 
+Attribuez des adresses IP à partir d'un sous-réseau
+ a| 
+Sélectionnez *sous-réseau*.
+
+
+
+ a| 
+Fournissez manuellement les adresses IP
+ a| 
+Sélectionnez *affectation manuelle*.
+
+|===
+. Cliquez sur *Enregistrer*.
+
+
+
+
+== Modifier les paramètres du processeur de service
+
+Vous pouvez modifier les attributs du processeur de service, comme l'adresse IP, le masque de réseau ou la longueur du préfixe, ainsi que l'adresse de passerelle, en utilisant System Manager. Vous pouvez également attribuer des adresses IP aux processeurs de service qui ne possèdent aucune adresse IP attribuée.
+
+.Description de la tâche
+* Vous pouvez modifier les paramètres d'un processeur de service qui lui a été attribué manuellement une adresse IP.
+* Vous ne pouvez pas modifier les paramètres d'un processeur de service qui lui a été attribué une adresse IP via un serveur DHCP ou via un sous-réseau.
+
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *Service Processor*.
+. Dans la fenêtre *Service Processor*, sélectionnez le processeur de service à modifier, puis cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modifier processeur de service*, effectuez les modifications requises, puis cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Description du processeur de service
+
+Un processeur de service est une ressource du système de stockage indépendante du système qui vous permet de surveiller et de gérer les paramètres du système de stockage, tels que la température, la tension, les courants et les vitesses de ventilateur.
+
+Lorsque le processeur de service détecte une condition anormale dans l'un des paramètres du système de stockage, il consigne un événement, informe ONTAP sur le problème et génère des messages AutoSupport par e-mail ou via des interruptions SNMP.
+
+Le processeur de service surveille le ONTAP par le biais d'un mécanisme de surveillance et peut faciliter un basculement rapide vers le nœud partenaire. Le processeur de service assure également le suivi de nombreux événements système et enregistre les événements dans un fichier journal. Les événements incluent la progression du démarrage, les modifications des unités remplaçables sur site (FRU), les événements générés par ONTAP et l'historique des transactions utilisateur.
+
+Le processeur de service peut se connecter et gérer le système de stockage à distance. Il peut diagnostiquer, arrêter, mettre hors/sous tension ou redémarrer le système, quel que soit l'état du système de stockage. De plus, le processeur de service fournit des fonctionnalités de diagnostic à distance.
+
+Les fonctionnalités combinées de contrôle et de gestion du processeur de Service vous permettent d'évaluer le système de stockage en cas de problème, puis d'exécuter immédiatement des actions de service efficaces.
+
+
+
+== La fenêtre processeurs de service
+
+Vous pouvez utiliser la fenêtre processeurs de service pour afficher et modifier les attributs des processeurs de service, tels que l'adresse IP, le masque de réseau (IPv4) ou le préfixe (IPv6) et la passerelle, ainsi que pour configurer la source IP d'un processeur de service.
+
+
+
+=== Boutons de commande
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le processeur de service, qui vous permet de modifier l'adresse IP, le masque de réseau (IPv4) ou la longueur du préfixe (IPv6) et les informations relatives à la passerelle d'un processeur de service.
+
+* *Paramètres globaux*
++
+Ouvre la boîte de dialogue Paramètres globaux, qui vous permet de configurer la source de l'adresse IP de tous vos processeurs de service comme l'un des suivants : DHCP, sous-réseau ou manuel.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des processeurs de service
+
+* *Nœud*
++
+Spécifie le nœud sur lequel est situé le processeur de service.
+
+* *Adresse IP*
++
+Spécifie les adresses IP du processeur de service.
+
+* *Statut*
++
+Spécifie l'état du processeur de service, qui peut être en ligne, hors ligne, démon hors ligne, nœud hors ligne, dégradé, redémarré ou inconnu.
+
+* *Adresse MAC*
++
+Spécifie l'adresse MAC du processeur de service.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste des processeurs de service affiche des informations détaillées sur le processeur de service, y compris des détails sur le réseau, tels que l'adresse IP, le masque de réseau (IPv4) ou la longueur du préfixe (IPv6), la passerelle, la source IP, Et l'adresse MAC, ainsi que les détails généraux, tels que la version du micrologiciel et si la mise à jour automatique du micrologiciel est activée.
+
+*Informations connexes*
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[Configuration d'un réseau lorsqu'une plage d'adresses IP est désactivée]

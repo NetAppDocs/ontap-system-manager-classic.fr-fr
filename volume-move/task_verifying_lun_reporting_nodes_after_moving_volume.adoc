@@ -1,0 +1,39 @@
+---
+permalink: volume-move/task_verifying_lun_reporting_nodes_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, lun, destination, aggregate, high-availability, ha, pair, ontap, selective, reporting-nodes, list, path, verify, verify lun reporting nodes after moving a volume 
+summary: Vous pouvez ajouter des nœuds de reporting de LUN pour maintenir un chemin de LUN optimisé. 
+---
+= Vérifiez les nœuds de reporting de LUN après le déplacement d'un volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter des nœuds de reporting de LUN pour maintenir un chemin de LUN optimisé.
+
+Si le volume que vous déplacez contient des LUN et que l'agrégat de destination se trouve sur une autre paire haute disponibilité, ONTAP ajoute automatiquement une paire haute disponibilité à la liste des nœuds de reporting Selective LUN Map
+
+.Avant de commencer
+Deux LIF doivent être configurées : une LIF sur le nœud de destination et l'autre LIF sur le partenaire haute disponibilité du nœud de destination.
+
+.Description de la tâche
+Cette procédure est uniquement nécessaire si vous déplacez un volume d'une paire HA vers une autre paire HA. Si vous déplacez un volume vers un autre nœud de la même paire haute disponibilité (par exemple, si vous disposez d'un cluster à deux nœuds ou d'une configuration MetroCluster), vous pouvez ignorer cette procédure.
+
+.Étapes
+. Vérifiez que le nœud de destination et son nœud partenaire figurent dans la liste « reporting-nodes » du volume. Si les nœuds ne figurent pas dans la liste rapporter-nœuds, ajoutez le nœud de destination et son nœud partenaire à la liste des nœuds de reporting du volume :
++
+`lun mapping add-reporting-nodes`
+
+. Effectuez une nouvelle analyse à partir de l'hôte pour découvrir les nouveaux chemins ajoutés.
+. Ajoutez les nouveaux chemins à votre configuration MPIO.
+. Supprimez l'ancien propriétaire de LUN et son nœud partenaire de la liste noeuds-rapports :
++
+`lun mapping remove-reporting-nodes -remote-nodes -vserver vserver_name -path lun_path -igroup igroup_name`
+
+. Relancez l'analyse de l'hôte pour vérifier la suppression des anciens chemins.
++
+Reportez-vous à la documentation de votre hôte pour connaître les étapes spécifiques à suivre pour relancer l'analyse de vos hôtes.
+
+

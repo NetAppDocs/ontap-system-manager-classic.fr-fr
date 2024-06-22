@@ -1,0 +1,30 @@
+---
+permalink: fc-config-rhel/task_updating_hba_driver_firmware_bios.html 
+sidebar: sidebar 
+keywords: fc, host, bus, adapter, hba, linux, run, support, driver, firmware, bios, version, update, update the hba driver firmware and bios 
+summary: 'Si les adaptateurs de bus hôte FC (HBA) de l"hôte Linux n"exécutent pas les versions de pilote, de micrologiciel et de BIOS prises en charge, vous devez les mettre à jour.' 
+---
+= Mettez à jour le pilote HBA, le micrologiciel et le BIOS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si les adaptateurs de bus hôte FC (HBA) de l'hôte Linux n'exécutent pas les versions de pilote, de micrologiciel et de BIOS prises en charge, vous devez les mettre à jour.
+
+.Avant de commencer
+Vous devez avoir identifié les versions de pilote, de micrologiciel et de BIOS prises en charge pour votre configuration à partir de l'outil Interoperability Matrix Tool.
+
+https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"]
+
+.Description de la tâche
+Les pilotes, micrologiciels, BIOS et utilitaires HBA sont fournis par les fournisseurs HBA.
+
+.Étapes
+. Répertoriez les versions du pilote HBA, du micrologiciel et du BIOS installées à l'aide de l'utilitaire HBA fourni par votre fournisseur HBA.
+. Téléchargez et installez le nouveau pilote, le nouveau micrologiciel et le nouveau BIOS, selon les besoins, à partir du site d'assistance du fournisseur de l'adaptateur HBA.
++
+Les instructions d'installation et tous les utilitaires d'installation requis sont disponibles avec le téléchargement.
+
+

@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-esxi/task_testing_iscsi_paths.html 
+sidebar: sidebar 
+keywords: storage, failover, data, mobility, path, host, node, cluster, advertise, iscsi, ping, host, test, test iscsi paths from the host to the storage cluster 
+summary: 'Pour assurer un basculement efficace du stockage et une mobilité des données, il est nécessaire de s"assurer que vous disposez de deux chemins entre l"hôte et chaque nœud du cluster de stockage. Comme le nombre de chemins annoncés par la cible iSCSI est limité, vous devez envoyer une requête ping aux ports du cluster de stockage de l"hôte.' 
+---
+= Testez les chemins iSCSI de l'hôte au cluster de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour assurer un basculement efficace du stockage et une mobilité des données, il est nécessaire de s'assurer que vous disposez de deux chemins entre l'hôte et chaque nœud du cluster de stockage. Comme le nombre de chemins annoncés par la cible iSCSI est limité, vous devez envoyer une requête ping aux ports du cluster de stockage de l'hôte.
+
+.Avant de commencer
+Vous devez connaître l'adresse IP ou le nom d'hôte de toutes les interfaces logiques (LIF) à utiliser pour les chemins iSCSI.
+
+.Description de la tâche
+Les LUN sont mappées sur un sous-ensemble d'initiateurs du groupe initiateur pour limiter le nombre de chemins d'accès de l'hôte à la LUN.
+
+* Par défaut, seuls les chemins de l'hôte vers le nœud contenant la machine virtuelle de stockage (SVM) où la LUN a été créée, et les chemins vers le partenaire haute disponibilité de ce nœud sont visibles pour l'hôte.
+* Vous devez toujours créer et tester des chemins d'accès de l'hôte à chaque nœud du cluster, mais l'hôte ne peut accéder qu'aux chemins d'accès sur le nœud propriétaire et son partenaire haute disponibilité.
+* Vous devez utiliser le comportement de mappage de LUN par défaut.
++
+N'ajoutez que des nœuds des autres paires haute disponibilité au mappage de LUN pour préparer le déplacement de la LUN vers un autre nœud.
+
+
+
+.Étapes
+. À partir de l'hôte ESXi, utilisez le `ping` Commande pour vérifier le chemin vers la première LIF.
++
+Le `ping` La commande est disponible depuis la console de service ESXi.
+
+. Répétez le `ping` Commande permettant de vérifier la connectivité à chaque LIF iSCSI sur chaque nœud du cluster
+
+
+*Informations connexes*
+
+http://kb.vmware.com/kb/1003486["Article 1003486 de la base de connaissances VMware : test de la connectivité réseau avec la commande ping"]

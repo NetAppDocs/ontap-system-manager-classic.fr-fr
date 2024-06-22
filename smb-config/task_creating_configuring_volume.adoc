@@ -1,0 +1,53 @@
+---
+permalink: smb-config/task_creating_configuring_volume.html 
+sidebar: sidebar 
+keywords: create, flexvol, volume, data, optional, default, security, style, inherit, root, namespace, storage, virtual, machine, svm, create and configure a volume 
+summary: 'Vous devez créer un volume FlexVol pour y contenir vos données. Vous pouvez éventuellement modifier le style de sécurité par défaut du volume, hérité du style de sécurité du volume racine. Vous pouvez également modifier l"emplacement par défaut du volume dans l"espace de noms, qui est au volume root de la machine virtuelle de stockage (SVM).' 
+---
+= Créez et configurez un volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez créer un volume FlexVol pour y contenir vos données. Vous pouvez éventuellement modifier le style de sécurité par défaut du volume, hérité du style de sécurité du volume racine. Vous pouvez également modifier l'emplacement par défaut du volume dans l'espace de noms, qui est au volume racine de la machine virtuelle de stockage (SVM).
+
+.Étapes
+. Accédez à la fenêtre *volumes*.
+. Cliquez sur *Créer* > *Créer FlexVol*.
++
+La boîte de dialogue Créer un volume s'affiche.
+
+. Si vous souhaitez modifier le nom par défaut, qui se termine par un horodatage, indiquez un nouveau nom, par exemple `vol1`.
+. Sélectionnez un agrégat pour le volume.
+. Spécifiez la taille du volume.
+. Cliquez sur *Créer*.
++
+Tout nouveau volume créé dans System Manager est monté par défaut sur le volume racine, en utilisant le nom du volume comme nom de la jonction. Lors de la configuration des partages CIFS, vous utilisez la Junction path et le nom du Junction.
+
+. *Facultatif* : si vous ne souhaitez pas que le volume soit situé à la racine du SVM, modifiez la place du nouveau volume dans le namespace existant :
++
+.. Accédez à la fenêtre *namespace*.
+.. Sélectionner *SVM* dans le menu déroulant.
+.. Cliquez sur *Mount*.
+.. Dans la boîte de dialogue *Mount Volume*, spécifiez le volume, le nom de son chemin de jonction et le chemin de jonction sur lequel vous souhaitez monter le volume.
+.. Vérifiez le nouveau chemin de jonction dans la fenêtre *namespace*.
+
+
++
+Si vous souhaitez organiser certains volumes sous un volume principal nommé "data", vous pouvez déplacer le nouveau volume ""vol1" du volume racine vers le volume "`data".
+
+. Examinez le style de sécurité du volume et modifiez-le si nécessaire :
++
+.. Dans la fenêtre *Volume*, sélectionnez le volume que vous venez de créer, puis cliquez sur *Modifier*.
++
+La boîte de dialogue Modifier le volume s'affiche, affichant le style de sécurité actuel du volume, hérité du style de sécurité du volume root du SVM.
+
+.. Assurez-vous que le style de sécurité est NTFS.
++
+image::../media/volume_edit_security_style_unix_to_ntfs_smb.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
+

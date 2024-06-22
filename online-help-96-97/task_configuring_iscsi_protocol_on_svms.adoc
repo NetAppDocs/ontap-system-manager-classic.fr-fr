@@ -1,0 +1,123 @@
+---
+permalink: online-help-96-97/task_configuring_iscsi_protocol_on_svms.html 
+sidebar: sidebar 
+keywords: system, manager, iscsi, protocol, svm, online, help, lif, portset 
+summary: 'Vous pouvez configurer le protocole iSCSI sur une machine virtuelle de stockage \(SVM\) afin de fournir un accès aux données au niveau des blocs en utilisant System Manager. Vous pouvez créer les LIF et les ensembles de ports iSCSI, puis ajouter les LIF aux ensembles de ports. Les LIF sont créées sur les adaptateurs les plus appropriés et sont attribuées aux ensembles de ports pour assurer la redondance des chemins d"accès aux données.' 
+---
+= Configurez le protocole iSCSI sur les SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le protocole iSCSI sur une machine virtuelle de stockage (SVM) afin de fournir un accès aux données au niveau des blocs. Vous pouvez créer les LIF et les ensembles de ports iSCSI, puis ajouter les LIF aux ensembles de ports. Les LIF sont créées sur les adaptateurs les plus appropriés et sont attribuées aux ensembles de ports pour assurer la redondance des chemins d'accès aux données.
+
+.Avant de commencer
+* La licence iSCSI doit être activée sur le cluster.
++
+Si le protocole iSCSI n'est pas activé sur le SVM, vous pouvez utiliser la fenêtre Edit Storage Virtual machine pour activer le protocole pour le SVM.
+
+* Tous les nœuds du cluster doivent rester sains.
+* Chaque nœud doit disposer d'au moins deux ports de données et son état doit être `up`.
+
+
+.Description de la tâche
+* Vous pouvez configurer le protocole iSCSI lors de la création de la SVM, ou bien le faire ultérieurement.
+* Les agrégats SnapLock ne sont pas pris en compte pour la création automatique de volumes.
+
+
+.Étapes
+. Si vous n'avez pas configuré le protocole iSCSI lors de la création du SVM, cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *protocoles*, cliquez sur *iSCSI*.
+. *Facultatif :* dans la section *Network Access*, spécifiez un alias pour la cible iSCSI.
++
+Le nombre maximum de caractères pour un nom d'alias est 128. Si vous ne spécifiez pas d'alias cible, le nom du SVM est utilisé comme alias.
+
+. Préciser le nombre de LIFs iSCSI qui peuvent être affectées à un seul nœud.
++
+Le nombre minimum de LIF par nœud est un. Le nombre maximum est le minimum de tous les ports de l' `up` état sur les nœuds. Si la valeur maximale est un nombre impair, le nombre pair précédent est considéré comme la valeur maximale. Vous pouvez choisir n'importe quel nombre pair dans la plage de valeurs minimale et maximale.
+
++
+Un cluster à 4 nœuds contient les nœuds 1, 2 et 3, ainsi que six ports chacun dans le `up` state, et node4 avec sept ports dans le `up` état. La valeur maximale effective pour le cluster est 6.
+
++
+Si le nombre de LIF à attribuer au nœud est plus de deux, vous devez attribuer au moins un ensemble de ports à chaque LIF.
+
+. Spécifier les détails du réseau, y compris les détails du sous-réseau, pour créer les LIFs iSCSI :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Spécifiez l'adresse IP à l'aide d'un sous-réseau
+ a| 
+.. Sélectionnez *à l'aide d'un sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, sélectionnez le sous-réseau à partir duquel l'adresse IP doit être attribuée.
++
+Pour les LIF intercluster, seuls les sous-réseaux associés à l'IPspace sélectionné sont affichés.
+
+.. Si vous souhaitez attribuer une adresse IP spécifique à l'interface, sélectionnez *utiliser une adresse IP spécifique*, puis saisissez l'adresse IP.
++
+L'adresse IP que vous spécifiez est ajoutée au sous-réseau si celle-ci n'est pas déjà présente dans la plage de sous-réseau.
+
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Spécifiez l'adresse IP manuellement sans utiliser de sous-réseau
+ a| 
+.. Sélectionnez *sans sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, effectuez les opérations suivantes :
++
+... Spécifiez l'adresse IP et le masque ou le préfixe réseau.
+... Facultatif : spécifiez la passerelle.
+... Si vous ne souhaitez pas utiliser la valeur par défaut du champ destination, spécifiez une nouvelle valeur de destination.
++
+Si vous ne spécifiez pas de valeur de destination, le champ destination est renseigné avec la valeur par défaut basée sur la famille de l'adresse IP.
+
+
+
++
+Si aucune route n'existe, une nouvelle route est automatiquement créée en fonction de la passerelle et de la destination.
+
+.. Cliquez sur *OK*.
+
+
+|===
+. Sélectionnez le domaine de diffusion.
+. Sélectionnez le type d'adaptateur.
++
+Si vous avez configuré des cartes NIC dans votre cluster, sélectionnez *NIC*.
+
++
+Si vous avez configuré des cartes CNS dans votre cluster, vous devez sélectionner *CNA*.
+
++
+Si vous avez configuré ifgrps dans votre cluster, sélectionnez *Groupe d'interface*.
+
++
+[NOTE]
+====
+Le port ifgrp doit être ajouté dans le domaine de broadcast.
+
+====
+. *Facultatif :* mettez en service un LUN pour le stockage iSCSI lors de la configuration du protocole iSCSI en spécifiant la taille de LUN, le type de système d'exploitation de la LUN et les détails de l'initiateur hôte.
+. Si vous souhaitez vérifier ou modifier la configuration des LIFs iSCSI générées automatiquement, sélectionnez *Review ou Modify LIFS configuration (Advanced Settings)*.
++
+Vous pouvez modifier uniquement le nom de LIF et le port de départ. Par défaut, les ensembles de ports sont définis sur la valeur minimale. Vous devez spécifier des entrées uniques. Si vous spécifiez des noms de LIF dupliqués, System Manager ajoute des valeurs numériques au nom de LIF dupliqué.
+
++
+En fonction des ensembles de ports sélectionnés, les LIF sont distribuées sur les ensembles de ports à l'aide d'une méthode round-Robin pour assurer la redondance en cas de défaillance du nœud ou du port.
+
+. Cliquez sur *Envoyer et continuer*.
+
+
+.Résultats
+Les LIFs iSCSI et les ensembles de ports sont créés avec la configuration spécifiée. Les LIF sont distribuées entre les ensembles de ports en fonction de l'ensemble de ports sélectionné. Le service iSCSI est démarré si toutes les LIFs sont créées avec succès.
+
+Si la création de LIF échoue, vous pouvez créer les LIF en utilisant la fenêtre Network interfaces, attacher les LIF aux ensembles de ports à l'aide de la fenêtre LUN, puis démarrer le service iSCSI à l'aide de la fenêtre iSCSI.

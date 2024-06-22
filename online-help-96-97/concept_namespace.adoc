@@ -1,0 +1,125 @@
+---
+permalink: online-help-96-97/concept_namespace.html 
+sidebar: sidebar 
+keywords: junction, path, window, system, manager, mount, unmount, flexvol, volume, svm, namespace, online, help, policies, export 
+summary: Vous pouvez utiliser la fenêtre Junction Path dans System Manager pour monter ou démonter les volumes FlexVol à une jonction dans le namespace du SVM. 
+---
+= Fenêtre Junction Path dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre Junction Path dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et version antérieure) pour monter ou démonter les volumes FlexVol à une jonction dans le namespace du SVM.
+
+
+
+== Montez les volumes
+
+Vous pouvez utiliser System Manager pour monter des volumes sur une jonction dans l'espace de noms de machine virtuelle de stockage (SVM).
+
+.Description de la tâche
+* Si vous montez un volume sur un chemin de jonction avec un paramètre de langue différent de celui du volume parent immédiat du chemin, les clients NFSv3 ne peuvent pas accéder à certains fichiers car certains caractères ne sont pas décodés correctement.
++
+Ce problème ne se produit pas si le répertoire parent immédiat est le volume racine.
+
+* Vous pouvez monter un volume SnapLock uniquement sous la racine de la SVM.
+* Vous ne pouvez pas monter un volume normal sous un volume SnapLock.
+
+
+.Étapes
+. Cliquez sur *Storage* > *Junction Path*.
+. Dans le menu déroulant du champ *SVM*, sélectionner la SVM sur laquelle vous souhaitez monter un volume.
+. Cliquez sur *Mount*, puis sélectionnez le volume à monter.
+. *Facultatif:* si vous souhaitez modifier le nom de la jonction par défaut, spécifiez un nouveau nom.
+. Cliquez sur *Parcourir*, puis sélectionnez le chemin de jonction auquel vous souhaitez monter le volume.
+. Cliquez sur *OK*, puis sur *Mount*.
+. Vérifiez le nouveau chemin de jonction dans l'onglet *Détails*.
+
+
+
+
+== Démonter les volumes FlexVol
+
+Vous pouvez utiliser l'option Junction Path du volet stockage dans System Manager pour démonter les volumes FlexVol d'une jonction dans l'espace de noms de la machine virtuelle de stockage (SVM).
+
+.Étapes
+. Cliquez sur *Storage* > *Junction Path*.
+. Dans le menu déroulant du champ *SVM*, sélectionner la SVM à partir de laquelle vous souhaitez démonter un volume.
+. Sélectionnez les volumes à démonter, puis cliquez sur *Unmount*.
+. Cochez la case de confirmation, puis cliquez sur *Unmount*.
+
+
+
+
+== Modifier les règles d'exportation
+
+Lors de la création d'un volume, le volume hérite automatiquement des règles d'export par défaut du volume root de la machine virtuelle de stockage (SVM). Vous pouvez utiliser System Manager pour modifier la règle d'export par défaut associée au volume afin de redéfinir l'accès client aux données.
+
+.Étapes
+. Cliquez sur *Storage* > *Junction Path*.
+. Dans le menu déroulant du champ *SVM*, sélectionner la SVM dans laquelle réside le volume que vous souhaitez modifier.
+. Sélectionnez le volume, puis cliquez sur *Modifier la stratégie d'exportation*.
+. Sélectionnez la stratégie d'exportation, puis cliquez sur *Modifier*.
+. Vérifiez que la colonne *Export Policy* de la fenêtre *Junction Path* affiche la stratégie d'exportation que vous avez appliquée au volume.
+
+
+.Résultats
+L'export-policy par défaut est remplacée par l'export-policy que vous avez sélectionnée.
+
+
+
+== Fenêtre Junction Path
+
+Le menu Junction Path permet de gérer le namespace NAS des SVM (Storage Virtual machines).
+
+
+
+=== Boutons de commande
+
+* *Mont*
++
+Ouvre la boîte de dialogue Mount Volume, qui permet de monter un volume à la jonction dans un namespace SVM.
+
+* *Unmount*
++
+Ouvre la boîte de dialogue Unmount Volume, qui vous permet de démonter un volume de son volume parent.
+
+* *Modifier la politique d'exportation*
++
+Ouvre la boîte de dialogue Modifier la stratégie d'exportation, qui vous permet de modifier la règle d'exportation existante associée au volume.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste chemin de jonction
+
+* *Chemin*
++
+Spécifie la Junction path du volume monté. Vous pouvez cliquer sur le chemin de jonction pour afficher les volumes et les qtrees associés.
+
+* *Objet de stockage*
++
+Spécifie le nom du volume monté sur le chemin de jonction. Vous pouvez également afficher les qtrees que le volume contient.
+
+* *Politique d'exportation*
++
+Spécifie la export policy du volume monté.
+
+* *Style de sécurité*
++
+Spécifie le style de sécurité du volume. Les valeurs possibles sont UNIX (pour les bits en mode UNIX), NTFS (pour les listes de contrôle d'accès CIFS) et Mixed (pour les autorisations NFS et CIFS mixtes).
+
+
+
+
+
+=== Onglet Détails
+
+Affiche des informations générales sur le volume ou qtree sélectionné, telles que le nom, le type d'objet de stockage, le chemin de jonction de l'objet monté et l'export policy. Si l'objet sélectionné est un qtree, les informations détaillées sur la limite matérielle d'espace, la limite logicielle d'espace et l'utilisation de l'espace sont affichées.

@@ -1,0 +1,73 @@
+---
+permalink: expansion/task_validating_configuration_expanded_cluster.html 
+sidebar: sidebar 
+keywords: expand, cluster, validate, configuration, config, advisor, command, health, replication, ring, validate the configuration of the expanded cluster 
+summary: 'Une fois le cluster déployé, vous devez valider la configuration en exécutant Config Advisor et à l"aide de certaines commandes qui vérifient les anneaux de réplication du cluster et de l"état de santé du cluster.' 
+---
+= Validation de la configuration du cluster étendu
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le cluster déployé, vous devez valider la configuration en exécutant Config Advisor et à l'aide de certaines commandes qui vérifient les anneaux de réplication du cluster et de l'état de santé du cluster.
+
+.Étapes
+. Vérifiez l'état de santé de la configuration en exécutant Config Advisor :
++
+.. Démarrez Config Advisor, puis cliquez sur *collecter les données*.
++
+Config Advisor affiche tous les problèmes détectés.
+
+.. Si des problèmes sont détectés, corrigez-les et exécutez à nouveau l'outil.
+
+
+. Assurez-vous que tous les nœuds du cluster sont dans un état sain en utilisant le `cluster show` commande.
++
+[listing]
+----
+cluster-1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+cluster1-3            true    true
+cluster1-4            true    true
+4 entries were displayed.
+----
+. Assurez-vous que les anneaux de réplication de cluster ont la même époque, la même époque de base de données et les mêmes numéros de transaction de base de données sur tous les nœuds du cluster :
++
+Le moyen le plus simple de comparer les numéros de transaction consiste à les afficher pour un nom d'unité à la fois.
+
++
+.. Définissez le niveau de privilège sur avancé à l'aide du `set -privilege advanced` commande.
+.. Affichez les informations relatives à la sonnerie du groupe d'instruments sur le premier nom d'unité à l'aide du `cluster ring show` commande avec `-unitname mgmt` Et vérifier que tous les nœuds ont le même nombre dans les colonnes Epoch, DB Epoch et DB Trnxs.
++
+[listing]
+----
+cluster-1::*> cluster ring show -unitname mgmt
+Node      UnitName Epoch    DB Epoch DB Trnxs Master    Online
+--------- -------- -------- -------- -------- --------- ---------
+cluster1-1
+          mgmt     2        2        959      cluster1-1
+                                                        master
+cluster1-2
+          mgmt     2        2        959      cluster1-2
+                                                        secondary
+cluster1-3
+          mgmt     2        2        959      cluster1-3
+                                                        master
+cluster1-4
+          mgmt     2        2        959      cluster1-3
+                                                        secondary
+4 entries were displayed.
+----
+.. Répétez la commande avec le `-unitname vldb` paramètre.
+.. Répétez la commande avec le `-unitname vifmgr` paramètre.
+.. Répétez la commande avec le `-unitname bcomd` paramètre.
+.. Répétez la commande avec le `-unitname crs` paramètre.
+.. Faites revenir le niveau de privilège à admin en utilisant le `set -privilege admin` commande.
+
+
+

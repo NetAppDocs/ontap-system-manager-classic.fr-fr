@@ -1,0 +1,33 @@
+---
+permalink: snmp-config/task_verifying_snmp_is_enabled.html 
+sidebar: sidebar 
+keywords: system, manager, verify, snmp, enable, cluster, verify that snmp is enabled 
+summary: 'Vous pouvez utiliser l"interface ONTAP System Manager « classique » avec ONTAP 9.7 ou version antérieure pour vérifier si le protocole SNMP est activé sur le cluster.' 
+---
+= Vérifiez que le protocole SNMP est activé
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'interface ONTAP System Manager _Classic_ avec ONTAP 9.7 ou version antérieure pour vérifier si le protocole SNMP est activé sur le cluster.
+
+.Description de la tâche
+Dans toutes les versions de ONTAP, SNMPv3 est activé par défaut au niveau du cluster et SNMPv1 et SNMPv2c sont désactivés par défaut. Les protocoles SNMPv1 et SNMPv2c sont activés lorsque vous créez une communauté SNMP.
+
+SNMP est désactivé par défaut sur les LIFs de données. Pour plus d'informations sur l'activation de SNMP sur les LIFs de données, voir https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"^].
+
+.Étapes
+. Cliquez sur l'icône rainure.
+. Dans le volet *Setup*, accédez à la fenêtre *SNMP*.
++
+image::../media/snmp_verify_enabled.gif[Cette image montre la partie de l'écran de configuration SNMP qui affiche l'état d'activation SNMP et l'état d'activation d'interruption.]
+
++
+Vous pouvez afficher le statut SNMP actuel du cluster.
+
++
+Si SNMP n'est pas activé, cliquez sur *Activer*.
+
+

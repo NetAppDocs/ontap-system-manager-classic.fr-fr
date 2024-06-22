@@ -1,0 +1,116 @@
+---
+permalink: online-help-96-97/concept_unix.html 
+sidebar: sidebar 
+keywords: system, manager, unix, svm, online, help, command, button, group, tab, storage, virtual, machine 
+summary: 'System Manager permet de gérer une liste d"utilisateurs et groupes UNIX locaux pour chaque SVM (Storage Virtual machine).' 
+---
+= Utilisateurs et groupes UNIX locaux avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer une liste d'utilisateurs et groupes UNIX locaux pour chaque serveur virtuel de stockage (SVM).
+
+
+
+== Fenêtre UNIX
+
+La fenêtre UNIX permet de gérer une liste d'utilisateurs et de groupes UNIX locaux pour chaque machine virtuelle de stockage (SVM). Vous pouvez utiliser les utilisateurs et groupes UNIX locaux pour l'authentification et les mappages de noms.
+
+
+
+=== Onglet groupes
+
+L'onglet groupes permet d'ajouter, de modifier ou de supprimer des groupes UNIX locaux à un SVM.
+
+
+
+== Boutons de commande
+
+* *Ajouter un groupe*
++
+Ouvre la boîte de dialogue Ajouter un groupe, qui permet de créer des groupes UNIX locaux aux SVM. Les groupes UNIX locaux sont utilisés avec des utilisateurs UNIX locaux.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le groupe, qui permet de modifier un ID de groupe.
+
+* *Supprimer*
++
+Supprime le groupe sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste groupes
+
+* *Nom du groupe*
++
+Affiche le nom du groupe.
+
+* *ID de groupe*
++
+Affiche l'ID du groupe.
+
+
+
+
+
+=== Onglet utilisateurs
+
+Vous pouvez utiliser l'onglet *Users* pour ajouter, modifier et supprimer des utilisateurs UNIX locaux aux SVM.
+
+
+
+=== Boutons de commande
+
+* *Ajouter un utilisateur*
++
+Ouvre la boîte de dialogue Ajouter un utilisateur, qui permet de créer des utilisateurs UNIX locaux aux SVM.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'utilisateur, qui vous permet de modifier l'ID utilisateur, le groupe UNIX auquel l'utilisateur appartient et le nom complet de l'utilisateur.
+
+* *Supprimer*
++
+Supprime l'utilisateur sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des utilisateurs
+
+* *Nom d'utilisateur*
++
+Affiche le nom de l'utilisateur.
+
+* *ID utilisateur*
++
+Affiche l'ID de l'utilisateur.
+
+* *Nom complet*
++
+Affiche le nom complet de l'utilisateur.
+
+* *ID groupe principal*
++
+Affiche l'ID du groupe auquel l'utilisateur appartient.
+
+* *Nom du groupe principal*
++
+Affiche le nom du groupe auquel l'utilisateur appartient.
+
+

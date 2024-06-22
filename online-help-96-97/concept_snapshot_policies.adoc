@@ -1,0 +1,130 @@
+---
+permalink: online-help-96-97/concept_snapshot_policies.html 
+sidebar: sidebar 
+keywords: snapshot, manager, system, create, manage, policy, storage, online, help 
+summary: System Manager permet de créer et de gérer des règles Snapshot dans votre système de stockage. 
+---
+= Gérez les règles Snapshot avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des règles Snapshot dans votre système de stockage.
+
+
+
+== À propos des règles Snapshot
+
+Lorsqu'elle est appliquée à un volume, une règle Snapshot spécifie une planification ou des planifications en fonction des copies Snapshot créées, puis spécifie le nombre maximal de copies Snapshot que chaque planification peut créer. Une règle Snapshot peut inclure jusqu'à cinq planifications.
+
+Pour les relations de coffre-fort, l'attribut étiquette SnapMirror permet de sélectionner les copies Snapshot sur les volumes source. Seules les copies Snapshot avec les étiquettes configurées dans les règles de stratégie de coffre-fort sont répliquées dans les opérations de sauvegarde du coffre-fort. La règle Snapshot attribuée au volume source doit inclure l'attribut étiquette SnapMirror.
+
+
+
+== Créer des règles Snapshot
+
+Vous pouvez créer une règle Snapshot dans System Manager afin de spécifier le nombre maximal de copies Snapshot pouvant être créées automatiquement, ainsi que la fréquence de leur création.
+
+.Étapes
+. Cliquez sur *protection* > *stratégies Snapshot*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer une stratégie d'instantané*, spécifiez le nom de la règle.
+. Cliquez sur *Add*, puis spécifiez le nom du planning, le nombre maximal de copies Snapshot à conserver et le nom de l'étiquette SnapMirror.
++
+Le nombre maximal de copies Snapshot pouvant être conservées par les calendriers spécifiés ne doit pas être supérieur à 254.
+
+. Cliquez sur *OK*, puis sur *Créer*.
+
+
+
+
+== Modifier les règles Snapshot
+
+Vous pouvez modifier les détails d'une règle Snapshot existante, par exemple le nom de la planification, l'étiquette SnapMirror ou le nombre maximal de copies Snapshot créées, à l'aide de la boîte de dialogue Modifier la règle Snapshot dans System Manager.
+
+.Étapes
+. Cliquez sur *protection* > *stratégies Snapshot*.
+. Dans la fenêtre *Snapshot Policies*, sélectionnez la stratégie de snapshots que vous souhaitez modifier et cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modifier la stratégie d'instantané*, sélectionnez le programme à modifier et cliquez sur *Modifier*.
+. Cliquez sur *OK*.
+. Vérifiez les modifications apportées à la stratégie de snapshot sélectionnée dans la boîte de dialogue *Modifier la stratégie de snapshot* et cliquez sur *Enregistrer*.
+
+
+
+
+== Supprimez les règles Snapshot
+
+Vous pouvez utiliser System Manager pour supprimer les règles Snapshot. Si vous supprimez une règle Snapshot utilisée par un ou plusieurs volumes, les copies Snapshot du ou des volumes ne sont plus créées conformément à la règle supprimée.
+
+.Avant de commencer
+Vous devez avoir dissocié la stratégie Snapshot de chaque volume qui l'utilise.
+
+.Étapes
+. Cliquez sur *protection* > *stratégies Snapshot*.
+. Sélectionnez la stratégie Snapshot et cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Fenêtre Snapshot Policies
+
+Vous pouvez utiliser la fenêtre Snapshot Policies pour gérer les tâches de règles Snapshot, par exemple l'ajout, la modification et la suppression des règles Snapshot.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Cette boîte de dialogue ouvre la boîte de dialogue Créer une stratégie Snapshot, qui permet d'ajouter des plannings de sauvegarde et de spécifier le nombre maximal de copies Snapshot à conserver dans une règle.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier la stratégie de snapshots, qui vous permet de modifier la fréquence à laquelle les copies Snapshot doivent être créées et le nombre maximal de copies Snapshot à conserver.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer, qui permet de supprimer la règle Snapshot sélectionnée.
+
+* *Afficher sous*
++
+Vous permet d'afficher les règles Snapshot sous forme de liste ou d'arborescence.
+
+* *Statut*
++
+Ouvre le menu, que vous pouvez utiliser pour activer ou désactiver la stratégie Snapshot sélectionnée.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des règles de snapshot
+
+* *Nom de la police/de l'annexe*
++
+Spécifie le nom de la règle Snapshot et les planifications de la règle.
+
+* *Machine virtuelle de stockage*
++
+Spécifie le nom de la machine virtuelle de stockage (SVM) vers laquelle appartiennent les copies Snapshot.
+
+* *Statut*
++
+Spécifie le statut de la règle Snapshot qui peut être activée ou désactivée.
+
+* *Snapshots maximum à conserver*
++
+Spécifie le nombre maximal de copies Snapshot à conserver.
+
+* *Étiquette SnapMirror*
++
+Spécifie le nom de l'attribut d'étiquette SnapMirror de la copie Snapshot générée par le planning de sauvegarde.
+
+

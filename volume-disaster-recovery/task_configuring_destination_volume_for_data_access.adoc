@@ -1,0 +1,50 @@
+---
+permalink: volume-disaster-recovery/task_configuring_destination_volume_for_data_access.html 
+sidebar: sidebar 
+keywords: activating, activate, destination, volume, configure, data, access, nas, client, san, host, access, data, source, reactivate, configure the destination volume for data access 
+summary: 'Après avoir activé le volume de destination, vous devez configurer le volume pour l"accès aux données. Les clients NAS et les hôtes SAN peuvent accéder aux données depuis le volume de destination jusqu"à ce que le volume source soit réactivé.' 
+---
+= Configurer le volume de destination pour l'accès aux données
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir activé le volume de destination, vous devez configurer le volume pour l'accès aux données. Les clients NAS et les hôtes SAN peuvent accéder aux données depuis le volume de destination jusqu'à ce que le volume source soit réactivé.
+
+.Description de la tâche
+Vous devez effectuer cette tâche à partir du cluster *destination*.
+
+
+
+== Procédure
+
+* Environnement NAS :
++
+.. Monter les volumes NAS sur le namespace en utilisant le même Junction path que le volume source a été monté sur dans le SVM source.
+.. Appliquez les ACL appropriés sur les partages CIFS au volume de destination.
+.. Attribuez les export-policies NFS au volume de destination.
+.. Appliquer les règles de quota au volume de destination
+.. Redirigez les clients vers le volume de destination en effectuant les étapes nécessaires, telles que la modification de la résolution du nom DNS.
+.. Remontez les partages NFS et CIFS sur les clients.
+
+
+* Environnement SAN :
++
+.. Mapper les LUN sur le groupe initiateur approprié pour mettre les LUN du volume à disposition des clients SAN.
+.. Pour iSCSI, créez des sessions iSCSI des initiateurs hôtes SAN vers les LIF SAN.
+.. Sur le client SAN, effectuez une nouvelle analyse de stockage pour détecter les LUN connectés.
+
+
+
+
+
+
+== Que faire ensuite
+
+Vous devez résoudre le problème qui a provoqué l'indisponibilité du volume source. Vous devez remettre le volume source en ligne lorsque cela est possible, puis resynchroniser et réactiver le volume source.
+
+*Informations connexes*
+
+https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"]

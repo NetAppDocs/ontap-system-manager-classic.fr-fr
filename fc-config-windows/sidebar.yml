@@ -1,0 +1,42 @@
+---
+section: fc-config-windows
+title: Configuration FC pour Windows
+entries:
+- title: Présentation
+  url: "/fc-config-windows/index.html"
+- title: Workflow de configuration FC
+  url: "/fc-config-windows/concept_fc_configuration_workflow.html"
+  entries:
+  - title: Vérifiez que la configuration FC est prise en charge
+    url: "/fc-config-windows/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: Renseignez la fiche technique de configuration FC
+    url: "/fc-config-windows/reference_completing_iscsi_configuration_worksheet.html"
+  - title: Installez l'utilitaire HBA à partir du fournisseur du HBA
+    url: "/fc-config-windows/task_installing_hba_utility_from_hba_vendor.html"
+  - title: Mettez à jour le pilote HBA, le micrologiciel et le BIOS
+    url: "/fc-config-windows/task_updating_hba_driver_firmware_bios.html"
+  - title: Enregistrez le WWPN pour chaque port FC hôte
+    url: "/fc-config-windows/task_record_wwpn_for_each_host_fc_port.html"
+  - title: Installez les utilitaires d'hôtes unifiés Windows
+    url: "/fc-config-windows/task_installing_windows_unified_host_utilities.html"
+  - title: Créer un agrégat
+    url: "/fc-config-windows/task_creating_aggregate.html"
+  - title: Choisissez l'emplacement de provisionnement du volume
+    url: "/fc-config-windows/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: Vérifier que le service FC s'exécute sur un SVM existant
+      url: "/fc-config-windows/task_verifying_that_fc_service_is_running_on_existing_svm.html"
+    - title: Créer une LUN
+      url: "/fc-config-windows/task_creating_lun_its_containing_volume.html"
+    - title: Configurer FC sur un SVM existant
+      url: "/fc-config-windows/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: Créer un nouveau SVM
+      url: "/fc-config-windows/task_creating_svm.html"
+  - title: Segmenter les switchs FC par l'hôte et les WWPN des LIF
+    url: "/fc-config-windows/task_zoning_fc_switches_by_host_lif_wwpns.html"
+  - title: Découvrir de nouveaux disques
+    url: "/fc-config-windows/task_discovering_new_disks.html"
+  - title: Initialiser et formater la LUN
+    url: "/fc-config-windows/task_initializing_formatting_lun.html"
+  - title: Vérifiez que l'hôte peut écrire sur la LUN et la lire
+    url: "/fc-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html"

@@ -1,0 +1,131 @@
+---
+permalink: online-help-96-97/concept_how_ontap_reports_drive_types.html 
+sidebar: sidebar 
+keywords: ontap, report, disk, type, industry, standards, sas, fc, storage, array, online, help 
+summary: 'ONTAP associe un type à chaque disque. Selon ONTAP, certains types de disques sont différents des normes du secteur. Il est important de comprendre comment les types de disques ONTAP s"associent aux normes du secteur pour éviter toute confusion.' 
+---
+= Rapports entre les types de disques ONTAP dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) associe un type à chaque disque. Selon ONTAP, certains types de disques sont différents des normes du secteur. Il est important de comprendre comment les types de disques ONTAP s'associent aux normes du secteur pour éviter toute confusion.
+
+Lorsque la documentation ONTAP fait référence à un type de disque, il s'agit du type utilisé par ONTAP, sauf indication contraire. _RAID disk types_ indique le rôle qu'un disque spécifique joue pour RAID. Les types de disques RAID ne sont pas liés aux types de disques ONTAP.
+
+Dans le cas d'une configuration spécifique, les types de disques pris en charge dépendent du modèle de système de stockage, du type de tiroir et des modules d'E/S installés sur le système.
+
+Les tableaux suivants montrent comment les types de disques ONTAP sont associés aux types de disques standard du secteur pour les types de connexion de stockage SAS et FC, ainsi que pour les baies de stockage.
+
+
+
+== Stockage connecté au SAS
+
+|===
+| Type de disque ONTAP | Classe des disques | Type de disque standard | Description 
+
+
+ a| 
+BSA
+ a| 
+Puissance
+ a| 
+SATA
+ a| 
+Des disques SAS-SATA pontés avec du matériel supplémentaire pour leur permettre de se connecter à un tiroir de stockage connecté à SAS
+
+
+
+ a| 
+FSAS
+ a| 
+Puissance
+ a| 
+NL-SAS
+ a| 
+Près de la ligne SAS
+
+
+
+ a| 
+MSATA
+ a| 
+Puissance
+ a| 
+SATA
+ a| 
+Disque SATA dans un tiroir de stockage multi-disques
+
+
+
+ a| 
+SAS
+ a| 
+Performance
+ a| 
+SAS
+ a| 
+SCSI connecté en série
+
+
+
+ a| 
+SSD
+ a| 
+Ultra-hautes performances
+ a| 
+SSD
+ a| 
+Disques SSD
+
+|===
+
+
+== Stockage connecté à FC
+
+|===
+| Type de disque ONTAP | Classe des disques | Type de disque standard 
+
+
+ a| 
+ATA
+ a| 
+Puissance
+ a| 
+SATA
+
+
+
+ a| 
+FCAL
+ a| 
+Performance
+ a| 
+FC
+
+|===
+
+
+== Les baies de stockage
+
+|===
+| Type de disque ONTAP | Classe des disques | Type de disque standard | Description 
+
+
+ a| 
+LUN
+ a| 
+S/O
+ a| 
+LUN
+ a| 
+Périphérique de stockage logique sauvegardé par les baies de stockage et utilisé par ONTAP comme disque, ces LUN sont appelées « LUN de baie » pour les distinguer des LUN qu'ONTAP fournit aux clients.
+
+|===
+*Informations connexes*
+
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+http://www.netapp.com/us/media/tr-3437.pdf["Rapport technique NetApp 3437 : résilience du sous-système de stockage"^]

@@ -1,0 +1,108 @@
+---
+permalink: online-help-96-97/task_creating_luns.html 
+sidebar: sidebar 
+keywords: create, lun, system, manager, qtree, online, help 
+summary: 'Vous pouvez utiliser System Manager pour créer des LUN pour un agrégat, un volume ou qtree existant en cas d"espace libre disponible. Vous pouvez créer une LUN dans un volume existant ou en créer un nouveau FlexVol pour cette LUN. Vous pouvez également activer la qualité de service (QoS) du stockage pour gérer les performances des workloads.' 
+---
+= Créez des LUN avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de créer des LUN pour un agrégat, un volume ou un qtree existant, dès qu'il existe de l'espace libre. Vous pouvez créer une LUN dans un volume existant ou en créer un nouveau FlexVol pour cette LUN. Vous pouvez également activer la qualité de service (QoS) du stockage pour gérer les performances des workloads.
+
+.Description de la tâche
+Si vous spécifiez l'ID de LUN, System Manager vérifie la validité de l'ID de LUN avant de l'ajouter. Si vous ne spécifiez pas d'ID de LUN, le logiciel ONTAP en attribue automatiquement un.
+
+Lors de la sélection du type multiprotocole LUN, vous devez avoir tenu compte des consignes relatives à l'utilisation de chaque type. Le type multiprotocole LUN ou le type de système d'exploitation détermine la disposition des données sur la LUN, ainsi que les tailles minimale et maximale de la LUN. Une fois la LUN créée, vous ne pouvez pas modifier le type de système d'exploitation hôte LUN.
+
+Dans une configuration MetroCluster, System Manager affiche uniquement les agrégats suivants pour la création des volumes FlexVol pour la LUN :
+
+* En mode normal, lorsque vous créez des volumes sur les SVM source synchrone ou des SVM service des données sur le site primaire, seuls les agrégats qui appartiennent au cluster du site primaire sont affichés.
+* En mode commuté, lorsque vous créez des volumes sur des SVM de destination synchrone ou des SVM de service des données sur le site survivant, seuls les agrégats avec basculement sont affichés.
+
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *gestion de LUN*, cliquez sur *Créer*.
+. Parcourir et sélectionner un SVM dans lequel vous souhaitez créer les LUN.
+. Dans l'assistant *Créer LUN*, spécifiez le nom, la taille, le type et la description de la LUN, sélectionnez *Réserve d'espace*, puis cliquez sur *Suivant*.
+. Créez un nouveau volume FlexVol pour la LUN ou sélectionnez un volume ou qtree existant, puis cliquez sur *Suivant*.
+. Ajoutez des groupes d'initiateurs si vous souhaitez contrôler l'accès des hôtes à la LUN, puis cliquez sur *Suivant*.
+. Cochez la case *gérer la qualité de service du stockage* si vous souhaitez gérer les performances de la charge de travail de la LUN.
+. Créez un nouveau groupe de règles de QoS du stockage ou sélectionnez un groupe de règles existant pour contrôler les performances des entrées/sorties (E/S) de la LUN :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme ça... 
+
+
+ a| 
+Création d'une « policy group »
+ a| 
+.. Sélectionnez *Nouveau groupe de stratégies*
+.. Spécifiez le nom du groupe de règles.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur et cette valeur est sensible à la casse.
++
+L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
+
+
+
+
+ a| 
+Sélectionnez un groupe de stratégies existant
+ a| 
+.. Sélectionnez *Groupe de stratégies existant*, puis cliquez sur *choisir* pour sélectionner un groupe de stratégies existant dans la boîte de dialogue Sélectionner un groupe de stratégies.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur et cette valeur est sensible à la casse.
++
+L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
++
+Si le groupe de règles est attribué à plusieurs objets, le débit maximal que vous spécifiez est partagé entre les objets.
+
+
+
+|===
+. Vérifiez les détails spécifiés dans la fenêtre *LUN summary*, puis cliquez sur *Next*.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]
+
+xref:concept_lun_multiprotocol_type_guidelines.adoc[Consignes d'utilisation du type multiprotocole de LUN]

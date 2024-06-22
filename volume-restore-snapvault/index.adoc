@@ -1,0 +1,44 @@
+---
+permalink: volume-restore-snapvault/index.html 
+sidebar: sidebar 
+keywords: content, restore, volume, snapvault, vault, backup, ontap, data, loss, volume restore using snapvault overview 
+summary: 'Vous pouvez restaurer rapidement un volume à partir d"une sauvegarde SnapVault dans ONTAP en cas de perte de données.' 
+---
+= Présentation de la restauration de volume à l'aide de SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez restaurer rapidement un volume à partir d'une sauvegarde SnapVault dans ONTAP en cas de perte de données.
+
+Suivez cette procédure si vous souhaitez restaurer à partir de la sauvegarde du coffre-fort de la manière suivante :
+
+* Vous travaillez avec des clusters exécutant ONTAP 9.
+* Vous êtes un administrateur de cluster.
+* Vous avez configuré la relation de coffre-fort en suivant la procédure décrite dans xref:../volume-backup-snapvault/index.html[Sauvegarde de volume avec SnapVault]
+* Vous ne souhaitez pas effectuer la restauration d'un seul fichier ou d'une seule LUN.
+* Vous voulez appliquer les bonnes pratiques, pas explorer toutes les options disponibles.
+* Vous ne voulez pas lire beaucoup de contexte conceptuel.
+* Vous souhaitez utiliser l'interface classique de System Manager pour ONTAP 9.7 et les versions antérieures, et non l'interface de ONTAP System Manager pour ONTAP 9.7 et les versions ultérieures.
+
+
+Si ces hypothèses ne sont pas correctes pour votre situation ou si vous voulez plus d'informations conceptuelles, consultez la ressource suivante :
+
+link:http://www.netapp.com/us/media/tr-4183.pdf["Rapport technique de NetApp 4183 : meilleures pratiques de SnapVault"^]
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+[cols="2"]
+|===
+| Pour effectuer ces tâches avec... | Voir ce contenu... 
+
+
+| System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures) | link:https://docs.netapp.com/us-en/ontap/task_dp_restore_from_vault.html["Restaurez un volume à partir d'une copie Snapshot antérieure"^] 
+
+
+| Interface de ligne de commande ONTAP | link:https://docs.netapp.com/us-en/ontap/data-protection/restore-volume-snapvault-backup-task.html["Restaurer le contenu d'un volume à partir d'une destination SnapMirror"^] 
+|===

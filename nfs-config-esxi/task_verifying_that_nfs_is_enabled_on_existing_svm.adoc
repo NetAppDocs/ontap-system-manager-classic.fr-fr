@@ -1,0 +1,24 @@
+---
+permalink: nfs-config-esxi/task_verifying_that_nfs_is_enabled_on_existing_svm.html 
+sidebar: sidebar 
+keywords: verify, nfs, enable, configure, access, esxi, verify that nfs is enabled on an existing SVM 
+summary: 'Si vous choisissez d"utiliser un SVM existant, vous devez d"abord vérifier que NFS est activé sur ce SVM. Vous pouvez ensuite configurer l"accès NFS et vérifier que NFS est activé pour ESXi à l"aide de Virtual Storage Console.' 
+---
+= Vérifier que NFS est activé sur un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous choisissez d'utiliser un SVM existant, vous devez d'abord vérifier que NFS est activé sur ce SVM. Vous pouvez ensuite configurer l'accès NFS et vérifier que NFS est activé pour ESXi à l'aide de Virtual Storage Console.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. Dans le volet *protocoles*, cliquez sur *NFS*.
+. Vérifiez que NFS est affiché comme activé.
++
+Si NFS n'est pas activé, vous devez l'activer ou en créer un nouveau.
+
+

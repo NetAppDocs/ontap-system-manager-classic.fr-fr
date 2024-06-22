@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_reviewing_storage_recommendations.html 
+sidebar: sidebar 
+keywords: review, storage, recommendation, window, online, help, create, aggregate 
+summary: La fenêtre stockage vous permet de consulter les recommandations de stockage fournies pour la création des agrégats. 
+---
+= Consultez les recommandations en matière de stockage avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour examiner les recommandations de stockage fournies pour la création d'agrégats, utilisez la fenêtre de stockage de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures).
+
+.Avant de commencer
+Vous devez avoir configuré le cluster, le réseau et les détails du support.
+
+.Description de la tâche
+Vous pouvez créer des agrégats de données conformément aux recommandations en matière de stockage. Vous pouvez également ignorer cette étape et créer des agrégats de données plus tard à l'aide de System Manager.
+
+
+
+== Procédure
+
+* Pour créer des agrégats de données conformément aux recommandations en matière de stockage, cliquez sur *Envoyer et continuer*.
+* Pour créer ultérieurement des agrégats de données à l'aide de System Manager, cliquez sur *ignorez cette étape*.
+
+
+
+
+== Que faire ensuite
+
+Si vous avez choisi de créer des agrégats conformément aux recommandations en matière de stockage, vous devez créer une machine virtuelle de stockage (SVM) pour poursuivre la configuration du cluster.

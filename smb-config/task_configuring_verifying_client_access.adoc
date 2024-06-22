@@ -1,0 +1,33 @@
+---
+permalink: smb-config/task_configuring_verifying_client_access.html 
+sidebar: sidebar 
+keywords: client, access, share, setting, ntfs, file, permission, windows, explorer, modify, share, acl, system, manager, affect, group, volume, configure, verify, vonfigure and verify cifs client access 
+summary: 'Lorsque vous êtes prêt, vous pouvez donner à certains clients l"accès au partage en définissant les autorisations de fichier NTFS dans l"Explorateur Windows et en modifiant l"ACL de partage dans System Manager. Vous devez ensuite tester que les utilisateurs ou groupes concernés peuvent accéder au volume.' 
+---
+= Configurer et vérifier l'accès client CIFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous êtes prêt, vous pouvez donner à certains clients l'accès au partage en définissant les autorisations de fichier NTFS dans l'Explorateur Windows et en modifiant l'ACL de partage dans System Manager. Vous devez ensuite tester que les utilisateurs ou groupes concernés peuvent accéder au volume.
+
+.Étapes
+. Déterminez quels clients et utilisateurs ou groupes auront accès au partage.
+. Sur un client Windows, utilisez un rôle d'administrateur pour accorder aux utilisateurs ou aux groupes les autorisations nécessaires aux fichiers et dossiers.
++
+.. Connectez-vous à un client Windows en tant qu'administrateur disposant de droits d'administration suffisants pour gérer les autorisations NTFS.
+.. Dans l'Explorateur Windows, cliquez avec le bouton droit de la souris sur le lecteur, puis sélectionnez *Propriétés*.
+.. Sélectionnez l'onglet *sécurité* et réglez les paramètres de sécurité des groupes et des utilisateurs selon les besoins.
+
+
+. Dans System Manager, modifiez la liste de contrôle d'accès du partage pour permettre aux utilisateurs ou aux groupes Windows d'accéder au partage.
++
+.. Accédez à la fenêtre *partages*.
+.. Sélectionnez le partage, puis cliquez sur *Modifier*.
+.. Sélectionnez l'onglet *permissions* et donnez aux utilisateurs ou aux groupes l'accès au partage.
+
+
+. Sur un client Windows, connectez-vous en tant qu'un des utilisateurs qui a maintenant accès au partage et aux fichiers, puis vérifiez que vous pouvez accéder au partage et créer un fichier.
+

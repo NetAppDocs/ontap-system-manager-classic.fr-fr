@@ -1,0 +1,48 @@
+---
+permalink: iscsi-config-windows/index.html 
+sidebar: sidebar 
+keywords: iscsi, service, storage, virtual, machine, svm, provision, lun, isvsi, initiator, windows, host, computer 
+summary: 'En utilisant l"interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures), vous pouvez configurer rapidement le service iSCSI sur un serveur virtuel de stockage (SVM), provisionner une LUN et mettre la LUN disponible à l"aide d"un initiateur iSCSI sur un ordinateur hôte Windows.' 
+---
+= Présentation de la configuration iSCSI pour Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En utilisant l'interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures), vous pouvez configurer rapidement le service iSCSI sur un serveur virtuel de stockage (SVM), provisionner une LUN et mettre la LUN disponible à l'aide d'un initiateur iSCSI sur un ordinateur hôte Windows.
+
+Ces procédures sont basées sur les hypothèses suivantes :
+
+* Vous utilisez l'initiateur logiciel Microsoft iSCSI sous Windows Server 2008 ou Windows Server 2012.
+* Votre réseau utilise l'adressage IPv4.
+* Vous souhaitez attribuer des adresses à des interfaces logiques à l'aide de l'une des méthodes suivantes :
++
+** Automatiquement, à partir d'un sous-réseau que vous définissez
+** Manuellement, à l'aide d'une adresse sélectionnée à partir d'un sous-réseau existant
+** Manuellement, à l'aide d'une adresse qui sera ajoutée à un sous-réseau existant
+
+
+* Vous ne configurez pas le démarrage SAN iSCSI.
+
+
+Pour plus d'informations sur la configuration de votre hôte spécifique avec ONTAP, reportez-vous à la section https://docs.netapp.com/us-en/ontap-sanhost/index.html["Configuration de l'hôte SAN ONTAP"].
+
+Pour plus d'informations sur l'administration SAN, consultez le https://docs.netapp.com/us-en/ontap/san-admin/index.html["Présentation de l'administration du SAN ONTAP 9"]
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+|===
+
+
+| Pour effectuer cette tâche à l'aide de... | Reportez-vous à... 
+
+
+| System Manager redessiné (disponible avec 9.7 et versions ultérieures) | https://docs.netapp.com/us-en/ontap/task_san_provision_windows.html["Provisionnement du stockage SAN pour Windows Server"] 
+
+
+| Interface de ligne de commande ONTAP | https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html["Workflow de configuration de LUN avec l'interface de ligne de commandes"] 
+|===

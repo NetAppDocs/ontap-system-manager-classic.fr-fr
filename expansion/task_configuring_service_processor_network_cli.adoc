@@ -1,0 +1,70 @@
+---
+permalink: expansion/task_configuring_service_processor_network_cli.html 
+sidebar: sidebar 
+keywords: expand, cluster, configure, service, processor, sp, network, node, manual, network, configuration, automatic, configure the service processor network 
+summary: Une fois que vous avez étendu un cluster, vous devez configurer le réseau Service Processor sur les nouveaux nœuds. 
+---
+= Configurez le réseau du processeur de service
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois que vous avez étendu un cluster, vous devez configurer le réseau SP sur les nouveaux nœuds. Si le processeur de service utilise une configuration réseau manuelle, vous devez configurer les adresses IP du processeur de service sur les nouveaux nœuds. Si le processeur de service utilise la configuration réseau automatique, vous devez identifier les adresses IP sélectionnées.
+
+.Étapes
+. Si le processeur de service utilise une configuration réseau manuelle, configurez les adresses IP sur les deux nœuds pour le réseau du processeur de service en utilisant le `system service-processor network modify` commande.
++
+Les commandes suivantes permettent de configurer le réseau SP dans les nœuds cluster1-3 et cluster1-4 :
+
++
+[listing]
+----
+cluster1::> system service-processor network modify -node cluster1-3 -address-family IPv4 -enable true -ip-address 192.168.123.98-netmask 255.255.255.0 -gateway 192.168.123.1
+cluster1::> system service-processor network modify -node cluster1-4 -address-family IPv4 -enable true -ip-address 192.168.123.99 -netmask 255.255.255.0 -gateway 192.168.123.1
+----
+. Vérifiez que le réseau du processeur de service est configuré correctement sur les deux nouveaux nœuds en utilisant le `system service-processor network show` commande pour chaque nœud.
++
+Le statut doit être de `succeeded`. Une vérification est requise dans toutes les situations. Même si le réseau SP a été configuré automatiquement, vous devez vérifier qu'il a été configuré correctement et vous devez déterminer les adresses IP qui ont été attribuées.
+
++
+Le résultat suivant indique que les nœuds cluster1-3 et cluster1-4 ont réussi la configuration du réseau SP :
+
++
+[listing]
+----
+cluster1::> system service-processor network show -node cluster1-3
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-3    online         IPv4      up          192.168.123.98
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+
+cluster1::> system service-processor network show -node cluster1-4
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-4    online         IPv4      up          192.168.123.99
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+----
+. Si votre site comporte généralement des entrées DNS pour le réseau SP, vérifiez que les entrées DNS sont créées pour les nouveaux nœuds.
+

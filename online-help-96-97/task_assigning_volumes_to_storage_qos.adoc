@@ -1,0 +1,106 @@
+---
+permalink: online-help-96-97/task_assigning_volumes_to_storage_qos.html 
+sidebar: sidebar 
+keywords: assign, volumes, storage, qos, online, help, flexgroup, online, help, quality, serice 
+summary: 'Pour limiter le débit des volumes FlexVol et FlexGroup, vous pouvez les attribuer à des groupes de règles de QoS (Quality of Service) du stockage. Vous pouvez affecter la QoS du stockage à de nouveaux volumes ou modifier les détails de QoS du stockage des volumes déjà affectés à un groupe de règles en utilisant System Manager.' 
+---
+= Attribuez des volumes à la QoS du stockage avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour limiter le débit des volumes FlexVol et FlexGroup en les affectant aux groupes de règles de qualité de service (QoS) du stockage, utilisez ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures). Vous pouvez affecter la QoS du stockage à de nouveaux volumes ou modifier les détails de QoS du stockage des volumes déjà affectés à un groupe de règles en utilisant System Manager.
+
+.Description de la tâche
+* Vous pouvez affecter la QoS du stockage uniquement aux volumes RW (lecture/écriture) en ligne.
+* Vous ne pouvez pas affecter QoS du stockage à un volume si les objets de stockage suivants sont affectés à une « policy group » :
++
+** Serveur virtuel de stockage parent (SVM) du volume
+** LUN enfants du volume
+** Fichiers enfants du volume
+
+
+* Vous pouvez attribuer une QoS du stockage ou modifier les détails de QoS pour un maximum de 10 volumes simultanément.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez un ou plusieurs volumes pour lesquels vous souhaitez attribuer une QoS du stockage.
+. Cliquez sur *plus d'actions* > *Storage QoS*.
+. Dans la boîte de dialogue *Quality of Service Details*, cochez la case *Manage Storage Quality of Service* pour gérer les performances de la charge de travail du volume FlexVol.
++
+Si certains des volumes que vous avez sélectionnés sont déjà affectés à un groupe de règles, les modifications que vous apportez peuvent affecter les performances de ces volumes.
+
+. Créez un nouveau groupe de règles de QoS du stockage ou sélectionnez un groupe de règles existant pour contrôler les performances des entrées/sorties (E/S) du volume FlexVol :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme ça... 
+
+
+ a| 
+Création d'une « policy group »
+ a| 
+.. Sélectionnez *Nouveau groupe de stratégies*.
+.. Spécifiez le nom du groupe de règles.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour éviter que la charge de travail des objets du groupe de règles ne dépasse la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS, B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur.
++
+Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
+
+
+
+
+ a| 
+Sélectionnez un groupe de stratégies existant
+ a| 
+.. Sélectionnez *Groupe de stratégies existant*, puis cliquez sur *choisir* pour sélectionner un groupe de stratégies existant dans la boîte de dialogue Sélectionner un groupe de stratégies.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour éviter que la charge de travail des objets du groupe de règles ne dépasse la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS, B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur.
+  +
+Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
++
+Si le groupe de règles est attribué à plusieurs objets, le débit maximal que vous spécifiez est partagé entre les objets.
+
+
+
+|===
+. *Facultatif:* cliquez sur le lien qui spécifie le nombre de volumes si vous souhaitez consulter la liste des volumes sélectionnés, puis cliquez sur *rebuter* si vous souhaitez supprimer des volumes de la liste.
++
+Le lien s'affiche uniquement lorsque plusieurs volumes sont sélectionnés.
+
+. Cliquez sur *OK*.
+

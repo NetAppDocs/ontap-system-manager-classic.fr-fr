@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_monitoring_ha_pairs.html 
+sidebar: sidebar 
+keywords: system, manager, ha, availability, monitor, ha, pair 
+summary: 'Vous pouvez utiliser System Manager pour contrôler l"état du nœud et l"interconnexion de toutes les paires haute disponibilité d"un cluster. Vous pouvez également vérifier si le basculement ou le retour est activé ou s"est produit, et consulter les raisons pour lesquelles le basculement ou le retour n"est pas possible pour le moment.' 
+---
+= Surveillez les paires haute disponibilité avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour contrôler l'état du nœud et l'interconnexion de toutes les paires haute disponibilité d'un cluster. Vous pouvez également vérifier si le basculement ou le retour est activé ou s'est produit, et consulter les raisons pour lesquelles le basculement ou le retour n'est pas possible pour le moment.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *haute disponibilité*.
+. Dans la fenêtre *haute disponibilité*, cliquez sur l'image de la paire haute disponibilité pour afficher des détails tels que l'état de haute disponibilité du cluster, l'état du nœud, l'état de l'interconnexion et le modèle matériel de chaque nœud.
++
+Si la LIF de cluster management ou les LIFs de données d'un nœud ne se trouvent pas dans leur home node, un message d'avertissement est affiché indiquant que le nœud possède certaines LIFs qui ne sont pas dans le home node.
+
+
+
+*Informations connexes*
+
+xref:reference_high_availability.adoc[Fenêtre haute disponibilité]

@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_configuring_system_manager_options.html 
+sidebar: sidebar 
+keywords: system, manager, configure, system, manager, option, online, help 
+summary: 'Vous pouvez activer la journalisation et spécifier la valeur du délai d"inactivité pour System Manager.' 
+---
+= Configurer les options de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez activer la journalisation et spécifier la valeur du délai d'inactivité pour ONTAP System Manager Classic (disponible dans ONTAP 9.7 ou version antérieure).
+
+.Description de la tâche
+Vous pouvez configurer les options depuis la fenêtre de connexion de System Manager. Cependant, vous devez vous connecter à l'application pour spécifier la valeur du délai d'inactivité.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Configuration*, cliquez sur *général*.
+. Spécifiez un niveau de journal.
+. Spécifiez la valeur du délai d'inactivité en minutes.
++
+[NOTE]
+====
+Cette option n'est pas disponible si vous avez activé l'authentification SAML (Security assertion Markup Language).
+
+====
+. Cliquez sur *OK*.
+

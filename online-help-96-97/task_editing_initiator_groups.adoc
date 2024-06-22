@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_editing_initiator_groups.html 
+sidebar: sidebar 
+keywords: edit, initiator, group, system, manager, online, help, port, set, dialog, box 
+summary: 'Vous pouvez utiliser la boîte de dialogue Modifier le groupe initiateur de System Manager pour modifier le nom d"un groupe initiateur existant et de son système d"exploitation. Vous pouvez ajouter des initiateurs au groupe initiateur ou en supprimer. Vous pouvez également modifier l"ensemble de ports associé au groupe initiateur.' 
+---
+= Modifiez les groupes initiateurs avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la boîte de dialogue *Modifier le groupe d'initiateurs* dans ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour modifier le nom d'un groupe initiateur existant et de son système d'exploitation. Vous pouvez ajouter des initiateurs au groupe initiateur ou en supprimer. Vous pouvez également modifier l'ensemble de ports associé au groupe initiateur.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *groupes initiateurs*, sélectionnez le groupe initiateur à modifier, puis cliquez sur *Modifier*.
+. Apportez les modifications nécessaires.
+. Cliquez sur *Enregistrer et fermer*.
+. Vérifiez les modifications que vous avez apportées au groupe initiateur dans l'onglet *groupes initiateurs*.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

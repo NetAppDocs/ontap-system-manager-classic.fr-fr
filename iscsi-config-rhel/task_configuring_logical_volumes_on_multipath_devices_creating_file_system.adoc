@@ -1,0 +1,27 @@
+---
+permalink: iscsi-config-rhel/task_configuring_logical_volumes_on_multipath_devices_creating_file_system.html 
+sidebar: sidebar 
+keywords: linux, host, access, iscsi, device, lun, partition, file, system, multipath, volume, file, system, configure, logical, creating, create, configure logical volumes on multipath devices and creating a file system 
+summary: 'Lorsque l"hôte Linux accède pour la première fois à un nouveau périphérique SCSI (LUN), il n"y a pas de partition ni de système de fichiers. Si vous souhaitez utiliser un périphérique multichemin partitionné, vous devez d"abord partitionner les périphériques SCSI sous-jacents. Vous pouvez également créer des volumes logiques sur des périphériques à chemins d"accès multiples et, éventuellement, créer un système de fichiers.' 
+---
+= Configurez les volumes logiques sur les périphériques multipathing et créez un système de fichiers
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque l'hôte Linux accède pour la première fois à un nouveau périphérique SCSI (LUN), il n'y a pas de partition ni de système de fichiers. Si vous souhaitez utiliser un périphérique multichemin partitionné, vous devez d'abord partitionner les périphériques SCSI sous-jacents. Vous pouvez également créer des volumes logiques sur des périphériques à chemins d'accès multiples et, éventuellement, créer un système de fichiers.
+
+.Avant de commencer
+Les périphériques SCSI et les périphériques multipathing correspondants doivent avoir été découverts par l'hôte Linux.
+
+.Description de la tâche
+Au minimum, DM-Multipath doit être configuré sur les périphériques SCSI. Toute configuration au-delà de DM-Multipath est facultative. Les étapes suivantes sont des consignes générales si vous souhaitez effectuer une configuration supplémentaire, telles que le partitionnement, la configuration de volumes logiques sur des périphériques multichemins et la création d'un système de fichiers. Pour plus de détails sur les commandes Linux, reportez-vous à la documentation et aux pages de manuel de Red Hat Enterprise Linux.
+
+.Étapes
+. Pour utiliser un périphérique multichemin partitionné, partitionnez tout d'abord les périphériques SCSI sous-jacents à l'aide du `fdisk` ou `parted` informatique.
+. Créez les partitions multivoies correspondantes à l'aide de `kpartx` informatique.
+. Créez des volumes logiques sur les périphériques multivoies correspondants à l'aide des commandes LVM (Logical Volume Manager).
+. Créez un système de fichiers, tel que Ext4 ou XFS, sur des volumes logiques ou des périphériques multipathing à l'aide de `mkfs` informatique.
+

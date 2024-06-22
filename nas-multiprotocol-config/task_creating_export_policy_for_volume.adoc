@@ -1,0 +1,50 @@
+---
+permalink: nas-multiprotocol-config/task_creating_export_policy_for_volume.html 
+sidebar: sidebar 
+keywords: nfs, client, access, volume, create, export, policy, permit, administration, host, apply, volume, create an export policy for the volume 
+summary: 'Avant que tout client NFS puisse accéder à un volume, vous devez créer une export policy pour le volume, ajouter une règle qui permet d"accéder à un hôte d"administration et appliquer la nouvelle export policy au volume.' 
+---
+= Créer une export policy pour le volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant que tout client NFS puisse accéder à un volume, vous devez créer une export policy pour le volume, ajouter une règle qui permet d'accéder à un hôte d'administration et appliquer la nouvelle export policy au volume.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. Créer une nouvelle export-policy :
++
+.. Dans le volet *Policies*, cliquez sur *Export Policies*, puis sur *Create*.
+.. Dans la fenêtre *Create Export Policy*, spécifiez un nom de stratégie.
+.. Sous *règles d'exportation*, cliquez sur *Ajouter* pour ajouter une règle à la nouvelle stratégie.
+
+
++
+image::../media/export_policy_create_nas_mp.gif[Cette capture d'écran est décrite par le texte précédent.]
+
+. Dans la boîte de dialogue *Créer une règle d'exportation*, créez une règle qui permet à un administrateur d'accéder à l'exportation via tous les protocoles :
++
+.. Spécifiez l'adresse IP ou le nom du client, tel que admin_host, à partir duquel le volume exporté sera administré.
+.. Sélectionnez *CIFS* et *NFSv3*.
+.. Assurez-vous que tous les détails d'accès *lecture/écriture* sont sélectionnés, ainsi que *Autoriser Superuser Access*.
++
+image::../media/export_rule_for_admin_manual_multi_nas_mp.gif[Cette capture d'écran est décrite par le texte précédent.]
+
+.. Cliquez sur *OK*, puis sur *Créer*.
+
+
++
+La nouvelle export policy est créée, avec sa nouvelle règle.
+
+. Appliquer la nouvelle export policy sur le nouveau volume afin que l'hôte de l'administrateur puisse accéder au volume :
++
+.. Accédez à la fenêtre *namespace*.
+.. Sélectionnez le volume et cliquez sur *Modifier la stratégie d'exportation*.
+.. Sélectionnez la nouvelle stratégie et cliquez sur *Modifier*.
+
+
+

@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/concept_using_space_reservation_with_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: space, reservation, flexvol, volume, online, help 
+summary: 'En utilisant la réservation d"espace, vous pouvez provisionner des volumes FlexVol. Le provisionnement fin semble fournir plus de stockage que ce qui est réellement disponible pour un agrégat donné, tant que ce n"est pas l"ensemble du stockage actuellement utilisé.' 
+---
+= Utilisez les réservations d'espace avec des volumes FlexVol avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures), vous pouvez utiliser la réservation d'espace pour provisionner des volumes FlexVol. Le provisionnement fin semble fournir plus de stockage que ce qui est réellement disponible pour un agrégat donné, tant que ce n'est pas l'ensemble du stockage actuellement utilisé.
+
+Le provisionnement lourd mis à côté d'un espace de stockage suffisant de l'agrégat pour garantir que tout bloc du volume puisse être inscrit à tout moment.
+
+Les agrégats peuvent fournir du stockage aux volumes contenus par plusieurs machines virtuelles de stockage (SVM). Si vous utilisez le provisionnement fin et que vous devez séparer complètement vos SVM (par exemple, si vous assurez le stockage dans un environnement mutualisé), vous devez utiliser des volumes entièrement alloués (provisionnement lourd) ou veiller à ce que vos agrégats ne soient pas partagés entre les locataires.
+
+Lorsque la réserve d'espace est définie sur "par défaut", les paramètres de réservation d'espace ONTAP s'appliquent aux volumes.
+
+*Informations connexes*
+
+http://www.netapp.com/us/media/tr-3563.pdf["Rapport technique 3563 de NetApp : le provisionnement fin de NetApp augmente l'utilisation du stockage avec l'allocation à la demande"^]
+
+http://www.netapp.com/us/media/tr-3483.pdf["Rapport technique NetApp 3483 : « Thin Provisioning » dans un environnement d'entreprise NetApp SAN ou IP SAN"^]

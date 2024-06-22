@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_setting_up_physical_storage.html 
+sidebar: sidebar 
+keywords: physical, storage, set, up, online, help, disk, node, spare, aggregates 
+summary: La configuration du stockage physique consiste à attribuer des disques aux nœuds, à mettre à zéro les disques de spare et à créer des agrégats. 
+---
+= Configuration du stockage physique
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuration du stockage physique consiste à attribuer des disques aux nœuds, à mettre à zéro les disques de spare et à créer des agrégats.

@@ -1,0 +1,89 @@
+---
+permalink: nas-multiprotocol-config/task_mapping_unix_windows_user_names.html 
+sidebar: sidebar 
+keywords: windows, unix, user, acconut, map, user, access, file, permission, ntfs, conversion, rule, default, user, map unix and windows user names 
+summary: 'Si votre site possède à la fois des comptes utilisateur Windows et UNIX, vous devez utiliser le mappage de noms pour vous assurer que les utilisateurs Windows peuvent accéder aux fichiers avec des autorisations de fichiers UNIX et pour vous assurer que les utilisateurs UNIX peuvent accéder aux fichiers avec des autorisations de fichiers NTFS. Le mappage de noms peut impliquer toute combinaison de mappage implicite, de règles de conversion et d"utilisateurs par défaut.' 
+---
+= Mapper les noms d'utilisateur UNIX et Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si votre site possède à la fois des comptes utilisateur Windows et UNIX, vous devez utiliser le mappage de noms pour vous assurer que les utilisateurs Windows peuvent accéder aux fichiers avec des autorisations de fichiers UNIX et pour vous assurer que les utilisateurs UNIX peuvent accéder aux fichiers avec des autorisations de fichiers NTFS. Le mappage de noms peut impliquer toute combinaison de mappage implicite, de règles de conversion et d'utilisateurs par défaut.
+
+.Description de la tâche
+Vous devez utiliser cette procédure uniquement si votre site dispose de comptes utilisateur Windows et UNIX qui ne sont pas nécessairement associés, c'est-à-dire lorsque la version en minuscules de chaque nom d'utilisateur Windows correspond au nom d'utilisateur UNIX. Ceci peut être effectué à l'aide de NIS, LDAP ou d'utilisateurs locaux. Si vous avez deux ensembles d'utilisateurs qui ne correspondent pas, vous devez configurer le mappage de noms.
+
+.Étapes
+. Choisissez une méthode de mappage de noms--des règles de conversion de mappage de noms, des mappages d'utilisateurs par défaut ou les deux--en tenant compte des facteurs suivants :
++
+** Les règles de conversion utilisent des expressions régulières pour convertir un nom d'utilisateur à un autre, ce qui est utile si vous souhaitez contrôler ou suivre l'accès à un niveau individuel.
++
+Par exemple, vous pouvez mapper des utilisateurs UNIX vers des utilisateurs Windows d'un domaine, et inversement.
+
+** Les utilisateurs par défaut vous permettent d'attribuer un nom d'utilisateur à tous les utilisateurs qui ne sont pas mappés par des mappages implicites ou des règles de conversion de mappage de noms.
++
+Chaque SVM possède un utilisateur UNIX par défaut nommé « pcuser », mais il n'a pas d'utilisateur Windows par défaut.
+
+
+
+. Accédez à la fenêtre *SVM*.
+. Sélectionnez le SVM que vous souhaitez configurer.
+. Cliquez sur l'onglet *Paramètres SVM*.
+. *Facultatif* : créez un mappage de noms qui convertit les comptes d'utilisateur UNIX en comptes d'utilisateur Windows, et inversement :
++
+.. Dans le volet *Host Users and Groups*, cliquez sur *Name Mapping*.
+.. Cliquez sur *Ajouter*, conservez la direction *Windows vers UNIX* par défaut, puis créez une expression régulière qui produit un identifiant UNIX lorsqu'un utilisateur Windows tente d'accéder à un fichier qui utilise les autorisations de fichier UNIX.
++
+Utilisez l'entrée suivante pour convertir tout utilisateur Windows du domaine ENG en utilisateur UNIX du même nom. La répétition `ENG\\(.+)` Recherche tous les noms d'utilisateur Windows avec le préfixe `ENG\\`, et le remplacement `\1` Crée la version UNIX en supprimant tout sauf le nom d'utilisateur.
+
++
+image::../media/name_mappings_1_windows_to_unix.gif[Capture d'écran d'une entrée Windows-to-UNIX]
+
+.. Cliquez sur** Ajouter**, sélectionnez la direction *UNIX vers Windows*, puis créez le mappage correspondant qui produit des informations d'identification Windows lorsqu'un utilisateur UNIX tente d'accéder à un fichier possédant des autorisations NTFS.
++
+Utilisez l'entrée suivante pour convertir chaque utilisateur UNIX en utilisateur Windows du même nom dans le domaine ENG. La répétition `(.+)` Recherche tous les noms UNIX et le remplacement `ENG\\\1` Crée la version Windows en insérant `ENG\\` avant le nom d'utilisateur.
+
++
+image::../media/name_mappings_2_unix_to_windows.gif[Capture d'écran d'une entrée UNIX vers Windows]
+
+.. Étant donné que la position de chaque règle détermine l'ordre dans lequel les règles sont appliquées, vous devez examiner le résultat et confirmer que la commande correspond à vos attentes.
++
+image::../media/name_mappings_3_outcome.gif[Ce graphique est expliqué par le texte environnant.]
+
+.. Répétez les étapes 5b à 5d pour mapper tous les domaines et noms sur la SVM.
+
+
+. *Facultatif* : créez un utilisateur Windows par défaut :
++
+.. Créer un compte utilisateur Windows dans LDAP, NIS ou les utilisateurs locaux du SVM
++
+Si vous utilisez des utilisateurs locaux, vous pouvez créer un compte sous *Windows* dans le volet utilisateurs et groupes hôtes.
+
+.. Définissez l'utilisateur Windows par défaut en sélectionnant *NFS* > *Modifier* dans le volet *protocoles* et en saisissant le nom d'utilisateur.
+
+
++
+Vous pouvez créer un utilisateur Windows local nommé « unixusers » et le définir comme utilisateur Windows par défaut.
+
+. *Facultatif* : configurez l'utilisateur UNIX par défaut si vous souhaitez qu'un utilisateur soit différent de la valeur par défaut, c'est-à-dire l'utilisateur « pcuser ».
++
+.. Créer un compte utilisateur UNIX dans LDAP, NIS ou les utilisateurs locaux du SVM
++
+Si vous utilisez des utilisateurs locaux, vous pouvez créer un compte sous *UNIX* dans le volet utilisateurs et groupes hôtes.
+
+.. Définissez l'utilisateur UNIX par défaut en sélectionnant *CIFS* > *Options* dans le volet *protocoles* et en saisissant le nom d'utilisateur.
+
+
++
+Vous pouvez créer un utilisateur UNIX local nommé « winusers » et le définir comme utilisateur UNIX par défaut.
+
+
+
+
+
+== Que faire ensuite
+
+Si vous avez configuré des utilisateurs par défaut, lorsque vous configurez des autorisations de fichier ultérieurement dans le flux de travail, vous devez définir les autorisations pour l'utilisateur Windows par défaut et pour l'utilisateur UNIX par défaut.

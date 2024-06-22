@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/task_monitoring_svm_using_dashboard.html 
+sidebar: sidebar 
+keywords: system, manager, health, performance, monitor, svms, online, help 
+summary: 'Le tableau de bord de System Manager vous permet de surveiller l"intégrité et les performances d"une machine virtuelle de stockage (SVM).' 
+---
+= Contrôlez les SVM à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le tableau de bord de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) vous permet de surveiller l'état et les performances d'un serveur virtuel de stockage (SVM).
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner le nom du SVM que vous souhaitez contrôler.
+. Affichez les détails dans les panneaux du tableau de bord.
+

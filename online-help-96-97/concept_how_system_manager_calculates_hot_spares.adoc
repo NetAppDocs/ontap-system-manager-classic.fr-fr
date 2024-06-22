@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/concept_how_system_manager_calculates_hot_spares.html 
+sidebar: sidebar 
+keywords: system, manager, hot, spares, disk, storage, raid, online, help 
+summary: Un disque de secours est un disque affecté à un système de stockage mais non utilisé par un groupe RAID. Les disques de secours ne contiennent aucune donnée et sont attribués à un groupe RAID en cas de panne de disque au sein du groupe RAID. System Manager utilise le disque le plus grand comme disque de secours. 
+---
+= Fonctionnement de System Manager avec les disques de secours : ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un disque de secours est un disque affecté à un système de stockage mais non utilisé par un groupe RAID. Les disques de secours ne contiennent aucune donnée et sont attribués à un groupe RAID en cas de panne de disque au sein du groupe RAID. ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) utilise le plus grand disque de secours.
+
+Lorsque le groupe RAID contient différents types de disques, le disque de taille la plus grande de chaque type de disque reste le disque de secours. Par exemple, si le groupe RAID compte 10 disques SATA et 10 disques SAS, le disque SATA le plus grand et le disque SAS le plus grand font office de disques de secours.
+
+Si le disque de taille la plus élevée est partitionné, les disques de secours sont fournis séparément pour les groupes RAID partitionnés et non partitionnés. Si le disque de taille la plus importante n'est pas partitionné, un seul disque de spare est fourni.
+
+Le disque non partitionné de taille la plus grande est laissé comme disque de secours s'il y a des partitions racine dans le groupe de disques. Lorsqu'un disque non partitionné de même taille n'est pas disponible, les partitions racine de rechange sont laissées en tant que disques de rechange à chaud pour le groupe partitionné racine.
+
+Un seul disque de secours peut servir de disque de rechange à chaud pour plusieurs groupes RAID. System Manager calcule les disques de secours en fonction de la valeur définie dans l'option `raid.min_spare_count` au niveau des nœuds. Par exemple, si un groupe SSD RAID comporte 10 disques SSD et si l'option est sélectionnée `raid.min_spare_count` est défini sur `1` Au niveau du nœud, System Manager laisse 1 SSD comme unité de rechange à chaud et utilise les 9 autres disques SSD pour les opérations liées aux SSD. De la même manière, si un groupe de disques durs RAID comprend 10 disques durs et que cette option est offerte `raid.min_spare_count` est défini sur `2` Au niveau du nœud, System Manager laisse 2 disques durs en tant que disques de secours et utilise les 8 autres disques durs pour les opérations liées aux disques durs.
+
+System Manager applique la règle de rechange à chaud pour les groupes RAID lorsque vous créez un agrégat, modifiez un agrégat et lorsque vous ajoutez des disques durs ou des disques SSD à un agrégat. La règle de disque de secours est également utilisée lorsque vous créez un pool de stockage ou ajoutez des disques à un pool de stockage existant.
+
+Il existe des exceptions à la règle du disque de secours dans System Manager :
+
+* Pour LES DISQUES MSATA ou les disques d'un support multi-disques, le nombre de disques de secours est le double de la valeur définie au niveau du nœud et le nombre ne doit pas être inférieur à 2 à tout moment.
+* Les disques de secours ne sont pas utilisés si les disques font partie de LUN de baie ou d'appliances de stockage virtuel.
+

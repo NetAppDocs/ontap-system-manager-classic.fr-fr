@@ -1,0 +1,43 @@
+---
+permalink: expansion/task_adding_node_locked_licenses.html 
+sidebar: sidebar 
+keywords: cluster, feature, node-locked, license, entitle, functionality, add, add node-locked licenses 
+summary: Si le cluster possède des fonctionnalités qui utilisent des licences verrouillées par des nœuds, vous devez vous assurer que les licences verrouillées par des nœuds sont installées pour les nouveaux nœuds. 
+---
+= Ajoutez des licences verrouillées par des nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si le cluster possède des fonctionnalités qui utilisent des licences verrouillées par des nœuds (ce qui autorise uniquement des nœuds spécifiques à la fonctionnalité sous licence), vous devez vous assurer que les licences verrouillées par des nœuds sont installées pour les nouveaux nœuds. Vous devez ajouter les licences avant que les nœuds ne soient joints au cluster.
+
+Effectuez cette tâche si vous utilisez l'interface utilisateur _Classic_ System Manager avec ONTAP 9.7 et les versions antérieures. Si vous utilisez l'interface utilisateur de System Manager avec ONTAP 9.7 et versions ultérieures, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Activation de nouvelles fonctionnalités en ajoutant des clés de licence"].
+
+Pour plus d'informations sur la gestion des licences, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Présentation de la gestion des licences"].
+
+.Étapes
+. Ajoutez chaque clé de licence à l'aide de la `system license add` commande.
++
+[listing]
+----
+cluster1::> system license add -license-code AAAAAAAAAAAAAA
+----
+. Affichez les licences existantes à l'aide de `system license show` commande.
++
+[listing]
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+. Vérifiez le résultat de cette commande pour vous assurer qu'une licence verrouillée par nœud s'affiche pour tous les numéros de série, y compris les numéros de série des nœuds existants et nouveaux.
+

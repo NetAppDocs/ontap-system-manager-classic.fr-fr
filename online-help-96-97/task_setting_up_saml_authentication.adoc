@@ -1,0 +1,106 @@
+---
+permalink: online-help-96-97/task_setting_up_saml_authentication.html 
+sidebar: sidebar 
+keywords: set, up, saml, authentication, security, assertion, markup, idp, online, help, system, manager,  language, secure, identity, provide, 
+summary: 'Vous pouvez configurer l"authentification SAML (Security assertion Markup Language) pour que les utilisateurs distants soient authentifiés via un fournisseur d"identités sécurisé avant de se connecter à System Manager.' 
+---
+= Configuration de l'authentification SAML avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer l'authentification SAML. Les utilisateurs distants sont authentifiés par un fournisseur d'identités sécurisé avant de se connecter à System Manager.
+
+image::../media/mfa_workflow.gif[flux de travail mfa]
+
+
+
+== Activez l'authentification SAML
+
+Vous pouvez utiliser System Manager pour configurer l'authentification SAML afin que les utilisateurs distants puissent se connecter à l'aide d'un fournisseur d'identités sécurisé.
+
+.Avant de commencer
+* Le IDP que vous envisagez d'utiliser pour l'authentification à distance doit être configuré.
++
+[NOTE]
+====
+Consultez la documentation fournie par le PDI que vous avez configuré.
+
+====
+* Vous devez avoir l'URI du IDP.
+
+
+.Description de la tâche
+Les PDI suivants ont été validés avec System Manager :
+
+* Services de fédération Active Directory
+* Cisco DUO (validé avec les versions ONTAP suivantes :)
++
+** 9.7P21 et versions ultérieures 9.7
+** 9.8P17 et versions ultérieures 9.8
+** 9.9.1P13 et versions ultérieures 9.9
+** 9.10.1P9 et versions ultérieures 9.10
+** 9.11.1P4 et versions ultérieures 9.11
+** versions 9.12.1 et ultérieures
+
+
+* Hurlent
+
+
+[NOTE]
+====
+Une fois l'authentification SAML activée, seuls les utilisateurs distants peuvent accéder à l'interface graphique de System Manager. Les utilisateurs locaux ne peuvent pas accéder à l'interface graphique de System Manager après l'authentification SAML.
+
+====
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *Authentication*.
+. Cochez la case *Activer l'authentification SAML*.
+. Configurez System Manager pour utiliser l'authentification SAML :
++
+.. Entrez l'URI du IDP.
+.. Entrez l'adresse IP du système hôte.
+.. *Facultatif:* si nécessaire, modifiez le certificat du système hôte.
+
+
+. Cliquez sur *Retrieve Host Metadata* pour récupérer les informations relatives à l'URI de l'hôte et aux métadonnées de l'hôte.
+. Copiez les détails de l'URI hôte ou des métadonnées hôte, accédez à votre IDP, puis spécifiez les détails de l'URI hôte ou des métadonnées hôte et les règles de confiance dans la fenêtre IDP.
++
+[NOTE]
+====
+Consultez la documentation fournie par le PDI que vous avez configuré.
+
+====
+. Cliquez sur *Enregistrer*.
++
+La fenêtre de connexion IDP s'affiche.
+
+. Connectez-vous à System Manager à l'aide de la fenêtre de connexion IDP.
++
+Une fois le IDP configuré, si l'utilisateur tente de se connecter en utilisant le nom de domaine complet (FQDN), IPv6 ou une LIF de gestion du cluster, le système modifie automatiquement l'adresse IP en l'adresse IP du système hôte spécifié lors de la configuration IDP.
+
+
+
+
+
+== Désactivez l'authentification SAML
+
+Vous pouvez désactiver l'authentification SAML si vous souhaitez désactiver l'accès à distance à System Manager ou modifier la configuration SAML.
+
+.Description de la tâche
+La désactivation de l'authentification SAML ne supprime pas la configuration SAML.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *Authentication*.
+. Décochez la case *Activer l'authentification SAML*.
+. Cliquez sur *Enregistrer*.
++
+System Manager redémarre.
+
+. Connectez-vous à System Manager à l'aide des identifiants du cluster.
+
+
+*Informations connexes*
+
+xref:task_accessing_cluster_by_using_system_manager_brower_based_gui.adoc[Accès à un cluster via l'interface graphique basée sur un navigateur de ONTAP System Manager]

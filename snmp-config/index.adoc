@@ -1,0 +1,52 @@
+---
+permalink: snmp-config/index.html 
+sidebar: sidebar 
+keywords: content, configure, snmp, cluster, management, level, add, communities, community, security, user, traphost, communication, snmp configuration overview 
+summary: 'À l"aide de l"interface « classique » de ONTAP System Manager avec ONTAP 9.7 ou une version antérieure, vous pouvez configurer le protocole SNMP au niveau de la gestion du cluster, ajouter des communautés, des utilisateurs de sécurité et des Traphosts, et tester la communication SNMP.' 
+---
+= Présentation de la configuration SNMP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À l'aide de l'interface ONTAP System Manager _Classic_ avec ONTAP 9.7 ou une version antérieure, vous pouvez configurer SNMP au niveau de la gestion du cluster, ajouter des communautés, des utilisateurs de sécurité et des Traphosts, et tester la communication SNMP.
+
+Vous devez utiliser les procédures suivantes pour configurer l'accès SNMP à un cluster de la manière suivante :
+
+* Vous travaillez avec des clusters exécutant ONTAP 9.
+* Vous voulez appliquer les bonnes pratiques, pas explorer toutes les options disponibles.
++
+[NOTE]
+====
+Il y a quelques étapes dans ces procédures pour lesquelles vous devez utiliser l'interface de ligne de commande.
+
+====
+
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+Vous pouvez configurer l'accès SNMP à un cluster à l'aide de pour toutes les versions de ONTAP 9. Utilisez la procédure appropriée pour votre version de ONTAP.
+
+|===
+
+
+| Pour effectuer ces tâches avec... | Reportez-vous à... 
+
+
+ a| 
+System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures)
+ a| 
+https://docs.netapp.com/us-en/ontap/networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html["Gérer SNMP sur le cluster (administrateurs du cluster uniquement) > Présentation"^]
+
+
+
+ a| 
+L'interface de ligne de commande ONTAP
+ a| 
+https://docs.netapp.com/us-en/ontap/networking/commands_for_managing_snmp.html["Commandes pour la gestion de SNMP"^]
+
+|===

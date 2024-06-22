@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_deleting_flexcache_volumes.html 
+sidebar: sidebar 
+keywords: delete, flexcache, volume, system, manager, online, help 
+summary: 'Depuis System Manager 9.6, vous pouvez supprimer un volume FlexCache lorsque vous n"en avez plus besoin.' 
+---
+= Suppression de volumes FlexCache
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez supprimer un volume FlexCache lorsque vous n'en avez plus besoin.
+
+.Avant de commencer
+* La Junction path du volume FlexCache doit être démonté.
+* Le volume FlexCache doit être hors ligne.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume FlexCache que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *OK*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

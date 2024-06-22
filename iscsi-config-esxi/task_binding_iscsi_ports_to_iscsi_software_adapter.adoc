@@ -1,0 +1,31 @@
+---
+permalink: iscsi-config-esxi/task_binding_iscsi_ports_to_iscsi_software_adapter.html 
+sidebar: sidebar 
+keywords: port, create, iscsi, associate, software, adapter, support, multipath, bind, bind iscsi ports to the iscsi software adapter 
+summary: 'Les ports que vous avez créés pour iSCSI doivent être associés à l"adaptateur logiciel iSCSI pour prendre en charge les chemins d"accès multiples.' 
+---
+= Reliez les ports iSCSI à la carte logicielle iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les ports que vous avez créés pour iSCSI doivent être associés à l'adaptateur logiciel iSCSI pour prendre en charge les chemins d'accès multiples.
+
+.Avant de commencer
+* Les ports VMkernel iSCSI doivent être créés.
+* La carte logicielle iSCSI doit être activée sur l'hôte ESXi.
+
+
+.Description de la tâche
+Vous pouvez lier les ports iSCSI à l'aide du client vSphere.
+
+Pour obtenir des instructions détaillées, consultez _VMware vSphere Storage_ pour votre version d'ESXi 5 à partir de VMware.
+
+http://www.vmware.com["VMware"]
+
+.Étapes
+. Reliez le premier port iSCSI à la carte logicielle iSCSI à l'aide de l'onglet *liaison du port réseau* de la boîte de dialogue adaptateur logiciel iSCSI *Détails de l'adaptateur* du client vSphere.
+. Reliez le second port iSCSI à la carte logicielle iSCSI.
+

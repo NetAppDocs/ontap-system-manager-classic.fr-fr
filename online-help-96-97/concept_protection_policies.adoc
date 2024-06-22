@@ -1,0 +1,99 @@
+---
+permalink: online-help-96-97/concept_protection_policies.html 
+sidebar: sidebar 
+keywords: online, help, protection, policy, system, manager, create, edit, delete 
+summary: System Manager permet de créer, modifier et supprimer des règles de protection. 
+---
+= Gérez les règles de protection à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de créer, de modifier et de supprimer des règles de protection.
+
+
+
+== Création de règles de protection
+
+Vous pouvez utiliser System Manager pour créer des règles de mise en miroir asynchrone au niveau du cluster, des règles de copie à distance ou des règles de mise en miroir et de copie à distance, et appliquer ces règles à une relation de protection des données au niveau du cluster.
+
+.Étapes
+. Cliquez sur *protection* > *stratégies de protection*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer une stratégie*, sélectionnez le type de stratégie que vous souhaitez créer.
+. Spécifiez le nom de la stratégie et la priorité de transfert.
++
+Faible indique que le transfert a la priorité la plus basse. Les transferts de priorité faible sont généralement planifiés après les transferts de priorité normale. Par défaut, la priorité de transfert est définie sur Normal.
+
+. *Facultatif:* cochez la case *Activer la compression réseau* pour compresser les données transférées pendant un transfert de données.
+. *Facultatif :* pour une règle de mise en miroir asynchrone, cochez la case *transférer toutes les copies Snapshot source* pour inclure la règle « tous_source_snapshots » dans la règle de miroir, qui sauvegarde toutes les copies Snapshot du volume source.
+. *Facultatif:* cliquez sur *Ajouter des commentaires* pour ajouter des commentaires supplémentaires pour la police.
+. Dans le cas d'une stratégie de coffre-fort ou d'une stratégie de copie en miroir, spécifiez une étiquette SnapMirror et un nombre de rétention de la destination.
+. Cliquez sur *Créer*.
+
+
+
+
+== Protection Policies
+
+Vous pouvez utiliser la fenêtre protection Policies pour créer, gérer et afficher des informations sur les stratégies de miroir, de coffre-fort et de miroir de coffre-fort.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer une stratégie, qui vous permet de créer une stratégie de miroir, de coffre-fort ou de miroir de coffre-fort.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier la stratégie, qui permet de modifier une stratégie.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer la stratégie, qui permet de supprimer une stratégie.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des règles de protection
+
+* *Nom*
++
+Affiche le nom de la stratégie de protection.
+
+* *Type*
++
+Affiche le type de stratégie, qui peut être Vault, Mirror Vault ou Asynchronous Mirror.
+
+* *Commentaire*
++
+Affiche la description spécifiée pour la règle.
+
+* *Priorité de transfert*
++
+Affiche la priorité de transfert de données, telle que Normal ou Bas.
+
+
+
+
+
+=== Zone de détails
+
+* *Onglet Détails de la police*
++
+Affiche les détails de la stratégie de protection, tels que l'utilisateur qui a créé la stratégie, le nombre de règles, le nombre de rétention et l'état de la compression réseau.
+
+* *Onglet règles de police*
++
+Affiche les détails des règles appliquées à la stratégie. L'onglet règles de stratégie s'affiche uniquement si la stratégie sélectionnée contient des règles.
+
+

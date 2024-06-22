@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/concept_cluster_expansion.html 
+sidebar: sidebar 
+keywords: cluster, expanision, system, manager, storage, size, capabilities, add, node, configure, network, online, help 
+summary: 'System Manager permet d"augmenter la taille et les fonctionnalités de votre stockage en ajoutant des nœuds compatibles au cluster et en configurant les détails réseau du nœud. Vous pouvez également afficher le récapitulatif des nœuds.' 
+---
+= Extension du cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour augmenter la taille et les fonctionnalités de votre stockage en ajoutant des nœuds compatibles au cluster et en configurant les informations détaillées de réseau du nœud. Vous pouvez également afficher le récapitulatif des nœuds.
+
+Lorsque vous vous connectez à System Manager, System Manager détecte automatiquement les nœuds compatibles qui ont été câblés mais qui n'ont pas été ajoutés au cluster et vous invite à ajouter les nœuds. Vous pouvez ajouter des nœuds compatibles en tant que et quand System Manager détecte les nœuds, ou vous pouvez ajouter manuellement les nœuds ultérieurement.
+
+
+
+== Ajout de nœuds à un cluster
+
+System Manager permet d'augmenter la taille et les fonctionnalités de votre système de stockage en ajoutant des nœuds à un cluster existant.
+
+.Avant de commencer
+* Les nouveaux nœuds compatibles doivent être câblés au cluster.
++
+Seuls les ports qui se trouvent dans le domaine de diffusion par défaut sont répertoriés dans la fenêtre réseau.
+
+* Tous les nœuds du cluster doivent être opérationnels.
+* Tous les nœuds doivent être de la même version.
+
+
+.Étapes
+. Ajoutez les nouveaux nœuds compatibles au cluster :
++
+|===
+| Si vous êtes... | Procédez comme ça... 
+
+
+ a| 
+Non connecté à System Manager
+ a| 
+.. Connectez-vous à System Manager .
++
+[NOTE]
+====
+Les nouveaux nœuds compatibles sont automatiquement détectés par System Manager lors de la connexion. Vous êtes invité à ajouter les nouveaux nœuds compatibles au cluster.
+
+====
+.. Cliquez sur *Ajouter des nœuds au cluster*.
+.. Modifier le nom des nœuds.
+.. Spécifier les licences de nœud.
+.. Cliquez sur *soumettre et continuer*.
+
+
+
+
+ a| 
+Connecté à System Manager
+ a| 
+.. Cliquez sur *Configuration* > *Cluster* > *expansion*.
++
+System Manager recherche les nouveaux nœuds ajoutés. Si des avertissements s'affichent, vous devez les corriger avant de continuer. Si de nouveaux nœuds compatibles sont détectés, passez à l'étape suivante.
+
+.. Modifier le nom des nœuds.
+.. Spécifier les licences de nœud.
+.. Cliquez sur *soumettre et continuer*.
+
+
+|===
+
+
+
+
+== Configurer les détails réseau des nœuds
+
+Vous pouvez utiliser System Manager pour configurer les paramètres LIF de gestion des nœuds et du processeur de service pour les nœuds qui viennent d'être ajoutés.
+
+.Avant de commencer
+* Un nombre suffisant de ports doit être présent dans l'IPspace par défaut pour la création de LIF.
+* Tous les ports doivent être opérationnels.
+
+
+.Étapes
+. Configurez la gestion des nœuds :
++
+.. Saisissez l'adresse IP dans le champ *adresse IP*.
+.. Sélectionnez le port pour la gestion des noeuds dans le champ *Port*.
+.. Entrez le masque de réseau et les détails de la passerelle.
+
+
+. Configuration des paramètres du processeur de service :
++
+.. Cochez la case *remplacer les valeurs par défaut* pour remplacer les valeurs par défaut.
+.. Entrez l'adresse IP, le masque de réseau et les détails de la passerelle.
+
+
+. Cliquez sur *Submit et Continuer* pour terminer la configuration réseau des nœuds.
+. Vérifiez les détails des nœuds dans la page *Résumé*.
+
+
+
+
+=== Que faire ensuite
+
+* Si votre cluster est protégé, vous devez créer le nombre requis de LIF intercluster dans les nœuds récemment ajoutés afin d'éviter un peering partiel et une protection non défectueuse.
+* Si les protocoles de données SAN sont activés dans le cluster, vous devez créer le nombre requis de LIF de données SAN pour le service des données.
+
+
+*Informations connexes*
+
+xref:task_creating_network_interfaces.adoc[Création d'interfaces réseau]

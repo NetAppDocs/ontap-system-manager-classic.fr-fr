@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/task_creating_mirror_relationship_from_source_volume.html 
+sidebar: sidebar 
+keywords: create, mirror, relationship, source, lvm, system, manager, online, help 
+summary: 'System Manager peut être utilisé pour créer une relation de miroir depuis la machine virtuelle de stockage source (SVM), et attribuer une règle de miroir et une planification à la relation de miroir. La copie miroir assure une disponibilité rapide des données en cas de corruption ou de perte des données sur le volume source.' 
+---
+= Créer une relation de miroir à partir d'un SVM source avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de créer une relation de miroir depuis le serveur virtuel de stockage source (SVM), et d'attribuer une règle de miroir et une planification à la relation de miroir. La copie miroir assure une disponibilité rapide des données en cas de corruption ou de perte des données sur le volume source.
+
+.Avant de commencer
+* La licence SnapMirror doit être activée sur le cluster source et le cluster destination.
++
+[NOTE]
+====
+** Pour certaines plateformes, la licence SnapMirror n'est pas obligatoire pour que le cluster source soit activée si le cluster de destination dispose de la licence SnapMirror et de la licence \(DPO\) d'optimisation de la protection des données.
+** Une fois la licence DPO activée sur le cluster de destination, vous devez actualiser le navigateur du cluster source pour activer le `Protect` option.
+
+
+====
+* Lors de la mise en miroir d'un volume SnapLock, la licence SnapMirror doit être installée sur le cluster source et le cluster de destination, et la licence SnapLock doit être installée sur le cluster de destination.
+* Le cluster source et le cluster destination ainsi que le SVM source et le SVM destination doivent être relationship de manière saine.
+* L'agrégat de destination doit disposer d'espace disponible.
+* Les volumes FlexVol doivent être en ligne et de type lecture/écriture.
+* Le type d'agrégat SnapLock doit être identique sur les deux clusters.
+* Un maximum de 25 volumes peuvent être protégés en une seule sélection.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit être activée sur le cluster distant.
+
+
+.Description de la tâche
+* System Manager ne prend pas en charge une relation en cascade.
++
+Par exemple, un volume de destination dans une relation ne peut pas être le volume source dans une autre relation.
+
+* Vous pouvez créer une relation de miroir entre des volumes SnapLock de même type uniquement.
++
+Par exemple, si le volume source est un volume SnapLock Enterprise, le volume de destination doit également être un volume SnapLock Enterprise.
+
+* Si le chiffrement est activé sur le volume source et que le cluster de destination exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, le chiffrement est désactivé par défaut sur le volume de destination.
+* Les SVM qui sont peering uniquement pour les applications FlexCache et qui ne disposent pas d'autorisations de peering pour les applications SnapMirror ne sont pas répertoriés dans la liste des SVM dans cette tâche. Vous pouvez utiliser le flux de travail de peering amélioré de ONTAP System Manager 9.6 pour donner l'autorisation à ces SVM, ou l'homologue. Vous pouvez ensuite les sélectionner dans cette tâche pour créer une relation de protection.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez les volumes pour lesquels vous souhaitez créer des relations miroir, puis cliquez sur *plus d'actions* > *protéger*.
++
+L'option *Protect* n'est disponible que pour un volume en lecture/écriture.
+
+. Sélectionnez le type *Replication* :
++
+|===
+| Si vous avez sélectionné le type de réplication comme... | Procédez comme ça... 
+
+
+ a| 
+Asynchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez le type de relation.
++
+Le type de relation peut être mis en miroir, coffre-fort ou miroir et coffre-fort.
+
+.. Sélectionnez un cluster et un SVM.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+
+
+ a| 
+Synchrone
+ a| 
+.. *Facultatif:* si vous ne connaissez pas le type de réplication et le type de relation, cliquez sur *aide Me choisir*, spécifiez les valeurs, puis cliquez sur *appliquer*.
+.. Sélectionnez la stratégie de synchronisation.
++
+La stratégie de synchronisation peut être StrictSync ou Sync.
+
+.. Sélectionnez un cluster et un SVM.
++
+Si le cluster sélectionné exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM peering sont répertoriés. Si le cluster sélectionné exécute ONTAP 9.3 ou une version ultérieure, les SVM avec peering et les SVM autorisés sont répertoriés.
+
+.. Modifiez le suffixe du nom du volume, si nécessaire.
+
+
+|===
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*, mettez à jour la stratégie de protection et le calendrier de protection, sélectionnez *agrégat activé par FabricPool*, puis initialisez la relation de protection.
+. Cliquez sur *Enregistrer*.
+
+
+.Résultats
+Un nouveau volume de destination de type _dp_ est créé avec les paramètres par défaut suivants :
+
+* Croissance automatique activée.
+* La compression est désactivée.
+* L'attribut de langue est défini pour correspondre à l'attribut de langue du volume source.
+
+
+Si le volume FlexVol de destination se trouve sur un SVM différent du volume FlexVol source, une relation de pairs est créée entre les deux SVM si la relation n'existe pas encore.
+
+Une relation de miroir est créée entre le volume source et le volume de destination. La copie Snapshot de base est transférée vers le volume de destination si vous avez accepté d'initialiser la relation.
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

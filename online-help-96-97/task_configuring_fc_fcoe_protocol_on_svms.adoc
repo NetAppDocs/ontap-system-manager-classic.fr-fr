@@ -1,0 +1,60 @@
+---
+permalink: online-help-96-97/task_configuring_fc_fcoe_protocol_on_svms.html 
+sidebar: sidebar 
+keywords: online, help, configure, fc, protocol, fcoe, svm, online, help, system, manager 
+summary: 'Le protocole FC et le protocole FCoE peuvent être configurés sur la machine virtuelle de stockage (SVM) pour les hôtes SAN. Les LIF sont créées sur les adaptateurs les plus appropriés et sont attribuées aux ensembles de ports pour assurer la redondance des chemins d"accès aux données. En fonction de vos exigences, vous pouvez configurer le protocole FC ou FCoE, ou les deux, à l"aide de System Manager.' 
+---
+= Configurez le protocole FC et le protocole FCoE sur les SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le protocole FC et le protocole FCoE sur le serveur virtuel de stockage (SVM) pour les hôtes SAN. Les LIF sont créées sur les adaptateurs les plus appropriés et sont attribuées aux ensembles de ports pour assurer la redondance des chemins d'accès aux données. En fonction de vos exigences, vous pouvez configurer le protocole FC ou FCoE, ou les deux, à l'aide de System Manager.
+
+.Avant de commencer
+* La licence FCP doit être activée sur le cluster.
+* Tous les nœuds du cluster doivent rester sains.
+* Chaque nœud doit disposer d'au moins deux ports correctement configurés pour chaque protocole (FC et FCoE).
+
+
+.Description de la tâche
+* Vous pouvez configurer le protocole FC et le protocole FCoE lors de la création de la SVM ou bien configurer les protocoles plus tard.
++
+Si les protocoles ne sont pas autorisés sur le SVM, vous pouvez utiliser la fenêtre Edit Storage Virtual machine pour activer les protocoles pour le SVM.
+
+* Les agrégats SnapLock ne sont pas pris en compte pour la création automatique de volumes.
+
+
+.Étapes
+. Si vous n'avez pas configuré les protocoles lors de la création du SVM, cliquez sur l'onglet *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *protocoles*, cliquez sur *FC/FCoE*.
+. Dans la section *Configuration de l'interface de données*, sélectionnez l'option correspondante pour configurer les LIF de données pour le protocole FC et le protocole FCoE.
+. Préciser le nombre de LIF de données par nœud pour chaque protocole.
++
+Le nombre minimum de LIF par nœud est un. Le nombre maximum est le minimum de tous les ports de l' `up` état sur les nœuds. Si la valeur maximale est un nombre impair, le nombre pair précédent est considéré comme la valeur maximale. Vous pouvez choisir n'importe quel nombre pair dans la plage de valeurs minimale et maximale.
+
++
+Un cluster à quatre nœuds possède les nœuds 1, 2 et 3, ainsi que six ports chacun dans le `up` state, et node4 avec sept ports dans le `up` état. La valeur maximale effective pour le cluster est six.
+
++
+Si le nombre de LIF à attribuer au nœud est plus de deux, vous devez attribuer au moins un ensemble de ports à chaque LIF.
+
+. Si vous souhaitez vérifier ou modifier la configuration des LIF générées automatiquement, sélectionnez *Revue ou Modifier l'association d'interface*.
++
+Vous pouvez modifier uniquement le nom de LIF et le port de départ. Vous devez vous assurer que vous ne spécifiez pas d'entrées dupliquées.
+
+. *Facultatif :* mettez en service un LUN pour le stockage FC ou FCoE lors de la configuration du protocole en fournissant la taille de LUN, le type de système d'exploitation de la LUN et les détails sur l'initiateur hôte.
+. Cliquez sur *Envoyer et continuer*.
+
+
+.Résultats
+Les LIFs de données et les ensembles de ports sont créés avec la configuration spécifiée. Les LIF sont distribuées en conséquence parmi les ensembles de ports. Le service FCP est démarré si toutes les LIFs sont créées avec succès pour au moins un protocole.
+
+Si la création de LIF échoue, vous pouvez créer les LIF et démarrer le service FCP à partir de la fenêtre FC/FCoE.
+
+*Informations connexes*
+
+https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"]

@@ -1,0 +1,306 @@
+---
+permalink: online-help-96-97/concept_cluster_peers.html 
+sidebar: sidebar 
+keywords: cluster, peer, data, replication, snapmirror, snapvault, flexcache, syncmirror, configuration, system, manager, modify, passphrase, lif, configure, remote, change, encryption, status, online, help 
+summary: 'Des clusters peering sont nécessaires pour la réplication des données via la technologie SnapMirror et SnapVault, et pour la réplication des données à l"aide de volumes FlexCache et de la technologie SyncMirror dans les configurations MetroCluster. Vous pouvez utiliser System Manager pour peer-to-peer deux clusters de manière à ce que les clusters associés puissent coordonner et partager les ressources entre eux.' 
+---
+= Mettez en cluster vos pairs avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour pairs deux clusters, de sorte que les clusters avec peering peuvent coordonner et partager les ressources entre eux. Des clusters peering sont nécessaires pour la réplication des données via la technologie SnapMirror et SnapVault, et pour la réplication des données à l'aide de volumes FlexCache et de la technologie SyncMirror dans les configurations MetroCluster.
+
+
+
+== Générez une phrase de passe de peering
+
+Depuis System Manager 9.6, vous pouvez générer une phrase secrète pour le cluster local IPspace et utiliser la même phrase de passe dans le cluster distant lors de la création de relations de peering.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster pairs*.
+. Cliquez sur *générer la phrase de passe de peering*.
++
+La boîte de dialogue générer la phrase de passe de peering s'affiche.
+
+. Renseignez les champs suivants :
++
+** *IPspace* : sélectionnez l'IPspace dans le menu déroulant.
+** *Validité de la phrase de passe* : sélectionnez dans le menu déroulant la durée pour laquelle vous souhaitez que la phrase de passe soit valide.
+** *Autorisations SVM* : sélectionnez l'une des options suivantes :
++
+*** *Tous les SVM* pour indiquer que tous les SVM sont autorisés à accéder au cluster.
+*** *Les SVM sélectionnés* pour indiquer des SVM spécifiques autorisés à accéder au cluster. Mettre en évidence les noms des SVM dans le champ que vous souhaitez spécifier.
+
+
+
+
+. *Facultatif:* cochez la case si la version efficace du cluster distant est antérieure à ONTAP 9.6. Dans le cas contraire, le peering de cluster ne parvient pas à générer.
+. Cliquez sur *generate* pour générer la phrase de passe.
++
+Pour une génération réussie, un message indiquant votre phrase de passe s'affiche.
+
+. Si vous souhaitez envoyer par e-mail ou copier la phrase de passe, effectuez l'une des opérations suivantes :
++
+** Cliquez sur *Email Passphrase depasse details*.
+** Cliquez sur *Copier phrase de passe*.
+
+
+
+
+
+
+== Modifiez la phrase de passe du cluster peer-to-peer
+
+Vous pouvez modifier la phrase secrète fournie lors de la création de pairs de cluster.
+
+.Étapes
+. [[step1]]cliquez sur *Configuration* > *homologues du cluster*.
+. Sélectionnez le cluster de peering, puis cliquez sur *Modifier*
++
+Le menu déroulant s'affiche.
+
+. Cliquez sur *Mot de passe du cluster local*.
++
+La boîte de dialogue Modifier la phrase de passe du cluster local s'affiche.
+
+. [[step4]]dans le champ *entrer la phrase de passe*, entrez une nouvelle phrase de passe, puis cliquez sur *appliquer*.
++
+[NOTE]
+====
+La longueur minimale requise de la phrase de passe est de huit caractères.
+
+====
++
+La phrase de passe est modifiée immédiatement. Cependant, il peut y avoir un délai avant l'affichage de l'état d'authentification correct.
+
+. Connectez-vous au cluster distant et effectuez les étapes link:#step1["1"] à link:#step4["4"] pour modifier la phrase de passe dans le cluster distant.
++
+Le statut d'authentification pour le cluster local est affiché comme `ok_and_offer` jusqu'à ce que vous modifiiez la phrase de passe dans le cluster distant.
+
+
+
+
+
+== Modifier les LIFs configurées pour le cluster distant
+
+Vous pouvez utiliser System Manager pour modifier les interfaces logiques IPspace et intercluster qui sont configurées pour le cluster distant. Vous pouvez ajouter de nouvelles adresses IP intercluster ou supprimer des adresses IP existantes.
+
+.Avant de commencer
+Vous devez disposer d'au moins une adresse IP intercluster pour créer la relation cluster peer.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *mises à jour de configuration*.
+. Sélectionnez le cluster de peering, puis cliquez sur *Modifier*
++
+Le menu déroulant s'affiche.
+
+. Cliquez sur *Paramètres réseau du cluster homologue*.
++
+La boîte de dialogue Modifier les paramètres du réseau homologue s'affiche.
+
+. Si nécessaire, modifiez les champs suivants :
++
+** *IPspace* : sélectionnez l'IPspace dans le menu déroulant.
+** *LIFs intercluster* : ajoutez ou supprimez des adresses IP intercluster. Vous pouvez ajouter plusieurs adresses IP en les séparant par des virgules.
+
+
+. Cliquez sur *Modifier*.
+. Vérifiez les modifications que vous avez effectuées dans la fenêtre *Cluster pairs*.
+
+
+
+
+== Modifier l'état de cryptage de peering
+
+Vous pouvez utiliser System Manager pour modifier l'état de cryptage de peering pour le cluster sélectionné.
+
+.Description de la tâche
+L'état du chiffrement peut être activé ou désactivé. Vous pouvez modifier l'état de activé à Désactivé ou de Désactivé à activé en sélectionnant *Modifier le cryptage*.
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster pairs*.
+. Sélectionnez le cluster de peering, puis cliquez sur *Modifier*
++
+Le menu déroulant s'affiche.
+
+. Cliquez sur *Modifier le cryptage*.
++
+Cette action n'est pas disponible si le statut de cryptage est « N/A ».
+
++
+La boîte de dialogue Modifier le cryptage s'affiche. Le bouton bascule indique l'état actuel du cryptage.
+
+. Faites glisser le bouton bascule pour modifier l'état du cryptage de peering et continuer.
++
+** Si le statut de cryptage actuel est « aucun », vous pouvez activer le cryptage en glissant le bouton bascule pour changer le statut en « tls_psk ».
+** Si le statut de cryptage actuel est « tls_psk », vous pouvez désactiver le cryptage en glissant le bouton bascule pour passer à « aucun ».
+
+
+. Après avoir activé ou désactivé le cryptage de peering, vous pouvez soit générer une nouvelle phrase de passe et la fournir dans le cluster de peering, soit appliquer une phrase de passe existante déjà générée au niveau du cluster de peering.
++
+[NOTE]
+====
+Si la phrase de passe utilisée sur le site local ne correspond pas à la phrase de passe utilisée sur le site distant, la relation de peering de cluster ne fonctionne pas correctement.
+
+====
++
+Sélectionnez l'une des options suivantes :
+
++
+** *Générer une phrase de passe* : passez à l' link:#step6["étape 6"].
+** *Avez déjà une phrase de passe* : passez à l' link:#step9["étape 9"].
+
+
+. [[step6]]si vous avez choisi *générer une phrase de passe*, renseignez les champs nécessaires :
++
+** *IPspace* : sélectionnez l'IPspace dans le menu déroulant.
+** *Validité de la phrase de passe* : sélectionnez dans le menu déroulant la durée pour laquelle vous souhaitez que la phrase de passe soit valide.
+** *Autorisations SVM* : sélectionnez l'une des options suivantes :
++
+*** *Tous les SVM* pour indiquer que tous les SVM sont autorisés à accéder au cluster.
+*** *Les SVM sélectionnés* pour indiquer des SVM spécifiques autorisés à accéder au cluster. Mettre en évidence les noms des SVM dans le champ que vous souhaitez spécifier.
+
+
+
+
+. *Facultatif:* cochez la case si la version efficace du cluster distant est antérieure à ONTAP 9.6. Dans le cas contraire, la phrase de passe ne parvient pas à générer.
+. Cliquez sur *appliquer*.
++
+La phrase de passe est générée pour la relation et affichée. Vous pouvez copier la phrase de passe ou l'envoyer par e-mail.
+
++
+Le statut d'authentification pour le cluster local est affiché comme `ok_and_offer` pour la période de validité de la phrase de passe sélectionnée jusqu'à ce que vous ayez indiqué la phrase de passe au niveau du cluster distant.
+
+. [[step9]]si vous avez déjà généré une nouvelle phrase de passe dans le cluster distant, effectuez les sous-étapes suivantes :
++
+.. Cliquez sur *possède déjà une phrase de passe*.
+.. Dans le champ *Passphrase*, saisissez la même phrase de passe que celle générée dans le cluster distant.
+.. Cliquez sur *appliquer*.
+
+
+
+
+
+
+== Supprimez les relations cluster peer-to-peer
+
+Vous pouvez utiliser System Manager pour supprimer une relation entre clusters si cette relation n'est plus requise. Vous devez supprimer la relation de peering de cluster de chacun des clusters dans la relation entre pairs.
+
+.Étapes
+. [[step1]]cliquez sur *Configuration* > *homologues du cluster*.
+. Sélectionnez l'homologue de cluster pour lequel vous souhaitez supprimer la relation, puis cliquez sur *Supprimer*.
+. [[step3]]cochez la case de confirmation, puis cliquez sur *Supprimer*.
+. Connectez-vous au cluster distant et effectuez les étapes link:#step1["1"] à link:#step3["3"] pour supprimer la relation homologue entre le cluster local et le cluster distant.
++
+L'état de la relation homologue est affiché comme « malsaine » jusqu'à ce que la relation soit supprimée à la fois du cluster local et du cluster distant.
+
+
+
+
+
+== La fenêtre pairs de cluster
+
+Vous pouvez utiliser la fenêtre clusters pairs pour gérer les relations de cluster homologues, ce qui vous permet de déplacer des données d'un cluster à un autre.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un peering de cluster, qui permet de créer une relation avec un cluster distant.
+
+* *Modifier*
++
+Affiche un menu déroulant avec les choix suivants :
+
++
+** *Mot de passe du cluster local*
++
+Ouvre la boîte de dialogue Modifier la phrase de passe locale du cluster, qui vous permet de saisir une nouvelle phrase de passe pour valider le cluster local.
+
+** *Paramètres réseau du cluster homologue*
++
+Ouvre la boîte de dialogue Modifier les paramètres réseau du cluster homologue, ce qui permet de modifier l'IPspace et d'ajouter ou de supprimer des adresses IP LIF intercluster.
+
++
+Vous pouvez ajouter plusieurs adresses IP, séparées par des virgules.
+
+** *Modifier le cryptage*
++
+Ouvre la boîte de dialogue Modifier le cryptage pour le cluster homologue sélectionné. Lorsque vous modifiez le cryptage de la relation avec peering, vous pouvez générer une nouvelle phrase de passe ou fournir une phrase de passe déjà générée sur le cluster avec peering distant.
+
++
+Cette action n'est pas disponible si le statut de cryptage est « N/A ».
+
+
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer la relation entre clusters, qui permet de supprimer la relation de cluster homologue sélectionnée.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+* *Gérer les autorisations des SVM*
++
+Permet aux SVM d'accepter automatiquement les demandes de peering de SVM.
+
+* *Générer la phrase de passe de peering*
++
+Permet de générer une phrase secrète pour le cluster local IPspace en spécifiant l'IPspace, la durée de validité de la phrase secrète et la permission associée aux SVM donnés.
+
++
+Vous utilisez la même phrase de passe dans le cluster distant pour le peering.
+
+
+
+
+
+=== Liste des clusters de pairs
+
+* *Cluster homologue*
++
+Spécifie le nom du cluster homologue dans la relation.
+
+* *Disponibilité*
++
+Indique si le cluster homologue est disponible pour la communication.
+
+* *Etat d'authentification*
++
+Indique si le cluster homologue est authentifié ou non.
+
+* *IPspace de cluster local*
++
+Affiche l'IPspace associé à la relation de pairs de cluster local.
+
+* *Adresses IP intercluster de clusters homologues*
++
+Affiche les adresses IP associées à la relation entre les pairs intercluster.
+
+* *Dernière mise à jour*
++
+Affiche l'heure à laquelle le cluster homologue a été modifié pour la dernière fois.
+
+* *Cryptage*
++
+Affiche l'état du cryptage de la relation de peering.
+
++
+[NOTE]
+====
+Depuis System Manager 9.6, le peering est chiffré par défaut lorsque vous établissez une relation de peering entre deux clusters
+
+====
++
+** *N/A* : le chiffrement n'est pas applicable à la relation.
+** *Aucun*: La relation de peering n'est pas cryptée.
+** *tls_psk* : la relation de peering est cryptée.
+
+
+

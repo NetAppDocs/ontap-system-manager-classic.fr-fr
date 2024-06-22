@@ -1,0 +1,48 @@
+---
+permalink: expansion/index.html 
+sidebar: sidebar 
+keywords: nondisruptive, expand, exist, cluster, ha, pair, expansion, overview 
+summary: Vous pouvez étendre un cluster existant rapidement et sans interruption en ajoutant une paire haute disponibilité. Un cluster plus important améliore les performances et la capacité de stockage disponibles dans le cluster. 
+---
+= Présentation de l'extension de cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez étendre un cluster existant rapidement et sans interruption en ajoutant une paire haute disponibilité. Un cluster plus important améliore les performances et la capacité de stockage disponibles dans le cluster.
+
+Vous ne devez utiliser cette procédure que si le texte suivant est vrai :
+
+* Le cluster existant répond aux exigences suivantes :
++
+** Exécute ONTAP 9.
+** Il contient au moins deux nœuds.
++
+Si des exemples de cette procédure utilisent un cluster à deux nœuds, ils s'appliquent également aux clusters qui comportent plus de deux nœuds.
+
++
+Pour ajouter un nœud à un cluster à un seul nœud, vous devez suivre une autre procédure.
+
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-controller-add/home.html["Ajout d'un second contrôleur pour créer une paire haute disponibilité"]
+
+** Il n'utilise pas d'adressage IPv6 ou de cryptage du stockage.
+** Il ne s'agit pas d'une configuration MetroCluster.
+
+
+* Les modules de contrôleur que vous prévoyez d'ajouter satisfont aux exigences suivantes :
++
+** Si ce n'est pas le cas, ils ont été nettoyés et nettoyage pour être effacés, ne font plus partie d'un cluster et sont prêts à être ajoutés au nouveau cluster.
+** Ils prennent en charge ONTAP 9.
+** Ils exécutent une version de la gamme ONTAP 9.
+
+
+* Lorsque vous effectuez des tâches de configuration ONTAP avec System Manager, vous voulez utiliser l'interface utilisateur _Classic_ System Manager pour ONTAP 9.7 et les versions antérieures, et non l'interface utilisateur ONTAP System Manager pour ONTAP 9.7 et versions ultérieures.
++
+https://docs.netapp.com/us-en/ontap/["Documentation de ONTAP System Manager"]
+
+* Vous voulez appliquer les bonnes pratiques, pas explorer toutes les options disponibles.
+* Vous ne voulez pas lire beaucoup de contexte conceptuel.
+

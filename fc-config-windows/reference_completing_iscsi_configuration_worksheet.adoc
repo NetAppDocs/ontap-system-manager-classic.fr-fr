@@ -1,0 +1,205 @@
+---
+permalink: fc-config-windows/reference_completing_iscsi_configuration_worksheet.html 
+sidebar: sidebar 
+keywords: require, fc, initiator, target, wwpn, storage, configuration, information, perform, fc, task, complete the fc configuration worksheet 
+summary: Vous devez disposer des WWPN des initiateurs FC et des cibles ainsi que des informations de configuration du stockage pour effectuer les tâches de configuration FC. 
+---
+= Renseignez la fiche technique de configuration FC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez disposer des WWPN des initiateurs FC et des cibles ainsi que des informations de configuration du stockage pour effectuer les tâches de configuration FC.
+
+
+
+== WWPN des hôtes FC
+
+|===
+| Port | WWPN 
+
+
+ a| 
+Port d'initiateur (hôte) connecté au commutateur FC 1
+ a| 
+
+
+
+ a| 
+Port d'initiateur (hôte) connecté au commutateur FC 2
+ a| 
+
+|===
+
+
+== WWPN des cibles FC
+
+Vous avez besoin de deux LIF de données FC pour chaque nœud du cluster. Les WWPN sont attribués par ONTAP lorsque vous créez les LIF dans le cadre de la création du SVM (Storage Virtual machine).
+
+image::../media/network_fc_or_iscsi_express_fc_windows.gif[La figure montre quatre nœuds,two switches,and a host. Each node has two LIFs]
+
+|===
+| LIF | WWPN 
+
+
+ a| 
+LIF du nœud 1 avec port connecté au commutateur FC 1
+ a| 
+
+
+
+ a| 
+LIF du nœud 2 avec port connecté au commutateur FC 1
+ a| 
+
+
+
+ a| 
+LIF du nœud 3 avec port connecté au commutateur FC 1
+ a| 
+
+
+
+ a| 
+LIF du nœud 4 avec port connecté au commutateur FC 1
+ a| 
+
+
+
+ a| 
+LIF de nœud 1 avec port connecté au commutateur FC 2
+ a| 
+
+
+
+ a| 
+LIF du nœud 2 avec port connecté au commutateur FC 2
+ a| 
+
+
+
+ a| 
+LIF du nœud 3 avec port connecté au commutateur FC 2
+ a| 
+
+
+
+ a| 
+LIF du nœud 4 avec port connecté au commutateur FC 2
+ a| 
+
+|===
+
+
+== Configuration de stockage sous-jacente
+
+Si l'agrégat et le SVM sont déjà créés, enregistrer leurs noms ici ; sinon, vous pouvez les créer comme requis :
+
+|===
+| Nœud vers son propre LUN 
+
+
+ a| 
+Nom de l'agrégat
+
+
+
+ a| 
+Nom du SVM
+
+|===
+
+
+== Informations sur les LUN
+
+|===
+| Taille de la LUN 
+
+
+ a| 
+Système d'exploitation hôte
+
+
+
+ a| 
+Nom de LUN (facultatif)
+
+
+
+ a| 
+Description des LUN (facultatif)
+
+|===
+
+
+== Informations sur les SVM
+
+Si vous n'utilisez pas un SVM existant, vous devez demander les informations suivantes :
+
+[cols="1a,1a"]
+|===
+2+| Nom du SVM 
+
+
+ a| 
+SVM IPspace
+
+
+
+ a| 
+Agrégat pour volume root SVM
+
+
+
+ a| 
+Nom d'utilisateur SVM (facultatif)
+
+
+
+ a| 
+Mot de passe SVM (facultatif)
+
+
+
+ a| 
+LIF de gestion SVM (en option)
+
+
+
+ a| 
+ a| 
+Sous-réseau :
+
+
+
+ a| 
+ a| 
+Adresse IP :
+
+
+
+ a| 
+ a| 
+Masque de réseau :
+
+
+
+ a| 
+ a| 
+Passerelle :
+
+
+
+ a| 
+ a| 
+Nœud de départ :
+
+
+
+ a| 
+ a| 
+Port de départ :
+
+|===

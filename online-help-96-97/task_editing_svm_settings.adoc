@@ -1,0 +1,87 @@
+---
+permalink: online-help-96-97/task_editing_svm_settings.html 
+sidebar: sidebar 
+keywords: online, help, system, manager, edit, svm, settings 
+summary: 'System Manager peut être utilisé pour modifier les propriétés des serveurs virtuels de stockage (SVM), par exemple le commutateur de service de nom, le commutateur de mappage de noms et la liste des agrégats.' 
+---
+= Modifiez les paramètres des SVM à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier les propriétés des serveurs virtuels de stockage (SVM), comme le commutateur de service de nom, le commutateur de mappage de noms et la liste des agrégats.
+
+.Description de la tâche
+* Vous pouvez modifier les valeurs des propriétés de SVM suivantes :
++
+** Nommer le commutateur de service
+** Les protocoles activés pour transmettre des données
++
+[NOTE]
+====
+Le protocole CIFS configuré sur la SVM continue de transmettre des données même lorsque vous désactivez le protocole sur cette SVM.
+
+====
+** La liste des agrégats disponibles pour la création de volumes
++
+[NOTE]
+====
+Pour les volumes FlexVol, vous ne pouvez attribuer des agrégats que si vous avez délégué des tâches d'administration à un administrateur de SVM.
+
+====
+
+
+* System Manager n'affiche pas les valeurs du switch de service nom et du switch de mapping du nom d'un SVM créé via l'interface de ligne de commande ou pour les services SVM qui ne sont pas configurés et qui ne sont pas définis par ONTAP.
++
+Vous pouvez utiliser l'interface de ligne de commande pour afficher les services car l'onglet Services est désactivé.
+
++
+System Manager affiche le commutateur de service de nom et le commutateur de mappage de nom d'un SVM uniquement lorsqu'il est créé via System Manager ou lorsque les services du SVM sont définis sur les valeurs par défaut par ONTAP.
+
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner le SVM, puis cliquer sur *Edit*.
+. Dans l'onglet *Détails*, modifiez les protocoles de données requis.
+. Dans l'onglet *Resource allocation*, choisissez l'une des méthodes suivantes pour déléguer la création de volume :
++
+|===
+| Pour provisionner la création de volumes... | Alors... 
+
+
+ a| 
+Pour tous les agrégats
+ a| 
+Sélectionnez l'option *ne pas déléguer la création de volume*.
+
+
+
+ a| 
+Pour des agrégats spécifiques
+ a| 
+.. Sélectionnez l'option *création du volume délégué*.
+.. Sélectionnez les agrégats requis pour déléguer la création du volume.
+
+
+|===
+. Dans l'onglet *Service*, spécifiez les sources de commutateur de service de nom pour les types de base de données requis et l'ordre dans lequel ils doivent être consultés pour récupérer les informations de service de nom.
++
+Les valeurs par défaut pour chaque type de base de données sont les suivantes :
+
++
+** hôtes : fichiers, dns
+** carte de noms : fichiers
+** groupe : fichiers
+** netgroup: fichiers
+** passwd : fichiers
+
+
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:concept_how_data_ontap_name_service_switch_configuration_works.adoc[Fonctionnement de la configuration du commutateur de service name ONTAP]

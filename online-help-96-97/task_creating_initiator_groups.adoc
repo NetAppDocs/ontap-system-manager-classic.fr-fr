@@ -1,0 +1,79 @@
+---
+permalink: online-help-96-97/task_creating_initiator_groups.html 
+sidebar: sidebar 
+keywords: create, initiator, group, system, manager, lun, online, help, manage, delete, edit, add 
+summary: 'Vous pouvez utiliser System Manager pour créer un groupe initiateur. Les groupes initiateurs permettent de contrôler l"accès des hôtes à des LUN spécifiques. Vous pouvez utiliser des ensembles de ports pour limiter les LIF auxquelles un initiateur peut accéder.' 
+---
+= Gérez les groupes initiateurs avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer un groupe initiateur. Les groupes initiateurs permettent de contrôler l'accès des hôtes à des LUN spécifiques. Vous pouvez utiliser des ensembles de ports pour limiter les LIF auxquelles un initiateur peut accéder.
+
+
+
+== Créer des groupes initiateurs
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *groupes initiateurs*, cliquez sur *Créer*.
+. Dans l'onglet *général* de la boîte de dialogue *Créer un groupe d'initiateurs*, indiquez le nom du groupe d'initiateurs, le système d'exploitation, le nom d'alias de l'hôte, l'ensemble de ports et le protocole pris en charge pour le groupe.
+. Cliquez sur *Créer*.
+
+
+
+
+== Supprimer les groupes initiateurs
+
+Vous pouvez utiliser l'onglet groupes initiateurs de System Manager pour supprimer les groupes initiateurs.
+
+.Avant de commencer
+Le mappage manuel de toutes les LUN mappées sur le groupe initiateur doit être annulé.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *groupes initiateurs*, sélectionnez un ou plusieurs groupes d'initiateurs à supprimer, puis cliquez sur *Supprimer*.
+. Cliquez sur *Supprimer*.
+. Vérifiez que les groupes initiateurs supprimés ne s'affichent plus sous l'onglet *groupes initiateurs*.
+
+
+
+
+== Ajouter des initiateurs
+
+Vous pouvez utiliser System Manager pour ajouter des initiateurs à un groupe initiateur. Un initiateur fournit l'accès à une LUN lorsque le groupe initiateur auquel il appartient est mappé sur cette LUN.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *LUN Management*, sélectionnez le groupe initiateur auquel vous souhaitez ajouter des initiateurs, puis cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modifier le groupe d'initiateurs*, cliquez sur *initiateurs*.
+. Cliquez sur *Ajouter*.
+. Spécifiez le nom de l'initiateur et cliquez sur *OK*.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Supprimez des initiateurs d'un groupe initiateur
+
+Vous pouvez utiliser l'onglet groupes initiateurs de System Manager pour supprimer un initiateur. Pour supprimer un initiateur d'un groupe initiateur, vous devez le dissocier du groupe initiateur.
+
+.Avant de commencer
+Toutes les LUN mappées sur le groupe initiateur qui contient l'initiateur que vous souhaitez supprimer doivent être manuellement mappées.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *groupes initiateurs*, sélectionnez le groupe initiateur dont vous souhaitez supprimer l'initiateur, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le groupe d'initiateurs*, cliquez sur l'onglet *initiateurs*.
+. Sélectionnez et supprimez l'initiateur dans la zone de texte, puis cliquez sur *Enregistrer*.
++
+L'initiateur n'est pas associé au groupe initiateur.
+
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

@@ -1,0 +1,52 @@
+---
+permalink: online-help-96-97/task_editing_aggregates.html 
+sidebar: sidebar 
+keywords: online, help, edit, aggregates, raid, type, group, size, online, help 
+summary: 'System Manager permet de modifier le nom de l"agrégat, le type RAID et la taille du groupe RAID d"un agrégat existant si nécessaire.' 
+---
+= Modifiez les agrégats à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier le nom de l'agrégat, le type RAID et la taille du groupe RAID d'un agrégat existant, si nécessaire.
+
+.Avant de commencer
+Pour modifier le type RAID d'un agrégat du RAID4 au RAID-DP, l'agrégat doit contenir suffisamment de disques de rechange compatibles, à l'exclusion des disques de secours.
+
+.Description de la tâche
+* Vous ne pouvez pas modifier le groupe RAID de systèmes ONTAP prenant en charge les LUN de baies.
++
+RAID0 est la seule option disponible.
+
+* Vous ne pouvez pas modifier le type RAID de disques partitionnés.
++
+RAID-DP est la seule option disponible pour les disques partitionnés.
+
+* Vous ne pouvez pas renommer un agrégat SnapLock Compliance.
+* Si l'agrégat se compose de disques SSD avec le pool de stockage, vous pouvez modifier uniquement le nom de l'agrégat.
+* Si la taille du disque à triple parité est de 10 To et que les autres disques sont inférieurs à 10 To, vous pouvez sélectionner RAID-DP ou RAID-TEC comme type RAID.
+* Si la taille du disque à triple parité est de 10 To et si même un autre disque est supérieur à 10 To, RAID-TEC est la seule option disponible pour le type RAID.
+
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Sélectionnez l'agrégat à modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier l'agrégat*, modifiez le nom de l'agrégat, le type de RAID et la taille du groupe RAID, selon les besoins.
+. Cliquez sur *Enregistrer*.
+
+
+*Informations connexes*
+
+xref:reference_aggregates_window.adoc[La fenêtre Aggregates]
+
+xref:concept_what_compatible_spare_disks_are.adoc[En sont les disques de spare compatibles]
+
+xref:reference_storage_tiers_window.adoc[La fenêtre Storage tiers]

@@ -1,0 +1,198 @@
+---
+permalink: online-help-96-97/concept_network_interfaces.html 
+sidebar: sidebar 
+keywords: system, manager, network, interface, create, manage, online, help, create, lif, intercluster, svm, migrate, data 
+summary: System Manager permet de créer et de gérer des interfaces réseau. 
+---
+= Gérez les interfaces réseau avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des interfaces réseau.
+
+
+
+== Créer des interfaces réseau
+
+System Manager peut être utilisé pour créer une interface réseau ou une LIF pour accéder aux données depuis des SVM (Storage Virtual machines), gérer les SVM et fournir une interface pour la connectivité intercluster.
+
+.Avant de commencer
+Le domaine de diffusion associé au sous-réseau doit disposer de ports alloués.
+
+.Description de la tâche
+* Le DNS dynamique (DDNS) est activé par défaut lors de la création d'une LIF.
++
+Toutefois, DDNS est désactivé si vous configurez le LIF pour les communications intercluster à l'aide des protocoles iSCSI, NVMe ou FC/FCoE, ou pour l'accès à la gestion uniquement.
+
+* Vous pouvez spécifier une adresse IP en utilisant un sous-réseau ou en n'utilisant pas de sous-réseau.
+* Vous ne pouvez pas utiliser System Manager pour créer une interface réseau si les ports sont dégradés.
++
+Vous devez utiliser l'interface de ligne de commandes pour créer une interface réseau dans de tels cas.
+
+* Pour créer les LIF de données NVMeoF le SVM doit déjà être configuré, le service NVMe doit déjà exister sur le SVM et les adaptateurs compatibles NVMeoF doivent être disponibles.
+* Le protocole NVMe n'est activé que si le SVM sélectionné a configuré le service NVMe.
+
+
+.Étapes
+. Cliquez sur *réseau* > *interfaces réseau*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Create Network interface*, spécifiez un nom d'interface.
+. Spécifiez un rôle d'interface :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Associer l'interface réseau à une LIF de données
+ a| 
+.. Sélectionnez *sert données*.
+.. Sélectionner le SVM pour l'interface réseau.
+
+
+
+
+ a| 
+Associer l'interface réseau à un LIF intercluster
+ a| 
+.. Sélectionnez *intercluster Connectivity*.
+.. Sélectionnez l'IPspace pour l'interface réseau.
+
+
+|===
+. Sélectionnez les protocoles appropriés.
++
+L'interface utilise les protocoles sélectionnés pour accéder aux données du SVM.
+
++
+[NOTE]
+====
+Si vous sélectionnez le protocole NVMe, les autres protocoles sont désactivés. Si les protocoles NAS (CIFS et NFS) sont pris en charge, ils restent disponibles. Le champ transport NVMe s'affiche lorsque vous sélectionnez le protocole NVMe. FC-NVMe est indiqué comme protocole de transport.
+
+====
+. Si vous souhaitez activer l'accès de gestion sur la LIF de données, cochez la case *Activer l'accès de gestion*.
++
+Vous ne pouvez pas activer l'accès de gestion pour les LIF intercluster ou les LIF avec les protocoles FC/FCoE ou NVMe.
+
+. Attribuez l'adresse IP :
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Spécifiez l'adresse IP à l'aide d'un sous-réseau
+ a| 
+.. Sélectionnez *à l'aide d'un sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, sélectionnez le sous-réseau à partir duquel l'adresse IP doit être attribuée.
++
+Pour les LIF intercluster, seuls les sous-réseaux associés à l'IPspace sélectionné sont affichés.
+
+.. Si vous souhaitez attribuer une adresse IP spécifique à l'interface, sélectionnez *utiliser une adresse IP spécifique*, puis saisissez l'adresse IP.
++
+L'adresse IP que vous spécifiez est ajoutée au sous-réseau si celle-ci n'est pas déjà présente dans la plage de sous-réseau.
+
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Spécifiez l'adresse IP manuellement sans utiliser de sous-réseau
+ a| 
+.. Sélectionnez *sans sous-réseau*.
+.. Dans la boîte de dialogue Ajouter des détails, effectuez les opérations suivantes :
++
+... Spécifiez l'adresse IP et le masque ou le préfixe réseau.
+... Facultatif : spécifiez la passerelle.
+... Si vous ne souhaitez pas utiliser la valeur par défaut du champ destination, spécifiez une nouvelle valeur de destination.
++
+Si vous ne spécifiez pas de valeur de destination, le champ destination est renseigné avec la valeur par défaut basée sur la famille de l'adresse IP.
+
+
+
++
+Si aucune route n'existe, une nouvelle route est automatiquement créée en fonction de la passerelle et de la destination.
+
+.. Cliquez sur *OK*.
+
+
+|===
+. Sélectionnez les ports requis dans la zone *Port* details.
++
+** Pour les LIFs data, la zone Port Details affiche tous les ports du broadcast domain associé au IPspace du SVM.
+** Pour les LIFs intercluster, la zone Port Details affiche tous les ports du broadcast domain associé au required IPspace.
+** La zone Détails du port n'affichera que les adaptateurs compatibles NVMe si le protocole NVMe est sélectionné.
+
+
+. *Facultatif:* cochez la case *DNS dynamique (DDNS)* pour activer DDNS.
+. Cliquez sur *Créer*.
+
+
+
+
+== Modifier les paramètres de l'interface réseau
+
+Vous pouvez utiliser System Manager pour modifier l'interface réseau afin d'activer l'accès de gestion pour une LIF de données.
+
+.Description de la tâche
+* Vous ne pouvez pas modifier les paramètres réseau des LIFs de cluster, des LIFs de management du cluster ou des LIFs de node-management via System Manager.
+* Vous ne pouvez pas activer l'accès de gestion pour un LIF intercluster.
+
+
+.Étapes
+. Cliquez sur *réseau* > *interfaces réseau*.
+. Sélectionnez l'interface que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier l'interface réseau*, modifiez les paramètres de l'interface réseau comme requis.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Supprime les interfaces réseau
+
+System Manager peut être utilisé pour supprimer une interface réseau afin de libérer l'adresse IP de l'interface, puis pour utiliser l'adresse IP dans un autre but.
+
+.Avant de commencer
+Le statut de l'interface réseau doit être désactivé.
+
+.Étapes
+. Cliquez sur *réseau* > *interfaces réseau*.
+. Sélectionnez l'interface que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Migrer un LIF
+
+Vous pouvez utiliser System Manager pour migrer une LIF de données ou une LIF de gestion du cluster vers un autre port sur le même nœud ou sur un autre nœud du cluster si le port source est défectueux ou nécessite une maintenance.
+
+.Avant de commencer
+Le nœud et les ports de destination doivent être opérationnels et doivent pouvoir accéder au même réseau que le port source.
+
+.Description de la tâche
+* Si vous supprimez la carte réseau du nœud, vous devez migrer les LIFs hébergées sur les ports appartenant à la carte réseau vers d'autres ports du cluster.
+* Vous ne pouvez pas migrer les LIFs iSCSI ni FC.
+
+
+.Étapes
+. Cliquez sur *réseau* > *interfaces réseau*.
+. Sélectionnez l'interface à migrer, puis cliquez sur *migrer*.
+. Dans la boîte de dialogue *Migrate interface*, sélectionnez le port de destination sur lequel vous souhaitez migrer la LIF.
+. *Facultatif:* cochez la case *migrer définitivement* si vous souhaitez définir le port de destination comme nouveau port d'accueil pour le LIF.
+. Cliquez sur *migrer*.
+
+
+*Informations connexes*
+
+xref:reference_network_window.adoc[Fenêtre réseau]
+
+xref:task_configuring_iscsi_protocol_on_svms.adoc[Configuration du protocole iSCSI sur les SVM]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["Concepts relatifs à ONTAP"]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]

@@ -1,0 +1,32 @@
+---
+permalink: nfs-config-esxi/task_configuring_your_network_for_best_performance.html 
+sidebar: sidebar 
+keywords: ethernet, network, performance, configuration, value, configure, configure your network for best performance 
+summary: Les performances des réseaux Ethernet varient considérablement. Vous pouvez optimiser les performances du réseau en sélectionnant des valeurs de configuration spécifiques. 
+---
+= Configurez votre réseau pour des performances optimales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les performances des réseaux Ethernet varient considérablement. Vous pouvez optimiser les performances du réseau en sélectionnant des valeurs de configuration spécifiques.
+
+.Étapes
+. Connectez l'hôte et les ports de stockage au même réseau.
++
+Il est préférable de se connecter aux mêmes commutateurs.
+
+. Sélectionnez les ports à vitesse maximale disponibles.
++
+Les ports 10 GbE ou plus rapides sont idéales. Le nombre minimal de ports 1 GbE est égal à 1.
+
+. Activez les trames Jumbo si vous le souhaitez et pris en charge par votre réseau.
++
+Les trames Jumbo doivent avoir un MTU de 9 9000 pour les hôtes ESXi et les systèmes de stockage, et de 9 9216 pour la plupart des switchs. Tous les périphériques réseau du chemin de données, y compris les cartes réseau ESXi, les cartes réseau de stockage et les commutateurs, doivent prendre en charge les trames Jumbo et doivent être configurés pour leurs valeurs MTU maximales.
+
++
+Pour plus d'informations, voir link:https://docs.netapp.com/us-en/ontap/performance-admin/check-network-settings-data-switches-task.html["Vérifiez les paramètres réseau sur les commutateurs de données"^] et la documentation du fournisseur du commutateur.
+
+

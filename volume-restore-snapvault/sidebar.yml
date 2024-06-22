@@ -1,0 +1,15 @@
+---
+section: volume-restore-snapvault
+title: Gestion des restaurations de volumes avec SnapVault
+entries:
+- title: Présentation
+  url: "/volume-restore-snapvault/index.html"
+- title: Flux de production de restauration de volume
+  url: "/volume-restore-snapvault/concept_volume_restore_workflow.html"
+  entries:
+  - title: Identifier le volume de destination de sauvegarde SnapVault
+    url: "/volume-restore-snapvault/task_identifying_snapvault_backup_destination_volume.html"
+  - title: Restaurez les données à partir d'une sauvegarde SnapVault
+    url: "/volume-restore-snapvault/task_restoring_data_from_snapvault_backup.html"
+  - title: Vérifiez l'opération de restauration
+    url: "/volume-restore-snapvault/task_verifying_restore_operation.html"

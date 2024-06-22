@@ -1,0 +1,155 @@
+---
+permalink: online-help-96-97/concept_snmp.html 
+sidebar: sidebar 
+keywords: system, manager, configure, snmp, svm, cluster, online, help, test, trap, host, configuration, window, command, protocol, 
+summary: Vous pouvez utiliser System Manager pour configurer le protocole SNMP pour surveiller les SVM au sein de votre cluster. 
+---
+= Configurez SNMP avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer SNMP pour surveiller les SVM dans le cluster.
+
+
+
+== Activez ou désactivez le protocole SNMP
+
+Vous pouvez activer ou désactiver SNMP sur les clusters à l'aide de System Manager. SNMP vous permet de surveiller les serveurs virtuels de stockage (SVM) dans un cluster pour éviter les problèmes avant qu'ils ne se produisent et pour éviter tout problème.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Setup*, cliquez sur *SNMP*.
+. Dans la fenêtre *SNMP*, cliquez sur *Activer* ou sur *Désactiver*.
+
+
+
+
+== Modifier les informations SNMP
+
+Vous pouvez utiliser la boîte de dialogue Modifier les paramètres SNMP dans System Manager pour mettre à jour les informations relatives à l'emplacement du système de stockage et au personnel de contact, et pour spécifier les communautés SNMP de votre système.
+
+.Description de la tâche
+System Manager utilise les protocoles SNMP SNMPv1 et SNMPv2c, et une communauté SNMP pour détecter les systèmes de stockage.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Setup*, cliquez sur *SNMP*.
+. Cliquez sur *Modifier*.
+. Dans l'onglet *général*, spécifiez les informations relatives au personnel de contact et à l'emplacement du système de stockage, ainsi que les communautés SNMP.
++
+Le nom de communauté peut comporter 32 caractères et ne doit pas contenir les caractères spéciaux suivants : , / : « » |.
+
+. Dans l'onglet **SNMPv3**, procédez comme suit :
++
+.. Cliquez sur *Ajouter* pour ajouter un utilisateur SNMPv3.
+.. Spécifiez le nom d'utilisateur et modifiez l'ID du moteur, si nécessaire.
+.. Sélectionnez *Authentication Protocol* et entrez vos informations d'identification.
+.. Sélectionnez *Protocole de confidentialité* et entrez vos informations d'identification.
+.. Cliquez sur *OK* pour enregistrer les modifications.
+
+
+. Cliquez sur *OK*.
+. Vérifiez les modifications apportées aux paramètres SNMP dans la fenêtre *SNMP*.
+
+
+
+
+== Activer ou désactiver les traps SNMP
+
+Les traps SNMP vous permettent de surveiller l'intégrité et l'état des divers composants de votre système de stockage. Vous pouvez utiliser la boîte de dialogue Modifier les paramètres SNMP dans System Manager pour activer ou désactiver les interruptions SNMP sur votre système de stockage.
+
+.Description de la tâche
+Bien que SNMP soit activé par défaut, les interruptions SNMP sont désactivées par défaut.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Setup*, cliquez sur *SNMP*.
+. Dans la fenêtre *SNMP*, cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier les paramètres SNMP*, sélectionnez l'onglet *Trap hosts*, puis cochez ou décochez la case *Activer les interruptions* pour activer ou désactiver les interruptions SNMP respectivement.
+. Si vous activez les interruptions SNMP, ajoutez le nom d'hôte ou l'adresse IP des hôtes auxquels les interruptions sont envoyées.
+. Cliquez sur *OK*.
+
+
+
+
+== Testez la configuration de l'hôte d'interruption
+
+Vous pouvez utiliser System Manager pour vérifier si vous avez correctement configuré les paramètres de l'hôte d'interruption.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Setup*, cliquez sur *SNMP*.
+. Dans la fenêtre *SNMP*, cliquez sur *Test Trap Host*.
+. Cliquez sur *OK*.
+
+
+
+
+== Fenêtre SNMP
+
+La fenêtre SNMP vous permet d'afficher les paramètres SNMP actuels de votre système. Vous pouvez également modifier les paramètres SNMP de votre système, activer les protocoles SNMP et ajouter des hôtes d'interruption.
+
+
+
+=== Boutons de commande
+
+* *Activer/Désactiver*
++
+Active ou désactive SNMP.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier les paramètres SNMP, qui vous permet de spécifier les communautés SNMP pour votre système de stockage et d'activer ou de désactiver les interruptions.
+
+* *Hôte d'interruption de test*
++
+Envoie un trap test à tous les hôtes configurés pour vérifier si le trap test atteint tous les hôtes et si les configurations pour SNMP sont correctement définies.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Détails
+
+La zone de détails affiche les informations suivantes concernant le serveur SNMP et les interruptions d'hôte pour votre système de stockage :
+
+* *SNMP*
++
+Indique si SNMP est activé ou non.
+
+* *Pièges*
++
+S'affiche si les interruptions SNMP sont activées ou non.
+
+* *Emplacement*
++
+Affiche l'adresse du serveur SNMP.
+
+* *Contact*
++
+Affiche les détails de contact du serveur SNMP.
+
+* *Adresse IP hôte Trap*
++
+Affiche les adresses IP de l'hôte d'interruption.
+
+* *Noms de communauté*
++
+Affiche le nom de communauté du serveur SNMP.
+
+* *Noms de sécurité*
++
+Affiche le style de sécurité du serveur SNMP.
+
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]

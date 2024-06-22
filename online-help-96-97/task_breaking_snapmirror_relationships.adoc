@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_breaking_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: snapmirror, break, relationship, dp, rw, online, help 
+summary: 'Vous devez interrompre une relation SnapMirror si une source SnapMirror n"est plus disponible et que vous souhaitez que les applications client puissent accéder aux données à partir de la destination du miroir.' 
+---
+= Interrompre les relations SnapMirror avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour interrompre une relation SnapMirror. Vous devez interrompre une relation SnapMirror si une source SnapMirror n'est plus disponible et que vous souhaitez que les applications client puissent accéder aux données à partir de la destination du miroir. Une fois la relation SnapMirror rompue, le type de volume de destination passe de « protection des données » (DP) à « lecture/écriture » (RW).
+
+.Avant de commencer
+* La destination SnapMirror doit être à l'état suspendu ou inactif.
+* Le volume de destination doit être monté sur l'espace de noms du serveur virtuel de stockage de destination.
+
+
+.Description de la tâche
+* Vous pouvez utiliser le volume de destination pour transmettre des données pendant que vous réparez ou remplacez la source, mettez à jour la source et rétablissez la configuration d'origine des systèmes.
+* Vous pouvez interrompre les relations SnapMirror entre les systèmes ONTAP et les systèmes de stockage SolidFire.
+* Si vous arrêtez une relation de volume FlexGroup, vous devez actualiser la page pour afficher l'état mis à jour de la relation.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de symétrie que vous souhaitez rompre.
+. Cliquez sur *Operations* > *Break*.
+. Cochez la case de confirmation, puis cliquez sur *Break*.
+
+
+.Résultats
+La relation SnapMirror de protection des données est défaillante. Le type de volume de destination passe de la protection des données (DP), en lecture seule, à la lecture/écriture (RW). Le système stocke la copie Snapshot de base pour la relation de miroir de protection des données en vue d'une utilisation ultérieure.
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

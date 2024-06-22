@@ -1,0 +1,30 @@
+---
+permalink: volume-move/task_updating_ndmp_backup_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, move, tape, ndmp, configuration, moving, baseline, migrate, backup, lif, contain, update ndmp backup after moving a volume 
+summary: 'Si le volume que vous avez déplacé a été précédemment sauvegardé sur bande à l"aide de NDMP dans une configuration spécifique, après le déplacement du volume, vous pouvez effectuer l"une des actions suivantes pour vous assurer que le volume continue à être sauvegardé correctement : Créez une base ou migrez la LIF de sauvegarde vers le nœud contenant le volume déplacé.' 
+---
+= Mise à jour de la sauvegarde NDMP après le déplacement d'un volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si le volume que vous avez déplacé a été précédemment sauvegardé sur bande à l'aide de NDMP dans une configuration spécifique, après le déplacement du volume, vous pouvez effectuer l'une des actions suivantes pour vous assurer que le volume continue à être sauvegardé correctement : Créez une base ou migrez la LIF de sauvegarde vers le nœud contenant le volume déplacé.
+
+.Description de la tâche
+* Cette procédure est nécessaire uniquement si l'application de backup ne prend pas en charge l'extension CAB (Cluster-Aware Backup) et que le processus de backup utilise le NDMP node-scoped.
++
+Si l'application de backup supporte CAB et qu'il est configuré pour utiliser le mode SVM-scoped NDMP, il est possible de sauter cette procédure.
+
+* Vous ne devez effectuer qu'une seule de ces actions, pas les deux.
+
+
+
+
+== Procédure
+
+* À partir de l'application de sauvegarde, créez une nouvelle base.
+* Identifier la LIF configurée pour le processus de sauvegarde, puis migrer la LIF vers le nœud sur lequel réside le volume
+

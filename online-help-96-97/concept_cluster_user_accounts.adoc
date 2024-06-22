@@ -1,0 +1,177 @@
+---
+permalink: online-help-96-97/concept_cluster_user_accounts.html 
+sidebar: sidebar 
+keywords: user, system, manager, add, edit, manage, account, login, online, help, cluster, administration, online, help, modify, lock, delete, unlock, create 
+summary: 'System Manager permet d"ajouter, de modifier et de gérer un compte utilisateur du cluster, puis d"indiquer une méthode de connexion pour accéder au système de stockage.' 
+---
+= Gérez les comptes utilisateurs à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour ajouter, modifier et gérer un compte utilisateur du cluster, et spécifier une méthode d'accès de connexion pour accéder au système de stockage.
+
+
+
+== Ajouter un compte utilisateur de cluster
+
+Vous pouvez utiliser System Manager pour ajouter un compte utilisateur de cluster et spécifier une méthode de connexion utilisateur pour accéder au système de stockage.
+
+.Description de la tâche
+Dans les clusters sur lesquels l'authentification SAML est activée, pour une application particulière, vous pouvez ajouter l'authentification SAML ou l'authentification basée sur un mot de passe, ou encore ajouter les deux types d'authentification.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *gestion*, cliquez sur *utilisateurs*.
+. Cliquez sur *Ajouter*.
+. Saisissez un nom d'utilisateur pour le nouvel utilisateur.
+. Saisissez un mot de passe pour permettre à l'utilisateur de se connecter au système de stockage, puis confirmez le mot de passe.
+. Ajoutez une ou plusieurs méthodes de connexion utilisateur, puis cliquez sur *Ajouter*.
+
+
+
+
+== Modifier un compte utilisateur de cluster
+
+Vous pouvez utiliser System Manager pour modifier un compte utilisateur du cluster en modifiant les méthodes de connexion utilisateur permettant d'accéder au système de stockage.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *gestion*, cliquez sur *utilisateurs*.
+. Dans la fenêtre *Users*, sélectionnez le compte utilisateur que vous souhaitez modifier, puis cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modify User*, modifiez les méthodes de connexion utilisateur, puis cliquez sur *Modify*.
+
+
+
+
+== Modifier les mots de passe des comptes utilisateur du cluster
+
+Vous pouvez utiliser System Manager pour réinitialiser le mot de passe d'un compte utilisateur du cluster.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *gestion*, cliquez sur *utilisateurs*.
+. Sélectionnez le compte d'utilisateur pour lequel vous souhaitez modifier le mot de passe, puis cliquez sur *Modifier le mot de passe*.
+. Dans la boîte de dialogue *Modifier le mot de passe*, saisissez le nouveau mot de passe, confirmez le nouveau mot de passe, puis cliquez sur *Modifier*.
+
+
+
+
+== Verrouiller ou déverrouiller les comptes utilisateur du cluster
+
+Vous pouvez utiliser System Manager pour verrouiller ou déverrouiller des comptes utilisateurs du cluster.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *gestion*, cliquez sur *utilisateurs*.
+. Sélectionnez le compte d'utilisateur pour lequel vous souhaitez modifier l'état, puis cliquez sur *Lock* ou *Unlock*.
+
+
+
+
+== Comptes utilisateur (administrateurs du cluster uniquement)
+
+Vous pouvez créer, modifier, verrouiller, déverrouiller ou supprimer un compte utilisateur de cluster, réinitialiser le mot de passe d'un utilisateur ou afficher des informations sur tous les comptes utilisateur.
+
+Vous pouvez gérer les comptes utilisateurs du cluster de l'une des manières suivantes :
+
+* Création d'une méthode de connexion pour un utilisateur en spécifiant le nom de compte de l'utilisateur, la méthode d'accès, la méthode d'authentification et, éventuellement, rôle de contrôle d'accès attribué à l'utilisateur
+* Affichage des informations de connexion des utilisateurs, telles que le nom du compte, la méthode d'accès autorisé, la méthode d'authentification, le rôle de contrôle d'accès et l'état du compte
+* Modification du rôle de contrôle d'accès associé à la méthode de connexion d'un utilisateur
++
+[NOTE]
+====
+Il est préférable d'utiliser un rôle unique pour l'ensemble des méthodes d'accès et d'authentification d'un compte utilisateur.
+
+====
+* Suppression de la méthode de connexion d'un utilisateur, telle que la méthode d'accès ou la méthode d'authentification
+* Modification du mot de passe d'un compte utilisateur
+* Verrouillage d'un compte utilisateur pour empêcher l'utilisateur d'accéder au système
+* Déverrouillage d'un compte utilisateur précédemment verrouillé pour permettre à l'utilisateur d'accéder à nouveau au système
+
+
+
+
+== Fenêtre utilisateurs
+
+Vous pouvez utiliser la fenêtre utilisateurs pour gérer les comptes d'utilisateur, réinitialiser le mot de passe d'un utilisateur et afficher les informations relatives à tous les comptes d'utilisateur.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Ajouter un utilisateur qui vous permet d'ajouter des comptes d'utilisateur.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'utilisateur, qui permet de modifier les méthodes de connexion utilisateur.
+
++
+[NOTE]
+====
+Il est recommandé d'utiliser un rôle unique pour toutes les méthodes d'accès et d'authentification d'un compte utilisateur.
+
+====
+* *Supprimer*
++
+Permet de supprimer un compte utilisateur sélectionné.
+
+* *Changer le mot de passe*
++
+Ouvre la boîte de dialogue Modifier le mot de passe, qui permet de réinitialiser le mot de passe d'un utilisateur sélectionné.
+
+* *Verrouillage*
++
+Verrouille le compte utilisateur.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des utilisateurs
+
+La zone située sous la liste des utilisateurs affiche des informations détaillées sur l'utilisateur sélectionné.
+
+* *Utilisateur*
++
+Affiche le nom du compte utilisateur.
+
+* *Compte verrouillé*
++
+Indique si le compte utilisateur est verrouillé.
+
+
+
+
+
+=== Zone méthodes de connexion utilisateur
+
+* *Application*
++
+Affiche la méthode d'accès qu'un utilisateur peut utiliser pour accéder au système de stockage. Les méthodes d'accès prises en charge sont les suivantes :
+
++
+** Console système (console)
+** HTTP(S) (http)
+** API ONTAP (ontapi)
+** Processeur de service
+** SSH (ssh)
+
+
+* *Authentification*
++
+Affiche la méthode d'authentification par défaut prise en charge, qui est « mot de passe ».
+
+* *Rôle*
++
+Affiche le rôle d'un utilisateur sélectionné.
+
+

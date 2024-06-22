@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_moving_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: move, flexvol, volume, aggregate, system, manager, online, help 
+summary: 'Vous pouvez déplacer, sans interruption, un volume FlexVol vers un autre agrégat ou un nœud différent pour optimiser l"utilisation de la capacité et améliorer les performances à l"aide de System Manager.' 
+---
+= Déplacez les volumes FlexVol avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et version antérieure) pour déplacer, sans interruption, un volume FlexVol vers un autre agrégat ou un nœud différent pour optimiser l'utilisation de la capacité et les performances.
+
+.Avant de commencer
+Si vous déplacez un volume de protection des données, vous devez initialiser les relations des miroirs de protection des données avant de déplacer ce volume.
+
+.Description de la tâche
+* Lorsque vous déplacez un volume hébergé sur un agrégat Flash Pool, seules les données stockées au niveau des disques durs sont déplacées vers l'agrégat de destination.
++
+Les données mises en cache associées au volume ne sont pas déplacées vers l'agrégat de destination. Par conséquent, une certaine dégradation des performances peut se produire après le déplacement du volume.
+
+* Vous ne pouvez pas déplacer des volumes d'un agrégat SnapLock.
+* Vous ne pouvez pas déplacer des volumes d'un SVM configuré pour la reprise d'activité vers un agrégat compatible FabricPool.
+
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Sélectionnez l'agrégat qui contient le volume, puis cliquez sur menu:plus d'actions[Volume Move] (déplacement de volume).
+. Saisissez ou sélectionnez les informations demandées par l'assistant.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+

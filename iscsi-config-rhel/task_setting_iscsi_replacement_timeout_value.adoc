@@ -1,0 +1,26 @@
+---
+permalink: iscsi-config-rhel/task_setting_iscsi_replacement_timeout_value.html 
+sidebar: sidebar 
+keywords: support, multipath, modify, replacement, timeout, value, iscsi, configuration, file, set, set the iscsi replacement timeout value 
+summary: 'Pour prendre en charge les chemins d"accès multiples, vous devez modifier la valeur du délai de remplacement dans le fichier de configuration iSCSI.' 
+---
+= Définissez la valeur du délai de remplacement iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour prendre en charge les chemins d'accès multiples, vous devez modifier la valeur du délai de remplacement dans le fichier de configuration iSCSI.
+
+.Étape
+. Modifiez la valeur du délai de remplacement dans `/etc/iscsi/iscsid.conf` fichier par défaut de 120 à 5.
++
+La valeur du délai de remplacement ressemble à la suivante dans `iscsid.conf`:
+
++
+[listing]
+----
+node.session.timeo.replacement_timeout = 5
+----
+

@@ -1,0 +1,82 @@
+---
+permalink: online-help-96-97/task_restoring_volume_mirror_relationship.html 
+sidebar: sidebar 
+keywords: restore, volume, mirror, relationship, snapmirror, online, help, system, manager 
+summary: 'Dans le cas d"une relation de miroir indépendante de la version, vous pouvez utiliser System Manager pour restaurer les copies Snapshot sur un volume source ou sur d"autres volumes en cas de corruption des données source et qui n"est plus utilisable. Vous pouvez remplacer les données d"origine par les copies Snapshot du volume de destination.' 
+---
+= Restaurez un volume dans une relation de miroir avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans le cas d'une relation de miroir indépendante de la version, vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour restaurer les copies Snapshot sur un volume source ou sur d'autres volumes si les données source sont corrompues et ne sont plus utilisables. Vous pouvez remplacer les données d'origine par les copies Snapshot du volume de destination.
+
+.Avant de commencer
+* La licence SnapMirror doit être activée à la fois sur le cluster source et sur le cluster de destination ou sur les nœuds qui contiennent le volume source et le volume de destination.
+* Le cluster source et le cluster destination doivent avoir une relation peer-to-peer en bonne santé.
+* L'agrégat source ou tout autre agrégat que vous sélectionnez pour l'opération de restauration doit être un agrégat 64 bits.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit également être activée sur le cluster distant.
+
+
+.Description de la tâche
+* On ne peut pas restaurer un volume qui se trouve dans une relation de miroir entre un serveur virtuel de stockage source et un SVM de destination dans une configuration MetroCluster.
+* Vous ne pouvez pas effectuer une opération de restauration sur des volumes SnapLock.
+* Vous pouvez restaurer une relation de miroir entre les SVM source sync dans une configuration MetroCluster.
+* Vous pouvez restaurer une relation de miroir depuis un volume d'un SVM source synchrone vers un SVM par défaut.
+* Vous pouvez restaurer une relation de miroir depuis un volume d'un SVM par défaut vers un volume DP au sein d'un SVM source synchrone.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir, puis cliquez sur *opérations* > *Restaurer*.
+. Dans la boîte de dialogue *Restaurer*, restaurez les données sur le volume source de la relation miroir ou sélectionnez un autre volume :
++
+|===
+| Si vous souhaitez restaurer les données vers... | Procédez comme ça... 
+
+
+ a| 
+Volume source
+ a| 
+.. Sélectionnez *Volume source*.
+.. Passez à l'étape 7.
+
+
+
+
+ a| 
+Tout autre volume
+ a| 
+Sélectionnez *Other volume*, puis le cluster et le SVM dans la liste.
+
+|===
+. Restaurer les données sur un nouveau volume ou sur un volume existant :
++
+|===
+| Si vous souhaitez restaurer les données vers... | Procédez comme ça... 
+
+
+ a| 
+Un nouveau volume
+ a| 
+Si vous souhaitez modifier le nom par défaut, affiché dans le format `destination_SVM_name_destination_volume_name_` restaurer, spécifiez un nouveau nom, puis sélectionnez l'agrégat contenant du volume.
+
+
+
+ a| 
+Un volume existant
+ a| 
+Sélectionnez l'option *Sélectionner le volume*.
+
+Vous devez sélectionner un volume autre que le volume source ou un volume de lecture/écriture contenant certaines données et une copie Snapshot commune.
+
+Seuls les volumes ayant le même attribut de langue que le volume source sont répertoriés.
+
+|===
+. Sélectionnez la dernière copie Snapshot ou la copie Snapshot spécifique que vous souhaitez restaurer.
+. Cochez la case de confirmation pour restaurer le volume à partir de la copie Snapshot.
+. *Facultatif:* cochez la case *Activer la compression réseau* pour compresser les données transférées pendant l'opération de restauration.
+. Cliquez sur *Restaurer*.
+

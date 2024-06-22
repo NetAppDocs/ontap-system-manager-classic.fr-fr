@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/task_updating_single_node_clusters.html 
+sidebar: sidebar 
+keywords: update, singe, node, cluster, system, manager, online, help 
+summary: Vous pouvez utiliser System Manager pour mettre à jour les clusters à un seul nœud. 
+---
+= Mettez à jour les clusters à un seul nœud avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour les clusters à un seul nœud.
+
+.Avant de commencer
+* Les clusters doivent exécuter ONTAP 9.4 ou une version ultérieure.
+* Vous devez avoir copié l'image logicielle du site de support NetApp sur un serveur HTTP de votre réseau, sur un serveur FTP de votre réseau ou sur votre système local de manière à ce que les nœuds puissent accéder à l'image.
++
+link:task_obtaining_ontap_software_images.html["Obtention d'images du logiciel ONTAP"]
+
+
+
+.Description de la tâche
+* Depuis System Manager 9.5, vous pouvez mettre à jour les clusters à un seul nœud dans des configurations MetroCluster à deux packs.
++
+Vous devez effectuer cette opération sur les deux sites.
+
+* La mise à jour des clusters à un seul nœud dans les configurations MetroCluster n'entraîne pas d'interruption.
++
+L'interface utilisateur de System Manager n'est pas disponible lorsque le cluster est en cours de redémarrage.
+
+* Dans System Manager 9.4 et les versions ultérieures, vous pouvez mettre à jour les clusters à un seul nœud dans des configurations non-MetroCluster.
++
+La mise à jour de clusters à un seul nœud dans des configurations non MetroCluster peut entraîner une interruption des activités. Les données client ne sont pas disponibles lorsque la mise à jour est en cours.
+
+* Si vous essayez d'effectuer d'autres tâches lors de la mise à jour du nœud qui héberge la LIF de gestion de cluster, un message d'erreur peut s'afficher.
++
+Vous devez attendre la fin de la mise à jour avant d'effectuer toute opération.
+
+* Si le protocole NVMe est configuré dans System Manager 9.4 et que vous effectuez une mise à jour de System Manager 9.4 vers System Manager 9.5, le protocole NVMe est disponible pendant une période de grâce de 90 jours sans licence.
++
+Cette fonction n'est pas disponible dans les configurations MetroCluster.
+
+* Si le protocole NVMe n'est pas configuré dans System Manager 9.5 et que vous effectuez une mise à jour de System Manager 9.5 vers System Manager 9.6, la période de grâce n'est pas fournie. Vous devez installer la licence NVMe pour utiliser le protocole NVMe.
++
+Cette fonction n'est pas disponible dans les configurations MetroCluster.
+
+
+
+.Étapes
+. Cliquez sur *Configuration* > *Cluster* > *Update*.
+. Dans l'onglet *Cluster Update*, ajoutez une nouvelle image logicielle ou sélectionnez une image logicielle disponible.
++
+|===
+| Les fonctions que vous recherchez... | Alors... 
+
+
+ a| 
+Ajoutez une nouvelle image logicielle à partir du client local
+ a| 
+.. Cliquez sur *Ajouter à partir du client local*.
+.. Recherchez l'image du logiciel, puis cliquez sur *Ouvrir*.
+
+
+
+
+ a| 
+Ajoutez une nouvelle image logicielle depuis le site de support NetApp
+ a| 
+.. Cliquez sur *Ajouter à partir du serveur*.
+.. Dans la boîte de dialogue Add a New Software image, entrez l'URL du serveur HTTP ou du serveur FTP sur lequel vous avez enregistré l'image téléchargée depuis le site de support NetApp.
++
+Pour le FTP anonyme, vous devez spécifier l'URL dans le `+ftp://anonymous@ftpserver+` format.
+
+.. Cliquez sur *Ajouter*.
+
+
+
+
+ a| 
+Sélectionnez une image disponible
+ a| 
+Choisissez l'une des images répertoriées.
+
+|===
+. Cliquez sur *Validate* pour exécuter les contrôles de validation de pré-mise à jour afin de vérifier si le cluster est prêt pour une mise à jour.
++
+L'opération de validation vérifie les composants du cluster pour vérifier que la mise à jour peut être effectuée, puis affiche des erreurs ou des avertissements. L'opération de validation affiche également toute action corrective requise que vous devez effectuer avant la mise à jour du logiciel.
+
++
+[NOTE]
+====
+Vous devez effectuer toutes les actions correctives requises pour les erreurs avant de poursuivre la mise à jour. Bien que vous ne puissiez pas tenir compte des actions correctives associées à ces avertissements, il est conseillé d'effectuer toutes les actions correctives avant de procéder à la mise à jour.
+
+====
+. Cliquez sur *Suivant*.
+. Cliquez sur *mettre à jour*.
++
+La validation est à nouveau effectuée.
+
++
+** Une fois la validation terminée, un tableau affiche toutes les erreurs et tous les avertissements, ainsi que toutes les mesures correctives à prendre avant de poursuivre.
+** Si la validation est terminée avec des avertissements, vous pouvez sélectionner la case à cocher *Continuer la mise à jour avec des avertissements*, puis cliquer sur *Continuer*.
+Lorsque la validation est terminée et que la mise à jour est en cours, la mise à jour peut être mise en pause en raison d'erreurs. Vous pouvez cliquer sur le message d'erreur pour afficher les détails, puis effectuer les actions correctives avant de reprendre la mise à jour.
+
+
++
+Une fois la mise à jour terminée, le nœud redémarre et vous êtes redirigé vers la page de connexion de System Manager. Si le redémarrage du nœud est longue, vous devez actualiser votre navigateur.
+
+. Connectez-vous à System Manager et vérifiez que le cluster a bien été mis à jour vers la version sélectionnée en cliquant sur *Configuration* > *Cluster* > *Update* > *Update History*, puis en consultant les détails.
+

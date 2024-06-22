@@ -1,0 +1,69 @@
+---
+permalink: online-help-96-97/concept_setting_up_network.html 
+sidebar: sidebar 
+keywords: online, help, set, up, network, ipspace, broadcast, domain, subnet, system, manager, cluster, range 
+summary: La configuration du réseau consiste à créer des IPspaces, un domaine de diffusion et des sous-réseaux. 
+---
+= Configurez le réseau avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour configurer le réseau, vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures). La configuration du réseau consiste à créer des IPspaces, un domaine de diffusion et des sous-réseaux.
+
+
+
+== Créez les IPspaces
+
+Vous pouvez créer un IPspace en utilisant System Manager pour configurer un cluster ONTAP unique pour l'accès client à partir de plusieurs domaines réseau distincts d'un point de vue administratif, même lorsque les clients utilisent la même plage de sous-réseau d'adresses IP. Cela vous permet de séparer le trafic client pour la confidentialité et la sécurité.
+
+.Description de la tâche
+Tous les noms IPspace doivent être uniques au sein d'un cluster et ne doivent pas être constitués de noms réservés par le système, tels que « local » ou « localhost ».
+
+.Étapes
+. Cliquez sur l'onglet *réseau*.
+. Dans l'onglet *IPspaces*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer des IPspaces*, spécifiez un nom pour l'IPspace que vous souhaitez créer.
+. Cliquez sur *Créer*.
+
+
+
+
+== Créer des domaines de diffusion
+
+Vous pouvez créer un domaine de diffusion en utilisant System Manager pour fournir une division logique d'un réseau informatique. Dans un domaine de diffusion, tous les nœuds associés peuvent être atteints par diffusion au niveau de la couche DATALINK
+
+.Étapes
+. Cliquez sur l'onglet *réseau*.
+. Dans l'onglet *domaines de diffusion*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Create Broadcast Domain*, spécifiez le nom, la taille de MTU, l'IPspace et les ports du domaine de diffusion que vous souhaitez créer.
+. Cliquez sur *Créer*.
+
+
+
+
+== Créer des sous-réseaux
+
+Vous pouvez créer un sous-réseau en utilisant System Manager pour fournir une sous-division logique d'un réseau IP afin de pré-allouer les adresses IP. Un sous-réseau vous permet de créer plus facilement des interfaces en spécifiant un sous-réseau au lieu d'une adresse IP et de valeurs de masque de réseau pour chaque nouvelle interface.
+
+.Avant de commencer
+Vous devez avoir créé le broadcast domain sur lequel le sous-réseau est utilisé.
+
+.Description de la tâche
+Si vous spécifiez une passerelle lors de la création d'un sous-réseau, une route par défaut vers la passerelle est ajoutée automatiquement au SVM lorsqu'une LIF est créée à l'aide de ce sous-réseau.
+
+.Étapes
+. Cliquez sur l'onglet *réseau*.
+. Dans l'onglet *sous-réseaux*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Create Subnet* (Créer un sous-réseau*), spécifiez les détails du sous-réseau, tels que le nom, l'adresse IP du sous-réseau ou le masque de sous-réseau, la plage d'adresses IP, l'adresse de passerelle et le domaine de diffusion.
++
+Vous pouvez spécifier les adresses IP comme une plage, comme des adresses multiples séparées par des virgules, ou comme un mélange des deux.
+
+. Cliquez sur *Créer*.
+
+
+*Informations connexes*
+
+xref:reference_network_window.adoc[Fenêtre réseau]

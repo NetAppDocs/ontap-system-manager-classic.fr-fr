@@ -1,0 +1,27 @@
+---
+permalink: iscsi-config-rhel/task_recording_iscsi_node_name.html 
+sidebar: sidebar 
+keywords: record, iscsi, initiator, node, linux, host, configure, storage, system, record the iscsi node name 
+summary: 'Vous devez enregistrer le nom du noeud de l"initiateur iSCSI sur l"hôte Linux de sorte que vous l"ayez lors de la configuration du système de stockage.' 
+---
+= Notez le nom du nœud iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez enregistrer le nom du noeud de l'initiateur iSCSI sur l'hôte Linux de sorte que vous l'ayez lors de la configuration du système de stockage.
+
+.Étapes
+. Utilisez un éditeur de texte pour ouvrir le `/etc/iscsi/initiatorname.iscsi` fichier contenant les noms des nœuds.
+. Notez le nom du nœud ou copiez-le dans un fichier texte.
++
+Le nom du nœud d'initiateur iSCSI se présente comme suit :
+
++
+[listing]
+----
+iqn.1994-05.com.redhat:127
+----
+

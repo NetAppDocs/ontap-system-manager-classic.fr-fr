@@ -1,0 +1,121 @@
+---
+permalink: online-help-96-97/reference_storage_tiers_window.html 
+sidebar: sidebar 
+keywords: online, help, storage, tier, window, command, button 
+summary: 'Vous pouvez utiliser la fenêtre Storage tiers pour afficher les détails de l"espace au niveau du cluster et ajouter et afficher les détails de l"agrégat.' 
+---
+= Fenêtre Storage tiers dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre Storage tiers de ONTAP System Manager classique (disponible dans ONTAP 9.7 et plus) pour afficher les détails de l'espace au niveau du cluster et ajouter et afficher les détails des agrégats.
+
+Le panneau interne des niveaux de performance, ou si le cluster dispose d'agrégats 100 % Flash (tous SSD), affiche les informations détaillées sur l'espace au niveau du cluster, telles que la somme des tailles totales de tous les agrégats, de l'espace utilisé par les agrégats du cluster, et l'espace disponible dans le cluster.
+
+Le panneau Cloud Tier affiche les tiers cloud sous licence totaux du cluster, l'espace sous licence utilisé dans le cluster et l'espace sous licence disponible dans le cluster. Le panneau Cloud Tier affiche également la capacité cloud sans licence utilisée.
+
+Les agrégats sont regroupés par type. Le panneau agrégat affiche des informations détaillées sur l'espace total de l'agrégat, l'espace utilisé et l'espace disponible. Si les données inactives sont disponibles sur un agrégat SSD ou FAS 100 % Flash, la quantité d'espace qu'elles utilisent est également affichée. Vous pouvez sélectionner l'agrégat et effectuer l'une des actions associées à cet agrégat.
+
+
+
+== Boutons de commande
+
+* *Ajouter agrégat*
++
+Permet de créer un agrégat.
+
+* *Actions*
++
+Offre les options suivantes :
+
++
+** *Changer le statut en*
++
+Change le statut de l'agrégat sélectionné à l'un des États suivants :
+
++
+*** *En ligne*
++
+L'accès en lecture et en écriture aux volumes contenus dans cet agrégat est autorisé.
+
+*** *Hors ligne*
++
+L'accès en lecture et en écriture n'est pas autorisé.
+
+*** *Restreindre*
++
+Certaines opérations telles que la reconstruction de parité sont autorisées, mais l'accès aux données n'est pas autorisé.
+
+
+
+** *Ajouter capacité*
++
+Ajout de capacité (disques durs ou SSD) à des agrégats existants
+
+** *Ajouter cache*
++
+Permet d'ajouter des disques cache (SSD) aux agrégats HDD existants ou aux agrégats Flash Pool.
+
++
+Vous ne pouvez pas ajouter de disques de cache aux agrégats compatibles avec FabricPool.
+
++
+Cette option n'est pas disponible pour un cluster contenant des nœuds disposant d'une configuration entièrement optimisée pour la technologie Flash.
+
+** *Miroir*
++
+Permet de mettre en miroir les agrégats.
+
+** *Déplacement de volume*
++
+Permet de déplacer un volume FlexVol.
+
+
+
+
+
+
+
+== Zone de détails
+
+Vous pouvez cliquer sur le nom de l'agrégat pour afficher des informations détaillées sur celui-ci.
+
+* *Onglet vue d'ensemble*
++
+Affiche des informations détaillées sur l'agrégat sélectionné et affiche une représentation graphique de l'allocation d'espace de l'agrégat, des économies d'espace de l'agrégat et des performances de l'agrégat.
+
+* *Onglet informations sur le disque*
++
+Affiche les informations de disposition des disques pour l'agrégat sélectionné.
+
+* *Onglet volumes*
++
+Affiche des informations détaillées sur le nombre total de volumes sur l'agrégat, l'espace total de l'agrégat et l'espace attribué à l'agrégat.
+
+* *Onglet performances*
++
+Affiche les graphiques qui affichent les mesures de performance des agrégats, y compris le débit et les opérations d'entrée/sortie par seconde. Les données de mesure de performance pour les transferts en lecture, écriture et total sont affichées pour le débit et les IOPS. Les données pour les disques SSD et HDD sont enregistrées séparément.
+
++
+La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Si vous modifiez le fuseau horaire du client ou du cluster, vous devez actualiser votre navigateur pour afficher les graphiques mis à jour.
+
+
+
+*Informations connexes*
+
+xref:task_adding_cloud_tier.adoc[Ajout d'un Tier cloud]
+
+xref:task_attaching_aggregate_to_cloud_tier.adoc[Association d'un agrégat à un Tier cloud]
+
+xref:task_deleting_cloud_tier.adoc[Suppression d'un Tier cloud]
+
+xref:task_editing_cloud_tier.adoc[Modification d'un Tier cloud]
+
+xref:task_provisioning_storage_through_aggregates.adoc[Provisionnement du stockage par le biais d'agrégats]
+
+xref:task_deleting_aggregates.adoc[Suppression d'agrégats]
+
+xref:task_editing_aggregates.adoc[Modification d'agrégats]

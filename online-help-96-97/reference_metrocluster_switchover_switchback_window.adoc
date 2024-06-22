@@ -1,0 +1,68 @@
+---
+permalink: online-help-96-97/reference_metrocluster_switchover_switchback_window.html 
+sidebar: sidebar 
+keywords: metrocluster, switchover, switchback, operations, window, command, button, other, action, online, help, status 
+summary: 'Depuis System Manager 9.6, vous pouvez utiliser la fenêtre MetroCluster Switchback Operations pour effectuer un basculement négocié (prévu) ou un basculement non planifié entre un site ou un cluster (site B) et un autre site ou cluster (site A). Après avoir effectué la maintenance ou les réparations sur le site B, vous pouvez lancer un rétablissement du site A vers le site B et consulter l"état de l"opération dans cette fenêtre.' 
+---
+= Fenêtre MetroCluster Switchback Operations
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez utiliser la fenêtre MetroCluster Switchback Operations pour effectuer un basculement négocié (prévu) ou un basculement non planifié entre un site ou un cluster (site B) et un autre site ou cluster (site A). Après avoir effectué la maintenance ou les réparations sur le site B, vous pouvez lancer un rétablissement du site A vers le site B et consulter l'état de l'opération dans cette fenêtre.
+
+
+
+== Boutons de commande
+
+* *Basculer le site B vers le site A*
++
+Initie le processus qui bascule le site B vers le site A.
+
+* *Switchback site A vers site B*
++
+Lance le processus de retour du site A au site B.
+
+
+
+
+
+== Autres actions
+
+* *Naviguez jusqu'au cluster du site B*
++
+Indiquez l'adresse IP de gestion du cluster du site B.
+
+* *Case à cocher pour basculement non planifié*
++
+Si vous souhaitez lancer un basculement non planifié, cochez la case *Continuer avec le basculement non planifié*.
+
+
+
+
+
+== Zones d'état
+
+Au fur et à mesure que le système progresse au cours du processus de basculement ou de retour, System Manager affiche l'état avec les méthodes suivantes :
+
+* *Graphique de ligne de progression*
++
+Affiche les phases des opérations et indique les phases terminées. Les phases sont le basculement, les opérations du site B et le basculement.
+
+* ***Afficher les détails***
++
+Affiche une liste des événements système horodatés au fur et à mesure de la progression des opérations MetroCluster.
+
+* *Local : site A*
++
+Affiche un graphique de la configuration du cluster sur le site A, y compris l'état de ce site au fur et à mesure qu'il progresse dans les phases de l'opération.
+
+* *Remote: Site B*
++
+Affiche un graphique de la configuration du cluster sur le site B, y compris l'état de ce site au fur et à mesure qu'il progresse dans les phases de l'opération.
+
+
+
+Si vous vous connectez au site B et que vous affichez la fenêtre MetroCluster Switchback Operations, alors l'état du site A est « INACTIF » et l'état du site B est indiqué comme « `MODE de COMMUTATION' ».

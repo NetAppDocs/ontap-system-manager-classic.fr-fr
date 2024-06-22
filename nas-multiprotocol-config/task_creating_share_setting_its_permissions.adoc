@@ -1,0 +1,44 @@
+---
+permalink: nas-multiprotocol-config/task_creating_share_setting_its_permissions.html 
+sidebar: sidebar 
+keywords: windows, user, access, volume, create, cifs, restrict, access, modify, control, list, acl, share, create a share and set its permission 
+summary: 'Pour que les utilisateurs Windows puissent accéder à un volume, vous devez créer un partage CIFS sur le volume et restreindre l"accès au partage en modifiant la liste de contrôle d"accès (ACL) du partage.' 
+---
+= Créez un partage et définissez ses autorisations
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour que les utilisateurs Windows puissent accéder à un volume, vous devez créer un partage CIFS sur le volume et restreindre l'accès au partage en modifiant la liste de contrôle d'accès (ACL) du partage.
+
+.Description de la tâche
+À des fins de test, vous ne devez autoriser l'accès qu'aux administrateurs. Par la suite, après avoir vérifié que le volume est accessible, vous pouvez autoriser l'accès à davantage de clients.
+
+.Étapes
+. Accédez à la fenêtre *partages*.
+. Créer un partage afin que les clients SMB puissent accéder au volume :
++
+.. Cliquez sur *Créer un partage*.
+.. Dans la boîte de dialogue *Créer un partage*, cliquez sur *Parcourir*, développez la hiérarchie de l'espace de noms, puis sélectionnez le volume que vous avez créé précédemment.
+.. Si vous souhaitez que le nom du partage soit différent du nom du volume, modifiez le nom du partage.
+.. Cliquez sur *Créer*.
+
+
++
+Le partage est créé avec une ACL par défaut définie sur contrôle total pour le groupe Everyone.
+
+. Restreindre l'accès au partage en modifiant la liste ACL de partage :
++
+.. Sélectionnez le partage, puis cliquez sur *Modifier*.
+.. Dans l'onglet *permissions*, sélectionnez le groupe *Everyone*, puis cliquez sur *Remove*.
+.. Cliquez sur *Ajouter*, puis entrez le nom d'un groupe d'administrateurs défini dans le domaine Active Directory de Windows qui inclut le SVM.
+.. Lorsque le nouveau groupe d'administrateurs est sélectionné, sélectionnez toutes les autorisations correspondantes.
+.. Cliquez sur *Enregistrer et fermer*.
+
+
++
+Les autorisations d'accès au partage mises à jour sont répertoriées dans le volet de contrôle d'accès au partage.
+
+

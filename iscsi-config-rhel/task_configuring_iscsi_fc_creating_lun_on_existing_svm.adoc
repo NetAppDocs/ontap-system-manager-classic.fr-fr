@@ -1,0 +1,57 @@
+---
+permalink: iscsi-config-rhel/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html 
+sidebar: sidebar 
+keywords: configure, iscsi, exist, storage, virtual, machine, svm, wizard, protocol, configure iscsi on an existing svm 
+summary: 'Vous pouvez configurer iSCSI sur une machine virtuelle de stockage (SVM) existante, et créer une LUN et son volume contenant à l"aide d"un assistant unique. Le protocole iSCSI doit déjà être activé, mais pas configuré sur le SVM. Ces informations sont destinées aux SVM pour lesquels vous configurez plusieurs protocoles, mais n"ont pas encore configuré iSCSI.' 
+---
+= Configurer iSCSI sur un SVM existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer iSCSI sur une machine virtuelle de stockage (SVM) existante, et créer une LUN et son volume contenant à l'aide d'un assistant unique. Le protocole iSCSI doit déjà être activé, mais pas configuré sur le SVM. Ces informations sont destinées aux SVM pour lesquels vous configurez plusieurs protocoles, mais n'ont pas encore configuré iSCSI.
+
+.Avant de commencer
+Vous devez disposer d'un nombre suffisant d'adresses réseau disponibles pour créer deux LIF pour chaque nœud.
+
+.Description de la tâche
+Les LUN sont mappées sur un sous-ensemble d'initiateurs du groupe initiateur pour limiter le nombre de chemins d'accès de l'hôte à la LUN.
+
+* ONTAP utilise le mappage de LUN sélectif (SLM) pour rendre la LUN accessible uniquement via des chemins sur le nœud possédant la LUN et son partenaire haute disponibilité.
+* Vous devez toujours configurer toutes les LIF iSCSI sur chaque nœud pour la mobilité de la LUN si celle-ci est déplacée vers un autre nœud du cluster.
+* Vous devez modifier la liste SLM reporting-nodes avant de déplacer un volume ou une LUN.
+
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Sélectionnez le SVM que vous souhaitez configurer.
+. Dans le volet Détails du SVM**, vérifier que *iSCSI* est affiché avec un arrière-plan gris, ce qui indique que le protocole est activé mais pas entièrement configuré.
++
+Si *iSCSI* est affiché avec un arrière-plan vert, le SVM est déjà configuré.
+
++
+image::../media/existing_svm_protocols_iscsi_rhel.gif[L'image montre la page de détails avec les quatre protocoles ayant un arrière-plan gris.]
+
+. Cliquez sur le lien du protocole *iSCSI* avec l'arrière-plan gris.
++
+La fenêtre configurer le protocole iSCSI s'affiche.
+
+. Configurez le service iSCSI et les LIF à partir de la page *configurer le protocole iSCSI* :
++
+.. *Facultatif:* Entrez un nom d'alias cible.
+.. Entrez `*2*` Dans le champ *LIFs par nœud*.
++
+Chaque nœud requiert deux LIF afin d'assurer la disponibilité et la mobilité des données.
+
+.. Attribuez des adresses IP aux LIF soit avec un sous-réseau, soit sans sous-réseau.
+.. Dans la zone *provisioning d'une LUN pour le stockage iSCSI*, entrez la taille de LUN, le type d'hôte et le nom d'initiateur iSCSI de l'hôte.
+.. Cliquez sur *Envoyer et fermer*.
+
+
++
+image::../media/existing_svm_wizard_iscsi_details_linux.gif[Configuration du protocole iSCSI pour Linux]
+
+. Consultez la page *Résumé*, enregistrez les informations sur le LIF, puis cliquez sur *OK*.
+

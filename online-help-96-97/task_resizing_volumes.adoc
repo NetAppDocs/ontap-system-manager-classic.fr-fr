@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_resizing_volumes.html 
+sidebar: sidebar 
+keywords: resize, volume, capacity, snapshot, copy, online, help 
+summary: 'Lorsqu"un volume atteint sa capacité presque maximale, vous pouvez augmenter la taille du volume, supprimer certaines copies Snapshot ou ajuster la réserve Snapshot. Vous pouvez utiliser l"assistant de redimensionnement de volume dans System Manager pour libérer de l"espace.' 
+---
+= Redimensionnez vos volumes grâce à System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsqu'un volume atteint une capacité presque totale, vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour augmenter la taille du volume, supprimer certaines copies Snapshot ou ajuster la réserve Snapshot. Vous pouvez utiliser l'assistant de redimensionnement de volume dans System Manager pour libérer de l'espace.
+
+.Description de la tâche
+* Pour un volume configuré de manière à croître automatiquement, vous pouvez modifier la limite d'extension du volume en fonction de la taille accrue du volume.
+* Vous ne pouvez pas redimensionner un volume de protection des données si sa relation de miroir est interrompue ou si une opération de resynchronisation inverse a été effectuée sur le volume.
++
+Par contre, vous devez utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume que vous souhaitez redimensionner.
+. Cliquez sur *plus d'actions* > *Redimensionner*.
+. Saisissez ou sélectionnez les informations demandées par l'assistant.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+. Vérifiez les modifications que vous avez apportées à l'espace disponible et à l'espace total du volume dans la fenêtre *volumes*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

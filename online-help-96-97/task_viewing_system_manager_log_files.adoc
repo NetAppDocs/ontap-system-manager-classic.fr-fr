@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_viewing_system_manager_log_files.html 
+sidebar: sidebar 
+keywords: view, ontap, system, manager, log, file, online, help 
+summary: En cas de problème avec System Manager, vous pouvez envoyer les fichiers journaux au support technique pour résoudre les problèmes. Les fichiers journaux de System Manager se trouvent dans le répertoire mlog ainsi que dans les fichiers journaux de ONTAP. 
+---
+= Consultez les fichiers journaux de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous rencontrez des problèmes avec ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures), vous pouvez envoyer les fichiers journaux pour résoudre ce problème si le support NetApp vous le demande. Les fichiers journaux de System Manager se trouvent dans le `mlog` Avec les fichiers journaux de ONTAP.
+
+.Étapes
+. Identifier le nœud qui héberge la LIF de cluster management
+. Saisissez l'URL suivante dans un navigateur Web : `+https://cluster-mgmt-LIF/spi+`
++
+`cluster-mgmt-LIF` Est l'adresse IP de la LIF de management du cluster.
+
+. Saisissez vos informations d'identification d'administrateur de cluster, puis cliquez sur *OK*.
+. Dans la fenêtre *Data ONTAP - accès au fichier de volume racine*, cliquez sur le lien *logs* du noeud qui héberge le LIF de gestion de cluster.
+. Accédez au `mlog` Répertoire permettant d'accéder aux fichiers journaux de System Manager.
++
+Vous pouvez avoir besoin des fichiers journaux suivants, selon le type de problème rencontré :
+
++
+** `sysmgr.log`
++
+Ce fichier contient les journaux les plus récents de System Manager.
+
+** `mgwd.log`
+** `php.log`
+** `apache_access.log`
+** `messages.log`
+
+
+
+
+
+
+== Fonctionnement de l'enregistrement du système
+
+L'enregistrement du système est un outil essentiel pour le dépannage des applications. Vous devez activer la journalisation du système afin que le problème soit localisé en cas de problème avec une application. Vous pouvez activer la journalisation de System Manager lors de l'exécution sans modifier le binaire de l'application.
+
+La sortie du journal peut être volumineux et peut donc devenir difficile à gérer. System Manager vous permet d'affiner la sortie de consignation en sélectionnant le type d'instructions de journal qui sont sorties. Par défaut, la consignation système est définie sur INFO. Vous pouvez choisir l'un des niveaux de journal suivants :
+
+* ÉTEINT
+* ERREUR
+* AVERTISSEMENT
+* INFO
+* DÉBOGAGE
+
+
+Ces niveaux fonctionnent de façon hiérarchique. Un niveau de journal défini sur OFF indique qu'aucun enregistrement des messages n'est possible.

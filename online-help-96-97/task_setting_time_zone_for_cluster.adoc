@@ -1,0 +1,37 @@
+---
+permalink: online-help-96-97/task_setting_time_zone_for_cluster.html 
+sidebar: sidebar 
+keywords: system, manager, set, up, time, zone, cluster, modify, server, ntp 
+summary: 'Vous pouvez définir ou modifier manuellement le fuseau horaire d"un cluster à l"aide de la boîte de dialogue Modifier la date et l"heure de System Manager. Vous pouvez également ajouter des serveurs de temps au cluster.' 
+---
+= Définissez le fuseau horaire d'un cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez définir ou modifier manuellement le fuseau horaire d'un cluster à l'aide de la boîte de dialogue Modifier la date et l'heure de ONTAP System Manager classique (disponible dans ONTAP 9.7 et version antérieure). Vous pouvez également ajouter des serveurs de temps au cluster.
+
+.Description de la tâche
+Le protocole NTP (Network Time Protocol) est toujours activé sur un cluster. Vous pouvez désactiver le protocole NTP, mais il n'est pas recommandé.
+
+Vous pouvez ajouter les adresses IP du serveur NTP de votre site. Ce serveur est utilisé pour synchroniser l'heure sur le cluster.
+
+Vous pouvez indiquer une adresse IPv4 ou IPv6 pour le serveur de temps.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le panneau *Setup*, cliquez sur *Date et heure*.
+. Cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier la date et l'heure*, sélectionnez le fuseau horaire.
+. Spécifiez l'adresse IP des serveurs de temps, puis cliquez sur *Ajouter*.
+. Cliquez sur *OK*.
+. Vérifiez les modifications apportées aux paramètres d'heure dans la fenêtre *Date et heure*.
+
+
+*Informations connexes*
+
+xref:reference_date_time_window.adoc[Fenêtre de date et d'heure]
+
+xref:task_creating_kerberos_realm_configurations.adoc[Création d'une configuration de domaine Kerberos]

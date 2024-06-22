@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_editing_data_protection_volumes.html 
+sidebar: sidebar 
+keywords: edit, data, protection, system, manager, online, help, dp, volume 
+summary: 'Vous pouvez utiliser System Manager pour modifier le nom du volume d"un volume de protection des données (DP). Si l"efficacité du stockage n"est pas activée sur le volume source, vous souhaiterez peut-être activer l"efficacité du stockage uniquement sur le volume de destination.' 
+---
+= Modifiez les volumes de protection des données à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier le nom du volume pour un volume de protection des données (DP). Si l'efficacité du stockage n'est pas activée sur le volume source, vous souhaiterez peut-être activer l'efficacité du stockage uniquement sur le volume de destination.
+
+.Description de la tâche
+Vous ne pouvez pas modifier l'efficacité du stockage sur un volume DP en miroir.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez la machine virtuelle de stockage (SVM) dans laquelle réside le volume DP que vous souhaitez modifier.
+. Sélectionnez le volume que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le volume de protection des données*, modifiez le nom du volume.
+. Assurez-vous que l'option *Activer l'efficacité du stockage* est sélectionnée.
++
+Si l'efficacité du stockage est déjà activée sur le volume, la case à cocher est sélectionnée par défaut.
+
+. *Facultatif:* cliquez sur l'onglet *Avancé* et effectuez les opérations suivantes :
++
+.. Sélectionnez la stratégie de mise en cache que vous souhaitez attribuer au volume.
+.. Sélectionnez la priorité de rétention des données mises en cache dans le volume.
+
+
++
+Ces options sont uniquement disponibles pour les volumes FlexVol de protection des données dans un agrégat Flash Pool.
+
+. Cliquez sur *Enregistrer*.
+

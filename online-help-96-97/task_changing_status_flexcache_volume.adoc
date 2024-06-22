@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_changing_status_flexcache_volume.html 
+sidebar: sidebar 
+keywords: flexcache, volume, change, status,online, help 
+summary: 'Depuis System Manager 9.6, vous pouvez modifier l"état d"un volume FlexCache lorsque vous souhaitez le mettre hors ligne, remettre un volume FlexCache en ligne ou limiter l"accès à un volume FlexCache.' 
+---
+= Modification du statut d'un volume FlexCache
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez modifier l'état d'un volume FlexCache lorsque vous souhaitez le mettre hors ligne, remettre un volume FlexCache en ligne ou limiter l'accès à un volume FlexCache.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume FlexCache dont vous souhaitez modifier le statut.
+. Cliquez sur *plus d'actions* > *changer l'état à*, puis mettez à jour l'état du volume FlexCache en sélectionnant l'état requis.
++
+[NOTE]
+====
+Pour mettre un volume FlexCache hors ligne et pour le rendre sur « restreint », vous devez d'abord démonter le volume.
+
+====
+

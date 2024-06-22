@@ -1,0 +1,38 @@
+---
+permalink: nfs-config-esxi/index.html 
+sidebar: sidebar 
+keywords: nfs, access, esxi, host, datastores, ontap, volume, configuration, overview, vsc 
+summary: 'L"interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures) vous permet de configurer rapidement l"accès NFS pour les hôtes ESXi vers les datastores à l"aide de volumes ONTAP.' 
+---
+= Présentation de la configuration NFS pour ESXi à l'aide de VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures) vous permet de configurer rapidement l'accès NFS pour les hôtes ESXi vers les datastores à l'aide de volumes ONTAP.
+
+Utiliser cette procédure si :
+
+* Une version prise en charge de Virtual Storage Console pour VMware vSphere (VSC) permet de provisionner un datastore et de créer un volume.
++
+** VSC fait partie du produit depuis la version 7.0 de VSC https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["Outils ONTAP pour VMware vSphere"^] Appliance virtuelle, qui comprend VSC, le fournisseur vStorage APIs for Storage Awareness (VASA) et l'outil Storage Replication adapter (SRA) pour les fonctionnalités VMware vSphere.
+** Assurez-vous de vérifier le https://imt.netapp.com/matrix/["Matrice d'interopérabilité NetApp"^] Pour vérifier la compatibilité entre vos versions actuelles de ONTAP et VSC.
+
+
+* Votre réseau de données utilise l'IPspace par défaut, le domaine de diffusion par défaut et le groupe de basculement par défaut.
++
+Si votre réseau de données est plat, ces objets par défaut préconisons un basculement correct des LIFs en cas de défaillance de la liaison. Si vous n'utilisez pas les objets par défaut, reportez-vous à la section https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion de réseau"^] Pour plus d'informations sur la configuration du basculement de chemin LIF.
+
+* Vous souhaitez utiliser le plug-in pour VMware VAAI.
++
+** Les API VMware vStorage APIs for Array Integration (VAAI) vous permettent d'effectuer des copies auxiliaires et des réservations d'espace. Le plug-in pour VMware VAAI améliore les performances de l'hôte, car les opérations n'ont pas besoin de passer par l'hôte ESXi. Elles tirent ainsi parti du clonage compact et rapide de ONTAP.
+** L'utilisation de VMware VAAI pour le provisionnement des datastores est une bonne pratique.
+** Le plug-in NFS pour VMware VAAI est disponible sur le https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^] le site.
+
+
+* L'accès NFS sera via NFSv3 et NFSv4 pour VMware VAAI.
+
+
+Pour plus d'informations, voir https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html["Tr-4597 : VMware vSphere pour ONTAP"^] Et de la documentation relative à la version de VSC.

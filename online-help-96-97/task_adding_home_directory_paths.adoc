@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_adding_home_directory_paths.html 
+sidebar: sidebar 
+keywords: cifs, system, manager, online, help, storage, add , delete, home, directory 
+summary: 'System Manager peut être utilisé pour spécifier un ou plusieurs chemins pouvant être utilisés par le système de stockage afin de résoudre l"emplacement des répertoires locaux CIFS des utilisateurs.' 
+---
+= Gérez les chemins des répertoires locaux - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de spécifier un ou plusieurs chemins pouvant être utilisés par le système de stockage pour résoudre l'emplacement des répertoires locaux CIFS des utilisateurs.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans la zone *Home Directories* de l'onglet *Configuration*, cliquez sur *Manage*.
+. Dans la boîte de dialogue *Manage Home Directories*, spécifiez les chemins à utiliser par le système de stockage pour rechercher les répertoires locaux CIFS des utilisateurs.
+. Cliquez sur *Ajouter*, puis sur *Enregistrer et fermer*.
+
+
+
+
+== Supprimer les chemins du home Directory
+
+Vous pouvez utiliser System Manager pour supprimer un chemin de répertoire local lorsque vous ne souhaitez pas que le système de stockage utilise le chemin pour résoudre l'emplacement des répertoires locaux CIFS des utilisateurs.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans la zone *Home Directories* de l'onglet *Configuration*, cliquez sur *Manage*.
+. Dans la boîte de dialogue *gérer les répertoires d'accueil*, sélectionnez le chemin d'accès du répertoire d'accueil que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*

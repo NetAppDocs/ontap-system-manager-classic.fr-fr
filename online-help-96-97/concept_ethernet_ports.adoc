@@ -1,0 +1,131 @@
+---
+permalink: online-help-96-97/concept_ethernet_ports.html 
+sidebar: sidebar 
+keywords: system, manager, manager, ethernet, port, create, online, help, create, interface, group, lacp, vlan, settings, duplex, mode, speed, mtu, size,  port, nodes, fcp, 
+summary: Vous pouvez utiliser System Manager pour créer et gérer des ports Ethernet. 
+---
+= Gérez les ports ethernet avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des ports Ethernet.
+
+
+
+== Créer des groupes d'interface
+
+Vous pouvez utiliser System Manager pour créer un groupe d'interface (mode unique, multimode statique ou multimode dynamique) afin de présenter une interface unique aux clients en combinant les fonctionnalités des ports réseau agrégés.
+
+.Avant de commencer
+Les ports libres doivent être disponibles qui n'appartiennent à aucun domaine de diffusion ou groupe d'interfaces, ou qui hébergent un VLAN.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Cliquez sur *Créer un groupe d'interfaces*.
+. Dans la boîte de dialogue *Créer un groupe d'interfaces*, spécifiez les paramètres suivants :
++
+** Nom du groupe d'interface
+** Nœud
+** Les ports que vous souhaitez inclure dans le groupe d'interface
+** Mode d'utilisation des ports : mode unique, multiple statique ou multimode dynamique (LACP)
+** Répartition de la charge du réseau : basée sur IP, basée sur l'adresse MAC, séquentielle ou port
+** Broadcast domain pour le groupe d'interface, le cas échéant
+
+
+. Cliquez sur *Créer*.
+
+
+
+
+== Créer des interfaces VLAN
+
+Vous pouvez créer un VLAN pour maintenir des domaines de diffusion distincts au sein du même domaine réseau en utilisant System Manager.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Cliquez sur *Create VLAN*.
+. Dans la boîte de dialogue *Create VLAN*, sélectionnez le nœud, l'interface physique et le domaine de diffusion (si nécessaire).
++
+La liste des interfaces physiques inclut uniquement les ports Ethernet et les groupes d'interfaces. Cette liste n'affiche pas les interfaces contenues dans un autre groupe d'interfaces ou un VLAN existant.
+
+. Tapez une balise VLAN, puis cliquez sur *Ajouter*.
++
+Vous devez ajouter des balises VLAN uniques.
+
+. Cliquez sur *Créer*.
+
+
+
+
+== Modifier les paramètres du port Ethernet
+
+Vous pouvez modifier les paramètres du port Ethernet, tels que le mode duplex et les paramètres de vitesse, à l'aide de System Manager.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Sélectionnez le port physique, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le port Ethernet*, modifiez les paramètres de mode duplex et de vitesse sur l'un ou l'autre `manual` ou `automatic`.
+. Cliquez sur *Modifier*.
+
+
+
+
+== Modifier les paramètres du groupe d'interfaces
+
+Vous pouvez utiliser System Manager pour ajouter des ports à un groupe d'interfaces, supprimer des ports d'un groupe d'interfaces et modifier le mode d'utilisation et le modèle de distribution de charge des ports d'un groupe d'interfaces.
+
+.Description de la tâche
+Vous ne pouvez pas modifier les paramètres MTU d'un groupe d'interfaces affecté à un domaine de diffusion.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Sélectionnez un groupe d'interfaces, puis cliquez sur *Modifier*.
+. Modifiez les paramètres du groupe d'interfaces selon vos besoins, puis cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Modifier la taille de MTU d'un VLAN
+
+Si vous souhaitez modifier la taille de MTU d'une interface VLAN qui ne fait pas partie d'un domaine de diffusion, vous pouvez utiliser System Manager pour modifier la taille.
+
+.Description de la tâche
+Vous ne devez pas modifier la taille MTU du port de gestion e0M.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Sélectionnez le VLAN à modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Edit VLAN*, modifiez la taille de MTU comme nécessaire, puis cliquez sur *Save*.
+
+
+
+
+== Supprimez les VLAN
+
+Vous pouvez supprimer les VLAN configurés sur les ports réseau à l'aide de System Manager. Vous devrez peut-être supprimer un VLAN avant de retirer une carte réseau de son logement. Lorsque vous supprimez un VLAN, celui-ci est automatiquement supprimé de toutes les règles et groupes de basculement qui utilisent le VLAN.
+
+.Avant de commencer
+Aucune LIFs ne doit être associée au VLAN.
+
+.Étapes
+. Cliquez sur *réseau* > *ports Ethernet*.
+. Sélectionnez le VLAN à supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Ports et adaptateurs
+
+Les ports sont regroupés sous nœuds et les nœuds sont affichés en fonction de la catégorie de protocole sélectionnée. Par exemple, si les données sont servies avec le protocole FC, seuls les nœuds possédant des adaptateurs FCP sont affichés. Le nombre d'interfaces hébergées vous aide à choisir un port moins chargé.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["Concepts relatifs à ONTAP"]
+
+xref:reference_network_window.adoc[Fenêtre réseau]

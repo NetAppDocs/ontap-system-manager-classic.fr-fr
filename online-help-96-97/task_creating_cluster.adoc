@@ -1,0 +1,58 @@
+---
+permalink: online-help-96-97/task_creating_cluster.html 
+sidebar: sidebar 
+keywords: data, center, create, cluster, online, help, system, manager 
+summary: Vous pouvez utiliser ONTAP System Manager pour créer et configurer un cluster dans votre data Center. 
+---
+= Créez un cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et configurer un cluster dans votre data Center.
+
+.Description de la tâche
+Si le cluster prend en charge ONTAP 9.1 ou version ultérieure, vous pouvez uniquement ajouter les systèmes de stockage qui exécutent ONTAP 9.1 ou version ultérieure.
+
+.Étapes
+. Ouvrez le navigateur Web, puis saisissez l'adresse IP de gestion des nœuds que vous avez configurée : `+https://node-management-IP+`
++
+** Si vous avez configuré les identifiants du cluster, la page connexion s'affiche.
++
+Vous devez entrer les informations d'identification pour vous connecter.
+
+** Si vous n'avez pas configuré les identifiants du cluster, la fenêtre Guided Setup s'affiche.
++
+Cliquez sur l'icône *Guided Setup* pour configurer un cluster.
+
+
+
+. Dans la page *Cluster*, saisissez un nom pour le cluster.
++
+[NOTE]
+====
+Si tous les nœuds ne sont pas découverts, cliquez sur *Refresh*.
+
+====
++
+Les nœuds de ce réseau en cluster sont affichés dans le champ nœuds.
+
+. *Facultatif :* si vous le souhaitez, mettez à jour les noms des nœuds dans le champ *noeuds*.
+. Saisissez le mot de passe du cluster.
+. *Facultatif:* Entrez les clés de licence de fonction.
+. Cliquez sur *soumettre*.
+
+
+
+
+== Que faire ensuite
+
+Saisissez les détails réseau sur la page réseau pour continuer la configuration du cluster.
+
+*Informations connexes*
+
+xref:reference_licenses_window.adoc[La fenêtre licences]
+
+xref:reference_configuration_updates_window.adoc[Fenêtre mises à jour de la configuration]

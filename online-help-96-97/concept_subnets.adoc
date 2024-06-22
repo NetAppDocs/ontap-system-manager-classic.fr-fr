@@ -1,0 +1,64 @@
+---
+permalink: online-help-96-97/concept_subnets.html 
+sidebar: sidebar 
+keywords: system, manager, manage, subnet, online, help, edit, settings, modify, delete, ip, address 
+summary: System Manager permet de gérer les sous-réseaux. 
+---
+= Gérez les sous-réseaux avec System Manager - ONTAP 9.7 et version antérieure
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les sous-réseaux.
+
+
+
+== Modifier les paramètres de sous-réseau
+
+[role="lead"]
+System Manager peut être utilisé pour modifier les attributs de sous-réseau tels que le nom, l'adresse de sous-réseau, la plage d'adresses IP et l'adresse de passerelle du sous-réseau.
+
+.Description de la tâche
+* Vous ne pouvez pas utiliser System Manager pour modifier les sous-réseaux dans le cluster IPspace.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+* La modification de l'adresse de la passerelle ne met pas à jour la route.
++
+Vous devez utiliser la CLI pour mettre à jour la route.
+
+
+
+.Étapes
+. Cliquez sur *réseau* > *sous-réseaux*.
+. Sélectionnez le sous-réseau à modifier, puis cliquez sur *Modifier*.
++
+Vous pouvez modifier le sous-réseau même lorsque la LIF de ce sous-réseau est toujours utilisée.
+
+. Dans la boîte de dialogue *Modifier le sous-réseau*, modifiez les attributs de sous-réseau comme requis.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Supprimez les sous-réseaux
+
+System Manager peut être utilisé pour supprimer un sous-réseau lorsque vous n'avez plus besoin du sous-réseau et que vous souhaitez réaffecter les adresses IP qui ont été attribuées au sous-réseau.
+
+.Avant de commencer
+Le sous-réseau que vous souhaitez supprimer ne doit pas contenir de LIF qui utilisent des adresses IP du sous-réseau.
+
+.Description de la tâche
+Vous ne pouvez pas utiliser System Manager pour supprimer des sous-réseaux dans le Cluster IPspace. Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+.Étapes
+. Cliquez sur *réseau* > *sous-réseaux*.
+. Sélectionnez le sous-réseau que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+*Informations connexes*
+
+xref:reference_network_window.adoc[Fenêtre réseau]

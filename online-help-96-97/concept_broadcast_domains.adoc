@@ -1,0 +1,64 @@
+---
+permalink: online-help-96-97/concept_broadcast_domains.html 
+sidebar: sidebar 
+keywords: system, manager, create, manage, broadcast, domain, online, help, edit, settings, port, delete 
+summary: System Manager permet de créer et de gérer des domaines de diffusion. 
+---
+= Gérez les domaines de diffusion avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des domaines de diffusion.
+
+
+
+== Modifier les paramètres du domaine de diffusion
+
+Vous pouvez utiliser System Manager pour modifier les attributs d'un domaine de diffusion, tels que le nom, la taille MTU et les ports associés au domaine de diffusion.
+
+.Description de la tâche
+* Vous ne devez pas modifier la taille MTU du domaine de diffusion auquel le port de gestion e0M est affecté.
+* Vous ne pouvez pas utiliser System Manager pour modifier les domaines de diffusion dans le cluster IPspace.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *réseau* > *domaines de diffusion*.
+. Sélectionnez le domaine de diffusion que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le domaine de diffusion*, modifiez les attributs du domaine de diffusion comme requis.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Supprimer les domaines de diffusion
+
+Vous pouvez supprimer un domaine de diffusion en utilisant System Manager si vous n'avez plus besoin du domaine de diffusion.
+
+.Avant de commencer
+Aucun sous-réseau ne doit être associé au domaine de diffusion que vous souhaitez supprimer.
+
+.Description de la tâche
+* Lorsque vous supprimez un broadcast domain, les ports associés au broadcast domain sont attribués au Default IPspace et les paramètres MTU des ports ne sont pas modifiés.
+* Vous ne pouvez pas utiliser System Manager pour supprimer les domaines de diffusion qui sont dans le cluster IPspace.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *réseau* > *domaines de diffusion*.
+. Sélectionnez le domaine de diffusion que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+*Informations connexes*
+
+xref:reference_network_window.adoc[Fenêtre réseau]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]

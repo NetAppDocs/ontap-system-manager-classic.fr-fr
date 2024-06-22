@@ -1,0 +1,18 @@
+---
+permalink: online-help-96-97/concept_storage_tiers.html 
+sidebar: sidebar 
+keywords: system, manager, storage, tiers, aggregates, security, requirements, backup, performance, data, sharing, online, help 
+summary: Vous pouvez utiliser System Manager pour créer des agrégats afin de répondre aux différentes exigences de sécurité, de sauvegarde, de performances et de partage des données de vos utilisateurs. 
+---
+= Niveaux de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser System Manager pour créer des agrégats afin de répondre aux différentes exigences de sécurité, de sauvegarde, de performances et de partage des données de vos utilisateurs.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestion des disques et des agrégats"]

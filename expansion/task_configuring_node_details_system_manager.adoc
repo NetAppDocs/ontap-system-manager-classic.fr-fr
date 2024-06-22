@@ -1,0 +1,45 @@
+---
+permalink: expansion/task_configuring_node_details_system_manager.html 
+sidebar: sidebar 
+keywords: system, manager, configure, node, management, lif, service, processor, setting, add, configure the node details in system manager 
+summary: 'Vous pouvez utiliser System Manager pour configurer les paramètres LIF de gestion des nœuds et du processeur de service pour les nœuds qui viennent d"être ajoutés.' 
+---
+= Configurez les détails de nœud dans System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser System Manager pour configurer les paramètres LIF de gestion des nœuds et du processeur de service pour les nœuds qui viennent d'être ajoutés.
+
+.Avant de commencer
+* Un nombre suffisant de ports doit être présent dans l'IPspace par défaut pour la création de LIF.
+* Tous les ports doivent être opérationnels.
+
+
+.Étapes
+. Configurez la gestion des nœuds :
++
+.. Saisissez l'adresse IP dans le champ *adresse IP*.
+.. Sélectionnez le port pour la gestion des noeuds dans le champ *Port*.
+.. Entrez le masque de réseau et les détails de la passerelle.
+
+
+. Configuration des paramètres du processeur de service :
++
+.. Cochez la case *remplacer les valeurs par défaut* pour remplacer les valeurs par défaut.
+.. Entrez l'adresse IP, le masque de réseau et les détails de la passerelle.
+
+
+. Cliquez sur *Submit et Continuer* pour terminer la configuration réseau des nœuds.
+. Vérifiez les détails des nœuds dans la page *Résumé*.
+
+
+
+
+== Que faire ensuite
+
+* Si votre cluster est protégé, vous devez créer le nombre requis de LIF intercluster dans les nœuds récemment ajoutés afin d'éviter un peering partiel et une protection non défectueuse.
+* Si les protocoles de données SAN sont activés dans le cluster, vous devez créer le nombre requis de LIF de données SAN pour le service des données.
+

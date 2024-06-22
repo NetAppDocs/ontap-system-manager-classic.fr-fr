@@ -1,0 +1,80 @@
+---
+permalink: online-help-96-97/concept_high_availability.html 
+sidebar: sidebar 
+keywords: high, availability, system, manager, hardware, redundancy, nondisruptive, operations, fault, tolerance 
+summary: 'Vous pouvez utiliser System Manager pour créer des paires haute disponibilité qui fournissent la redondance matérielle requise pour assurer la continuité de l"activité et la tolérance aux pannes.' 
+---
+= Créez des paires haute disponibilité avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer des paires haute disponibilité fournissant une redondance matérielle requise pour la continuité de l'activité et la tolérance aux pannes.
+
+
+
+== Fenêtre haute disponibilité
+
+La fenêtre haute disponibilité fournit une représentation schématique de l'état haute disponibilité (HA), de l'interconnexion et de l'état de basculement ou de rétablissement de toutes les paires haute disponibilité dans ONTAP. Vous pouvez également lancer manuellement une opération de basculement ou de rétablissement à l'aide de la fenêtre haute disponibilité.
+
+Pour en savoir plus sur l'état du basculement ou du rétablissement et l'état de l'interconnexion, cliquez sur l'image de la paire haute disponibilité.
+
+La couleur indique l'état de la paire HA :
+
+* Vert : indique que la paire haute disponibilité et l'interconnexion sont configurées de façon optimale et disponibles pour le basculement ou le rétablissement.
++
+Le vert indique également le basculement en cours, le retour en cours et l'état en attente du retour.
+
+* Rouge : indique un état dégradé tel qu'un échec de reprise.
+* Jaune : indique que le statut de l'interconnexion est arrêté.
+
+
+Lorsque plusieurs paires haute disponibilité d'un cluster sont impliquées simultanément dans les opérations de basculement du stockage, l'état du cluster affiché dépend de l'état et de la gravité de la paire haute disponibilité. L'ordre de gravité suivant est considéré lors de l'affichage du statut du cluster : basculement en cours, retour en cours, attente de retour.
+
+
+
+=== Actions
+
+Vous pouvez effectuer des tâches telles que le basculement ou le retour sur incident en fonction de l'état des nœuds de la paire haute disponibilité.
+
+* Basculement `node_name`
++
+Vous permet d'effectuer une opération de basculement lorsque des opérations de maintenance sont requises sur le nœud partenaire.
+
+* Rétablissement `node_name`
++
+Permet d'effectuer un rétablissement lorsque le nœud partenaire qui a été pris en attente d'un retour ou est à un état de rétablissement partiel.
+
+* Activer ou désactiver le rétablissement automatique
++
+Active ou désactive l'opération de rétablissement automatique.
+
++
+[NOTE]
+====
+Le rétablissement automatique est activé par défaut.
+
+====
+
+
+
+
+=== Boutons de commande
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
++
+[NOTE]
+====
+Les informations affichées dans la fenêtre haute disponibilité sont automatiquement actualisées toutes les 60 secondes.
+
+====
+
+
+*Informations connexes*
+
+xref:task_monitoring_ha_pairs.adoc[Contrôle des paires haute disponibilité]

@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_creating_protection_policies.html 
+sidebar: sidebar 
+keywords: create, protection, policies, online, help, system, manager 
+summary: Vous pouvez utiliser System Manager pour créer des règles de mise en miroir asynchrone, des règles de copie à distance ou des règles de mise en miroir et de copie à distance, et pour appliquer ces règles à une relation de protection des données. 
+---
+= Création de règles de protection
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser System Manager pour créer des règles de mise en miroir asynchrone, des règles de copie à distance ou des règles de mise en miroir et de copie à distance, et pour appliquer ces règles à une relation de protection des données.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionnez la machine virtuelle de stockage (SVM) pour laquelle vous souhaitez créer une stratégie de protection, puis cliquez sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies de protection*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer une stratégie*, sélectionnez le type de stratégie que vous souhaitez créer.
+. Spécifiez le nom de la stratégie et la priorité de transfert.
++
+Faible indique que le transfert a la priorité la moins élevée et que le transfert est généralement planifié après les transferts prioritaires normaux. Par défaut, la priorité est définie sur Normal.
+
+. Pour une règle de miroir asynchrone de type, cochez la case *transférer toutes les copies Snapshot source* pour inclure la règle « tous_source_snapshots » dans la règle de miroir, qui sauvegarde toutes les copies Snapshot à partir du volume source.
+. Cochez la case *Activer la compression réseau* pour compresser les données transférées pendant un transfert de données.
+. Cliquez sur *Ajouter des commentaires* pour ajouter des commentaires supplémentaires pour la stratégie.
+. Dans le cas d'une règle de type coffre-fort ou coffre-fort miroir, spécifiez une étiquette SnapMirror et un compte de rétention de la destination.
+. Cliquez sur *Créer*.
+

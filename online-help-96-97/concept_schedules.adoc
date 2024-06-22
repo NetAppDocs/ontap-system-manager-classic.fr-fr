@@ -1,0 +1,177 @@
+---
+permalink: online-help-96-97/concept_schedules.html 
+sidebar: sidebar 
+keywords: online, help, system, manager, manage, schedule, storage 
+summary: System Manager permet de créer et de gérer des planifications dans votre système de stockage. 
+---
+= Gérez les planifications avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer les planifications d'un système de stockage.
+
+
+
+== Créer des plannings
+
+Vous pouvez créer des planifications d'exécution d'un travail à un moment spécifique ou à des périodes régulières grâce à System Manager.
+
+.Description de la tâche
+Lorsque vous créez un programme dans une configuration MetroCluster, il est également recommandé de créer un horaire équivalent sur le cluster sur le site survivant.
+
+.Étapes
+. Cliquez sur *protection* > *programmes*.
+. Cliquez sur *Créer*.
+. Dans la boîte de dialogue *Créer un programme*, spécifiez le nom du programme.
+. Créez un programme en fonction de vos exigences :
++
+|===
+| Si vous voulez créer... | Procédez comme ça... 
+
+
+ a| 
+Un horaire quotidien ou spécifique sur certains jours
+ a| 
+Sélectionnez *Basic* et spécifiez les détails de la planification et de la récurrence (en heures et minutes).
+
+
+
+ a| 
+Planification qui s'exécute à un intervalle spécifique
+ a| 
+Sélectionnez *intervalle*, puis spécifiez les détails de la planification et de la récurrence (en jours, heures et minutes).
+
+
+
+ a| 
+Planification qui s'exécute à une période donnée
+ a| 
+Sélectionnez *Avancé* et spécifiez les détails de la planification et de la récurrence (en mois, jours, jours de semaine, heures et minutes).
+
+|===
+. Cliquez sur *Créer*.
+
+
+
+
+== Modifier les horaires
+
+Vous pouvez apporter des modifications à une planification cron précédemment créée ou à une planification d'intervalle si elle ne répond pas à vos besoins en utilisant System Manager. Vous pouvez modifier les détails de planification, tels que les jours et heures récurrents, les options d'intervalle et les options avancées de cron.
+
+.Description de la tâche
+Lorsque vous modifiez un planning dans une configuration MetroCluster, il est également recommandé de modifier le planning équivalent sur le cluster du site survivant.
+
+.Étapes
+. Cliquez sur *protection* > *programmes*.
+. Sélectionnez l'horaire à modifier et cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier l'horaire*, modifiez le programme en effectuant l'action appropriée :
++
+|===
+| Si vous sélectionnez l'option de planification comme... | Faites ça. 
+
+
+ a| 
+Basique
+ a| 
+Spécifiez les jours récurrents et les détails des horaires récurrents.
+
+
+
+ a| 
+Intervalle
+ a| 
+Spécifiez les options d'intervalle en jours, heures et minutes.
+
+
+
+ a| 
+Avancé
+ a| 
+Spécifiez les options avancées de cron en mois, jours, jours de semaine (le cas échéant), heures et minutes.
+
+|===
+. Cliquez sur *OK*.
+
+
+
+
+== Supprimer des planifications
+
+[role="lead"]
+System Manager peut être utilisé pour supprimer les planifications qui exécutent des tâches de gestion de stockage spécifiques.
+
+.Étapes
+. Cliquez sur *protection* > *programmes*.
+. Sélectionnez l'horaire que vous souhaitez supprimer et cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Gérer les plannings
+
+Vous pouvez configurer de nombreuses tâches (par exemple, les copies Snapshot de volume et les réplications en miroir) pour qu'elles s'exécutent dans des planifications spécifiques. Les planifications qui sont exécutées à des planifications spécifiées sont appelées _cron_ planifications en raison de leur similarité avec UNIX `cron` planifications. Les horaires exécutés à intervalles sont appelés _interval_ programmations.
+
+Vous pouvez gérer les plannings de l'une des manières suivantes :
+
+* Création d'une planification cron ou d'une planification d'intervalle
+* Affichage des informations relatives à tous les plannings
+* Modification d'une planification cron ou d'une planification d'intervalle
+* Suppression d'une planification cron ou d'une planification d'intervalle
++
+Vous ne pouvez pas supprimer une planification actuellement utilisée par un travail en cours d'exécution.
+
+
+
+L'administrateur du cluster peut effectuer toutes les tâches de gestion programmées.
+
+
+
+== La fenêtre plannings
+
+Vous pouvez utiliser la fenêtre programmes pour gérer les tâches planifiées, telles que la création, l'affichage d'informations sur, la modification et la suppression d'horaires.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un programme, qui permet de créer des plannings basés sur le temps et des intervalles.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le programme, qui permet de modifier les horaires sélectionnés.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer le programme, qui permet de supprimer les horaires sélectionnés.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des planifications
+
+* *Nom*
++
+Spécifie le nom du planning.
+
+* *Type*
++
+Spécifie le type de la planification basée sur le temps ou sur l'intervalle.
+
+
+
+
+
+=== Zone de détails
+
+La zone de détails affiche des informations sur le moment d'exécution d'un programme sélectionné.

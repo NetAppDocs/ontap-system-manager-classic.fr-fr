@@ -1,0 +1,98 @@
+---
+permalink: online-help-96-97/concept_cifs_protocol.html 
+sidebar: sidebar 
+keywords: cif, protocol, system, manager, enable, configure, server, client, file, cluster, online, help, set up, general, properties, edit 
+summary: 'System Manager peut être utilisé pour activer et configurer les serveurs CIFS de façon à permettre aux clients CIFS d"accéder aux fichiers sur le cluster.' 
+---
+= Configurez le protocole CIFS avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour activer et configurer les serveurs CIFS de façon à permettre aux clients CIFS d'accéder aux fichiers sur le cluster.
+
+
+
+== Configurer CIFS
+
+System Manager peut être utilisé pour activer et configurer les serveurs CIFS de façon à permettre aux clients CIFS d'accéder aux fichiers sur le cluster.
+
+.Avant de commencer
+* La licence CIFS doit être installée sur votre système de stockage.
+* Lors de la configuration de CIFS dans le domaine Active Directory, les conditions suivantes doivent être remplies :
++
+** Le DNS doit être activé et configuré correctement.
+** Le système de stockage doit pouvoir communiquer avec le contrôleur de domaine en utilisant le nom de domaine complet (FQDN).
+** La différence de temps (inclinaison de l'horloge) entre le cluster et le contrôleur de domaine ne doit pas dépasser cinq minutes.
+
+
+* Si CIFS est le seul protocole configuré sur la machine virtuelle de stockage (SVM), les exigences suivantes doivent être respectées :
++
+** Le style de sécurité du volume racine doit être NTFS.
++
+Par défaut, System Manager définit le style de sécurité comme UNIX.
+
+** L'accès superutilisateur doit être défini sur `Any` Pour le protocole CIFS.
+
+
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *Configuration*, cliquez sur *configurer*.
+. Dans l'onglet *général* de la boîte de dialogue Configuration du serveur *CIFS*, spécifiez le nom NetBIOS et les détails du domaine Active Directory.
+. Cliquez sur l'onglet *Options*, puis effectuez les opérations suivantes :
++
+** Dans la zone Paramètres SMB, cochez ou décochez la case signature SMB et la case chiffrement SMB, selon les besoins.
+** Spécifiez l'utilisateur UNIX par défaut.
+** Dans la zone serveurs WINS, ajoutez l'adresse IP requise.
+
+
+. Cliquez sur *configurer*.
+
+
+
+
+== Modifiez les propriétés générales de CIFS
+
+Vous pouvez modifier les propriétés générales de CIFS, par exemple l'utilisateur UNIX par défaut et l'utilisateur Windows par défaut, à l'aide de System Manager. Vous pouvez également activer ou désactiver la signature SMB pour le serveur CIFS.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *Configuration*, cliquez sur *Options*.
+. Dans la boîte de dialogue *Options CIFS*, modifiez les propriétés suivantes du serveur CIFS, comme requis :
++
+** Utilisateur UNIX
+** Utilisateur Windows
+** Adresse IP
+** Activation ou désactivation de la signature SMB
++
+L'activation de la signature SMB empêche la sécurité des données. Cependant, vous pouvez être confronté à une dégradation des performances sous la forme d'une utilisation accrue du CPU, à la fois sur les clients et sur le serveur, bien que le trafic réseau reste le même. Vous pouvez désactiver la signature SMB sur n'importe lequel de vos clients Windows qui ne nécessitent pas de protection contre les attaques de relecture.
+
++
+Pour plus d'informations sur la désactivation de la signature SMB sur les clients Windows, consultez la documentation Microsoft Windows.
+
+** Activez ou désactivez le cryptage SMB 3.0
++
+Vous devez activer SMB Multichannel pour établir plusieurs canaux entre une session SMB 3.0 et des connexions de transport.
+
+
+
+. Cliquez sur *Enregistrer* ou sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:task_creating_cifs_share.adoc[Création d'un partage CIFS]
+
+xref:reference_cifs_window.adoc[Fenêtre CIFS]
+
+xref:task_editing_volume_properties.adoc[Modification des propriétés de volume]
+
+xref:task_modifying_export_policy_rules.adoc[Modification des règles des export-policy]
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["Gestion SMB/CIFS"]

@@ -1,0 +1,117 @@
+---
+permalink: online-help-96-97/reference_cluster_update_window.html 
+sidebar: sidebar 
+keywords: online, help, cluster, update, window, tab, update, command, button, history, tab 
+summary: Vous pouvez utiliser la fenêtre Cluster Update pour effectuer une mise à jour automatique du cluster sans interruption, ou mettre à jour les clusters à un seul nœud sans interruption. 
+---
+= Fenêtre de mise à jour du cluster avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre de mise à jour du cluster pour effectuer une mise à jour automatique du cluster sans interruption, ou mettre à jour des clusters à un seul nœud sans interruption avec ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures).
+
+
+
+== Onglets
+
+* *Mise à jour du cluster*
++
+Permet d'effectuer une mise à jour automatique du cluster sans interruption ou de mettre à jour les clusters à un seul nœud sans interruption.
+
+* *Mettre à jour l'historique*
++
+Affiche les détails des mises à jour précédentes du cluster.
+
+
+
+
+
+== Onglet Cluster Update
+
+L'onglet mise à jour des clusters vous permet d'effectuer une mise à jour automatisée des clusters sans interruption ou de mettre à jour les clusters à un seul nœud sans interruption.
+
+
+
+== Boutons de commande
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+* *Sélectionner*
++
+Vous pouvez sélectionner la version de l'image logicielle pour la mise à jour.
+
++
+** Détails de la version du cluster : affiche la version actuelle du cluster utilisée et les détails de version des nœuds ou des paires haute disponibilité.
+** Images logicielles disponibles : permet de sélectionner une image logicielle existante pour la mise à jour.
++
+Vous pouvez également télécharger une image logicielle depuis le site de support NetApp et ajouter l'image pour la mise à jour.
+
+
+
+* *Valider*
++
+Vous pouvez afficher et valider le cluster en fonction de la version d'image logicielle de la mise à jour. Une validation avant mise à jour vérifie si le cluster est dans un état prêt pour une mise à jour. Si la validation est terminée avec des erreurs, un tableau affiche l'état des différents composants et l'action corrective requise pour les erreurs.
+
++
+Vous ne pouvez effectuer la mise à jour qu'une fois la validation terminée.
+
+* *Mise à jour*
++
+Vous pouvez mettre à jour tous les nœuds du cluster ou une paire haute disponibilité du cluster vers la version sélectionnée de l'image logicielle. Lorsque la mise à jour est en cours, vous pouvez choisir d'interrompre la mise à jour, puis d'annuler ou de reprendre la mise à jour.
+
++
+En cas d'erreur, la mise à jour est mise en pause et un message d'erreur s'affiche avec les étapes de correction. Vous pouvez choisir de reprendre la mise à jour après avoir effectué les étapes correctives ou d'annuler la mise à jour. Une fois la mise à jour terminée, vous pouvez afficher le tableau correspondant au nom du nœud, à l'état de disponibilité et à la version ONTAP.
+
+
+
+
+
+== Onglet mettre à jour l'historique
+
+Affiche des détails sur l'historique des mises à jour du cluster.
+
+
+
+== Mettre à jour la liste Historique
+
+* *Version d'image*
++
+Spécifie la version de l'image ONTAP vers laquelle le nœud sera mis à jour.
+
+* *Mises à jour logicielles installées le*
++
+Indique le type de disque sur lequel les mises à jour sont installées.
+
+* *Statut*
++
+Indique l'état de la mise à jour de l'image logicielle (que la mise à jour ait réussi ou non).
+
+* *Heure de début*
++
+Spécifie l'heure à laquelle la mise à jour a été lancée.
+
+* *Temps d'achèvement*
++
+Spécifie l'heure à laquelle la mise à jour a été terminée.
+
++
+Ce champ est masqué par défaut.
+
+* *Temps nécessaire pour la mise à jour*
++
+Spécifie le temps nécessaire à la fin de la mise à jour.
+
+* *Version précédente*
++
+Spécifie la version ONTAP du nœud avant la mise à jour.
+
+* * Mise à jour de la version*
++
+Spécifie la version ONTAP du nœud après la mise à jour.
+
+

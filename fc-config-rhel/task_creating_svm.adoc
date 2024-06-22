@@ -1,0 +1,81 @@
+---
+permalink: fc-config-rhel/task_creating_svm.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, svm, fc, target, host, access, lun, administration, function, user, cluster, create, create a new svm 
+summary: 'La machine virtuelle de stockage (SVM) fournit la cible FC par l"intermédiaire de laquelle un hôte accède aux LUN. Lorsque vous créez le SVM, vous créez également des interfaces logiques (LIF), ainsi que la LUN et son volume contenant. On peut créer un SVM afin de séparer les fonctions de données et d"administration d"un utilisateur de celles des autres utilisateurs d"un cluster.' 
+---
+= Créer un nouveau SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La machine virtuelle de stockage (SVM) fournit la cible FC par l'intermédiaire de laquelle un hôte accède aux LUN. Lorsque vous créez le SVM, vous créez également des interfaces logiques (LIF), ainsi que la LUN et son volume contenant. On peut créer un SVM afin de séparer les fonctions de données et d'administration d'un utilisateur de celles des autres utilisateurs d'un cluster.
+
+.Avant de commencer
+* Votre structure FC doit être configurée et les ports physiques de votre choix doivent être connectés à la structure.
+
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Sélectionnez *Créer*.
+. Dans la fenêtre *Storage Virtual machine (SVM) Setup*, créer la SVM:
++
+image::../media/svm_setup_details_page_unix_selected_fc_rhel.gif[L'illustration montre la création d'un SVM avec un style de sécurité UNIX]
+
++
+.. Spécifier un nom unique pour le SVM.
++
+Le nom doit être un nom de domaine complet (FQDN) ou suivre une autre convention qui garantit des noms uniques à travers un cluster.
+
+.. Sélectionner l'IPspace auquel la SVM appartiendra.
++
+Si le cluster n'utilise pas plusieurs IPspaces, le « Doubault » est utilisé.
+
+.. Conservez la sélection par défaut du type de volume.
++
+Seuls les volumes FlexVol sont pris en charge par les protocoles SAN.
+
+.. Sélectionnez tous les protocoles pour lesquels vous disposez de licences et que vous pouvez utiliser sur la SVM, même si vous ne souhaitez pas configurer immédiatement tous les protocoles.
++
+Si vous sélectionnez NFS et CIFS lorsque vous créez le SVM, ces deux protocoles peuvent partager les mêmes LIF. L'ajout ultérieur de ces protocoles ne leur permet pas de partager les LIF.
+
++
+Si CIFS est l'un des protocoles que vous avez sélectionnés, le style de sécurité est défini sur NTFS. Sinon, le style de sécurité est défini sur UNIX.
+
+.. Conservez le paramètre de langue par défaut C.UTF-8.
+.. Sélectionner l'agrégat racine souhaité pour contenir le volume root du SVM
++
+L'agrégat pour le volume de données est sélectionné séparément.
+
+.. Sélectionnez *Envoyer et continuer*.
+
+
++
+Le SVM est créé, mais les protocoles ne sont pas encore configurés.
+
+. Si la page *configurer le protocole CIFS/NFS* s'affiche parce que vous avez activé CIFS ou NFS, sélectionnez *Ignorer*, puis configurez CIFS ou NFS ultérieurement.
+. Si la page *configurer le protocole iSCSI* apparaît parce que vous avez activé iSCSI, sélectionnez *Ignorer*, puis configurez iSCSI ultérieurement.
+. Configurez le service FC et créez les LIF, ainsi que la LUN et le volume contenant celui-ci à partir de la page *Configure FC/FCoE Protocol* :
++
+.. Cochez la case *configurer les LIF de données pour FC*.
+.. Entrez `*2*` Dans le champ *LIFs par nœud*.
++
+Chaque nœud requiert deux LIF afin d'assurer la disponibilité et la mobilité des données.
+
+.. Dans la zone *provisioning d'une LUN pour le stockage FCP*, entrez la taille de LUN, le type d'hôte et les WWPN des initiateurs hôtes souhaités.
+.. Sélectionnez *Envoyer et continuer*.
+
+
++
+image::../media/svm_wizard_fc_details_linux.gif[L'illustration représente l'étape 4 de l'assistant d'installation du SVM : remplissage des détails FC.]
+
+. Lorsque *SVM Administration* apparaît, configurer ou reporter la configuration d'un administrateur distinct pour ce SVM :
++
+** Sélectionnez *Ignorer* et configurez un administrateur ultérieurement si vous le souhaitez.
+** Entrez les informations requises, puis sélectionnez *Envoyer et continuer*.
+
+
+. Consultez la page *Résumé*, enregistrez les informations du LIF, puis sélectionnez *OK*.
+

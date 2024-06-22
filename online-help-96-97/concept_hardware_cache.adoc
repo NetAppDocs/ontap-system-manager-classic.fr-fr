@@ -1,0 +1,90 @@
+---
+permalink: online-help-96-97/concept_hardware_cache.html 
+sidebar: sidebar 
+keywords: hardware, cache, system, manager, manage, online, help, flash, 
+summary: Vous pouvez utiliser System Manager pour gérer les modules de cache matériel. 
+---
+= Gérez le cache matériel avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les modules de cache matériel.
+
+[NOTE]
+====
+Flash cache est connu sous le nom de cache matériel dans System Manager.
+
+====
+
+
+== Activer ou désactiver les modules Flash cache
+
+Vous pouvez activer ou désactiver la fonctionnalité de cache externe pour un système de stockage sur lequel un module Flash cache est installé à l'aide de System Manager. Vous pouvez activer des modules Flash cache en fonction des exigences des charges de travail de votre système de stockage.
+
+.Étapes
+. Cliquez sur *Configuration* > *cache matériel*
+. Si vous souhaitez modifier un ou plusieurs modules, déplacez le curseur pour activer ou désactiver chaque module, selon les besoins.
+
+
+
+
+== Fonctionnement des modules Flash cache
+
+L'utilisation de modules Flash cache améliore les performances d'un système de stockage. L'impact de l'utilisation de modules Flash cache s'affiche dans la fenêtre Hardware cache.
+
+Vous pouvez configurer des modules et des disques Flash cache en fonction des charges de travail requises par un système de stockage. En déterminant la charge de travail de lecture (nombre d'opérations de lecture) traitée par les modules et les disques Flash cache, vous pouvez analyser les performances du système de stockage.
+
+Les modules Flash cache ne contiennent aucune donnée lors du démarrage du système de stockage ou lorsque le contrôle est renvoyé au système de stockage après un événement de basculement. Par conséquent, les disques servent toutes les demandes de lecture de données du système de stockage.
+
+Le module Flash cache contient lentement des données lorsque les demandes de lecture de données sont traitées. Les demandes de lecture de données servies par les modules Flash cache sont plus rapides que celles servies par les disques, ce qui améliore les performances du système de stockage.
+
+Les demandes de lecture des données servies par le module Flash cache remplacent les demandes de lecture des données servies par les disques. Par conséquent, l'amélioration des performances du système de stockage est directement liée aux lectures de disques remplacées. Pour comprendre l'impact des modules Flash cache sur les performances du système de stockage, vous devez afficher le graphique des charges de travail de lecture dans la fenêtre Hardware cache lorsque le module Flash cache contient des données.
+
+
+
+== Fenêtre Hardware cache
+
+Vous pouvez utiliser la fenêtre Hardware cache pour activer ou désactiver les modules Flash cache pour un système de stockage sur lequel un module Flash cache est installé. Vous pouvez également afficher les statistiques relatives à la lecture de la charge de travail.
+
+
+
+=== Informations sur le module
+
+* *Nom du système de stockage*
++
+Le nom du système de stockage sur lequel un module Flash cache est installé s'affiche sous le graphique.
+
+* *Bouton bascule Activer/Désactiver*
++
+Déplacez le bouton à bascule pour activer ou désactiver le module.
+
+* *Taille*
++
+Taille du module en gigaoctets. Si plusieurs cartes de module Flash cache sont disponibles, la taille totale du cache de toutes les cartes s'affiche.
+
++
+[NOTE]
+====
+La taille du module Flash cache affichée diffère de la taille réelle pour les raisons suivantes :
+    - System Manager indique uniquement la capacité utilisable fournie par ONTAP.
+    - Une partie de la capacité totale est réservée au stockage des métadonnées.
+
+====
+* *Noms de modèles*
++
+Noms des modèles des modules.
+
+* * Latence de lecture du système*
++
+Affiche la latence de lecture moyenne en millisecondes.
+
+
+
+
+
+=== Charge de travail en lecture du cache
+
+Indique les performances du système de stockage grâce à l'affichage d'un graphique indiquant le taux de la charge de travail de lecture traitée par les disques et le module Flash cache.

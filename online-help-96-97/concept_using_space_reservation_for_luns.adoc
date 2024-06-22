@@ -1,0 +1,22 @@
+---
+permalink: online-help-96-97/concept_using_space_reservation_for_luns.html 
+sidebar: sidebar 
+keywords: understand, space, reservation, lun, volume, guarantee, online, help 
+summary: 'La compréhension du paramètre de réservation d"espace (associé à la garantie du volume) affecte la manière dont l"espace est réservé aux LUN vous aide à comprendre les conséquences de la désactivation des réservations d"espace et pourquoi certaines combinaisons de paramètres LUN et volume ne sont pas utiles.' 
+---
+= Présentation des réservations d'espace pour les LUN dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La compréhension du paramètre de réservation d'espace (associé à la garantie du volume) dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) affecte la manière dont l'espace est réservé aux LUN, ce qui vous permet de comprendre les conséquences de la désactivation des réservations d'espace. Il vous aide également à comprendre pourquoi certaines combinaisons de paramètres de LUN et de volume ne sont pas utiles.
+
+Lorsqu'une LUN a activé les réservations d'espace (une LUN réservée à l'espace) et que son volume contenant est garanti, l'espace libre du volume est mis de côté pour la LUN au moment de sa création. La taille de cet espace réservé est régie par la taille de la LUN. Cet espace ne permet pas d'utiliser d'autres objets de stockage du volume (autres LUN, fichiers, copies Snapshot, etc.).
+
+Lorsqu'une LUN a des réservations d'espace désactivées (une LUN non réservée à l'espace), aucun espace n'est réservé pour cette LUN au moment de sa création. Le stockage requis par toute opération d'écriture vers la LUN est alloué depuis le volume lorsqu'il est nécessaire, à condition que l'espace disponible soit suffisant.
+
+Si une LUN réservée à l'espace est créée dans un volume non garanti, la LUN se comporte de la même manière qu'une LUN non réservée à l'espace. En effet, un volume sans garantie n'a pas d'espace à allouer à la LUN ; le volume lui-même ne peut allouer de l'espace que lors de son écriture, car il n'est pas garanti. Il n'est donc pas recommandé de créer une LUN réservée à l'espace dans un volume sans garantie. Utiliser cette combinaison de configuration peut fournir des garanties d'écriture qui sont réellement impossibles.
+
+Lorsque la réserve d'espace est définie sur "par défaut", les paramètres de réservation d'espace ONTAP s'appliquent aux LUN. Les paramètres de réservation d'espace ONTAP s'appliquent également aux volumes conteneurs si de nouveaux volumes sont créés.

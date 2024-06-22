@@ -1,0 +1,270 @@
+---
+permalink: online-help-96-97/reference_luns_window.html 
+sidebar: sidebar 
+keywords: online, help, lun, management, window, command, button, initiator, portset, group, online, help 
+summary: 'Vous pouvez utiliser la fenêtre LUN pour créer et gérer des LUN, et pour afficher les informations relatives aux LUN. Vous pouvez également ajouter, modifier ou supprimer des groupes initiateurs et des ID d"initiateurs.' 
+---
+= Fenêtre des LUN dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser la fenêtre LUN dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et version antérieure) pour créer et gérer des LUN et afficher des informations sur les LUN. Vous pouvez également ajouter, modifier ou supprimer des groupes initiateurs et des ID d'initiateurs.
+
+
+
+== Onglet gestion des LUN
+
+Cet onglet vous permet de créer, cloner, supprimer, déplacer ou modifier les paramètres des LUN. Vous pouvez également attribuer des LUN à un groupe de règles de qualité de service (QoS) du stockage.
+
+
+
+== Boutons de commande
+
+* *Créer*
++
+Ouvre l'assistant de création de LUN, qui permet de créer des LUN.
+
++
+Dans un cluster sur une plateforme AFF qui ne contient aucune LUN existante, la boîte de dialogue Créer des LUN optimisées pour le SAN FC s'ouvre, ce qui vous permet de configurer une ou plusieurs LUN optimisées pour le SAN FC.
+
+* *Clone*
++
+Ouvre la boîte de dialogue Cloner la LUN, qui vous permet de cloner les LUN sélectionnées.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier LUN, qui permet de modifier les paramètres de la LUN sélectionnée.
+
+* *Supprimer*
++
+Supprime la LUN sélectionnée.
+
+* *Statut*
++
+Permet de modifier le statut de la LUN sélectionnée en ligne ou hors ligne.
+
+* *Déplacer*
++
+Ouvre la boîte de dialogue Move LUN (déplacer LUN), qui permet de déplacer le LUN sélectionné vers un nouveau volume ou un volume existant ou qtree au sein du même SVM (Storage Virtual machine).
+
+* *QoS de stockage*
++
+Ouvre la boîte de dialogue Détails de la qualité de service, qui permet d'affecter une ou plusieurs LUN à un groupe de règles nouveau ou existant.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+== Liste des LUN
+
+* *Nom*
++
+Affiche le nom de la LUN.
+
+* *SVM*
++
+Affiche le nom du serveur virtuel de stockage (SVM) dans lequel la LUN est créée.
+
+* *Chemin du conteneur*
++
+Affiche le nom du système de fichiers (volume ou qtree) qui contient la LUN.
+
+* *Réservation d'espace*
++
+Indique si la réservation d'espace est activée ou désactivée.
+
+* *Taille disponible*
++
+Affiche l'espace disponible dans la LUN.
+
+* *Taille totale*
++
+Affiche l'espace total de la LUN.
+
+* *%utilisé*
++
+Affiche l'espace total (en pourcentage) utilisé.
+
+* *Type*
++
+Spécifie le type de LUN.
+
+* *Statut*
++
+Spécifie le statut de la LUN.
+
+* *Groupe de politiques*
++
+Affiche le nom du groupe de règles de QoS de stockage auquel la LUN est affectée. Par défaut, cette colonne est masquée.
+
+* *Application*
++
+Affiche le nom de l'application affectée à la LUN.
+
+* *Description*
++
+Affiche la description de la LUN.
+
+
+
+
+
+== Zone de détails
+
+La zone située sous la liste LUN affiche les détails relatifs à la LUN sélectionnée.
+
+* *Onglet Détails*
++
+Affiche des détails relatifs à la LUN comme le numéro de série de la LUN, que la LUN soit un clone, la description de la LUN, le groupe de règles auquel elle est attribuée, le débit minimal du groupe de règles, le débit maximal du groupe de règles, les détails de l'opération de déplacement de LUN, Et l'application affectée à la LUN. Vous pouvez également afficher des informations détaillées sur les groupes initiateurs et les initiateurs associés à la LUN sélectionnée.
+
+* *Onglet performances*
++
+Affiche les graphiques de performances des LUN, y compris le taux de données, les IOPS et le temps de réponse.
+
++
+La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Mettez à jour votre navigateur pour afficher les graphiques mis à jour.
+
+
+
+
+
+== Onglet groupes initiateurs
+
+Cet onglet vous permet de créer, de supprimer ou de modifier les paramètres des groupes initiateurs et des ID d'initiateurs.
+
+
+
+== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un groupe initiateur qui vous permet de créer des groupes initiateurs pour contrôler l'accès des hôtes à des LUN spécifiques.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le groupe initiateur qui vous permet de modifier les paramètres du groupe initiateur sélectionné.
+
+* *Supprimer*
++
+Supprime le groupe initiateur sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+== Liste des groupes initiateurs
+
+* *Nom*
++
+Affiche le nom du groupe initiateur.
+
+* *Type*
++
+Spécifie le type de protocole pris en charge par le groupe initiateur. Les protocoles pris en charge sont les suivants : iSCSI, FC/FCoE ou mixte (iSCSI et FC/FCoE).
+
+* *Système d'exploitation*
++
+Spécifie le système d'exploitation pour le groupe initiateur.
+
+* *Ensemble de ports*
++
+Affiche l'ensemble de ports associé au groupe initiateur.
+
+* *Nombre initiateur*
++
+Affiche le nombre d'initiateurs ajoutés au groupe initiateur.
+
+
+
+
+
+== Zone de détails
+
+La zone située sous la liste des groupes initiateurs affiche les informations détaillées sur les initiateurs ajoutés au groupe initiateur sélectionné et les LUN mappées sur le groupe initiateur.
+
+
+
+== Onglet ensembles de ports
+
+Cet onglet vous permet de créer, de supprimer ou de modifier les paramètres des ensembles de ports.
+
+
+
+== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un ensemble de ports, qui vous permet de créer des ensembles de ports pour limiter l'accès à vos LUN.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'ensemble de ports, qui vous permet de sélectionner les interfaces réseau que vous souhaitez associer à l'ensemble de ports.
+
+* *Supprimer*
++
+Supprime l'ensemble de ports sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+== Liste ensembles de ports
+
+* *Nom de l'ensemble de ports*
++
+Affiche le nom de l'ensemble de ports.
+
+* *Type*
++
+Spécifie le type de protocole pris en charge par l'ensemble de ports. Les protocoles pris en charge sont les suivants : iSCSI, FC/FCoE ou mixte (iSCSI et FC/FCoE).
+
+* *Nombre d'interfaces*
++
+Affiche le nombre d'interfaces réseau associées à l'ensemble de ports.
+
+* *Nombre de groupes initiateurs*
++
+Affiche le nombre de groupes initiateurs associés à l'ensemble de ports.
+
+
+
+
+
+== Zone de détails
+
+La zone située sous la liste ensembles de ports affiche des détails sur les interfaces réseau et les groupes initiateurs associés à l'ensemble de ports sélectionné.
+
+*Informations connexes*
+
+xref:task_creating_luns.adoc[Création des LUN]
+
+xref:task_deleting_luns.adoc[Suppression des LUN]
+
+xref:task_creating_initiator_groups.adoc[Création de groupes initiateurs]
+
+xref:task_editing_luns.adoc[Modification des LUN]
+
+xref:task_editing_initiator_groups.adoc[Modification des groupes initiateurs]
+
+xref:task_editing_initiators.adoc[Modification des initiateurs]
+
+xref:task_bringing_luns_online.adoc[Mise en ligne des LUN]
+
+xref:task_taking_luns_offline.adoc[Mise hors ligne des LUN]
+
+xref:task_cloning_luns.adoc[Clonage des LUN]

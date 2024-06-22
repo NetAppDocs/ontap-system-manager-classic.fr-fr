@@ -1,0 +1,43 @@
+---
+permalink: online-help-96-97/concept_how_volume_guarantees_work_for_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: volume, guarantee, work, flexvol, volume, space, preallocated, aggregate, online, help 
+summary: 'Les garanties de volume (parfois appelées garanties d"espace) déterminent la manière dont l"espace d"un volume est alloué à partir de son agrégat contenant, que l"espace soit préalloué ou non au volume.' 
+---
+= À propos des garanties de volumes pour les volumes FlexVol avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez définir des garanties de volumes pour les volumes FlexVol avec System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures). Les garanties de volumes (parfois appelées _garanties d'espace_) déterminent la manière dont l'espace d'un volume est alloué à partir de son agrégat contenant, que l'espace soit préalloué ou non au volume.
+
+La garantie est un attribut du volume.
+
+Vous définissez la garantie lorsque vous créez un volume. Vous pouvez également modifier la garantie d'un volume existant, à condition que suffisamment d'espace libre soit disponible pour respecter la nouvelle garantie.
+
+Il est possible de types de garantie de volume `volume` (type par défaut) ou `none`.
+
+* Un type de garantie de `volume` alloue de l'espace à l'agrégat pour le volume entier lorsque vous créez le volume, que cet espace soit encore utilisé pour les données.
++
+L'espace alloué ne peut pas être fourni ou alloué à un autre volume de cet agrégat.
+
+* Une garantie de `none` alloue de l'espace à l'agrégat uniquement en fonction des besoins du volume.
++
+La quantité d'espace consommée par les volumes avec ce type de garantie augmente à mesure que les données sont ajoutées au lieu de être déterminées par la taille du volume initial, qui peut laisser de l'espace inutilisé si les données du volume n'augmentent pas à cette taille. Taille maximale d'un volume avec la garantie de `none` n'est pas limité par la quantité d'espace libre dans son agrégat. Il est possible que la taille totale de tous les volumes associés à un agrégat dépasse la quantité d'espace libre pour l'agrégat, bien que la quantité d'espace qui peut être utilisée soit limitée par la taille de l'agrégat.
+
++
+Les écritures dans les LUN ou les fichiers (y compris les LUN et les fichiers réservés à l'espace) contenus par ce volume peuvent échouer si l'agrégat contenant ne dispose pas d'un espace disponible suffisant pour permettre l'écriture.
+
+
+
+Lorsqu'un espace dans l'agrégat est alloué à un `volume` garantir un volume existant, cet espace n'est plus considéré comme libre dans l'agrégat, même si l'espace du volume n'est pas encore utilisé. Les opérations qui consomment de l'espace libre dans l'agrégat, comme la création de copies Snapshot d'agrégat ou la création de nouveaux volumes dans l'agrégat contenant, peuvent se produire uniquement si l'espace disponible est suffisant dans cet agrégat. Ces opérations ne peuvent pas utiliser l'espace déjà alloué à un autre volume.
+
+Lorsque l'espace libre d'un agrégat est épuisé, seules les écritures sur des volumes ou des fichiers de cet agrégat avec l'espace pré-alloué sont garanties.
+
+Les garanties sont uniquement honorées pour les volumes en ligne. Si vous mettez un volume hors ligne, tout espace alloué mais inutilisé pour ce volume est disponible pour les autres volumes de cet agrégat. Lorsque vous tentez de remettre en ligne ce volume, l'espace disponible dans l'agrégat est insuffisant pour remplir sa garantie, il restera hors ligne. Vous devez forcer le volume en ligne, à ce stade la garantie du volume sera désactivée.
+
+*Informations connexes*
+
+http://www.netapp.com/us/media/tr-3965.pdf["Rapport technique de NetApp 3965 : Data ONTAP 8.1 (7-mode) pour le déploiement et l'implémentation du provisionnement fin NetApp"^]

@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/task_enabling_storage_efficiency_on_volume.html 
+sidebar: sidebar 
+keywords: system, manager, enable, storage, efficiency, volume, deduplication, online, help 
+summary: 'System Manager peut être utilisé pour optimiser l"efficacité du stockage et pour configurer la déduplication et la compression des données, ou uniquement la déduplication d"un volume, afin d"économiser de l"espace de stockage. Si vous n"avez pas activé l"efficacité du stockage lors de la création du volume, vous pouvez le faire ultérieurement en éditant le volume.' 
+---
+= Efficacité du stockage sur un volume avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous souhaitez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures), vous pouvez activer l'efficacité du stockage et configurer la déduplication et la compression des données, ou uniquement la déduplication sur un volume, afin d'économiser de l'espace de stockage. Si vous n'avez pas activé l'efficacité du stockage lors de la création du volume, vous pouvez le faire ultérieurement en éditant le volume.
+
+.Avant de commencer
+* Le volume doit être en ligne.
+* Si vous voulez utiliser un planning de déduplication basé sur des règles, vous devez avoir créé une règle d'efficacité.
+
+
+.Description de la tâche
+* Vous ne pouvez activer la compression en arrière-plan que si la déduplication en arrière-plan est activée.
+* Vous pouvez activer la compression et la déduplication à la volée avec ou sans activer respectivement la compression en arrière-plan et la déduplication en arrière-plan.
+* Vous pouvez activer la déduplication à la volée uniquement sur les volumes contenus par un agrégat avec une personnalité optimisée pour la technologie Flash et sur les volumes contenus par un agrégat Flash Pool.
+* Depuis System Manager 9.6, les volumes FlexGroup DP prennent en charge l'efficacité du stockage.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume pour lequel vous souhaitez activer l'efficacité du stockage, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le volume*, cliquez sur *efficacité du stockage*.
+. Cochez la case *Background Deduplication*.
+. Sélectionnez l'une des méthodes suivantes pour exécuter la déduplication :
++
+|===
+| Pour exécuter la déduplication... | Alors... 
+
+
+ a| 
+Basé sur une règle d'efficacité du stockage
+ a| 
+.. Assurez-vous que l'option *basé sur la stratégie* est sélectionnée.
+.. Cliquez sur *choisir*, puis sélectionnez une stratégie d'efficacité du stockage.
+.. Cliquez sur *OK*.
+
+
+
+
+ a| 
+Si nécessaire
+ a| 
+Sélectionnez l'option *On-Demand*.
+
+|===
+. Cochez la case *compression d'arrière-plan* pour activer la compression d'arrière-plan.
++
+Vous ne pouvez pas activer la compression en arrière-plan pour un volume contenu par un agrégat doté d'une personnalité optimisée pour la technologie Flash.
+
+. Cochez la case *Inline compression* pour compresser les données pendant leur écriture sur le volume.
++
+Par défaut, la compression à la volée est activée sur les volumes contenus dans un agrégat doté d'une configuration 100 % Flash optimisée.
+
+. Cochez la case *Inline Deduplication* pour exécuter la déduplication avant que les données ne soient écrites sur le disque.
++
+Par défaut, la déduplication à la volée est activée sur les volumes contenu par un agrégat doté d'une personnalité optimisée pour la technologie Flash.
+
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

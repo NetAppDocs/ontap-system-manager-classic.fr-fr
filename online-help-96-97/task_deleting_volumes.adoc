@@ -1,0 +1,49 @@
+---
+permalink: online-help-96-97/task_deleting_volumes.html 
+sidebar: sidebar 
+keywords: online, help, delete, volumes, system, manager, flexvol, volume 
+summary: 'Vous pouvez utiliser System Manager pour supprimer un volume FlexVol si vous n"avez plus besoin des données d"un volume ou si vous avez copié les données d"un volume vers un autre emplacement. Lorsque vous supprimez un volume, toutes les données du volume sont détruites et vous ne pouvez pas restaurer ces données.' 
+---
+= Supprimez des volumes avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour supprimer un volume FlexVol lorsque vous n'avez plus besoin des données qu'un volume contient ou si vous avez copié les données qu'un volume contient vers un autre emplacement. Lorsque vous supprimez un volume, toutes les données du volume sont détruites et vous ne pouvez pas restaurer ces données.
+
+.Avant de commencer
+Les conditions suivantes doivent être réunies avant de supprimer un volume FlexVol :
+
+* Le volume doit être démonté et doit être mis hors ligne.
+* Les volumes FlexClone doivent être séparés du volume parent ou détruits si le volume FlexVol est cloné.
+* Les relations SnapMirror doivent être supprimées si le volume se trouve dans une ou plusieurs relations SnapMirror.
+
+
+.Description de la tâche
+Lors de la suppression d'un volume FlexVol, vous devez tenir compte des limitations suivantes :
+
+* Vous pouvez supprimer un volume SnapLock Enterprise complet ou un fichier d'un volume SnapLock Enterprise. Cependant, vous ne pouvez pas supprimer uniquement les données d'un fichier d'un volume SnapLock Enterprise.
+* Vous ne pouvez pas supprimer un volume SnapLock Compliance si des données sont allouées au volume.
+* Si le FlexVol contient à la fois des qtrees et des volumes, les qtrees apparaissent comme des répertoires. Veillez à ne pas supprimer les qtrees par erreur lors de la suppression de volumes.
+* Si vous avez associé des volumes FlexCache à un volume d'origine, vous devez supprimer les volumes FlexCache avant de pouvoir supprimer le volume d'origine.
+
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez la machine virtuelle de stockage (SVM) dans laquelle réside le volume à supprimer.
+. Sélectionnez les volumes à supprimer.
++
+[NOTE]
+====
+Vérifiez que vous avez sélectionné les volumes à supprimer. Lorsque vous supprimez un volume, toutes les données du volume sont détruites et vous ne pouvez pas restaurer ces données.
+
+====
+. Cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

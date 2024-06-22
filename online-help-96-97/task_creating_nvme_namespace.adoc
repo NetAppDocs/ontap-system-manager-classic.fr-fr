@@ -1,0 +1,51 @@
+---
+permalink: online-help-96-97/task_creating_nvme_namespace.html 
+sidebar: sidebar 
+keywords: system, manager, create, nvme, namespace, svm, logical, blocks, online, help 
+summary: 'Il est possible d"utiliser System Manager pour créer un ou plusieurs espaces de noms NVMe et de les connecter à un hôte ou un ensemble d"hôtes d"une machine virtuelle de stockage (SVM). L"espace de noms NVMe est une quantité de mémoire pouvant être formatée dans des blocs logiques. Chaque espace de noms peut être mappé sur un sous-système NVMe.' 
+---
+= Créez un namespace NVMe avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer un ou plusieurs espaces de noms NVMe et les connecter à un hôte ou un ensemble d'hôtes d'une machine virtuelle de stockage (SVM). L'espace de noms NVMe est une quantité de mémoire pouvant être formatée dans des blocs logiques. Chaque espace de noms peut être mappé sur un sous-système NVMe.
+
+.Avant de commencer
+La SVM doit déjà être configurée avec le protocole NVMe. Pour mapper un namespace, il faut au moins une LIF avec le protocole de données NVMe doit exister sur le nœud qui possède le namespace.
+
+.Étapes
+. Cliquez sur *Storage* > *NVMe* > *NVMe namespaces*.
+. Sélectionner le SVM qui contiendra le namespace.
+. S'assurer qu'au moins une LIF NVMe est configurée pour chaque nœud de la paire HA. Vous pouvez créer un maximum de deux LIF NVMe par nœud.
+. Configurez la taille de l'espace de noms (entre 1 Mo et 16 To).
+. Indiquez la taille de bloc.
++
+Pour System Manager 9.5, la taille de bloc est par défaut de 4 Ko, et ce champ n'est pas affiché.
+
++
+Pour System Manager 9.6, vous pouvez spécifier une taille de bloc de 4 Ko ou 512 octets.
+
+. Sélectionner le volume existant ou créer un volume en choisissant l'agrégat.
++
+Cliquer sur le symbole + pour configurer des espaces de noms supplémentaires (max 250) au sein du SVM.
+
+. Sélectionnez le sous-système NVMe qui sera associé à cet espace de nom.
++
+Vous pouvez choisir parmi les options suivantes :
+
++
+** Aucun : aucun sous-système n'est mappé.
+** Utiliser un sous-système existant : les sous-systèmes répertoriés sont basés sur le SVM sélectionné.
+** Créer un nouveau sous-système : vous pouvez choisir de créer un nouveau sous-système et de le mapper à tous les nouveaux espaces de noms.
+
+
+. Sélectionnez le système d'exploitation hôte.
+. Cliquez sur *soumettre*.
+
+
+*Informations connexes*
+
+xref:reference_nvme_namespaces_window.adoc[Fenêtre d'espaces de noms NVMe]

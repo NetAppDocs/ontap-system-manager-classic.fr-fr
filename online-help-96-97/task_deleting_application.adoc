@@ -1,0 +1,42 @@
+---
+permalink: online-help-96-97/task_deleting_application.html 
+sidebar: sidebar 
+keywords: delete, application, provisioned 
+summary: 'Vous pouvez supprimer une application provisionnée lorsque celle-ci n"est plus nécessaire.' 
+---
+= Supprimez une application avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de supprimer une application provisionnée lorsqu'elle n'est plus nécessaire.
+
+.Description de la tâche
+En tant qu'administrateur de cluster, vous pouvez le supprimer lorsque vous n'en avez plus besoin. L'exemple suivant décrit comment supprimer une application *conteneur NAS*.
+
+.Étapes
+. Cliquez sur *applications et niveaux* > *applications*
+. Cliquez sur le nom de l'application conteneur NAS.
++
+[NOTE]
+====
+Si quelqu'un ajoute de nouvelles applications via l'interface de ligne de commande ou l'API REST pendant que vous affichez la liste des applications, vous ne pourrez pas afficher ces nouvelles applications lorsque vous faites défiler la liste.
+
+====
++
+L'onglet *Présentation* de la fenêtre Détails de l'application : nas affiche les paramètres de l'application.
+
+. Cliquez sur *Supprimer*.
++
+Une boîte de dialogue affiche un message d'avertissement vous demandant si vous êtes sûr de vouloir supprimer cette application.
+
+. Cliquez sur *Supprimer*.
++
+[NOTE]
+====
+Tout volume supprimé via l'opération de suppression d'application n'est pas placé dans la file d'attente de récupération. Le volume a été supprimé immédiatement.
+
+====
+

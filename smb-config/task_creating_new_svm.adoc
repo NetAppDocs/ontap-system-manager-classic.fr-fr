@@ -1,0 +1,140 @@
+---
+permalink: smb-config/task_creating_new_svm.html 
+sidebar: sidebar 
+keywords: wizard, process, creating, create, storage, virtual, machine, svm, domain, name, system, dns, logical, interface, lif, configuring, configure, cifs, server, creating, create, sharing, share, volume, create a new svm with a cifs volume and share 
+summary: 'Vous pouvez utiliser un assistant qui vous guide tout au long du processus de création d"un serveur SVM (Storage Virtual machine), de configuration de DNS (Domain Name System), de création d"une interface LIF (Data Logical interface), de configuration d"un serveur CIFS, et de création et de partage d"un volume.' 
+---
+= Créez un nouveau SVM avec un volume et un partage CIFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser un assistant qui vous guide tout au long du processus de création d'un serveur SVM (Storage Virtual machine), de configuration de DNS (Domain Name System), de création d'une interface LIF (Data Logical interface), de configuration d'un serveur CIFS, et de création et de partage d'un volume.
+
+.Avant de commencer
+* Votre réseau doit être configuré et les ports physiques correspondants doivent être connectés au réseau.
+* Vous devez connaître les composants réseau suivants que la SVM utilisera :
++
+** Le nœud et le port spécifique sur ce nœud où sera créée l'interface logique de données (LIF)
+** Le sous-réseau à partir duquel l'adresse IP de la LIF de données sera provisionnée, ou éventuellement l'adresse IP spécifique que vous souhaitez attribuer à la LIF de données
+** Active Directory domaine (AD) que ce SVM rejoindra, ainsi que les informations d'identification requises pour y ajouter le SVM
+
+
+* Le sous-réseau doit être routable vers tous les serveurs externes requis pour des services tels que NIS (Network information Service), LDAP (Lightweight Directory Access Protocol), Active Directory (AD) et DNS.
+* Tout pare-feu externe doit être configuré de manière appropriée pour permettre l'accès aux services réseau.
+* L'heure sur les contrôleurs de domaine AD, les clients et le SVM doit être synchronisée dans les cinq minutes qui suivent l'un l'autre.
+
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur *Créer.*
+. Dans la boîte de dialogue *Storage Virtual machine (SVM) Setup* (Configuration de l'ordinateur virtuel de stockage (SVM) :
++
+.. Spécifier un nom unique pour le SVM.
++
+Le nom doit être un nom de domaine complet (FQDN) ou suivre une autre convention qui garantit des noms uniques à travers un cluster.
+
+.. Sélectionner tous les protocoles pour lesquels vous disposez de licences et que vous pourrez utiliser ultérieurement sur la SVM, même si vous ne souhaitez pas configurer immédiatement tous les protocoles.
++
+Si l'accès NFS est requis par la suite, vous devez sélectionner *NFS* maintenant de sorte que les clients CIFS et NFS puissent partager la même LIF de données.
+
+.. Conservez le paramètre de langue par défaut, C.UTF-8.
++
+[NOTE]
+====
+Si vous prenez en charge l'affichage international des caractères dans les clients NFS et SMB/CIFS, utilisez le code de langue *UTF8MB4*, disponible à partir de ONTAP 9.5.
+
+====
++
+Cette langue est héritée par le volume que vous créez ultérieurement et la langue d'un volume ne peut pas être modifiée.
+
+.. *Facultatif* : sélectionner l'agrégat root pour contenir le volume root du SVM.
++
+L'agrégat que vous sélectionnez pour le volume root ne détermine pas l'emplacement du volume de données. L'agrégat du volume de données est sélectionné automatiquement lorsque vous provisionnez le stockage à une étape ultérieure.
+
++
+image::../media/svm_setup_details_page_ntfs_selected_smb.gif[Ce graphique est expliqué par le texte environnant.]
+
+.. *Facultatif* : dans la zone *DNS Configuration*, assurez-vous que le domaine de recherche DNS par défaut et les serveurs de noms sont ceux que vous souhaitez utiliser pour ce SVM.
++
+image::../media/svm_setup_details_dns_smb.gif[Ce graphique est expliqué par le texte environnant.]
+
+.. Cliquez sur *Envoyer et continuer*.
+
+
++
+Le SVM est créé, mais les protocoles ne sont pas encore configurés.
+
+. Dans la section *Data LIF Configuration* de la page *Configure CIFS/NFS Protocol*, spécifier les détails de la LIF que les clients utiliseront pour accéder aux données :
++
+.. Attribuez automatiquement une adresse IP à la LIF à partir d'un sous-réseau que vous spécifiez ou saisissez manuellement l'adresse.
+.. Cliquez sur *Browse* et sélectionnez un nœud et un port qui seront associés à la LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_smb.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
+. Dans la section *CIFS Server Configuration*, définissez le serveur CIFS et configurez-le pour accéder au domaine AD :
++
+.. Spécifiez un nom pour le serveur CIFS unique dans le domaine AD.
+.. Spécifiez le FQDN du domaine AD auquel le serveur CIFS peut se joindre.
+.. Si vous souhaitez associer une unité organisationnelle (ou) au sein du domaine AD autre que CN=Computers, entrez l'UO.
+.. Spécifiez le nom et le mot de passe d'un compte administratif disposant de privilèges suffisants pour ajouter le serveur CIFS à l'UO.
+.. Si vous souhaitez éviter tout accès non autorisé à tous les partages de ce SVM, sélectionner l'option de chiffrement des données à l'aide de SMB 3.0.
+
+
++
+image::../media/svm_setup_cifs_nfs_page_cifs_ad_smb.gif[Ce graphique est décrit par le texte environnant.]
+
+. Créer un volume pour l'accès CIFS/SMB et provisionner un partage sur celui-ci :
++
+.. Nommez le partage que les clients CIFS/SMB utiliseront pour accéder au volume.
++
+Le nom que vous saisissez pour le partage sera également utilisé comme nom de volume.
+
+.. Spécifiez une taille pour le volume.
++
+image::../media/svm_setup_cifs_nfs_page_cifs_share_smb.gif[Capture d'écran de la zone dans laquelle vous configurez le partage CIFS]
+
+
+
++
+Il n'est pas nécessaire de préciser l'agrégat du volume, car il est automatiquement situé sur l'agrégat disposant de l'espace le plus disponible.
+
+. *Facultatif* : limitez l'accès au partage en modifiant la liste de contrôle d'accès du partage :
++
+.. Dans le champ *permission*, cliquez sur *Modifier*.
+.. Sélectionnez le groupe tout le monde, puis cliquez sur *Supprimer*.
+.. *Facultatif* : cliquez sur *Ajouter*, puis entrez le nom d'un groupe d'administrateurs défini dans le domaine Windows Active Directory qui inclut le SVM.
+.. Sélectionnez le nouveau groupe d'administrateurs, puis *contrôle complet*.
+.. Cliquez sur *Enregistrer et fermer*.
+
+
+. Cliquez sur *Envoyer et continuer*.
++
+Les objets suivants sont créés :
+
++
+** Une LIF de données nommée d'après le SVM avec le suffixe «`_cifs_lif1' »
+** Un serveur CIFS qui fait partie du domaine AD
+** Un volume situé sur l'agrégat disposant de l'espace le plus disponible et portant un nom qui correspond au nom du partage et se termine par le suffixe «`_CIFS_volume' »
+** Un partage sur le volume
+
+
+. Pour toutes les autres pages de configuration de protocole affichées, cliquez sur *Ignorer* et configurez le protocole ultérieurement.
+. Lorsque la page *SVM Administration* est affichée, configurer ou reporter la configuration d'un administrateur distinct pour ce SVM :
++
+** Cliquez sur *Ignorer* et configurez un administrateur ultérieurement, si nécessaire.
+** Entrez les informations requises, puis cliquez sur *Envoyer et continuer*.
+
+
+. Consultez la page *Résumé*, enregistrez toutes les informations dont vous pourriez avoir besoin ultérieurement, puis cliquez sur *OK*.
++
+L'administrateur DNS doit connaître le nom du serveur CIFS et l'adresse IP de la LIF de données. Les clients Windows doivent connaître les noms du serveur CIFS et du partage.
+
+
+
+.Résultats
+Un nouveau SVM est créé avec un serveur CIFS contenant un nouveau volume partagé.

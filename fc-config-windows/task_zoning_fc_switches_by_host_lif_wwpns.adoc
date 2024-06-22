@@ -1,0 +1,44 @@
+---
+permalink: fc-config-windows/task_zoning_fc_switches_by_host_lif_wwpns.html 
+sidebar: sidebar 
+keywords: zone, zoning, fc, switch, enable, host, connect, storage, limit, path, management, interface, zone the fc switches by the host and lif wwpns 
+summary: 'La segmentation des commutateurs FC permet aux hôtes de se connecter au stockage et limite le nombre de chemins. Vous pouvez segmenter les commutateurs à l"aide de l"interface de gestion des commutateurs.' 
+---
+= Segmenter les switchs FC par l'hôte et les WWPN des LIF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La segmentation des commutateurs FC permet aux hôtes de se connecter au stockage et limite le nombre de chemins. Vous pouvez segmenter les commutateurs à l'aide de l'interface de gestion des commutateurs.
+
+.Avant de commencer
+* Vous devez disposer d'informations d'identification administrateur pour les commutateurs.
+* Vous devez connaître le WWPN de chaque port initiateur hôte et de chaque LIF FC pour le SVM (Storage Virtual machine) dans lequel vous avez créé la LUN.
+
+
+.Description de la tâche
+Pour plus de détails sur la segmentation de vos commutateurs, reportez-vous à la documentation du fournisseur du commutateur.
+
+Vous devez effectuer une zone par WWPN, et non par port physique. Chaque port initiateur doit se trouver dans une zone distincte avec l'ensemble des ports cibles correspondants.
+
+Les LUN sont mappées sur un sous-ensemble d'initiateurs du groupe initiateur pour limiter le nombre de chemins d'accès de l'hôte à la LUN.
+
+* Par défaut, ONTAP utilise le mappage sélectif de LUN pour rendre la LUN accessible uniquement en passant par les chemins d'accès du nœud propriétaire de la LUN et de son partenaire haute disponibilité.
+* Vous devez toujours segmenter l'ensemble des LIF FC sur chaque nœud pour la mobilité de la LUN, si la LUN est déplacée vers un autre nœud du cluster.
+* Lors du déplacement d'un volume ou d'une LUN, vous devez modifier la liste des nœuds de rapport Selective LUN Map avant de procéder au déplacement.
+
+
+L'illustration suivante montre un hôte connecté à un cluster à quatre nœuds. Il y a deux zones, une zone indiquée par les lignes continues et une zone indiquée par les lignes pointillées. Chaque zone contient un initiateur de l'hôte et une LIF de chaque nœud de stockage.
+
+image::../media/scm_en_drw_dual_fabric_zoning_fc_windows.gif[L'image montre un hôte,two FC switches,and four storage nodes. Lines represent the two zones.]
+
+Vous devez utiliser les WWPN des LIFs cibles, et non les WWPN des ports FC physiques sur les nœuds de stockage. Les WWPN des LIF sont tous dans la plage `2x:xx:00:a0:98:xx:xx:xx`, où `x` est un chiffre hexadécimal. Les WWPN des ports physiques se trouvent dans la plage `50:0a:09:8x:xx:xx:xx:xx`.
+
+.Étapes
+. Connectez-vous au programme d'administration des commutateurs FC, puis sélectionnez l'option de configuration du zoning.
+. Créer une nouvelle zone qui inclut le premier initiateur et toutes les LIFs FC qui se connectent au même commutateur FC que l'initiateur.
+. Créer des zones supplémentaires pour chaque initiateur FC dans l'hôte
+. Enregistrer les zones, puis activer la nouvelle configuration de zoning.
+

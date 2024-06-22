@@ -1,0 +1,67 @@
+---
+permalink: volume-backup-snapvault/task_creating_snapvault_relationship_93_later.html 
+sidebar: sidebar 
+keywords: create, snapvault, relationship, source, volume, cluster, destination, peer, backup, create a snapvault relationship, Beginning with ontap 9.3 
+summary: Vous devez créer une relation SnapVault entre le volume source sur un cluster et le volume de destination sur le cluster peering pour créer une sauvegarde SnapVault. 
+---
+= Création d'une relation SnapVault (à partir de ONTAP 9.3)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez créer une relation SnapVault entre le volume source sur un cluster et le volume de destination sur le cluster peering pour créer une sauvegarde SnapVault.
+
+.Avant de commencer
+* Vous devez disposer du nom d'utilisateur et du mot de passe de l'administrateur du cluster pour le cluster de destination.
+* L'agrégat de destination doit disposer d'espace disponible.
+
+
+.Description de la tâche
+Vous devez effectuer cette tâche à partir du cluster *source*.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Sélectionnez le volume à sauvegarder, puis cliquez sur *actions* > *protéger*.
++
+Vous pouvez également sélectionner plusieurs volumes source, puis créer des relations SnapVault avec un seul volume de destination.
+
+. Dans la page *volumes: Protect volumes*, fournissez les informations suivantes :
++
+.. Sélectionnez *Vault* dans la liste déroulante *Type de relation*.
+.. Sélectionner le cluster de destination, le SVM de destination et le suffixe du volume de destination.
++
+Seuls les SVM peering et les SVM autorisés sont répertoriés sous les SVM de destination.
+
++
+Le volume de destination est automatiquement créé. Le nom du volume de destination est le nom du volume source ajouté avec le suffixe.
+
+.. Cliquez sur image:../media/advanced_options_icon_backup.gif[""].
+.. Dans la boîte de dialogue *Options avancées*, vérifiez que la *Stratégie de protection* est définie sur `XDPDefault`.
+.. Sélectionnez *Programme de protection*.
++
+Par défaut, le `daily` la planification est sélectionnée.
+
+.. Vérifiez que *Oui* est sélectionné pour initialiser la relation SnapVault.
++
+Toutes les relations de protection des données sont initialisées par défaut.
+
+.. Cliquez sur *appliquer* pour enregistrer les modifications.
++
+image::../media/snapvault_advanced_options.gif[options avancées de SnapVault]
+
+
+
+. Dans la page *volumes : Protect volumes*, cliquez sur *Validate* pour vérifier si les volumes disposent d'étiquettes SnapMirror correspondantes.
+. Cliquez sur *Enregistrer* pour créer la relation SnapVault.
+. Vérifier que l'état de la relation SnapVault se trouve dans `Snapmirrored` état.
++
+.. Accédez à la fenêtre *volumes*, puis sélectionnez le volume sauvegardé.
+.. Développez le volume et cliquez sur *PROTECTION* pour afficher l'état de protection des données du volume.
+
+
++
+image::../media/snapvault_9_3.gif[SnapVault 9 3]
+
+

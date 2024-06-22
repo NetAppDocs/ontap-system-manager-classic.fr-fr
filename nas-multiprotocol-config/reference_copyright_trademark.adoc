@@ -1,0 +1,12 @@
+---
+permalink: nas-multiprotocol-config/reference_copyright_trademark.html 
+sidebar: sidebar 
+keywords: copyright, trademark, and machine translation 
+summary: Copyright, marques commerciales et traduction automatique 
+---
+= Copyright, marques commerciales et traduction automatique
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+

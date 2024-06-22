@@ -1,0 +1,146 @@
+---
+permalink: online-help-96-97/task_setting_up_network.html 
+sidebar: sidebar 
+keywords: set, up, network, cluster, node, service, processor, dns, ntp, online, help 
+summary: 'En configurant un réseau, vous pouvez gérer votre cluster, vos nœuds et vos processeurs de service. Vous pouvez également configurer les détails DNS et NTP à l"aide de la fenêtre réseau.' 
+---
+= Configurez un réseau avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour gérer votre cluster, vos nœuds et vos processeurs de service en configurant un réseau. Vous pouvez également configurer les détails DNS et NTP à l'aide de la fenêtre réseau.
+
+.Avant de commencer
+Vous devez avoir configuré le cluster.
+
+.Description de la tâche
+* Seuls les nœuds opérationnels sont répertoriés pour la création du cluster.
++
+Vous pouvez créer des LIF pour ces nœuds.
+
+* Vous pouvez désactiver la plage d'adresses IP et entrer des adresses IP individuelles pour les réseaux de gestion du cluster, de gestion des nœuds et de gestion du processeur de service.
+
+
+
+
+== Configurez un réseau lorsqu'une plage d'adresses IP est activée
+
+Vous pouvez configurer un réseau en activant une plage d'adresses IP. La plage d'adresses IP vous permet d'entrer des adresses IP qui se trouvent dans la même plage de masque de réseau ou dans la plage de masque de réseau différente.
+
+.Étapes
+. Entrez une plage d'adresses IP dans le champ *Plage d'adresses IP*, puis cliquez sur *appliquer*.
++
+|===
+| Option | Description 
+
+
+ a| 
+Vous avez une plage d'adresses IP dans le même masque de réseau
+ a| 
+Entrez la plage d'adresses IP, puis cliquez sur *appliquer*.
+
+Les adresses IP sont appliquées séquentiellement aux réseaux de gestion de clusters, de gestion de nœuds et de gestion du processeur de service.
+
+
+
+ a| 
+Vous disposez d'une plage d'adresses IP dans différents masques de réseau
+ a| 
+Entrez chaque plage d'adresses IP sur une ligne distincte, puis cliquez sur *appliquer*.
+
+La première adresse IP appliquée aux réseaux de gestion de nœuds et de processeur de service est appliquée de façon séquentielle aux réseaux de gestion de nœuds et d'autres adresses IP.
+
+|===
++
+[NOTE]
+====
+Une fois la plage d'adresses IP saisie pour la gestion du cluster, la gestion des nœuds et la gestion du processeur de service, vous ne devez pas modifier manuellement les valeurs de l'adresse IP dans ces champs. Vous devez vous assurer que toutes les adresses IP sont des adresses IPv4.
+
+====
+. Entrez le masque de réseau et les détails de la passerelle.
+. Sélectionnez le port pour la gestion du cluster dans le champ *Port*.
+. Si le champ *Port* de la gestion des nœuds n'est pas renseigné avec *e0M*, entrez les détails du port.
++
+[NOTE]
+====
+Par défaut, le champ Port affiche e0M.
+
+====
+. Pour la gestion du processeur de service, si vous modifiez les valeurs par défaut, assurez-vous d'avoir saisi les informations de passerelle obligatoires.
+. Si vous avez activé le champ *DNS Details*, entrez les détails du serveur DNS.
+. Si vous avez activé le champ *NTP Details*, entrez les détails du serveur NTP.
++
+[NOTE]
+====
+Les autres informations sur les serveurs NTP sont facultatives.
+
+====
+. Cliquez sur *soumettre*.
+
+
+
+
+=== Que faire ensuite
+
+Saisissez les notifications d'événements sur la page du support pour continuer à configurer le cluster.
+
+
+
+== Configurez un réseau lorsqu'une plage d'adresses IP est désactivée
+
+Vous pouvez configurer un réseau en désactivant une plage d'adresses IP et en saisissant des adresses IP individuelles pour la gestion du cluster, la gestion des nœuds et les réseaux des fournisseurs de services.
+
+.Description de la tâche
+Sur la page réseaux, si la plage d'adresses IP * est désactivée, entrez des adresses IP individuelles pour la gestion de cluster, la gestion de nœuds et les réseaux de processeurs de service.
+
+.Étapes
+. Saisissez l'adresse IP de gestion du cluster dans le champ *adresse IP de gestion du cluster*.
+. Entrez les détails du masque de réseau pour la gestion du cluster.
+. *Facultatif:* Entrez les détails de la passerelle pour la gestion du cluster.
+. Sélectionnez le port pour la gestion du cluster dans le champ *Port*.
+. Si vous souhaitez fournir des détails de masque de réseau et de passerelle pour gérer vos nœuds, décochez la case *conserver le masque de réseau et la configuration de passerelle de Cluster Management*, puis entrez les détails de masque de réseau et de passerelle.
+. Entrez les adresses IP de gestion des nœuds dans le champ *Node Management*.
+. Si le champ *Port* de la gestion des nœuds n'est pas renseigné avec *e0M*, entrez les détails du port.
++
+[NOTE]
+====
+Par défaut, le champ Port affiche e0M.
+
+====
+. Entrez le masque de réseau de gestion du processeur de service et les détails de la passerelle.
+. Entrez les adresses de gestion IP du processeur de service dans le champ *gestion du processeur de service*.
+. Si vous avez activé le champ *DNS Details*, entrez les détails du serveur DNS.
+. Si vous avez activé le champ *NTP Details*, entrez les détails du serveur NTP.
++
+[NOTE]
+====
+Les autres informations sur les serveurs NTP sont facultatives.
+
+====
+. Cliquez sur *soumettre*.
+
+
+
+
+=== Que faire ensuite
+
+Saisissez les notifications d'événements sur la page du support pour continuer à configurer le cluster.
+
+*Informations connexes*
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/What_is_a_Service_Processor_and_how_do_I_use_it%3F["Qu'est-ce qu'un processeur de Service et comment l'utiliser ?"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_and_troubleshoot_NTP_on_clustered_Data_ONTAP_8.2_and_later_using_CLI["Comment configurer et dépanner NTP sur clustered Data ONTAP 8.2 et versions ultérieures à l'aide de l'interface de ligne de commande"]
+
+https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"]
+
+xref:reference_network_window.adoc[Fenêtre réseau]
+
+xref:reference_configuration_updates_window.adoc[Fenêtre mises à jour de la configuration]
+
+xref:reference_date_time_window.adoc[Fenêtre de date et d'heure]
+
+xref:reference_service_processors_window.adoc[La fenêtre processeurs de service]

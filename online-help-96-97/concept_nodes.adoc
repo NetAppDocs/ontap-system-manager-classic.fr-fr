@@ -1,0 +1,103 @@
+---
+permalink: online-help-96-97/concept_nodes.html 
+sidebar: sidebar 
+keywords: node, system, manager, view, detail, cluster, online, help 
+summary: Vous pouvez utiliser System Manager pour afficher les détails des nœuds du cluster. 
+---
+= Gérez des nœuds avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et version antérieure) pour afficher les détails des nœuds du cluster.
+
+
+
+== Initialiser l'heure de la conformité
+
+Vous pouvez utiliser System Manager pour initialiser l'heure de conformité à l'heure actuelle du cluster. Vous devez initialiser l'heure de conformité pour créer des agrégats SnapLock.
+
+.Avant de commencer
+La licence SnapLock doit être installée.
+
+.Description de la tâche
+Vous ne pouvez pas modifier ou arrêter l'heure de la fin de l'horloge après son initialisation.
+
+.Étapes
+. Cliquez sur *Storage* > *Nodes*.
+. Sélectionnez le nœud, puis cliquez sur *initialiser ComplanceClock*.
+. Dans la boîte de dialogue *Initialize ComplanceClock*, cliquez sur *Yes* pour initialiser l'heure de la ComplianceClock sur l'heure actuelle du cluster.
+
+
+
+
+== Fenêtre nodes
+
+Vous pouvez utiliser la fenêtre nœuds pour afficher les détails des nœuds d'un cluster.
+
+
+
+=== Boutons de commande
+
+* *Initialiser ComplanceClock*
++
+Initialise la ComplanceClock du nœud sélectionné à la valeur actuelle de l'horloge système.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des nœuds
+
+* *Nom*
++
+Affiche le nom du nœud.
+
+* *État*
++
+Affiche l'état du nœud (haut ou bas).
+
+* *Temps de mise en service*
++
+Affiche la durée pendant laquelle le nœud est en service.
+
+* *Version ONTAP*
++
+Affiche la version de ONTAP installée sur le nœud.
+
+* *Modèle*
++
+Affiche le numéro de modèle de la plate-forme du nœud.
+
+* *ID système*
++
+Affiche l'ID du nœud.
+
+* *N° de série*
++
+Affiche le numéro de série du nœud.
+
+
+
+
+
+=== Zone de détails
+
+Affiche des informations détaillées sur le nœud sélectionné.
+
+* *Onglet Détails*
++
+Affiche des informations relatives au nœud sélectionné, telles que le nom du nœud, l'état du nœud et la durée d'exécution du nœud.
+
+* *Onglet performances*
++
+Affiche le débit, les IOPS et la latence du nœud sélectionné.
+
++
+La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Vous devez actualiser votre navigateur pour afficher les graphiques mis à jour.
+
+

@@ -1,0 +1,85 @@
+---
+permalink: iscsi-config-rhel/task_configuring_dm_multipath.html 
+sidebar: sidebar 
+keywords: dm-multipath, manage, path, linux, host, storage, cluster, configuring, configure, lun, scsi, device, component, fail, cluster, configure, configure dm-multipath 
+summary: 'DM-Multipath gère plusieurs chemins entre l"hôte Linux et le cluster de stockage. La configuration de DM-Multipath sur une LUN, qui apparaît sur l"hôte Linux en tant que périphérique SCSI, permet à votre hôte Linux d"accéder à son LUN sur le cluster de stockage en cas de défaillance d"un chemin ou d"un composant.' 
+---
+= Configurez DM-Multipath
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DM-Multipath gère plusieurs chemins entre l'hôte Linux et le cluster de stockage. La configuration de DM-Multipath sur une LUN, qui apparaît sur l'hôte Linux en tant que périphérique SCSI, permet à votre hôte Linux d'accéder à son LUN sur le cluster de stockage en cas de défaillance d'un chemin ou d'un composant.
+
+.Avant de commencer
+Vous devez avoir identifié la version requise de DM-Multipath à partir de l'outil Interoperability Matrix.
+
+https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"]
+
+[NOTE]
+====
+L'approche recommandée est que vous configurez deux chemins par nœud dans chaque structure ou réseau Ethernet. Le chemin peut ainsi tomber en panne sans que le nœud bascule vers son partenaire. L'utilisation de l'agrégation de liens (LAG) pour les ports physiques n'est pas recommandée avec un système d'exploitation Windows.
+
+====
+.Étapes
+. Modifiez le `/etc/multipath.conf` classer comme suit :
++
+.. Déterminez s'il existe des périphériques SCSI non NetApp à exclure (liste noire).
++
+Il s'agit de périphériques qui ne s'affichent pas lorsque vous entrez dans le `sanlun lun show` commande.
+
++
+*** Si l'on exclut des périphériques SCSI autres que NetApp, entrez l'identifiant WWN (WWID) des périphériques dans la section « liste noire » du `multipath.conf` fichier.
++
+Pour afficher le WWID d'un périphérique SCSI non NetApp, entrez la commande suivante sur le périphérique que vous souhaitez exclure, où `SCSI_device_name` est un périphérique que vous spécifiez : `/lib/udev/scsi_id -gud /dev/SCSI_device_name`
+
++
+Par exemple, si `/dev/sda` Si vous souhaitez exclure le périphérique SCSI non NetApp, entrez les informations suivantes :
+
++
+`/lib/udev/scsi_id -gud /dev/sda`
+
++
+Ceci affiche le WWID du périphérique, que vous pouvez copier et coller dans le `multipath.conf` fichier.
+
++
+Dans l'exemple suivant montrant la section de la liste noire du `multipath.conf` Fichier, périphérique SCSI non NetApp avec WWID `3600508e000000000753250f933cc4606` est exclu :
+
++
+[listing]
+----
+blacklist {
+            **wwid       3600508e000000000753250f933cc4606**
+            devnode    "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+            devnode    "^hd[a-z]"
+            devnode     "^cciss.*"
+}
+----
+*** S'il n'y a aucun périphérique à exclure, supprimez la ligne _wwid_ du `multipath.conf` fichier.
+
+
+.. Activez les paramètres DM-Multipath recommandés par NetApp en ajoutant la chaîne suivante à l'extrémité de la ligne du noyau dans le chargeur de démarrage : `rdloaddriver=scsi_dh_alua`
+
+
+. Démarrez le démon DM-Multipath :
++
+`/etc/init.d/multipathd start`
+
+. Ajoutez le service multichemin à la séquence de démarrage afin que le démon multichemin démarre toujours au démarrage du système :
++
+`chkconfig multipathd on`
+
+. Redémarrez l'hôte Linux.
+. Vérifiez que le `rdloaddriver` le paramètre apparaît dans la sortie lorsque vous exécutez `cat /proc/cmdline`.
++
+Le `rdloaddriver` le paramètre apparaît comme l'une des options d'amorçage qui sont transmises au noyau :
+
++
+[listing]
+----
+# cat /proc/cmdline
+ro root=/dev/mapper/vg_ibmx3650210104-lv_root rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD rd_LVM_LV=vg_ibmx3650210104/lv_root SYSFONT=latarcyrheb-sun16 rd_LVM_LV=vg_ibmx3650210104/lv_swap crashkernel=129M@0M  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet **rdloaddriver=scsi_dh_alua**
+----
+

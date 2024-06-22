@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_zeroing_disks.html 
+sidebar: sidebar 
+keywords: zero, spare, disks, system, manager, erase, data, online, help 
+summary: Vous pouvez utiliser System Manager pour effacer toutes les données et formater les disques de spare en écrivant des zéros sur le disque. Ces disques peuvent ensuite être utilisés dans de nouveaux agrégats. 
+---
+= Aucun disque de secours avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour effacer toutes les données et formater les disques de spare en écrivant des zéros sur le disque. Ces disques peuvent ensuite être utilisés dans de nouveaux agrégats.
+
+.Description de la tâche
+Lorsque vous mettez à zéro les disques de spare, toutes les unités de rechange dans le cluster, y compris les LUN de array, sont mises à zéro. Vous pouvez zéro les disques de spare pour un nœud spécifique ou pour l'ensemble du cluster.
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *disques*.
+. Dans la fenêtre *disques*, sélectionnez l'onglet *Inventaire*.
+. Cliquez sur *zéro pièces de rechange*.
+. Dans la boîte de dialogue *Zero Spares*, sélectionnez un nœud ou « tous les noeuds » à partir duquel vous souhaitez mettre à zéro les disques.
+. Cochez la case *mettre à zéro toutes les pièces de rechange non remises à zéro* pour confirmer l'opération de remise à zéro.
+. Cliquez sur *zéro pièces de rechange*.
+
+
+*Informations connexes*
+
+xref:concept_storage_recommendations_for_creating_aggregates.adoc[Recommandations de stockage pour la création d'agrégats]

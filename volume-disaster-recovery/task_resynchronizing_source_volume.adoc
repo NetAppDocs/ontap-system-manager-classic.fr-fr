@@ -1,0 +1,58 @@
+---
+permalink: volume-disaster-recovery/task_resynchronizing_source_volume.html 
+sidebar: sidebar 
+keywords: source, volume, online, resynchronize, data, destination, replicate, resynchronize the source volume 
+summary: Lorsque le volume source est en ligne, vous devez resynchroniser les données entre le volume de destination et le volume source pour répliquer les dernières données depuis le volume de destination. 
+---
+= Resynchroniser le volume source
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque le volume source est en ligne, vous devez resynchroniser les données entre le volume de destination et le volume source pour répliquer les dernières données depuis le volume de destination.
+
+.Avant de commencer
+Le volume source doit être en ligne.
+
+.Description de la tâche
+Vous devez effectuer la tâche à partir du cluster *destination*.
+
+L'image suivante montre que les données sont répliquées depuis le volume de destination actif vers le volume source en lecture seule :
+
+image::../media/reverse_resync_2555.gif[L'image suivante montre que les données sont répliquées depuis le volume de destination actif vers le volume source en lecture seule]
+
+.Étapes
+. Selon la version de System Manager que vous exécutez, effectuez l'une des opérations suivantes :
++
+** ONTAP 9.4 ou version antérieure : cliquez sur *protection* > *relations*.
+** À partir de ONTAP 9.5 : cliquez sur *protection* > *relations de volume*.
+
+
+. Sélectionner la relation SnapMirror entre les volumes source et de destination
+. Noter la planification du transfert et la règle configurée pour la relation SnapMirror.
+. Cliquez sur *Operations* > *Reverse Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Reverse Resync*.
++
+image::../media/reverse_resync_4eea.gif[Inverser l'écran de resynchronisation]
+
++
+Depuis ONTAP 9.3, la règle SnapMirror de la relation est définie sur `MirrorAllSnapshots` et la planification du miroir est définie sur `None`.
+
++
+Si vous exécutez ONTAP 9.2 ou version antérieure, la règle SnapMirror de la relation est définie sur `DPDefault` et la planification du miroir est définie sur `None`.
+
+. Sur le cluster source, spécifiez une règle SnapMirror et planifiez correspondant à la configuration de protection de la relation SnapMirror d'origine :
++
+.. Selon la version de System Manager que vous exécutez, effectuez l'une des opérations suivantes :
++
+*** ONTAP 9.4 ou version antérieure : cliquez sur *protection* > *relations*.
+*** À partir de ONTAP 9.5 : cliquez sur *protection* > *relations de volume*.
+
+
+.. Sélectionnez la relation SnapMirror entre le volume source resynchronisé et le volume de destination, puis cliquez sur *Edit*.
+.. Sélectionnez la règle et la planification SnapMirror, puis cliquez sur *OK*.
+
+
+

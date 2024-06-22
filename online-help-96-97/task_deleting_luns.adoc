@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_deleting_luns.html 
+sidebar: sidebar 
+keywords: delete, lun, system, manager, online, help, aggregate 
+summary: 'Vous pouvez utiliser System Manager pour supprimer les LUN et renvoyer l"espace utilisé par les LUN à leurs agrégats ou volumes contenant ces LUN.' 
+---
+= Supprimez les LUN avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour supprimer les LUN et renvoyer l'espace utilisé par les LUN vers leurs agrégats ou volumes contenant ces LUN.
+
+.Avant de commencer
+* La LUN doit être hors ligne.
+* Le mappage de la LUN doit être annulé sur tous les hôtes initiateurs.
+
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *gestion des LUN*, sélectionnez une ou plusieurs LUN que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_splitting_flexclone_volume_from_its_parent_volume.html 
+sidebar: sidebar 
+keywords: split, flexclone, volume, parent, online, help, disk, space 
+summary: 'System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) peut être utilisé pour séparer un volume FlexClone de son volume parent. Après la division, le volume FlexClone devient un volume FlexVol normal. Elle continue d"utiliser l"espace disque de son volume parent, et l"efficacité du stockage est préservée.' 
+---
+= Séparer un volume FlexClone de son volume parent avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) peut être utilisé pour séparer un volume FlexClone de son volume parent. Après la division, le volume FlexClone devient un volume FlexVol normal. Elle continue d'utiliser l'espace disque de son volume parent, et l'efficacité du stockage est préservée.
+
+.Avant de commencer
+Le volume FlexClone doit être en ligne.
+
+.Description de la tâche
+Pour les systèmes _NOT_ AFF, l'opération de fractionnement des clones supprime toutes les copies Snapshot existantes du clone. Les copies Snapshot requises pour les mises à jour de SnapMirror sont également supprimées. Par conséquent, toute mise à jour SnapMirror ultérieure peut échouer.
+
+Vous pouvez interrompre l'opération de fractionnement du clone si vous devez effectuer toute autre opération sur le volume. Une fois l'autre opération terminée, vous pouvez reprendre le processus de fractionnement du clone.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume FlexClone que vous souhaitez séparer de son volume parent.
+. Cliquez sur *plus d'actions* > *Clone* > *Split*.
+. Confirmez les détails du volume FlexClone pour l'opération de fractionnement du clone, puis cliquez sur *Start Split* dans la boîte de dialogue de confirmation.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

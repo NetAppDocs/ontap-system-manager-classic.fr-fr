@@ -1,0 +1,33 @@
+---
+permalink: fc-config-windows/task_initializing_formatting_lun.html 
+sidebar: sidebar 
+keywords: lun, access, windows, host, partition, file, system, initialize, lun, optional, format, initialize and format the lun 
+summary: 'Lorsqu"un nouvel LUN est accédé pour la première fois par l"hôte Windows, il n"a pas de partition ni de système de fichiers. Vous devez initialiser la LUN et éventuellement la formater avec un système de fichiers.' 
+---
+= Initialiser et formater la LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsqu'un nouvel LUN est accédé pour la première fois par l'hôte Windows, il n'a pas de partition ni de système de fichiers. Vous devez initialiser la LUN et éventuellement la formater avec un système de fichiers.
+
+.Avant de commencer
+La LUN doit avoir été découverte par l'hôte Windows.
+
+.Description de la tâche
+Les LUN apparaissent sous Windows Disk Management en tant que disques.
+
+Vous pouvez initialiser le disque en tant que disque de base avec une table de partition GPT ou MBR.
+
+Généralement, la LUN est mise au format avec un système de fichiers tel que NTFS, mais certaines applications utilisent des disques bruts à la place.
+
+.Étapes
+. Démarrez Windows Disk Management.
+. Cliquez avec le bouton droit de la souris sur la LUN, puis sélectionnez le type de disque ou de partition requis.
+. Suivez les instructions de l'assistant.
++
+Si vous choisissez de formater la LUN en NTFS, vous devez cocher la case *réaliser un format rapide*.
+
+

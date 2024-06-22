@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_bringing_luns_online.html 
+sidebar: sidebar 
+keywords: bring, lun, online, management, tab, online, help, system, manager 
+summary: 'Vous pouvez utiliser l"onglet gestion des LUN de System Manager pour mettre les LUN sélectionnées en ligne et les mettre à disposition de l"hôte.' 
+---
+= Mettre les LUN en ligne avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'onglet *gestion de LUN* de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour mettre les LUN sélectionnées en ligne et les rendre disponibles pour l'hôte.
+
+.Avant de commencer
+Toute application hôte accédant à la LUN doit être mise au repos ou synchronisée.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *LUN Management*, sélectionnez une ou plusieurs LUN que vous souhaitez mettre en ligne.
+. Cliquez sur *Statut* > *en ligne*.
+
+
+*Informations connexes*
+
+xref:reference_luns_window.adoc[Fenêtre LUN]

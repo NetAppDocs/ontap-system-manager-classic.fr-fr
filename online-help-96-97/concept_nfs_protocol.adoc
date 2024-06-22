@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/concept_nfs_protocol.html 
+sidebar: sidebar 
+keywords: nfs, protocol, system, manager, authenticate, client, asses, data, svm, online, help 
+summary: Vous pouvez utiliser System Manager pour authentifier les clients NFS pour accéder aux données sur la SVM. 
+---
+= Configurez le protocole NFS avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour authentifier les clients NFS pour accéder aux données sur la SVM.
+
+
+
+== Modifier les paramètres NFS
+
+System Manager peut être utilisé pour modifier les paramètres NFS, par exemple l'activation ou la désactivation de NFS v3, NFS V4 et NFS v4.1, activer ou désactiver des délégations de lecture et d'écriture pour les clients NFSv4 et l'activation des ACL NFSv4. Vous pouvez également modifier l'utilisateur Windows par défaut.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *protocoles*, cliquez sur *NFS*.
+. Dans la fenêtre *NFS*, cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier les paramètres NFS*, effectuez les modifications requises.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+
+
+== Fenêtre NFS
+
+Vous pouvez utiliser la fenêtre NFS pour afficher et configurer vos paramètres NFS.
+
+* *Etat du serveur*
++
+Affiche l'état du service NFS. Le service est activé si le protocole NFS est configuré sur la machine virtuelle de stockage (SVM).
+
++
+[NOTE]
+====
+Si vous avez effectué une mise à niveau vers ONTAP 8.3 ou version ultérieure à partir d'un système de stockage compatible NFS exécutant Data ONTAP 8.1.x, le service NFS est activé dans ONTAP 8.3 ou version ultérieure. Cependant, vous devez activer la prise en charge de NFSv3 ou NFSv4 car NFSv2 n'est plus pris en charge.
+
+====
+
+
+
+
+=== Boutons de commande
+
+* *Activer*
++
+Active le service NFS.
+
+* *Désactiver*
++
+Désactive le service NFS.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier les paramètres NFS, qui permet de modifier les paramètres NFS.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html["Gestion NFS"^]

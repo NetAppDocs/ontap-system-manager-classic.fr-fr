@@ -1,0 +1,134 @@
+---
+permalink: nas-multiprotocol-config/task_creating_new_svm.html 
+sidebar: sidebar 
+keywords: wizard, create, creating, storage, virtual, machine, svm, domain, name, system, dns, creating, data, logical, interface, lif, cifs, server, nfs, create a basic svm 
+summary: 'Vous pouvez utiliser un assistant qui vous guide tout au long du processus de création d"une nouvelle machine virtuelle de stockage (SVM), de configuration de DNS (Domain Name System), de création d"une interface logique de données (LIF), de configuration d"un serveur CIFS, d"activation de NFS et, éventuellement, de configuration de NIS.' 
+---
+= Créer un SVM de base
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser un assistant qui vous guide tout au long du processus de création d'une nouvelle machine virtuelle de stockage (SVM), de configuration de DNS (Domain Name System), de création d'une interface logique de données (LIF), de configuration d'un serveur CIFS, d'activation de NFS et, éventuellement, de configuration de NIS.
+
+.Avant de commencer
+* Votre réseau doit être configuré et les ports physiques correspondants doivent être connectés au réseau.
+* Vous devez connaître les composants réseau suivants que la SVM utilisera :
++
+** Le nœud et le port spécifique sur ce nœud où sera créée l'interface logique de données (LIF)
+** Le sous-réseau à partir duquel l'adresse IP de la LIF de données sera provisionnée, ou éventuellement l'adresse IP spécifique que vous souhaitez attribuer à la LIF de données
+** Active Directory domaine (AD) que ce SVM rejoindra, ainsi que les informations d'identification requises pour y ajouter le SVM
+** Informations NIS, si votre site utilise NIS pour les services de noms ou le mappage de noms
+
+
+* Le sous-réseau doit être routable vers tous les serveurs externes requis pour des services tels que NIS (Network information Service), LDAP (Lightweight Directory Access Protocol), Active Directory (AD) et DNS.
+* Tout pare-feu externe doit être configuré de manière appropriée pour permettre l'accès aux services réseau.
+* L'heure sur les contrôleurs de domaine AD, les clients et le SVM doit être synchronisée dans les cinq minutes qui suivent l'un l'autre.
+
+
+.Description de la tâche
+Lorsque vous créez un SVM pour l'accès multiprotocole, vous ne devez pas utiliser les sections de provisionnement de la fenêtre d'installation des SVM (Storage Virtual machine) qui crée deux volumes, et non un volume unique avec accès multiprotocole. Vous pouvez provisionner le volume plus tard dans le workflow.
+
+.Étapes
+. Accédez à la fenêtre *SVM*.
+. Cliquez sur *Créer.*
+. Dans la boîte de dialogue *Storage Virtual machine (SVM) Setup* (Configuration de l'ordinateur virtuel de stockage (SVM) :
++
+.. Spécifier un nom unique pour le SVM.
++
+Le nom doit être un nom de domaine complet (FQDN) ou suivre une autre convention qui garantit des noms uniques à travers un cluster.
+
+.. Sélectionner tous les protocoles pour lesquels vous disposez de licences et que vous pourrez utiliser ultérieurement sur la SVM, même si vous ne souhaitez pas configurer immédiatement tous les protocoles.
+.. Conservez le paramètre de langue par défaut, C.UTF-8.
++
+[NOTE]
+====
+Si vous prenez en charge l'affichage international des caractères dans les clients NFS et SMB/CIFS, utilisez le code de langue *UTF8MB4*, disponible à partir de ONTAP 9.5.
+
+====
+.. *Facultatif*: Assurez-vous que le style de sécurité est défini selon vos préférences.
++
+La sélection du protocole CIFS définit le style de sécurité sur NTFS par défaut.
+
+.. *Facultatif* : sélectionner l'agrégat root pour contenir le volume root du SVM.
++
+L'agrégat que vous sélectionnez pour le volume root ne détermine pas l'emplacement du volume de données. L'agrégat pour le volume de données est sélectionné séparément.
+
++
+image::../media/svm_setup_details_page_ntfs_selected_nas_mp.gif[Ce graphique est expliqué par le texte environnant.]
+
+.. *Facultatif* : dans la zone *DNS Configuration*, assurez-vous que le domaine de recherche DNS par défaut et les serveurs de noms sont ceux que vous souhaitez utiliser pour ce SVM.
++
+image::../media/svm_setup_details_dns_nas_mp.gif[Ce graphique est expliqué par le texte environnant.]
+
+.. Cliquez sur *Envoyer et continuer*.
+
+
++
+Le SVM est créé, mais les protocoles ne sont pas encore configurés.
+
+. Dans la section *Data LIF Configuration* de la page *Configure CIFS/NFS Protocol*, spécifier les détails de la LIF que les clients utiliseront pour accéder aux données :
++
+.. Attribuez automatiquement une adresse IP à la LIF à partir d'un sous-réseau que vous spécifiez ou saisissez manuellement l'adresse.
+.. Cliquez sur *Browse* et sélectionnez un nœud et un port qui seront associés à la LIF.
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nas_mp.gif[Ce graphique est décrit par le texte environnant.]
+
+
+
+. Dans la section *CIFS Server Configuration*, définissez le serveur CIFS et configurez-le pour accéder au domaine AD :
++
+.. Spécifiez un nom pour le serveur CIFS unique dans le domaine AD.
+.. Spécifiez le FQDN du domaine AD auquel le serveur CIFS peut se joindre.
+.. Si vous souhaitez associer une unité organisationnelle (ou) au sein du domaine AD autre que CN=Computers, entrez l'UO.
+.. Spécifiez le nom et le mot de passe d'un compte administratif disposant de privilèges suffisants pour ajouter le serveur CIFS à l'UO.
+.. Si vous souhaitez éviter tout accès non autorisé à tous les partages de ce SVM, sélectionner l'option de chiffrement des données à l'aide de SMB 3.0.
+
+
++
+image::../media/svm_setup_cifs_nfs_page_cifs_ad_nas_mp.gif[Ce graphique est décrit par le texte environnant.]
+
+. Ignorer la section *provisioning d'un volume pour le stockage CIFS* car il provisionne un volume pour l'accès CIFS uniquement, pas pour l'accès multiprotocole.
+. Si la zone *NIS Configuration* est réduite, développez-la.
+. Si votre site utilise NIS pour les services de noms ou le mappage de noms, spécifiez le domaine et les adresses IP des serveurs NIS.
++
+image::../media/svm_setup_cifs_nfs_page_nis_area_nas_mp.gif[Ce graphique est expliqué par le texte environnant.]
+
+. Ignorer la zone *Provision a volume for NFS Storage* car elle provisionne un volume pour l'accès NFS uniquement--pas pour l'accès multiprotocole.
+. Cliquez sur *Envoyer et continuer*.
++
+Les objets suivants sont créés :
+
++
+** Une LIF de données nommée d'après le SVM avec le suffixe «`_cifs_nfs_lif1' »
+** Un serveur CIFS qui fait partie du domaine AD
+** Un serveur NFS
+
+
+. Pour toutes les autres pages de configuration de protocole affichées, cliquez sur *Ignorer* et configurez le protocole ultérieurement.
+. Lorsque la page *SVM Administration* est affichée, configurer ou reporter la configuration d'un administrateur distinct pour ce SVM :
++
+** Cliquez sur *Ignorer* et configurez un administrateur ultérieurement, si nécessaire.
+** Entrez les informations requises, puis cliquez sur *Envoyer et continuer*.
+
+
+. Consultez la page *Résumé*, enregistrez toutes les informations dont vous pourriez avoir besoin ultérieurement, puis cliquez sur *OK*.
++
+L'administrateur DNS doit connaître le nom du serveur CIFS et l'adresse IP de la LIF de données. Les clients Windows doivent connaître le nom du serveur CIFS. Les clients NFS doivent connaître l'adresse IP de la LIF de données.
+
+
+
+.Résultats
+Un nouveau SVM est créé avec un serveur CIFS et un serveur NFS accessible via la même LIF de données.
+
+
+
+== Que faire ensuite
+
+On doit maintenant ouvrir la export policy du volume root du SVM.
+
+*Informations connexes*
+
+xref:task_opening_export_policy_svm_root_volume.adoc[Ouverture de la export policy du volume root du SVM (création d'un nouveau SVM compatible NFS)]

@@ -1,0 +1,143 @@
+---
+permalink: online-help-96-97/reference_applications_window.html 
+sidebar: sidebar 
+keywords: applications, window, svm, online, help, storage, virtual, machine, online, help, action, icon, tab, column 
+summary: 'Vous pouvez utiliser System Manager pour afficher la liste des applications d"une machine virtuelle de stockage (SVM). La liste contient des informations détaillées sur chaque application.' 
+---
+= Fenêtre applications dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour afficher la liste des applications d'un SVM (Storage Virtual machine). La liste contient des informations détaillées sur chaque application.
+
+
+
+== Onglets
+
+Selon la configuration du cluster, System Manager affiche les informations sur les applications à l'aide de l'une des méthodes suivantes :
+
+* *Pas d'onglets*
++
+Informations détaillées sur l'application, y compris le nom, le type, l'utilisation du stockage, les performances, et autres informations.
+
+* *Deux onglets*
++
+L'écran contient deux onglets d'informations sur l'application.
+
++
+** *Amélioré*
++
+Informations détaillées sur l'application, y compris le nom, le type, l'utilisation du stockage, les performances, et autres informations.
+
+** *De base*
++
+Informations de base sur l'application.
+
+
+
+
+
+
+
+== Liste des applications
+
+Les applications de la SVM sélectionnée sont affichées dans l'onglet *Enhanced* dans une liste des manières suivantes :
+
+* Pour System Manager 9.5 et les versions antérieures, jusqu'à 32 applications au maximum sont affichées dans la liste.
+* Pour System Manager 9.6, les 25 premières applications s'affichent dans la liste. Au fur et à mesure que vous atteignez le bas de la liste, 25 autres applications sont ajoutées à la liste. Lorsque vous continuez à faire défiler l'écran, vous pouvez continuer à ajouter 25 applications à la fois pour développer la liste jusqu'à un maximum de 1000 applications.
+
+
+
+
+== Colonnes de liste
+
+Les informations relatives à chaque application sont répertoriées dans l'onglet *Enhanced* des colonnes suivantes.
+
+* *Flèche de développement/réduction image:../media/arrow_expand_collapse_white_background.gif[""]*
++
+Contient une flèche que vous pouvez cliquer pour développer les informations pour afficher une vue détaillée ou pour réduire les informations à la vue récapitulative.
+
+* *Nom*
++
+Nom de l'application.
+
+* *Type*
++
+Type d'application.
+
+* *Composant*
++
+Composant de l'application.
+
+* *Niveau de service ONTAP*
++
+Le niveau du service ONTAP pour l'application.
+
+* *Utilisation*
++
+Barre graphique affichant le pourcentage d'utilisation.
+
+* *Utilisé*
++
+Quantité d'espace de stockage utilisé par l'application.
+
+* *Disponible*
++
+Quantité d'espace de stockage toujours disponible pour l'application.
+
+* *Taille*
++
+La taille de l'application.
+
+* *IOPS*
++
+Le nombre d'opérations d'entrée et de sortie par seconde (IOPS) de l'application.
+
+* * Latence*
++
+Volume de latence pour l'application.
+
+
+
+
+
+== Champs de saisie
+
+Les champs suivants peuvent être utilisés pour modifier l'affichage des informations :
+
+* *SVM*
++
+Permet d'afficher une liste déroulante des SVM depuis lesquels vous pouvez sélectionner le SVM qui contient les applications que vous souhaitez afficher.
+
+* *Champ de recherche*
++
+Vous permet de saisir tout ou partie d'un nom d'application pour lancer une recherche en fonction des critères que vous saisissez. Seules les applications dont les noms correspondent aux critères sont alors affichées dans la liste.
+
+* *Trier par champ*
++
+Permet de trier la liste des applications en fonction de leur nom, de leur taille ou de leur type.
+
+
+
+
+
+== Icônes d'action
+
+Les icônes suivantes de l'onglet *Enhanced* peuvent être utilisées pour lancer des actions :
+
+* *Icône Ajouter image:../media/add_plus_sign.gif[""]*
++
+Permet d'ajouter une application au SVM sélectionné.
+
+* *Icône filtre image:../media/filter_icon_white_background.gif[""]*
++
+Vous permet de spécifier le type d'application que vous souhaitez afficher dans vos résultats de recherche.
+
+* *Icône d'affichage image:../media/display_icon.gif[""]*
++
+Permet de basculer entre une vue de liste et une vue de carte des informations de l'application.
+
+

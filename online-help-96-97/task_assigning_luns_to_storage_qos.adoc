@@ -1,0 +1,103 @@
+---
+permalink: online-help-96-97/task_assigning_luns_to_storage_qos.html 
+sidebar: sidebar 
+keywords: qos, quality, service, assign, lun, storage, system, manager, lun, online, help, policy, group 
+summary: 'System Manager peut être utilisé pour limiter le débit des LUN en les affectant à des groupes de règles de QoS (Quality of Service) du stockage. Vous pouvez attribuer une QoS de stockage à de nouvelles LUN ou modifier les détails de QoS de stockage pour les LUN déjà affectées à un groupe de règles.' 
+---
+= Attribuez des LUN à la QoS du stockage avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de limiter le débit des LUN en les affectant à des groupes de règles de qualité de service (QoS) du stockage. Vous pouvez attribuer une QoS de stockage à de nouvelles LUN ou modifier les détails de QoS de stockage pour les LUN déjà affectées à un groupe de règles.
+
+.Description de la tâche
+* Vous ne pouvez pas attribuer QoS du stockage à une LUN si les objets de stockage suivants sont affectés à un « policy group » :
++
+** Volume parent de la LUN
+** Serveur virtuel de stockage parent (SVM) de la LUN
+
+
+* Vous pouvez attribuer des QoS du stockage ou modifier les détails de QoS pour un maximum de 10 LUN simultanément.
+
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *gestion des LUN*, sélectionnez une ou plusieurs LUN pour lesquelles vous souhaitez affecter la qualité de service du stockage.
+. Cliquez sur *QoS du stockage*.
+. Dans la boîte de dialogue *Quality of Service Details*, cochez la case *Manage Storage Quality of Service* si vous souhaitez gérer les performances de la charge de travail de la LUN.
++
+Si certaines des LUN que vous avez sélectionnées sont déjà attribuées à un groupe de règles, les modifications que vous apportez peuvent affecter les performances de ces LUN.
+
+. Créez un nouveau groupe de règles de QoS du stockage ou sélectionnez un groupe de règles existant pour contrôler les performances des entrées/sorties (E/S) de la LUN :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme ça... 
+
+
+ a| 
+Création d'une « policy group »
+ a| 
+.. Sélectionnez *Nouveau groupe de stratégies*.
+.. Spécifiez le nom du groupe de règles.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur et cette valeur est sensible à la casse.
++
+L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
+
+
+
+
+
+ a| 
+Sélectionnez un groupe de stratégies existant
+ a| 
+.. Sélectionnez *Groupe de stratégies existant*, puis cliquez sur *choisir* pour sélectionner un groupe de stratégies existant dans la boîte de dialogue Sélectionner un groupe de stratégies.
+.. Spécifiez la limite de débit minimum.
++
+*** Dans System Manager 9.5, vous pouvez définir la limite de débit minimale uniquement pour une personnalité optimisée pour la technologie Flash basée sur les performances. System Manager 9.6 vous permet également de définir la limite de débit minimale des systèmes ONTAP Select Premium.
+*** Vous ne pouvez pas définir la limite de débit minimale pour les volumes d'un agrégat compatible FabricPool.
+*** Si vous ne spécifiez pas la valeur de débit minimum ou si la valeur de débit minimum est définie sur 0, le système affiche automatiquement « aucun » comme valeur.
++
+Cette valeur est sensible à la casse.
+
+
+
+.. Spécifiez la limite de débit maximale pour vous assurer que la charge de travail des objets du groupe de règles ne dépasse pas la limite de débit spécifiée.
++
+*** La limite de débit minimum et la limite de débit maximum doivent être du même type d'unité.
+*** Si vous ne spécifiez pas la limite de débit minimale, vous pouvez définir la limite de débit maximale en IOPS et B/s, Ko/s, Mo/s, etc.
+*** Si vous ne spécifiez pas la valeur de débit maximum, le système affiche automatiquement « Illimité » comme valeur et cette valeur est sensible à la casse.
+ +
+L'unité que vous spécifiez n'affecte pas le débit maximal.
+
+
++
+Si le groupe de règles est attribué à plusieurs objets, le débit maximal que vous spécifiez est partagé entre les objets.
+
+
+
+|===
+. *Facultatif :* cliquez sur le lien qui spécifie le nombre de LUN pour consulter la liste des LUN sélectionnés, puis cliquez sur *Ignorer* si vous souhaitez supprimer des LUN de la liste.
++
+Le lien s'affiche uniquement lorsque plusieurs LUN sont sélectionnées.
+
+. Cliquez sur *OK*.
+

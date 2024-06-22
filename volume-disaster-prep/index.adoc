@@ -1,0 +1,45 @@
+---
+permalink: volume-disaster-prep/index.html 
+sidebar: sidebar 
+keywords: content, protect, source, volume, peer, ontap, cluster, preparation, disaster, recovery, configure, monitor, snapmirror, relationship, background, task, volume disaster recovery preparation overview 
+summary: 'Vous pouvez protéger rapidement un volume source sur un cluster peering ONTAP en préparation de la reprise après incident. Utilisez ce contenu si vous souhaitez configurer et surveiller les relations SnapMirror entre les clusters avec points pour la reprise sur incident de volume et sans avoir besoin de beaucoup d"arrière-plan conceptuel pour les tâches.' 
+---
+= Présentation de la préparation de la reprise sur incident de volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez protéger rapidement un volume source sur un cluster peering ONTAP en préparation de la reprise après incident. Utilisez cette procédure pour configurer et surveiller les relations SnapMirror entre les clusters utilisant les peering pour la reprise sur incident de volume. De plus, il est inutile de disposer de l'arrière-plan conceptuel des tâches.
+
+SnapMirror offre une protection des données planifiée au niveau des blocs. SnapMirror réplique les copies Snapshot et peut répliquer des volumes NAS ou SAN sur lesquels sont exécutées une déduplication, une compression des données, y compris des volumes contenant des LUN et des qtrees. Les informations de configuration de SnapMirror sont stockées dans une base de données que ONTAP réplique vers tous les nœuds du cluster.
+
+Utilisez cette procédure pour créer des relations SnapMirror pour la reprise après incident au niveau des volumes :
+
+* Vous travaillez avec des clusters exécutant ONTAP 9.
+* Vous êtes un administrateur de cluster.
+* Vous avez configuré la relation entre clusters et la relation entre pairs de SVM.
++
+link:../peering/index.html["Configuration cluster et SVM peering"]
+
+* Vous avez activé la licence SnapMirror sur les clusters source et de destination.
+* Vous souhaitez utiliser des règles et des plannings par défaut et ne pas créer de règles personnalisées
+* Vous voulez appliquer les meilleures pratiques, et non explorer toutes les options disponibles (ONTAP 9.7 et versions antérieures).
+
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+|===
+
+
+| Pour effectuer ces tâches avec... | Reportez-vous à... 
+
+
+| System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures) | link:https://docs.netapp.com/us-en/ontap/task_dp_prepare_mirror.html["Préparez-vous à la mise en miroir et à l'archivage"^] 
+
+
+| Interface de ligne de commande ONTAP | link:https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["Création d'une relation de cluster entre pairs (ONTAP 9.3 et versions ultérieures)"^] 
+|===

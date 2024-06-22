@@ -1,0 +1,206 @@
+---
+permalink: online-help-96-97/concept_efficiency_policies.html 
+sidebar: sidebar 
+keywords: efficiency, policy, system, manager, create, edit, delete, online, help, flexvol, window 
+summary: 'System Manager permet de créer, modifier et supprimer des règles d"efficacité.' 
+---
+= Gérez les règles d'efficacité à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de créer, de modifier et de supprimer des règles d'efficacité.
+
+
+
+== Ajouter des règles d'efficacité
+
+System Manager peut être utilisé pour ajouter des règles d'efficacité pour l'exécution de l'opération de déduplication sur un volume selon une planification spécifiée ou lorsque le changement de données de volume atteint une valeur de seuil spécifiée.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies d'efficacité*.
+. Cliquez sur *Ajouter*, puis spécifiez le nom de la stratégie.
+. Spécifiez la méthode d'exécution de la règle d'efficacité du stockage :
++
+** Sélectionnez *Agenda*, puis spécifiez le nom de l'horaire et les détails de l'horaire.
++
+Vous pouvez spécifier la durée d'exécution maximale de la stratégie d'efficacité, si nécessaire.
+
+** Sélectionnez *ChangeLog Threshold* et spécifiez la valeur de seuil (en pourcentage) pour le changement de données de volume.
+
+
+. *Facultatif:* cochez la case *définir la stratégie de qualité de service sur fond* pour réduire l'impact sur les performances sur les opérations client.
+. Cliquez sur *Ajouter*.
+
+
+
+
+== Modifiez des règles d'efficacité
+
+System Manager peut être utilisé pour modifier les attributs d'une stratégie d'efficacité, comme le nom de la stratégie, le nom du programme et l'exécution maximale.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies d'efficacité*.
+. Dans la fenêtre *Efficiency Policies*, sélectionnez la stratégie à modifier, puis cliquez sur *Edit*.
+. Dans la boîte de dialogue *Modifier la stratégie d'efficacité*, apportez les modifications requises.
+. Cliquez sur *Enregistrer*.
+
+
+
+
+== Suppression des règles d'efficacité
+
+Vous pouvez utiliser System Managerto supprimer une stratégie d'efficacité qui n'est plus requise.
+
+.Avant de commencer
+La politique d'efficacité doit être désactivée.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies d'efficacité*.
+. Sélectionnez la stratégie d'efficacité à supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Activation ou désactivation des règles d'efficacité
+
+Vous pouvez utiliser System Manager pour activer ou désactiver une règle d'efficacité.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies d'efficacité*.
+. Sélectionnez une ou plusieurs règles d'efficacité que vous souhaitez activer ou désactiver.
+. Cliquez sur *État* > *Activer* ou *État* > *Désactiver*, selon les besoins.
+. Si vous désactivez une stratégie d'efficacité, cochez la case de confirmation, puis cliquez sur *OK*.
+
+
+
+
+== Définition d'une règle d'efficacité
+
+Une règle d'efficacité est une planification de tâche pour une opération de déduplication sur un volume FlexVol.
+
+Vous pouvez exécuter la déduplication sur un volume FlexVol soit en planifiant ces opérations pour démarrer à un moment donné, soit en précisant que les opérations sont déclenchées si un pourcentage seuil dépassé. Vous pouvez planifier une opération de déduplication en créant des planifications de tâches comprises dans les règles d'efficacité. Les règles d'efficacité des volumes prennent uniquement en charge les planifications de tâches de type cron. Vous pouvez également spécifier un pourcentage de seuil. Lorsque les nouvelles données dépassent le pourcentage spécifié, le processus de déduplication est démarré.
+
+
+
+== Présentation des règles d'efficacité prédéfinies
+
+Vous pouvez configurer un volume avec des règles d'efficacité pour réaliser des économies d'espace supplémentaires. Vous pouvez configurer un volume pour qu'il exécute la compression en ligne sans avoir à configurer une opération d'efficacité en arrière-plan planifiée ou démarrée manuellement sur le volume.
+
+Lorsque vous créez un SVM, les règles d'efficacité suivantes sont créées automatiquement et ne peuvent pas être supprimées :
+
+* Valeur par défaut
++
+Vous pouvez configurer un volume avec la règle d'efficacité pour exécuter les opérations de déduplication planifiées sur le volume.
+
+* En ligne uniquement
++
+Vous pouvez configurer un volume avec la règle d'efficacité à la volée uniquement et activer la compression à la volée, pour exécuter la compression à la volée sur le volume sans opérations d'efficacité en arrière-plan planifiées ou manuelles.
+
+
+
+Pour plus d'informations sur les règles d'efficacité en ligne uniquement et par défaut, consultez les pages de manuels.
+
+
+
+== Politique d'efficacité
+
+La fenêtre Efficiency Policies permet de créer, d'afficher et de gérer des informations relatives aux règles d'efficacité.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Ajouter une stratégie d'efficacité, qui vous permet d'exécuter une opération de déduplication sur un volume pendant une durée spécifiée (basée sur la planification) ou lorsque le changement de données de volume atteint une valeur de seuil spécifiée (basée sur un seuil).
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier la stratégie d'efficacité, qui vous permet de modifier la planification, la valeur de seuil, le type de QoS et la durée d'exécution maximale d'une opération de déduplication.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer la stratégie d'efficacité, qui permet de supprimer la stratégie d'efficacité sélectionnée.
+
+* *Statut*
++
+Ouvrez un menu déroulant qui fournit des options pour activer ou désactiver la stratégie d'efficacité sélectionnée.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des règles d'efficacité
+
+* *Auto*
++
+Spécifie que la déduplication est constamment exécutée en arrière-plan. Cette règle est définie pour tous les volumes nouvellement créés et pour tous les volumes mis à niveau qui n'ont pas été configurés manuellement pour la déduplication en arrière-plan. Si vous changez la politique en "par défaut" ou toute autre politique, la politique "auto" est désactivée.
+
++
+Lorsqu'un volume est déplacé d'un système non AFF vers un système AFF, la règle « automatique » est activée par défaut sur le nœud de destination. Lorsqu'un volume est déplacé d'un nœud AFF vers un nœud non AFF, la règle « auto » sur le nœud de destination est remplacée par la règle « à la volée uniquement » par défaut.
+
+* *Politique*
++
+Spécifie le nom d'une règle d'efficacité.
+
+* *Statut*
++
+Spécifie le statut d'une règle d'efficacité. La liste ci-dessous répertorie les différents États de haute disponibilité :
+
++
+** Activé
++
+Spécifie que la politique d'efficacité peut être attribuée à une opération de déduplication.
+
+** Désactivé
++
+Spécifie que la stratégie d'efficacité est désactivée. Vous pouvez activer la règle en utilisant le menu déroulant Status et l'attribuer ultérieurement à une opération de déduplication.
+
+
+
+* *Exécuter par*
++
+Indique si la stratégie d'efficacité du stockage est exécutée selon un planning ou en fonction d'une valeur seuil (seuil du journal des modifications).
+
+* *Politique de qualité de service*
++
+Spécifie le type de QoS pour la règle d'efficacité du stockage. La liste ci-dessous répertorie les différents types de QoS :
+
++
+** Contexte
++
+Spécifie que la règle de QoS s'exécute en arrière-plan, ce qui réduit l'impact potentiel sur les performances des opérations client.
+
+** Meilleur effort
++
+Spécifie que la règle de qualité de service s'exécute sur une base meilleur effort, ce qui vous permet d'optimiser l'utilisation des ressources système.
+
+
+
+* *Durée maximale*
++
+Spécifie la durée d'exécution maximale d'une règle d'efficacité. Si cette valeur n'est pas spécifiée, la règle d'efficacité est exécutée jusqu'à ce que l'opération soit terminée.
+
+
+
+
+
+=== Zone de détails
+
+La zone située sous la liste des stratégies d'efficacité affiche des informations supplémentaires sur la stratégie d'efficacité sélectionnée, notamment le nom du programme et les détails de la planification d'une stratégie basée sur un planning, ainsi que la valeur du seuil d'une stratégie basée sur des seuils.

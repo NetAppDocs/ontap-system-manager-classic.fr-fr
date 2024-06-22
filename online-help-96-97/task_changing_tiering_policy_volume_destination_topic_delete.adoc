@@ -1,0 +1,21 @@
+---
+permalink: online-help-96-97/task_changing_tiering_policy_volume_destination_topic_delete.html 
+sidebar: sidebar 
+keywords: change, tiering, policy, system, manager, volume, online, help 
+summary: 'System Manager peut être utilisé pour modifier la règle de Tiering par défaut d"un volume afin de déterminer si les données du volume sont déplacées vers le Tier cloud lorsque celles-ci deviennent inactives.' 
+---
+= Modifiez la règle de hiérarchisation d'un volume avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier la règle de Tiering par défaut d'un volume afin de contrôler si les données du volume sont déplacées vers le Tier cloud lorsque les données sont inactives.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume pour lequel vous souhaitez modifier la stratégie de hiérarchisation, puis cliquez sur *plus d'actions* > *Modifier la stratégie de hiérarchisation*.
+. Sélectionnez la stratégie de hiérarchisation requise dans la liste *Tiering Policy*, puis cliquez sur *Save*.
+

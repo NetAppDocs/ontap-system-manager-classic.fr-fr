@@ -1,0 +1,26 @@
+---
+permalink: snmp-config/reference_where_to_find_additional_information.html 
+sidebar: sidebar 
+keywords: reference, manual, configure, snmp, where to find additional information 
+summary: 'Il existe d"autres manuels de référence pour vous aider à configurer SNMP.' 
+---
+= Où trouver des informations complémentaires
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il existe d'autres manuels de référence pour vous aider à configurer SNMP.
+
+La documentation suivante fournit des informations plus détaillées :
+
+* https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"^]
++
+Décrit la configuration des sous-réseaux, des LIF intercluster, des routes, des politiques de pare-feu et d'autres composants réseau. Elle décrit également comment créer un utilisateur de communauté ou de sécurité SNMP dans une machine virtuelle de stockage de données (SVM) et comment gérer les Traphosts SNMP.
+
+* http://www.netapp.com/us/media/tr-4220.pdf["Rapport technique NetApp 4220 : prise en charge SNMP dans Data ONTAP"^]
++
+Décrit la prise en charge SNMP dans ONTAP, notamment une comparaison détaillée du support SNMP dans les environnements 7-mode et de cluster, et une liste de tous les événements par défaut pris en charge par les traps SNMP.
+
+

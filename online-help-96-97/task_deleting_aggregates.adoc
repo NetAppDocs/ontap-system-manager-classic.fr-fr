@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_deleting_aggregates.html 
+sidebar: sidebar 
+keywords: delete, aggregates, system, manager, online, help, root 
+summary: 'Vous pouvez utiliser System Manager pour supprimer les agrégats si vous n"avez plus besoin des données contenues dans ces agrégats. Cependant, vous ne pouvez pas supprimer l"agrégat root, car il contient le volume root, qui contient les informations de configuration du système.' 
+---
+= Supprimez les agrégats avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour supprimer les agrégats si vous n'avez plus besoin des données présentes dans ces agrégats. Cependant, vous ne pouvez pas supprimer l'agrégat root, car il contient le volume root, qui contient les informations de configuration du système.
+
+.Avant de commencer
+* L'ensemble des volumes FlexVol et des SVM qu'ils contiennent doivent être supprimés.
+* L'agrégat doit être hors ligne.
+
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Sélectionnez un ou plusieurs agrégats à supprimer, puis cliquez sur *Delete*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+*Informations connexes*
+
+xref:reference_aggregates_window.adoc[La fenêtre Aggregates]
+
+xref:reference_storage_tiers_window.adoc[La fenêtre Storage tiers]

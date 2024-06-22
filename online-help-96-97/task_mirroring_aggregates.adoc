@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_mirroring_aggregates.html 
+sidebar: sidebar 
+keywords: mirror, aggregate, system, manager, data, lun, array, online, help 
+summary: Vous pouvez utiliser System Manager pour protéger vos données et améliorer la résilience en mettant en miroir des données en temps réel dans un seul agrégat. La mise en miroir des agrégats supprime les points de défaillance uniques lors de la connexion aux disques et aux LUN de baies. 
+---
+= Mise en miroir des agrégats avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour protéger vos données et améliorer la résilience en mettant en miroir les données en temps réel dans un agrégat unique. La mise en miroir des agrégats supprime les points de défaillance uniques lors de la connexion aux disques et aux LUN de baies.
+
+.Avant de commencer
+L'autre pool doit disposer de disques disponibles suffisants pour mettre en miroir l'agrégat.
+
+.Description de la tâche
+Un agrégat Flash Pool ne peut pas être mis en miroir lorsque la source du cache est un pool de stockage.
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Sélectionnez l'agrégat à symétriser, puis cliquez sur menu:More actions[Mirror].
++
+[NOTE]
+====
+SyncMirror n'est pas pris en charge sur les agrégats compatibles avec FabricPool.
+
+====
+. Dans la boîte de dialogue *Symétrie de cet agrégat*, cliquez sur *miroir* pour lancer la mise en miroir.
+

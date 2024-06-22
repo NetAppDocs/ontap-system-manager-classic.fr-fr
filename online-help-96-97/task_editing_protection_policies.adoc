@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_editing_protection_policies.html 
+sidebar: sidebar 
+keywords: edit, protection, policies, online, help, system, manager 
+summary: 'Vous pouvez utiliser System Manager pour modifier une règle de protection et l"appliquer à une relation de protection des données.' 
+---
+= Modification de stratégies de protection
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser System Manager pour modifier une règle de protection et l'appliquer à une relation de protection des données.
+
+.Description de la tâche
+Les règles de protection ne s'affichent pas au niveau du cluster.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionnez la machine virtuelle de stockage (SVM), puis cliquez sur *SVM Settings*.
+. Dans le volet *Policies*, cliquez sur *stratégies de protection*.
+. Sélectionnez la stratégie de protection que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Modifiez la priorité de transfert, puis activez ou désactivez la compression réseau.
+. Afin de mettre en place une règle de miroir asynchrone, sauvegardez toutes les copies Snapshot source.
+. Dans le cas d'une stratégie de copie à distance ou de mise en miroir de la règle de copie à distance, modifiez le nombre d'étiquettes et de rétention SnapMirror.
++
+Vous ne pouvez pas supprimer l'étiquette sm_Created pour une stratégie de coffre-fort miroir.
+
+. Cliquez sur *Enregistrer*.
+

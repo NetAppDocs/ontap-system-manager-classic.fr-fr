@@ -1,0 +1,26 @@
+---
+permalink: nfs-config-esxi/task_configuring_esxi_host_best_practice_settings.html 
+sidebar: sidebar 
+keywords: ensure, esxi, practice, setting, correct, host, loss, nfs, connection, storage, configure, configure the esxi host best practice settings 
+summary: 'Vous devez vous assurer que les paramètres des meilleures pratiques de l"hôte ESXi sont corrects afin que l"hôte ESXi puisse gérer correctement la perte d"une connexion NFS ou d"un stockage.' 
+---
+= Configurez les paramètres des meilleures pratiques de l'hôte ESXi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez vous assurer que les paramètres des meilleures pratiques de l'hôte ESXi sont corrects afin que l'hôte ESXi puisse gérer correctement la perte d'une connexion NFS ou d'un stockage.
+
+.Étapes
+. Dans la page client Web VMware vSphere *Home*, cliquez sur *vCenter* > *hosts*.
+. Cliquez avec le bouton droit de la souris sur l'hôte, puis sélectionnez *actions* > *NetApp VSC* > *Set Recommended Values*.
+. Dans la boîte de dialogue *Paramètres recommandés par NetApp*, assurez-vous que toutes les options sont sélectionnées, puis cliquez sur *OK*.
++
+Les paramètres MPIO ne s'appliquent pas à NFS. Toutefois, si vous utilisez d'autres protocoles, vous devez vous assurer que toutes les options sont sélectionnées.
+
++
+Le client Web vCenter affiche la progression de la tâche.
+
+

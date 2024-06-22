@@ -1,0 +1,14 @@
+---
+permalink: expansion/task_installing_new_nodes.html 
+sidebar: sidebar 
+keywords: cluster, install, controller, configure, node-management, run, ontap, repurpose, hardware-level, ha, address, maintenance, mode, join, install the new node 
+summary: Une fois le cluster prêt, vous devez installer les contrôleurs et configurer les LIF node-management. 
+---
+= Installez les nouveaux nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le cluster prêt, vous devez installer les contrôleurs et configurer les LIF node-management. Si les contrôleurs n'exécutent pas la même version de ONTAP que le cluster existant, ou si ils ne sont pas reconvertis et ne disposent pas d'une haute disponibilité au niveau matériel, vous devez résoudre ces problèmes en mode de maintenance. Enfin, vous pouvez relier les nœuds au cluster.

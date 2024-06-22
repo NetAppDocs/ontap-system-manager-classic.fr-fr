@@ -1,0 +1,57 @@
+---
+permalink: online-help-96-97/task_creating_portsets.html 
+sidebar: sidebar 
+keywords: system, manager, port, set, create, online, help, lun, delete, edit, manage 
+summary: Vous pouvez utiliser ONTAP System Manager Classic pour créer, supprimer et modifier des ensembles de ports. 
+---
+= Gérez les ensembles de ports avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer, supprimer et modifier des ensembles de ports.
+
+
+
+== Créer des ensembles de ports
+
+ONTAP System Manager classique peut être utilisé pour créer des ensembles de ports afin de limiter l'accès à vos LUN.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *Porsets*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Create PortSet*, sélectionnez le type de protocole.
+. Sélectionnez l'interface réseau que vous souhaitez associer à l'ensemble de ports.
+. Cliquez sur *Créer*.
+
+
+
+
+== Supprimer des ensembles de ports
+
+Vous pouvez utiliser System Manager pour supprimer un ensemble de ports lorsqu'il n'est plus nécessaire.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *ensembles de ports*, sélectionnez un ou plusieurs ensembles de ports et cliquez sur *Supprimer*.
+. Confirmez la suppression en cliquant sur *Supprimer*.
+
+
+
+
+== Modifiez les ensembles de ports
+
+Vous pouvez utiliser l'onglet ensembles de ports de System Manager pour modifier les paramètres relatifs aux ensembles de ports.
+
+.Étapes
+. Cliquez sur *Storage* > *LUNs*.
+. Dans l'onglet *ensembles de ports*, sélectionnez l'ensemble de ports que vous souhaitez modifier et cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Edit PortSet*, apportez les modifications nécessaires.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:task_configuring_iscsi_protocol_on_svms.adoc[Configuration du protocole iSCSI sur les SVM]

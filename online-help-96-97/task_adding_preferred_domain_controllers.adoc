@@ -1,0 +1,58 @@
+---
+permalink: online-help-96-97/task_adding_preferred_domain_controllers.html 
+sidebar: sidebar 
+keywords: system, manager, add, preferred, domain, controller, online, help, dns, edit, modify, delete 
+summary: System Manager détecte automatiquement les contrôleurs de domaine via DNS. Vous pouvez éventuellement ajouter un ou plusieurs contrôleurs de domaine à la liste des contrôleurs de domaine privilégiés pour un domaine spécifique. 
+---
+= Gérez les contrôleurs de domaine de votre choix avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les contrôleurs de domaine préférés.
+
+
+
+== Ajouter des contrôleurs de domaine préférés
+
+System Manager détecte automatiquement les contrôleurs de domaine via DNS. Vous pouvez éventuellement ajouter un ou plusieurs contrôleurs de domaine à la liste des contrôleurs de domaine privilégiés pour un domaine spécifique.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *domaine*, cliquez sur *Ajouter* dans la zone *contrôleurs de domaine préférés*.
+. Entrez le nom de domaine complet (FQDN) et les adresses IP des contrôleurs de domaine que vous souhaitez ajouter.
++
+Vous pouvez ajouter plusieurs contrôleurs de domaine en entrant les adresses IP des contrôleurs de domaine séparés par des virgules.
+
+. Cliquez sur *Enregistrer*.
+. Vérifiez que le contrôleur de domaine que vous avez ajouté s'affiche dans la liste des contrôleurs de domaine préférés.
+
+
+
+
+== Modifiez les contrôleurs de domaine préférés
+
+Vous pouvez utiliser System Manager pour modifier l'adresse IP des contrôleurs de domaine préférés configurés pour un domaine spécifique.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans la zone *contrôleurs de domaine préférés* de l'onglet *domaine*, double-cliquez sur le contrôleur de domaine que vous souhaitez modifier.
+. Modifiez les adresses IP du contrôleur de domaine, puis cliquez sur *Enregistrer*.
+
+
+
+
+== Supprimer les contrôleurs de domaine préférés
+
+Vous pouvez utiliser System Manager pour supprimer un contrôleur de domaine préféré auquel le compte d'ordinateur SVM (Storage Virtual machine) est associé. Vous pouvez le faire si vous ne souhaitez plus utiliser un contrôleur de domaine particulier.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans l'onglet *domaine*, sélectionnez le domaine que vous souhaitez supprimer de la zone *contrôleurs de domaine préférés*, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+

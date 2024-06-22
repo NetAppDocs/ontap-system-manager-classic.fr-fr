@@ -1,0 +1,49 @@
+---
+permalink: volume-disaster-prep/task_setting_up_destination_svm_for_data_access.html 
+sidebar: sidebar 
+keywords: minimize, data, access, disruption, activating, activate, destination, volume, configuration, cifs, policies, policy, nas, environment, initiator, group, svm, set up the destination svm for data access 
+summary: 'Vous pouvez réduire les perturbations de l"accès aux données lors de l"activation du volume de destination en configurant les configurations requises telles que les LIF, les partages CIFS et les stratégies d"exportation pour l"environnement NAS, ainsi que les LIF et les groupes initiateurs pour l"environnement SAN sur la SVM contenant le volume de destination.' 
+---
+= Configuration du SVM de destination pour l'accès aux données
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez réduire les perturbations de l'accès aux données lors de l'activation du volume de destination en configurant les configurations requises telles que les LIF, les partages CIFS et les stratégies d'exportation pour l'environnement NAS, ainsi que les LIF et les groupes initiateurs pour l'environnement SAN sur la SVM contenant le volume de destination.
+
+.Description de la tâche
+Vous devez effectuer cette tâche sur le cluster *destination* pour la SVM contenant le volume de destination.
+
+
+
+== Procédure
+
+* Environnement NAS :
++
+.. Créez des LIF NAS.
+.. Créez des partages CIFS avec les mêmes noms de partage que ceux utilisés sur la source.
+.. Création de règles d'exportation NFS appropriées
+.. Créer des règles de quotas appropriées.
+
+
+* Environnement SAN :
++
+.. Création des LIFs SAN.
+.. *Facultatif:* configurer les ensembles de ports.
+.. Configurer les groupes initiateurs.
+.. Pour FC, dézone les commutateurs FC pour permettre aux clients SAN d'accéder aux LIF.
+
+
+
+
+
+
+== Que faire ensuite
+
+Si des modifications ont été apportées sur la SVM contenant le volume source, vous devez répliquer les modifications manuellement sur la SVM contenant le volume de destination.
+
+*Informations connexes*
+
+https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"]

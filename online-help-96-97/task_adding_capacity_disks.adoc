@@ -1,0 +1,90 @@
+---
+permalink: online-help-96-97/task_adding_capacity_disks.html 
+sidebar: sidebar 
+keywords: add, capacity, disk, online, help, aggregate 
+summary: 'Vous pouvez augmenter la taille d"un agrégat non-racine existant ou d"un agrégat racine contenant des disques en ajoutant de la capacité. System Manager permet d"ajouter des disques durs ou des disques SSD du type de disque ONTAP sélectionné et de modifier les options du groupe RAID.' 
+---
+= Ajoutez des disques de capacité avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez augmenter la taille d'un agrégat non-racine existant ou d'un agrégat racine contenant des disques en ajoutant de la capacité. Vous pouvez utiliser System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour ajouter des disques durs ou des disques SSD du type de disque ONTAP sélectionné et modifier les options du groupe RAID.
+
+.Avant de commencer
+* L'agrégat doit être en ligne.
+* Il doit y avoir suffisamment de disques de rechange compatibles.
+
+
+.Description de la tâche
+* Il est recommandé d'ajouter des disques de même taille que les autres disques de l'agrégat.
++
+Si vous ajoutez des disques de taille inférieure à celle des autres disques de l'agrégat, celui-ci devient sous-optimal dans la configuration, ce qui risque d'entraîner des problèmes de performances.
+
++
+Si vous ajoutez des disques de plus grande taille que les disques disponibles dans un groupe RAID existant au sein de l'agrégat, les disques sont dimensionnés et leur espace est réduit à celui des autres disques du groupe RAID. Si un nouveau groupe RAID est créé dans l'agrégat et que des disques de même taille restent dans le nouveau groupe RAID, les disques ne sont pas dimensionnés en aval.
+
++
+Si vous ajoutez des disques de taille différente de celle des autres disques de l'agrégat, il est possible que les disques sélectionnés ne soient pas ajoutés ; à la place, d'autres disques d'une taille utilisable comprise entre 90 % et 105 % de la taille spécifiée sont automatiquement ajoutés. Par exemple, pour un disque de 744 Go, tous les disques de 669 Go à 781 Go sont éligibles pour la sélection. Pour tous les disques de spare de cette gamme, ONTAP ne sélectionne d'abord que des disques non partitionnés, puis ne sélectionne que des disques non partitionnés et enfin des disques non partitionnés.
+
+* Vous ne pouvez pas utiliser System Manager pour ajouter des disques durs aux configurations suivantes :
++
+** Agrégats contenant uniquement des disques SSD
+** Agrégats racine contenant des disques partitionnés
+Vous devez utiliser l'interface de ligne de commande pour ajouter des disques durs à ces configurations.
+
+
+* Les disques partagés prennent en charge deux types RAID : RAID DP et RAID-TEC.
+* Vous ne pouvez pas utiliser de disques SSD avec le pool de stockage.
+* Si le type de groupe RAID est RAID DP, et si vous ajoutez DES FSAS ou des MSATA de type disques dont la taille est supérieure ou égale à 10 To, vous ne pouvez les ajouter qu'à `Specific RAID group`, et non à `New RAID group` ou `All RAID groups`.
++
+Les disques sont ajoutés après avoir réduit la taille du disque à la taille des disques du groupe RAID préexistant de l'agrégat existant.
+
+* Si le type de groupe RAID est RAID-TEC, et si vous ajoutez DES FSAS ou DES MSATA de type disques dont la taille est supérieure ou égale à 10 To, vous pouvez les ajouter à `All RAID groups`, `New RAID group`, et `Specific RAID group`.
++
+Les disques sont ajoutés après avoir réduit la taille du disque à la taille des disques du groupe RAID préexistant de l'agrégat existant.
+
+
+
+.Étapes
+. Choisissez l'une des méthodes suivantes :
++
+** Cliquez sur *applications et niveaux* > *niveaux de stockage*.
+** Cliquez sur *stockage* > *agrégats et disques* > *agrégats*.
+
+
+. Dans la fenêtre *Storage tiers*, sélectionnez l'agrégat auquel vous souhaitez ajouter des disques de capacité, puis cliquez sur menu:More actions[Add Capacity].
+. Spécifiez les informations suivantes dans la boîte de dialogue *Ajouter capacité* :
++
+.. Spécifiez le type de disque pour les disques de capacité à l'aide de l'option *Disk Type to Add*.
+.. Spécifiez le nombre de disques de capacité à l'aide de l'option *nombre de disques ou partitions*.
+
+
+. Spécifiez le groupe RAID auquel les disques de capacité doivent être ajoutés à l'aide de l'option *Ajouter des disques à*.
++
+Par défaut, System Manager ajoute les disques de capacité à `All RAID groups`.
+
++
+.. Cliquez sur *Modifier*.
+.. Dans la boîte de dialogue *RAID Group Selection* (sélection de groupe RAID*), indiquez le groupe RAID comme `New RAID group` ou `Specific RAID group` En utilisant l'option *Ajouter des disques à*.
++
+Les disques partagés ne peuvent être ajoutés qu'à `New RAID group` option.
+
+
+
+. Cliquez sur *Ajouter*.
++
+Pour les agrégats en miroir, une boîte de dialogue *Ajouter capacité* s'affiche avec les informations qui permettront d'ajouter deux fois le nombre de disques sélectionnés.
+
+. Dans la boîte de dialogue *Ajouter capacité*, cliquez sur *Oui* pour ajouter les disques de capacité.
+
+
+.Résultats
+Les disques de capacité sont ajoutés à l'agrégat sélectionné et la taille de l'agrégat est augmentée.
+
+*Informations connexes*
+
+xref:concept_what_compatible_spare_disks_are.adoc[En sont les disques de spare compatibles]

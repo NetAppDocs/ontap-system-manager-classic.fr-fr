@@ -1,0 +1,45 @@
+---
+permalink: online-help-96-97/reference_managing_svms.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, svm, administrator, system, manager, online, help 
+summary: 'Un administrateur SVM (Storage Virtual machine) peut administrer des SVM et leurs ressources, telles que des volumes, des protocoles et des services, en fonction des fonctionnalités attribuées par l"administrateur du cluster. Un administrateur des SVM ne peut ni créer, ni modifier, ni supprimer des SVM.' 
+---
+= Gérez les SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures), un administrateur de machine virtuelle de stockage (SVM) peut gérer des SVM et leurs ressources, telles que des volumes, des protocoles et des services, selon les fonctionnalités attribuées par l'administrateur du cluster. Un administrateur des SVM ne peut ni créer, ni modifier, ni supprimer des SVM.
+
+[NOTE]
+====
+Les administrateurs du SVM ne peuvent pas se connecter à System Manager.
+
+====
+Les administrateurs du SVM peuvent disposer, voire de certaines, des fonctionnalités d'administration suivantes :
+
+* Configuration du protocole d'accès aux données
++
+Les administrateurs des SVM peuvent configurer les protocoles d'accès aux données, tels que NFS, CIFS, iSCSI et Fibre Channel (FC) (Fiber Channel over Ethernet ou FCoE inclus).
+
+* Configuration des services
++
+Les administrateurs SVM peuvent configurer les services tels que LDAP, NIS et DNS.
+
+* Gestion du stockage
++
+Les administrateurs du SVM peuvent gérer des volumes, des quotas, des qtrees et des fichiers.
+
+* La gestion des LUN dans un environnement SAN
+* Gestion des copies Snapshot du volume
+* Surveillance des SVM
++
+Les administrateurs des SVM peuvent surveiller les tâches, la connexion réseau, l'interface réseau et l'état de santé des SVM.
+
+
+
+*Informations connexes*
+
+https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"]

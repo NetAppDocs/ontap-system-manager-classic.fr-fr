@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_specifying_advanced_options_for_flexgroup_volume.html 
+sidebar: sidebar 
+keywords: flexclone, volume, specify, advanced, create, options, online, help 
+summary: Lorsque vous créez un volume FlexGroup, vous pouvez spécifier les options à associer au volume FlexGroup. 
+---
+= Spécifiez les options avancées pour un volume FlexGroup avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous créez un volume FlexGroup, vous pouvez utiliser ONTAP System Manager classic (disponible dans ONTAP 9.7 et versions antérieures) pour spécifier les options que vous souhaitez associer au volume FlexGroup.
+
+.Étapes
+. *Facultatif :* dans la fenêtre *Créer FlexGroup*, cliquez sur image:../media/advanced_options.gif[""] pour spécifier les options avancées.
++
+La fenêtre Options avancées s'affiche. Il contient des sections (les en-têtes de la colonne de gauche), dans lesquelles vous pouvez spécifier différentes options.
+
+. Dans la section *Détails généraux*, sélectionnez la réserve d'espace et le style de sécurité, puis définissez l'autorisation UNIX pour le volume.
++
+Notez les limites suivantes :
+
++
+** L'option Space Reserve n'est pas disponible pour les agrégats FabricPool.
+** Lorsque le provisionnement fin est activé, l'espace est alloué au volume depuis l'agrégat uniquement lorsque les données sont écrites sur le volume.
+** Pour les systèmes de stockage optimisés pour la technologie 100 % Flash, le provisionnement fin est activé par défaut et pour d'autres systèmes de stockage, le provisionnement lourd est activé par défaut.
+
+
+. Dans la section *Aggregates*, vous pouvez activer le bouton *Select Aggregates* pour remplacer les meilleures pratiques par défaut et sélectionner vos choix dans une liste des agrégats FabricPool.
+. Dans la section *optimisation de l'espace*, vous pouvez activer la déduplication sur le volume.
++
+System Manager utilise la planification de déduplication par défaut. Si la taille du volume spécifiée dépasse la limite requise pour l'exécution de la déduplication, le volume est créé et la déduplication n'est pas activée.
+
++
+Pour les systèmes avec personnalisation optimisée pour la technologie 100 % Flash, compression à la volée et `auto` la planification de la déduplication est activée par défaut.
+
+. Dans la section *QoS* (qualité de service), spécifiez le groupe de règles pour contrôler les performances d'entrée/sortie (E/S) du volume FlexGroup.
+. Cliquez sur *appliquer* pour mettre à jour les modifications.
+

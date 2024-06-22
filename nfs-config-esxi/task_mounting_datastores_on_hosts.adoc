@@ -1,0 +1,25 @@
+---
+permalink: nfs-config-esxi/task_mounting_datastores_on_hosts.html 
+sidebar: sidebar 
+keywords: mount, datastore, host, access, storage, provision, automatic, add, vmware, environment, mount datastores on hosts 
+summary: 'Le montage d"un datastore permet à un hôte d"accéder au stockage. Lorsque les datastores sont provisionnés par , ils sont automatiquement montés sur l"hôte ou le cluster. Après avoir ajouté l"hôte à votre environnement VMware, vous devrez peut-être monter un datastore sur un hôte.' 
+---
+= Montez les datastores sur les hôtes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le montage d'un datastore permet à un hôte d'accéder au stockage. Lorsque les datastores sont provisionnés par , ils sont automatiquement montés sur l'hôte ou le cluster. Après avoir ajouté l'hôte à votre environnement VMware, vous devrez peut-être monter un datastore sur un hôte.
+
+.Étapes
+. Dans la page Web vSphere * Home* du client, cliquez sur *hosts and clusters* :
+. Dans le volet de navigation, développez le centre de données qui contient l'hôte :
+. Cliquez avec le bouton droit sur l'hôte, puis sélectionnez *NetApp VSC* > *Mount datastores*.
+. Sélectionnez les datastores à monter, puis cliquez sur *OK*.
+
+
+*Informations connexes*
+
+https://docs.netapp.com/vapp-96/topic/com.netapp.doc.vsc-iag/home.html["Virtual Storage Console, VASA Provider et Storage Replication adapter pour VMware vSphere Administration 9.6"]

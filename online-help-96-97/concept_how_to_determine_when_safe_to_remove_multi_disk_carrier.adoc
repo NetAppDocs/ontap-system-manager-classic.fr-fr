@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/concept_how_to_determine_when_safe_to_remove_multi_disk_carrier.html 
+sidebar: sidebar 
+keywords: remove, multidisk, carrier, system, manager, storage, disruption, raid 
+summary: 'Si vous supprimez un support de plusieurs disques avant qu"il ne soit en sécurité, vous risquez d"affecter un ou plusieurs groupes RAID, voire de provoquer une interruption du stockage. System Manager vous permet de déterminer quand supprimer un support de disques multiples en toute sécurité.' 
+---
+= Déterminez s'il est sûr de retirer un support de disques multiples avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous supprimez un support de plusieurs disques avant qu'il ne soit en sécurité, vous risquez d'affecter un ou plusieurs groupes RAID, voire de provoquer une interruption du stockage. ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) vous permet de déterminer si un support de plusieurs disques ne peut être supprimé en toute sécurité.
+
+Lorsqu'un support multi-disques doit être remplacé, les événements suivants doivent avoir eu lieu avant de pouvoir retirer le support en toute sécurité :
+
+* Un message AutoSupport doit avoir été enregistré pour indiquer que le transporteur est prêt à être supprimé.
+* Un message EMS doit avoir été enregistré pour indiquer que le transporteur est prêt à être retiré.
+* L'état des deux disques du support doit être affiché comme `broken` Dans la fenêtre disques.
++
+Vous devez retirer les disques uniquement après l'évacuation de la contrainte porteuse d'un disque défectueux. Vous pouvez cliquer sur Détails pour afficher l'état d'évacuation du disque dans l'onglet Propriétés de la fenêtre disques.
+
+* Le voyant de panne (orange) du support doit être allumé en continu pour indiquer qu'il est prêt à être retiré.
+* Le voyant d'activité (vert) doit être éteint pour indiquer qu'il n'y a pas d'activité sur le disque.
+* Les informations numériques du tiroir affichent uniquement le numéro d'ID du tiroir.
+
+
+[NOTE]
+====
+Vous ne pouvez pas réutiliser la contrainte porteuse d'un disque défectueux. Lorsque vous supprimez un support multi-disques contenant un disque défectueux, vous devez le remplacer par un nouveau support.
+
+====

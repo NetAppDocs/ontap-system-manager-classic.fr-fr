@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_creating_snapshot_copies_outside_defined_schedule.html 
+sidebar: sidebar 
+keywords: create, snapshot, copy, outside, defined, schedule, online, help, system, manager 
+summary: 'System Manager peut être utilisé pour créer une copie Snapshot d"un volume en dehors d"un planning défini afin de capturer l"état du système de fichiers à un point dans le temps spécifique.' 
+---
+= Créez des copies Snapshot en dehors du planning défini avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer une copie Snapshot d'un volume en dehors d'un planning défini afin de capturer l'état du système de fichiers à un moment donné.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume dans la liste des volumes.
+. Cliquez sur *plus d'actions* > *gérer les instantanés* > *Créer*.
+. Dans la boîte de dialogue *Créer une copie Snapshot*, si vous souhaitez modifier le nom par défaut, spécifiez un nouveau nom pour la copie Snapshot.
++
+Les caractères valides sont les caractères ASCII, les chiffres, les tirets (-), les traits de soulignement (_), les points (.) et le symbole plus (+).
+
++
+Le nom par défaut d'une copie Snapshot doit indiquer le nom du volume et l'horodatage.
+
+. Cliquez sur *Créer*.
+. Vérifiez que la copie Snapshot que vous avez créée figure dans la liste des copies Snapshot de l'onglet *copies Snapshot*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

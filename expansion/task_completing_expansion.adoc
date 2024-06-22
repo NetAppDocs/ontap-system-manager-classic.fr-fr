@@ -1,0 +1,14 @@
+---
+permalink: expansion/task_completing_expansion.html 
+sidebar: sidebar 
+keywords: node, cluster, configuring, configure, autosupport, network, expansion, lun, path, complete, complete the expansion 
+summary: Une fois que les deux nœuds sont reliés au cluster, vous devez terminer la configuration des nouveaux nœuds ajoutés en configurant le AutoSupport et en complétant le réseau du processeur de service. 
+---
+= Terminez l'extension
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois que les deux nœuds sont reliés au cluster, vous devez terminer la configuration des nouveaux nœuds ajoutés en configurant le AutoSupport et en complétant le réseau du processeur de service. Vous devez ensuite valider le cluster étendu et générer un message AutoSupport pour terminer l'extension. Si le cluster utilise des SAN, mettre à jour les chemins des LUN.

@@ -1,0 +1,52 @@
+---
+permalink: online-help-96-97/task_deleting_svms.html 
+sidebar: sidebar 
+keywords: system, manager, delete, svm, online, help, storage, virtual, machine 
+summary: 'System Manager permet de supprimer les SVM (Storage Virtual machines) dont vous n"avez plus besoin de la configuration du système de stockage.' 
+---
+= Supprimez les SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de supprimer les serveurs virtuels de stockage dont vous n'avez plus besoin de la configuration du système de stockage.
+
+.Avant de commencer
+Vous devez avoir effectué les tâches suivantes :
+
+. Désactivez les copies Snapshot, les miroirs de protection des données (DP) et les miroirs de partage de charge (LS) pour tous les volumes
++
+[NOTE]
+====
+Vous devez utiliser l'interface de ligne de commande pour désactiver les miroirs LS.
+
+====
+. Supprimé manuellement tous les groupes initiateurs qui appartiennent au SVM si vous supprimez des SVM
+. Tous les ensembles de ports ont été supprimés
+. Tous les volumes du SVM, y compris le volume root
+. Non mappées des LUN, mises hors ligne, puis supprimées
+. Supprimé le serveur CIFS si vous supprimez des SVM
+. Suppression de tous les comptes utilisateur et rôles personnalisés associés à la SVM
+. Tous les sous-systèmes NVMe associés au SVM ont été supprimés à l'aide de l'interface de ligne de commande.
+. La SVM a été arrêtée
+
+
+.Description de la tâche
+Lorsque vous supprimez des SVM, les objets suivants associés à la SVM sont également supprimés :
+
+* Les LIF, les Failover Groups de LIF et les groupes de routage de LIF
+* Export-policies
+* Règles d'efficacité
+
+
+Si vous supprimez des SVM configurés pour utiliser Kerberos, ou modifiez les SVM en vue d'utiliser un autre Nom principal de service (SPN), le principal de service d'origine de la SVM n'est pas automatiquement supprimé ou désactivé du Royaume Kerberos. Vous devez supprimer ou désactiver manuellement le principal. Vous devez disposer du nom d'utilisateur et du mot de passe de l'administrateur du domaine Kerberos pour supprimer ou désactiver le principal.
+
+Si vous souhaitez déplacer les données d'un SVM vers un autre avant de supprimer le premier SVM, vous pouvez utiliser la technologie SnapMirror pour ce faire.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionnez le SVM que vous souhaitez supprimer, puis cliquez sur *Delete*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+

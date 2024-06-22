@@ -1,0 +1,16 @@
+---
+permalink: iscsi-config-esxi/concept_iscsi_configuration_provisioning_workflow.html 
+sidebar: sidebar 
+keywords: storage, esx, iscsi, provision, volume, lun, virtual, machine, svm, vmware, host, configuration, workflow, esxi 
+summary: 'Lorsque vous mettez le stockage à la disposition d"un hôte ESXi à l"aide d"iSCSI, vous provisionnez un volume et une LUN sur la machine virtuelle de stockage à l"aide de Virtual Storage Console pour VMware vSphere, puis vous connectez au LUN depuis l"hôte.' 
+---
+= Flux de travail de configuration iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous mettez le stockage à la disposition d'un hôte ESXi via iSCSI, vous provisionnez un volume et une LUN sur la machine virtuelle de stockage (SVM) à l'aide de Virtual Storage Console pour VMware vSphere, puis vous connectez au LUN depuis l'hôte.
+
+image::../media/iscsi_esx_workflow.gif[Cette illustration représente un organigramme du flux de travail iSCSI. Les étapes du workflow correspondent aux rubriques.]

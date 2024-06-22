@@ -1,0 +1,80 @@
+---
+permalink: volume-move/index.html 
+sidebar: sidebar 
+keywords: nondisruptive, data, volume, node, storage, virtual, machine, svm, ontap, cluster, volume move overview, move, overview 
+summary: 'Avec l"interface classique de ONTAP System Manager avec ONTAP 9.7 ou une version antérieure, vous pouvez déplacer un volume de données d"un nœud vers un autre nœud au sein d"un même SVM (Storage Virtual machine) dans un cluster ONTAP 9 sans interruption.' 
+---
+= Vue d'ensemble de la migration de volumes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avec l'interface classique de ONTAP System Manager avec ONTAP 9.7 ou une version antérieure, vous pouvez déplacer un volume de données d'un nœud vers un autre nœud au sein d'un même SVM (Storage Virtual machine) dans un cluster ONTAP 9 sans interruption.
+
+
+
+== Conditions requises pour l'utilisation de ces procédures
+
+Avant d'utiliser ces procédures, assurez-vous que les conditions suivantes sont remplies :
+
+* Le cluster exécute ONTAP 9.
+* Vous disposez des privilèges d'administrateur de cluster.
+* Vous voulez appliquer les bonnes pratiques, pas explorer toutes les options disponibles.
+* Vous souhaitez utiliser l'interface utilisateur _Classic_ System Manager pour ONTAP 9.7 et les versions antérieures, et non l'interface utilisateur ONTAP System Manager pour ONTAP 9.7 et versions ultérieures.
++
+Pour certaines tâches, vous devez utiliser l'interface de ligne de commandes ONTAP.
+
+* Vous savez quel volume vous souhaitez déplacer.
++
+Pour vous aider à déterminer les volumes à déplacer, vous pouvez utiliser Active IQ Unified Manager (anciennement OnCommand Unified Manager).
+
+* Le volume qui sera déplacé correspond à un volume de données.
+* Tout matériel nouveau ou reconverti est entièrement installé et possède déjà des agrégats.
+* Si le cluster possède des LUN, tous les nœuds ont deux chemins d'accès par LUN.
+* Le contrôle de flux n'est pas activé sur les ports réseau du cluster.
+* Pour les volumes contenant des espaces de noms, le cluster exécute ONTAP 9.6 ou version ultérieure.
++
+Le déplacement de volumes n'est pas pris en charge dans les configurations NVMe qui exécutent ONTAP 9.5.
+
+
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+|===
+
+
+| Pour effectuer cette tâche à l'aide de... | Reportez-vous à... 
+
+
+ a| 
+System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures)
+ a| 
+https://docs.netapp.com/us-en/ontap/volumes/manage-volumes-task.html["Gérer les volumes"^]
+
+
+
+ a| 
+Interface de ligne de commandes ONTAP
+ a| 
+https://docs.netapp.com/us-en/ontap/volumes/index.html["Gestion du stockage logique"^]
+
+|===
+
+
+== Alternatives au déplacement de volumes
+
+Avant de déplacer des volumes, il est recommandé d'évaluer si les approches suivantes sont mieux adaptées à votre situation :
+
+* Si vous souhaitez mettre à niveau un contrôleur sans interruption, il est possible d'utiliser le transfert d'agrégats (ARL), ce qui ne nécessite pas de déplacement physique des données.
++
+https://docs.netapp.com/us-en/ontap/high-availability/index.html["Haute disponibilité"^]
+
+* Si vous souhaitez déplacer uniquement une LUN sans son volume contenant, vous pouvez utiliser le processus de déplacement de LUN.
++
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["Administration SAN"^]
+
+

@@ -1,0 +1,31 @@
+---
+permalink: expansion/task_adding_or_replacing_switches.html 
+sidebar: sidebar 
+keywords: expand, cluster, ensure, configuration, switch, exist, port, add, replace, add or replace switches 
+summary: 'Avant de développer le cluster, vous devez vous assurer que les commutateurs de cluster prennent en charge la configuration étendue. Si le cluster n"est pas doté d"un commutateur, vous devez ajouter des commutateurs.' 
+---
+= Ajouter ou remplacer des commutateurs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de développer le cluster, vous devez vous assurer que les commutateurs de cluster prennent en charge la configuration étendue. Si le cluster n'est pas doté d'un commutateur, vous devez ajouter des commutateurs. Si les commutateurs existants ne disposent pas de suffisamment de ports disponibles pour prendre en charge la nouvelle configuration, vous devez remplacer les commutateurs.
+
+
+
+== Procédure
+
+* Si le cluster est actuellement un cluster sans commutateur à deux nœuds, migrez-le vers un cluster à deux nœuds avec commutateur en utilisant le type de commutateur que vous préférez.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migration vers un cluster à deux nœuds avec commutateur avec commutateurs de cluster Cisco"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration vers un cluster à deux nœuds avec commutateurs de cluster NetApp CN1610"]
+
+* Si les commutateurs existants ne disposent pas de ports suffisants pour prendre en charge la future configuration, remplacer les commutateurs en suivant la procédure de remplacement appropriée.
++
+https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62371["Documentation NetApp : commutateurs de cluster, de gestion et de stockage"]
+
+

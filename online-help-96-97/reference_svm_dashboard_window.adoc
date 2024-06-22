@@ -1,0 +1,59 @@
+---
+permalink: online-help-96-97/reference_svm_dashboard_window.html 
+sidebar: sidebar 
+keywords: svm, dashboard, detail, online, help 
+summary: 'Le tableau de bord fournit des informations cumulatives à la fois sur le serveur virtuel de stockage (SVM) et ses performances. Vous pouvez utiliser la fenêtre Tableau de bord pour afficher des informations importantes relatives à votre SVM, notamment les protocoles configurés et les volumes qui approchent de la capacité, et leurs performances.' 
+---
+= Fenêtre SVM Dashboard dans System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La fenêtre du tableau de bord de ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) fournit des informations cumulées présentées en un coup d'œil sur votre serveur virtuel de stockage (SVM) et ses performances. Vous pouvez utiliser la fenêtre Tableau de bord pour afficher des informations importantes relatives à votre SVM, notamment les protocoles configurés et les volumes qui approchent de la capacité, et leurs performances.
+
+
+
+== Détails de la SVM
+
+Cette fenêtre affiche des informations détaillées sur la SVM via différents panneaux tels que le panneau Protocol Status, les volumes approchant la capacité, le panneau applications et le panneau de performances.
+
+* *Etat du protocole*
++
+Présentation des protocoles configurés pour le SVM. Vous pouvez cliquer sur le nom du protocole pour afficher la configuration.
+
++
+Si un protocole n'est pas configuré ou si une licence de protocole n'est pas disponible pour la SVM, vous pouvez cliquer sur le nom du protocole pour configurer le protocole ou ajouter la licence de protocole.
+
+* *Volumes approchant la capacité*
++
+Affiche des informations sur les volumes qui approchent de l'utilisation de la capacité de 80 % ou plus et qui nécessitent une intervention immédiate ou une action corrective.
+
+* *Applications*
++
+Affiche des informations sur les cinq principales applications de la SVM. Vous pouvez voir les cinq principales applications basées sur les IOPS (de faible à élevé ou de élevé à faible) ou la capacité (de faible à élevé ou de élevée à faible). Vous devez cliquer sur le graphique à barres spécifique pour afficher plus d'informations sur l'application. Pour la capacité, l'espace total, l'espace utilisé et l'espace disponible sont affichés. Pour les IOPS, les détails des IOPS sont affichés. Pour les applications L2/L3, les mesures de latence sont également affichées.
+
++
+[NOTE]
+====
+La taille utilisée affichée dans la fenêtre applications ne correspond pas à la taille utilisée dans l'interface de ligne de commande.
+
+====
++
+Vous pouvez cliquer sur *Afficher les détails* pour ouvrir la fenêtre applications de l'application spécifique. Vous pouvez cliquer sur *Afficher toutes les applications* pour afficher toutes les applications de la SVM.
+
++
+L'intervalle de rafraîchissement du panneau applications est d'une minute.
+
+* *Performances des SVM*
++
+Affiche les mesures de performances des protocoles au sein du SVM, y compris la latence et les opérations d'entrée/sortie par seconde.
+
++
+Si les informations relatives aux performances des SVM ne peuvent pas être récupérées depuis ONTAP, vous ne pouvez pas afficher le graphique correspondant. Dans ce cas, System Manager affiche le message d'erreur spécifique.
+
++
+L'intervalle d'actualisation du panneau SVM Performance est de 15 secondes.
+
+

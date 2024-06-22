@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/concept_what_compatible_spare_disks_are.html 
+sidebar: sidebar 
+keywords: system, manager, compatible, spare, disk, hdd, compacity, raid, online, help 
+summary: 'Dans System Manager, les disques de spare compatibles sont des disques qui correspondent aux propriétés des autres disques de l"agrégat. Pour augmenter la taille d"un agrégat existant en ajoutant des disques durs (disques de capacité) ou en remplacer le type RAID d"un agrégat du RAID4 par RAID-DP, l"agrégat doit contenir suffisamment de disques de rechange compatibles.' 
+---
+= Disques de rechange compatibles avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dans ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures), les disques de spare compatibles sont des disques qui correspondent aux propriétés des autres disques de l'agrégat. Pour augmenter la taille d'un agrégat existant en ajoutant des disques durs (disques de capacité) ou en remplacer le type RAID d'un agrégat du RAID4 par RAID-DP, l'agrégat doit contenir suffisamment de disques de rechange compatibles.
+
+Les propriétés de disque devant correspondre sont le type de disque, la taille de disque (peut être un disque de taille supérieure si la même taille de disque n'est pas disponible), le nombre de tours/min, le total de contrôle, le propriétaire du nœud, le pool, et des propriétés de disque partagé. Si vous utilisez des disques de plus grande taille, vous devez savoir que la réduction des disques se produit et que la taille de tous les disques est réduite à la taille de disque la plus basse. Les disques partagés existants sont associés à des disques non partagés de plus grande taille, et les disques non partagés sont convertis en disques partagés et ajoutés en pièces de rechange.
+
+Si les options de mélange RAID, telles que la combinaison de type disque et la combinaison de disques/tours/min, sont activées pour le groupe RAID, Le type de disque et les disques RPM des disques existants de l'agrégat sont associés au type de disque effectif et aux tours/min effectifs des disques libres afin d'obtenir des disques de secours compatibles.
+
+*Informations connexes*
+
+xref:task_adding_capacity_disks.adoc[Ajout de disques de capacité]
+
+xref:task_editing_aggregates.adoc[Modification d'agrégats]

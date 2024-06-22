@@ -1,0 +1,100 @@
+---
+permalink: online-help-96-97/concept_events.html 
+sidebar: sidebar 
+keywords: event, log, notification, system, manager, online, help, view 
+summary: 'Vous pouvez utiliser System Manager pour afficher le journal des événements et les notifications d"événements.' 
+---
+= Gérez les événements avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour afficher le journal des événements et les notifications d'événements.
+
+
+
+== Fenêtre Events
+
+Vous pouvez utiliser la fenêtre événements pour afficher le journal des événements et les notifications d'événements.
+
+
+
+=== Boutons de commande
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des événements
+
+* *Heure*
++
+Affiche l'heure à laquelle l'événement s'est produit.
+
+* *Nœud*
++
+Affiche le nœud et le cluster sur lequel l'événement s'est produit.
+
+* *Gravité*
++
+Affiche la gravité de l'événement. Les niveaux de sévérité possibles sont :
+
++
+** Urgence
++
+Spécifie que la source d'événement s'est arrêtée de façon inattendue et que le système a subi des pertes de données irrécupérables. Vous devez immédiatement mettre en place des actions correctives pour éviter de longs temps d'indisponibilité.
+
+** Alerte
++
+Spécifie que la source de l'événement possède une alerte et qu'une action doit être effectuée pour éviter tout temps d'indisponibilité.
+
+** Primordial
++
+Spécifie que la source d'événement est critique et peut entraîner une interruption de service si aucune action corrective n'est effectuée immédiatement.
+
+** Erreur
++
+Indique que la source d'événement est toujours en cours d'exécution et qu'une action corrective est nécessaire pour éviter toute interruption de service.
+
+** Avertissement
++
+Spécifie que la source d'événement a connu une occurrence que vous devez connaître. Sans interruption des services, des actions correctives peuvent être nécessaires.
+
+** Avertissement
++
+Indique que la source d'événement est normale, mais que la gravité est une condition importante que vous devez connaître.
+
+** Informatif
++
+Spécifie que la source d'événement a une occurrence que vous devez connaître. Aucune action corrective n'est peut-être nécessaire.
+
+** Débogage
++
+Spécifie que la source d'événement inclut un message de débogage.
+
+
+
++
+Par défaut, le type de gravité d'alerte, le type de gravité d'urgence et le type de gravité d'erreur sont affichés.
+
+* *Source*
++
+Affiche la source de l'événement.
+
+* *Événement*
++
+Affiche la description de l'événement.
+
+
+
+
+
+=== Zone de détails
+
+Affiche les détails de l'événement, y compris la description de l'événement, le nom du message, le numéro de séquence, la description du message et l'action corrective de l'événement sélectionné.

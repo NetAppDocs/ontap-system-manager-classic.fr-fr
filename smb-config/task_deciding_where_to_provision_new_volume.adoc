@@ -1,0 +1,38 @@
+---
+permalink: smb-config/task_deciding_where_to_provision_new_volume.html 
+sidebar: sidebar 
+keywords: create, cifs, volume, place, exist, storage, virtual, machine, svm, configuration, require, decision, workflow, decide where to provision the new volume 
+summary: Avant de créer un nouveau volume CIFS, vous devez décider si vous souhaitez le placer dans un SVM existant et, le cas échéant, dans la configuration requise par le SVM. Cette décision détermine votre flux de travail. 
+---
+= Choisissez l'emplacement de provisionnement du nouveau volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de créer un nouveau volume CIFS, vous devez décider si vous souhaitez le placer dans un SVM existant et, le cas échéant, dans la configuration requise par le SVM. Cette décision détermine votre flux de travail.
+
+
+
+== Procédure
+
+* Si vous souhaitez provisionner un volume sur un nouveau SVM, créez un nouveau SVM compatible CIFS.
++
+link:task_creating_protocol_enabled_svm.html["Création d'un SVM compatible CIFS"]
+
++
+Vous devez choisir cette option si le CIFS n'est pas activé sur un SVM existant.
+
+* Si vous souhaitez provisionner un volume sur un SVM existant sur lequel CIFS est activé mais non configuré, configurez l'accès CIFS/SMB sur le SVM existant.
++
+link:task_configuring_access_to_existing_svm.html["Configuration de l'accès CIFS/SMB sur un SVM existant"]
+
++
+Vous devez choisir cette option si vous avez utilisé la procédure de création de la SVM pour l'accès SAN.
+
+* Si vous souhaitez provisionner un volume sur un SVM existant entièrement configuré pour l'accès CIFS, ajoutez un volume CIFS au SVM compatible CIFS.
++
+link:concept_adding_protocol_volume_to_protocol_enabled_svm.html["Ajout d'un volume CIFS à un SVM compatible CIFS"]
+
+

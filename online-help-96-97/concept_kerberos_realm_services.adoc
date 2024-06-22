@@ -1,0 +1,168 @@
+---
+permalink: online-help-96-97/concept_kerberos_realm_services.html 
+sidebar: sidebar 
+keywords: online, help, kerberos, realm, service, system, manager, svm, edit, security, strong, nfs, authentication, microsoft, ntlm, ntlm v2, client 
+summary: Vous pouvez utiliser System Manager pour créer et gérer les services de domaine Kerberos. 
+---
+= Gérez les services de domaine Kerberos avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer les services de domaine Kerberos.
+
+
+
+== Créez une configuration de domaine Kerberos
+
+Si vous souhaitez utiliser l'authentification Kerberos pour l'accès client, vous devez configurer la machine virtuelle de stockage (SVM) de manière à utiliser un Royaume Kerberos existant. System Manager peut être utilisé pour créer une configuration de domaine Kerberos, qui permet aux SVM d'utiliser les services de sécurité Kerberos pour NFS.
+
+.Avant de commencer
+* La licence CIFS doit être installée si des partages CIFS sont utilisés et la licence NFS doit être installée si un serveur LDAP est utilisé.
+* Active Directory (Windows 2003 ou Windows 2008) avec capacité de cryptage DES MD5 doit être disponible.
+* Vous devez avoir défini le fuseau horaire et synchronisé l'heure sur l'ensemble du cluster en configurant le protocole NTP.
++
+Cela empêche les erreurs d'authentification et garantit la cohérence des horodatages dans les fichiers journaux sur l'ensemble du cluster.
+
+
+
+.Description de la tâche
+Lors de la création d'un Royaume Kerberos, vous devez définir les attributs suivants dans l'assistant Créer un Royaume Kerberos :
+
+* Le domaine Kerberos
+* Adresse IP KDC et numéro de port
++
+Le numéro de port par défaut est 88.
+
+* Fournisseur du KDC (Kerberos Key distribution Center)
+* Adresse IP du serveur d'administration si le fournisseur KDC n'est pas Microsoft
+* Adresse IP du serveur de mot de passe
+* Nom et adresse IP du serveur Active Directory si le fournisseur KDC est Microsoft
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Services*, cliquez sur *domaine Kerberos*.
+. Dans la fenêtre *domaine Kerberos*, cliquez sur *Créer*.
+. Saisissez ou sélectionnez les informations demandées par l'assistant.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+
+
+
+
+== Modifiez une configuration de domaine Kerberos
+
+System Manager peut être utilisé pour modifier une configuration de domaine Kerberos au niveau de la machine de stockage virtuelle (SVM).
+
+.Description de la tâche
+Vous pouvez modifier les attributs suivants à l'aide de l'assistant d'édition du Royaume Kerberos :
+
+* L'adresse IP et le numéro de port KDC
+* L'adresse IP du serveur d'administration si le fournisseur KDC n'est pas Microsoft
+* Adresse IP du serveur de mots de passe
+* Nom et adresse IP du serveur Active Directory si le fournisseur KDC est Microsoft
+
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Services*, cliquez sur *domaine Kerberos*.
+. Dans la fenêtre *domaine Kerberos*, sélectionnez la configuration du domaine Kerberos que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Saisissez ou sélectionnez les informations demandées par l'assistant.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+
+
+
+
+== Supprimer les configurations de domaine Kerberos
+
+Vous pouvez utiliser System Manager pour supprimer une configuration de domaine Kerberos.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Services*, cliquez sur *domaine Kerberos*.
+. Dans la fenêtre *domaine Kerberos*, sélectionnez une ou plusieurs configurations de domaine Kerberos que vous souhaitez supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Utilisez Kerberos avec NFS pour une sécurité renforcée
+
+Vous pouvez utiliser Kerberos pour fournir une authentification renforcée entre les SVM et les clients NFS afin de sécuriser la communication NFS. La configuration de NFS avec Kerberos accroît l'intégrité et la sécurité des communications client NFS avec le système de stockage.
+
+
+
+== Authentification Kerberos pour CIFS
+
+Avec l'authentification Kerberos, lors de la connexion à votre serveur CIFS, le client négocie le niveau de sécurité le plus élevé possible. Cependant, si le client ne peut pas utiliser l'authentification Kerberos, Microsoft NTLM ou NTLM V2 sont utilisés pour s'authentifier auprès du serveur CIFS.
+
+
+
+== Fenêtre domaine Kerberos
+
+La fenêtre Kerberos Realm peut servir à fournir une authentification entre les machines virtuelles de stockage (SVM) et les clients NFS pour garantir une communication NFS sécurisée.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre l'assistant de création d'un Royaume Kerberos, qui vous permet de configurer un domaine Kerberos pour récupérer les informations utilisateur.
+
+* *Modifier*
++
+Ouvre l'assistant modification du domaine Kerberos, qui permet de modifier une configuration de domaine Kerberos en fonction des exigences d'authentification et d'autorisation de SVM.
+
+* *Supprimer*
++
+Ouvre la boîte de dialogue Supprimer les royaumes Kerberos, qui vous permet de supprimer la configuration du domaine Kerberos.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des royaumes Kerberos
+
+Le fournit des détails sur les domaines Kerberos, au format tabulaire.
+
+* *Royaume*
++
+Spécifie le nom du domaine Kerberos.
+
+* *Fournisseur KDC*
++
+Spécifie le nom du fournisseur du Kerberos distribution Center (KDC).
+
+* *Adresse IP KDC*
++
+Spécifie l'adresse IP KDC utilisée par la configuration.
+
+
+
+
+
+=== Zone de détails
+
+La zone de détails affiche des informations telles que l'adresse IP KDC et le numéro de port, le fournisseur KDC, l'adresse IP et le numéro de port du serveur d'administration, le serveur Active Directory et l'adresse IP du serveur de la configuration du domaine Kerberos sélectionnée.
+
+*Informations connexes*
+
+xref:task_setting_time_zone_for_cluster.adoc[Configuration du fuseau horaire d'un cluster]
+
+link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["Rapport technique NetApp 4067 : NFS dans NetApp ONTAP"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19384-tr-4616.pdf["Rapport technique NetApp 4616 : NFS Kerberos dans ONTAP avec Microsoft Active Directory"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["Rapport technique NetApp 4835 : comment configurer LDAP dans ONTAP"^]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html["Gestion NFS"^]

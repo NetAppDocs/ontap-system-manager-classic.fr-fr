@@ -1,0 +1,324 @@
+---
+permalink: online-help-96-97/task_editing_mirror_relationships.html 
+sidebar: sidebar 
+keywords: system, manager, edit, mirror, relationships, online, help 
+summary: System Manager peut être utilisé pour modifier une relation de miroir en sélectionnant une stratégie ou un planning existant dans le cluster, ou en créant une règle ou une planification. 
+---
+= Gérez les relations de miroir avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour gérer les relations de miroir, vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures). Vous pouvez mettre à jour, créer, arrêter, initialiser, rétablir, supprimez et modifiez les relations de miroir en plus de la reprise des relations de miroir suspendues.
+
+
+
+== Supprimer les relations
+
+System Manager peut être utilisé pour supprimer une relation de miroir et mettre fin de façon permanente à la relation de miroir entre les volumes source et de destination. Lorsqu'une relation de miroir est supprimée, la copie Snapshot de base sur le volume source est supprimée.
+
+.Description de la tâche
+Il est recommandé de briser la relation de miroir avant de supprimer la relation.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir que vous souhaitez supprimer et cliquez sur *Supprimer*.
+. Cochez les cases de confirmation pour supprimer la relation miroir et libérer les copies Snapshot de base, puis cliquez sur *Supprimer*.
+
+
+.Résultats
+La relation est supprimée, et la copie Snapshot de base est supprimée sur le volume source.
+
+
+
+== Resynchroniser les relations
+
+Vous pouvez utiliser System Manager pour rétablir une relation de miroir qui a été rompue auparavant. Vous pouvez effectuer une opération de resynchronisation pour restaurer à partir d'un incident ayant désactivé le volume source.
+
+.Avant de commencer
+Le cluster source et le cluster destination, ainsi que le SVM source et le SVM destination doivent être en relations entre pairs.
+
+.Description de la tâche
+* Lorsque vous exécutez une opération de resynchronisation, le contenu de la destination du miroir est écrasé par le contenu du volume source.
++
+[NOTE]
+====
+** Pour les volumes de conformité SnapLock, toutes les modifications de données du système de fichiers actif en référence à la copie Snapshot commune sont conservées dans une copie Snapshot verrouillée jusqu'à l'heure d'expiration définie pour le volume actuel.
++
+Si la durée d'expiration du volume est passée ou n'a pas été définie, la copie Snapshot et la copie Snapshot commune sont verrouillées pendant 30 jours. Toutes les copies Snapshot intermédiaires entre la copie Snapshot commune et la dernière copie Snapshot verrouillée sont supprimées.
+
+** Pour tous les volumes autres que les volumes de conformité SnapLock, l'opération de resynchronisation peut entraîner la perte de données plus récentes écrites sur le volume de destination après la création de la copie Snapshot de base.
+
+
+====
+* Si le champ dernière erreur de transfert de la fenêtre protection recommande une opération de resynchronisation, vous devez d'abord interrompre la relation, puis exécuter l'opération de resynchronisation.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de miroir à resynchroniser.
+. Cliquez sur *Operations* > *Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Resync*.
+
+
+
+
+== Reprendre les relations suspendues
+
+Vous pouvez utiliser System Manager pour reprendre une relation de miroir mise en veille. Lorsque vous reprenez la relation, le transfert de données normal vers la destination du miroir reprend et toutes les activités du miroir sont redémarrées.
+
+.Description de la tâche
+Si vous avez suspendu une relation de miroir interrompue à partir de l'interface de ligne de commande, vous ne pouvez pas reprendre la relation depuis System Manager. Vous devez utiliser l'interface de ligne de commandes pour reprendre la relation.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de miroir que vous souhaitez reprendre.
+. Cliquez sur *Operations* > *Resume*.
+. Cochez la case de confirmation et cliquez sur *reprendre*.
+
+
+.Résultats
+Le transfert de données vers la destination du miroir reprend pour la relation de miroir sélectionnée.
+
+
+
+== Update des relations
+
+System Manager permet d'initier une mise à jour miroir non planifiée de la destination. Il peut être nécessaire d'effectuer une mise à jour manuelle pour éviter toute perte de données due à une panne de courant à venir, à une maintenance planifiée ou à une migration de données.
+
+.Avant de commencer
+La relation miroir doit être à l'état Snapmirrored.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir pour laquelle vous souhaitez mettre à jour les données, puis cliquez sur *opérations* > *mise à jour*.
+. Choisissez l'une des options suivantes :
++
+** Sélectionnez *On Demand* pour effectuer un transfert incrémentiel à partir de la copie Snapshot commune récente entre les volumes source et de destination.
+** Sélectionnez *Sélectionner la copie snapshot* et spécifiez la copie Snapshot à transférer.
+
+
+. *Facultatif:* sélectionnez *Limit Transfer Bandwidth to* pour limiter la bande passante réseau utilisée pour les transferts et spécifier la vitesse de transfert maximale.
+. Cliquez sur *mettre à jour*.
+. Vérifiez l'état du transfert dans l'onglet *Détails*.
+
+
+
+
+== Mise en veille des relations
+
+Vous pouvez utiliser System Manager pour suspendre une destination en miroir afin de la stabiliser avant de créer une copie Snapshot. L'opération de mise en attente permet de terminer les transferts de miroir actifs et de désactiver les transferts futurs pour la relation de mise en miroir.
+
+.Description de la tâche
+Vous pouvez suspendre uniquement les relations de mise en miroir qui sont à l'état Snapmirrored.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de symétrie que vous souhaitez mettre en veille.
+. Cliquez sur *Operations* > *Quiesce*.
+. Cochez la case de confirmation et cliquez sur *Quiesce*.
+
+
+
+
+== Initialiser les relations
+
+Lorsque vous démarrez une relation en miroir, vous devez initialiser cette relation. L'initialisation d'une relation consiste en un transfert de base complet des données du volume source vers la destination. Vous pouvez utiliser System Manager pour initialiser une relation de miroir si vous n'avez pas déjà initialisé la relation lors de sa création.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de miroir à initialiser.
+. Cliquez sur *opérations* > *initialiser*.
+. Cochez la case de confirmation et cliquez sur *initialiser*.
+. Vérifiez l'état de la relation miroir dans la fenêtre *protection*.
+
+
+.Résultats
+Une copie Snapshot est créée et transférée vers la destination. Cette copie Snapshot est utilisée comme base pour les copies Snapshot incrémentielles ultérieures.
+
+
+
+== Modifier les relations
+
+System Manager peut être utilisé pour modifier une relation de miroir en sélectionnant une stratégie ou un planning existant dans le cluster, ou en créant une règle ou une planification.
+
+.Description de la tâche
+* Vous ne pouvez pas modifier une relation de miroir créée entre un volume dans Data ONTAP 8.2.1 et un volume dans ONTAP 8.3 ou version ultérieure.
+* Vous ne pouvez pas modifier les paramètres d'une stratégie ou d'une planification existante.
+* Vous pouvez modifier le type de relation d'une relation version flexible miroir, relation de coffre-fort ou relation miroir/coffre-fort en modifiant le type de stratégie.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir pour laquelle vous souhaitez modifier la stratégie ou le programme, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier la relation*, sélectionnez une stratégie existante ou créez une stratégie :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme suit... 
+
+
+ a| 
+Sélectionnez une stratégie existante
+ a| 
+Cliquez sur *Parcourir*, puis sélectionnez une stratégie existante.
+
+
+
+ a| 
+Création d'une règle
+ a| 
+.. Cliquez sur *Créer une stratégie*.
+.. Spécifiez un nom pour la règle.
+.. Définissez la priorité des transferts programmés.
++
+Faible indique que le transfert a la priorité la moins élevée et qu'il est généralement programmé après des transferts de priorité normale. Par défaut, la priorité est définie sur Normal.
+
+.. Cochez la case *transférer toutes les copies Snapshot sources* pour inclure la règle « tous_source_snapshots » à la règle miroir, qui permet de sauvegarder toutes les copies Snapshot du volume source.
+.. Cochez la case *Activer la compression réseau* pour compresser les données en cours de transfert.
+.. Cliquez sur *Créer*.
+
+
+|===
+. Spécifiez un planning pour la relation :
++
+|===
+| Si... | Procédez comme suit... 
+
+
+ a| 
+Vous souhaitez affecter un planning existant
+ a| 
+Dans la liste des planifications, sélectionnez un planning existant.
+
+
+
+ a| 
+Vous souhaitez créer un planning
+ a| 
+.. Cliquez sur *Créer un programme*.
+.. Spécifiez un nom pour le planning.
+.. Sélectionnez *Basic* ou *Advanced*.
++
+*** Basic spécifie uniquement le jour de la semaine, l'heure et l'intervalle de transfert.
+*** Advanced crée une planification de style cron.
+
+
+.. Cliquez sur *Créer*.
+
+
+
+
+ a| 
+Vous ne souhaitez pas affecter un planning
+ a| 
+Sélectionnez *aucun*.
+
+|===
+. Cliquez sur *OK* pour enregistrer les modifications.
+
+
+
+
+== Créer des relations en miroir à partir d'un SVM de destination
+
+System Manager peut être utilisé pour créer une relation de miroir depuis la machine virtuelle de stockage de destination et pour affecter une règle et une planification à la relation de miroir. La copie miroir assure une disponibilité rapide des données en cas de corruption ou de perte des données sur le volume source.
+
+.Avant de commencer
+* Le cluster source doit exécuter ONTAP 8.2.2 ou version ultérieure.
+* La licence SnapMirror doit être activée sur le cluster source et le cluster destination.
++
+[NOTE]
+====
+Pour certaines plateformes, la licence SnapMirror n'est pas obligatoire pour que le cluster source soit activée si le cluster de destination dispose de la licence SnapMirror et de la licence DPO (Data protection Optimization) activée.
+
+====
+* Lors de la mise en miroir d'un volume, si vous sélectionnez un volume SnapLock comme source, la licence SnapMirror et la licence SnapLock doivent être installées sur le cluster de destination.
+* Le cluster source et le cluster destination doivent avoir une relation peer-to-peer en bonne santé.
+* Le SVM de destination doit disposer d'espace disponible.
+* Un volume source de type lecture/écriture (rw) doit exister.
+* Les volumes FlexVol doivent être en ligne et de type read/write.
+* Le type d'agrégat SnapLock doit être du même type.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit être activée sur le cluster distant.
+
+
+.Description de la tâche
+* System Manager ne prend pas en charge une relation en cascade.
++
+Par exemple, un volume de destination dans une relation ne peut pas être le volume source dans une autre relation.
+
+* On ne peut pas créer de relation en miroir entre un SVM source synchrone et un SVM de destination synchrone dans une configuration MetroCluster.
+* Dans une configuration MetroCluster, vous pouvez créer une relation de miroir entre les SVM source synchrone.
+* Vous pouvez créer une relation de miroir depuis un volume d'un SVM source synchrone vers un volume d'une SVM contenant les données.
+* Vous pouvez créer une relation de miroir entre un volume d'un SVM diffusant les données et un volume DP au sein d'un SVM source synchrone.
+* Vous pouvez créer une relation de miroir entre des volumes SnapLock de même type uniquement.
++
+Par exemple, si le volume source est un volume SnapLock Enterprise, le volume de destination doit également être un volume SnapLock Enterprise. Vous devez vous assurer que le SVM de destination dispose d'agrégats du même type SnapLock disponible.
+
+* Le volume de destination créé pour une relation de miroir n'effectue pas le provisionnement fin.
+* Un maximum de 25 volumes peuvent être protégés en une seule sélection.
+* Vous ne pouvez pas créer de relation de miroir entre des volumes SnapLock si le cluster de destination exécute une version de ONTAP antérieure à la version de ONTAP exécutée par le cluster source.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Dans la fenêtre *Volume relations*, cliquez sur *Create*.
+. Dans la boîte de dialogue *Browse SVM*, sélectionner un SVM pour le volume de destination.
+. Dans la boîte de dialogue *Créer une relation de protection*, sélectionnez *miroir* dans la liste déroulante *Type de relation*.
+. Spécifier le cluster, le SVM et le volume source
++
+Si le cluster spécifié exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM de peering sont répertoriés. Si le cluster spécifié exécute ONTAP 9.3 ou version ultérieure, les SVM peering et les SVM autorisés sont répertoriés.
+
+. Pour les volumes FlexVol, indiquez le suffixe d'un nom de volume.
++
+Le suffixe du nom du volume est ajouté aux noms des volumes source pour générer les noms des volumes de destination.
+
+. Cliquez sur *Parcourir*, puis modifiez la stratégie de miroir.
+. Sélectionnez un planning pour la relation dans la liste des planifications existantes.
+. Sélectionnez *initialiser la relation* pour initialiser la relation miroir.
+. Activez les agrégats basés sur FabricPool, puis sélectionnez une règle de Tiering appropriée.
+. Cliquez sur *Créer*.
+
+
+.Résultats
+Si vous choisissez de créer un volume de destination, un volume de destination de type _dp_ est créé, avec l'attribut de langue défini pour correspondre à l'attribut de langue du volume source.
+
+Une relation de miroir est créée entre le volume source et le volume de destination. La copie Snapshot de base est transférée vers le volume de destination si vous avez accepté d'initialiser la relation.
+
+
+
+== Resynchronisation inverse des relations du miroir
+
+Vous pouvez utiliser System Manager pour rétablir une relation de miroir qui était auparavant interrompue. Dans une opération de resynchronisation inverse, vous inversez les fonctions du volume source et du volume de destination.
+
+.Avant de commencer
+Le volume source doit être en ligne.
+
+.Description de la tâche
+* Vous pouvez utiliser le volume de destination pour transmettre des données pendant que vous réparez ou remplacez le volume source, mettez à jour le volume source et rétablissez la configuration d'origine des systèmes.
+* Lorsque vous effectuez une resynchronisation inverse, le contenu de la source miroir est écrasé par le contenu du volume de destination.
++
+[NOTE]
+====
+** Pour les volumes de conformité SnapLock, toutes les modifications de données du système de fichiers actif en référence à la copie Snapshot commune sont conservées dans une copie Snapshot verrouillée jusqu'à l'heure d'expiration définie pour le volume actuel.
++
+Si la durée d'expiration du volume est passée ou n'a pas été définie, la copie Snapshot et la copie Snapshot commune sont verrouillées pendant 30 jours. Toutes les copies Snapshot intermédiaires entre la copie Snapshot commune et la dernière copie Snapshot verrouillée sont supprimées.
+
+** Pour tous les volumes autres que les volumes de conformité SnapLock, l'opération de resynchronisation peut entraîner la perte de données plus récentes écrites sur le volume source après la création de la copie Snapshot de base.
+
+
+====
+* Lorsque vous effectuez une resynchronisation inverse, la règle de miroir de la relation est définie sur DPDefault et la planification du miroir est définie sur aucun.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation de symétrie que vous souhaitez inverser.
+. Cliquez sur *Operations* > *Reverse Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Reverse Resync*.
+
+
+*Informations connexes*
+
+xref:reference_protection_window.adoc[Fenêtre de protection]

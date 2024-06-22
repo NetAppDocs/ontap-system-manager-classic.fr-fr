@@ -1,0 +1,42 @@
+---
+permalink: expansion/task_upgrading_or_downgrading_nodes.html 
+sidebar: sidebar 
+keywords: join, install, node, cluster, run, ontap, upgrade, downgrade 
+summary: 'Avant d"intégrer les nœuds récemment installés au cluster, vérifiez qu"ils exécutent la même version d"ONTAP que le cluster. Si les nœuds exécutent une version différente, vous devez mettre à niveau ou rétrograder les nœuds afin qu"ils correspondent au cluster.' 
+---
+= Mettre à niveau ou rétrograder les nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'intégrer les nœuds récemment installés au cluster, vérifiez qu'ils exécutent la même version d'ONTAP que le cluster. Si les nœuds exécutent une version différente, vous devez mettre à niveau ou rétrograder les nœuds afin qu'ils correspondent au cluster.
+
+.Étapes
+. Déterminer la version de ONTAP installée sur le cluster : `cluster image show`
+. Afficher la version actuelle d'ONTAP sur les nœuds :
++
+.. Sur le premier nœud, afficher la version logicielle : `system node image show`
++
+[listing]
+----
+::*> system node image show
+                 Is      Is                                Install
+Node     Image   Default Current Version                   Date
+-------- ------- ------- ------- ------------------------- -------------------
+localhost
+         image1  false   false   9.3                    MM/DD/YYYY TIMESTAMP
+         image1  true    true    9.3                    MM/DD/YYYY TIMESTAMP
+2 entries were displayed.
+----
+.. Répétez l'étape précédente pour le second nœud.
+
+
+. Comparez les versions de ONTAP sur le cluster et les nœuds, et effectuez l'une des actions suivantes :
++
+** Si les versions de ONTAP sur le cluster et les nœuds sont identiques, aucune mise à niveau ou mise à niveau vers une version antérieure n'est nécessaire.
+** Si les versions de ONTAP sur le cluster et les nœuds sont différents, vous pouvez link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Mettez à niveau ONTAP"] sur les nœuds avec des versions antérieures ou vous pouvez link:https://docs.netapp.com/us-en/ontap/revert/index.html["Restaurez la ONTAP"] pour les nœuds avec les versions ultérieures.
+
+
+

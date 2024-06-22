@@ -1,0 +1,58 @@
+---
+permalink: iscsi-config-rhel/task_starting_iscsi_service.html 
+sidebar: sidebar 
+keywords: iscsi, configuration, file, service, host, discover, target, access, lun, run, start the iscsi service 
+summary: 'Après avoir modifié le fichier de configuration iSCSI, vous devez démarrer le service iSCSI pour que l"hôte puisse détecter les cibles et accéder aux LUN. Si le service iSCSI est en cours d"exécution, vous devez le redémarrer.' 
+---
+= Démarrez le service iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir modifié le fichier de configuration iSCSI, vous devez démarrer le service iSCSI pour que l'hôte puisse détecter les cibles et accéder aux LUN. Si le service iSCSI est en cours d'exécution, vous devez le redémarrer.
+
+.Étape
+. Démarrez le service iSCSI à l'invite de commande de l'hôte Linux :
++
+|===
+| Si vous utilisez... | Entrer... 
+
+
+ a| 
+Gamme Red Hat Enterprise Linux 7 et SUSE Linux Enterprise 12
+ a| 
+`systemctl start iscsid`
+
+
+
+ a| 
+Red Hat Enterprise Linux série 6
+
+[NOTE]
+====
+Vous devez exécuter cette commande la première fois que vous démarrez le service iSCSI sur un hôte exécutant Red Hat Enterprise Linux série 6 et Oracle Linux série 6. Si vous exécutez `/etc/init.d/iscsi start` sans exécution préalable `service iscsid force-start`, vous obtenez un message d'erreur.
+
+==== a| 
+`service iscsid force-start`
+
+
+
+ a| 
+Red Hat Enterprise Linux 5 ou 4 et Oracle Linux 5, Red Hat Enterprise Virtualization, Oracle Linux et Oracle VM
+ a| 
+`/etc/init.d/iscsi start`
+
+
+
+ a| 
+SUSE Linux Enterprise Server 10 ou 11
+ a| 
+`/etc/init.d/open-iscsi start`
+
+|===
++
+Citrix décourage l'utilisation de l'outil iscsiadm. La pile XAPI native effectue les tâches de démarrage et d'arrêt du service iscsi, de connexion automatique au démarrage et d'autres opérations iSCSI.
+
+

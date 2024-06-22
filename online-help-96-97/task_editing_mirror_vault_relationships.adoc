@@ -1,0 +1,344 @@
+---
+permalink: online-help-96-97/task_editing_mirror_vault_relationships.html 
+sidebar: sidebar 
+keywords: edit, mirror, vault, relationship, system, manager, online, help 
+summary: 'Vous pouvez utiliser System Manager pour modifier une relation de miroir et de coffre-fort en modifiant la stratégie ou la planification sélectionnée. Cependant, vous ne pouvez pas modifier les paramètres d"une stratégie ou d"une planification existante.' 
+---
+= Gérez les relations de mise en miroir et de copie à distance avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les relations de mise en miroir et d'archivage sécurisé. Vous pouvez modifier, supprimer, initialiser, mettre à jour, arrêter, reprendre et rompre les relations entre les miroirs et les vault. Vous pouvez également effectuer des opérations de resynchronisation ou de resynchronisation inverse en plus de la création de relations de copie miroir et de copie à partir d'une SVM de destination.
+
+
+
+== Modifier les relations
+
+Vous pouvez utiliser System Manager pour modifier une relation de miroir et de coffre-fort en modifiant la stratégie ou la planification sélectionnée. Cependant, vous ne pouvez pas modifier les paramètres d'une stratégie ou d'une planification existante.
+
+.Avant de commencer
+Les clusters source et destination doivent se trouver dans une relation peer-to-peer en bonne santé.
+
+.Description de la tâche
+Vous pouvez modifier le type de relation d'une relation version flexible miroir, relation de coffre-fort ou relation miroir/coffre-fort en modifiant le type de stratégie.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier la relation*, sélectionnez l'action appropriée :
++
+|===
+| Les fonctions que vous recherchez... | Procédez comme suit... 
+
+
+ a| 
+Sélectionnez une stratégie existante
+ a| 
+Cliquez sur *Parcourir*, puis sélectionnez une stratégie existante.    Vous pouvez sélectionner une règle dont le nombre maximal d'étiquettes correspond à la règle Snapshot attachée au volume source.
+
+
+
+ a| 
+Création d'une nouvelle règle
+ a| 
+.. Cliquez sur *Créer une stratégie*.
+.. Spécifiez un nom pour la règle.
+.. Définissez la priorité des transferts programmés.
++
+Faible indique que le transfert a la priorité la moins élevée et qu'il est généralement programmé après des transferts de priorité normale. Par défaut, la priorité est définie sur Normal.
+
+.. Cochez la case *Activer la compression réseau* pour compresser les données en cours de transfert.
+.. Spécifiez une étiquette SnapMirror et le nombre de rétention de la destination pour la stratégie de coffre-fort.
++
+Vous devez vous assurer qu'une copie Snapshot portant la même étiquette est créée sur le volume source pour que la nouvelle étiquette SnapMirror soit efficace.
+
+.. Cliquez sur *Créer*.
+
+
+|===
+. Spécifiez un planning pour la relation :
++
+|===
+| Si... | Procédez comme suit... 
+
+
+ a| 
+Vous souhaitez affecter un planning existant
+ a| 
+Cliquez sur *Parcourir*, puis sélectionnez un programme existant.
+
+
+
+ a| 
+Vous souhaitez créer une planification
+ a| 
+.. Cliquez sur *Créer un programme*.
+.. Spécifiez un nom pour le planning.
+.. Sélectionnez l'une des options suivantes :
++
+*** *De base*
++
+Vous pouvez sélectionner cette option pour spécifier uniquement le jour de la semaine, l'heure et l'intervalle de transfert.
+
+*** *Avancé*
++
+Vous pouvez sélectionner cette option pour spécifier une planification de style cron.
+
+
+
+.. Cliquez sur *Créer*.
+
+
+
+
+ a| 
+Vous ne souhaitez pas affecter un planning
+ a| 
+Sélectionnez *aucun*.
+
+|===
+. Cliquez sur *OK*.
+
+
+
+
+== Mettre à jour les relations manuellement
+
+Vous pouvez utiliser System Manager pour lancer manuellement une mise à jour incrémentielle non planifiée. Une mise à jour manuelle peut être nécessaire pour éviter toute perte de données due à une panne de courant à venir, à une maintenance planifiée ou à une migration de données.
+
+.Avant de commencer
+La relation miroir et coffre-fort doit être initialisée et à l'état Snapmirrored.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir pour laquelle vous souhaitez mettre à jour les données, puis cliquez sur *opérations* > *mise à jour*.
+. Choisissez l'une des options suivantes :
++
+** Sélectionnez *selon la stratégie* pour effectuer un transfert incrémentiel à partir de la copie Snapshot commune récente entre les volumes source et de destination.
+** Sélectionnez *Sélectionner la copie snapshot* et spécifiez la copie Snapshot à transférer.
+
+
+. Sélectionnez *limite la bande passante de transfert à* pour limiter la bande passante réseau utilisée pour les transferts, puis spécifiez la vitesse de transfert maximale.
+. Cliquez sur *mettre à jour*.
+. Vérifiez l'état du transfert dans l'onglet *Détails*.
+
+
+
+
+== Initialiser les relations
+
+Vous pouvez utiliser System Manager pour initialiser une relation miroir et coffre-fort si vous n'avez pas déjà initialisé la relation lors de sa création. Lorsque vous initialisez une relation, un transfert de base complet des données est effectué depuis le volume source vers la destination.
+
+.Avant de commencer
+Les clusters source et destination doivent se trouver dans une relation peer-to-peer en bonne santé.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez initialiser, puis cliquez sur *opérations* > *initialiser*.
+. Cochez la case de confirmation, puis cliquez sur *initialiser*.
+. Vérifiez l'état de la relation dans la fenêtre *protection*.
+
+
+.Résultats
+Une copie Snapshot est créée et transférée vers la destination.
+
+Cette copie Snapshot est utilisée comme base pour les copies Snapshot incrémentielles ultérieures.
+
+
+
+== Créer une relation à partir d'un SVM de destination
+
+System Manager permet de créer une relation de miroir et de copie à distance à partir de la machine virtuelle de stockage de destination. La création de cette relation vous permet de mieux protéger vos données en transférant régulièrement les données du volume source vers le volume de destination. Il permet également de conserver des données pour de longues périodes en créant des sauvegardes du volume source.
+
+.Avant de commencer
+* Le cluster de destination doit exécuter ONTAP 8.3.2 ou version ultérieure.
+* La licence SnapMirror doit être activée sur le cluster source et le cluster destination.
++
+[NOTE]
+====
+Pour certaines plateformes, la licence SnapMirror n'est pas obligatoire pour que le cluster source soit activée si le cluster de destination dispose de la licence SnapMirror et de la licence DPO (Data protection Optimization) activée.
+
+====
+* Le cluster source et le cluster destination doivent avoir une relation peer-to-peer en bonne santé.
+* Le SVM de destination doit disposer d'espace disponible.
+* L'agrégat source et l'agrégat de destination doivent être des agrégats 64 bits.
+* Un volume source de type lecture/écriture (rw) doit déjà exister.
+* Le type d'agrégat SnapLock doit être identique.
+* Si vous vous connectez à partir d'un cluster exécutant ONTAP 9.2 ou version antérieure à un cluster distant sur lequel l'authentification SAML est activée, l'authentification par mot de passe doit être activée sur le cluster distant.
+
+
+.Description de la tâche
+* System Manager ne prend pas en charge une relation en cascade.
++
+Par exemple, un volume de destination dans une relation ne peut pas être le volume source dans une autre relation.
+
+* En outre, vous ne pouvez pas créer de relation de miroir et de copie à distance entre un SVM source et un SVM de destination synchrone dans une configuration MetroCluster.
+* Dans une configuration MetroCluster, vous pouvez créer une relation de miroir et de copie à distance entre les SVM source synchrone.
+* Vous pouvez créer une relation de miroir et de copie à distance depuis un volume d'un SVM source synchrone vers un volume d'une SVM servant les données.
+* Vous pouvez créer une relation de mise en miroir et de copie à partir d'un volume d'une SVM de services de données vers un volume DP sur un SVM source synchrone.
+* Un maximum de 25 volumes peuvent être protégés en une seule sélection.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Dans la fenêtre *relations*, cliquez sur *Créer*.
+. Dans la boîte de dialogue *Browse SVM*, sélectionner un SVM pour le volume de destination.
+. Dans la boîte de dialogue *Créer une relation de protection*, sélectionnez *miroir et coffre-fort* dans la liste déroulante *Type de relation*.
+. Spécifier le cluster, le SVM et le volume source
++
+Si le cluster spécifié exécute une version du logiciel ONTAP antérieure à ONTAP 9.3, seuls les SVM de peering sont répertoriés. Si le cluster spécifié exécute ONTAP 9.3 ou version ultérieure, les SVM peering et les SVM autorisés sont répertoriés.
+
+. Indiquez un suffixe de nom de volume.
++
+Le suffixe du nom du volume est ajouté aux noms des volumes source pour générer les noms des volumes de destination.
+
+. *Facultatif:* cliquez sur *Parcourir*, puis modifiez la stratégie de miroir et de coffre-fort.
++
+Vous pouvez sélectionner la règle dont le nombre maximal d'étiquettes correspond à la règle Snapshot attachée au volume source.
+
+. Sélectionnez un planning pour la relation dans la liste des planifications existantes.
+. *Facultatif:* sélectionnez *Initialize relation* pour initialiser la relation.
+. Activez les agrégats basés sur FabricPool, puis sélectionnez une règle de Tiering appropriée.
+. Cliquez sur *Validate* pour vérifier si les volumes sélectionnés disposent d'étiquettes correspondantes.
+. Cliquez sur *Créer*.
+
+
+
+
+== Resynchroniser les relations
+
+Vous pouvez utiliser System Manager pour rétablir une relation de miroir et de copie à distance qui a été rompue auparavant. Vous pouvez effectuer une opération de resynchronisation pour restaurer à partir d'un incident ayant désactivé le volume source.
+
+.Avant de commencer
+Les clusters source et de destination ainsi que les serveurs virtuels de stockage source et destination doivent se trouver dans des relations entre pairs.
+
+.Description de la tâche
+Avant d'effectuer une opération de resynchronisation, vous devez tenir compte des éléments suivants :
+
+* Lorsque vous exécutez une opération de resynchronisation, le contenu du volume de destination est écrasé par le contenu de la source.
++
+[NOTE]
+====
+L'opération de resynchronisation peut entraîner la perte de données plus récentes écrites sur le volume de destination après la création de la copie Snapshot de base.
+
+====
+* Si le champ dernière erreur de transfert de la fenêtre protection recommande une opération de resynchronisation, vous devez d'abord interrompre la relation, puis exécuter l'opération de resynchronisation.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez resynchroniser, puis cliquez sur *Operations* > *Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Resync*.
+
+
+
+
+== Resynchroniser les relations
+
+Vous pouvez utiliser System Manager pour rétablir une relation de miroir et de copie à distance précédemment interrompue. Dans une opération de resynchronisation inverse, les fonctions des volumes source et de destination sont inversées. Vous pouvez utiliser le volume de destination pour transmettre des données pendant que vous réparez ou remplacez la source, mettez à jour la source et rétablissez la configuration d'origine des systèmes.
+
+.Avant de commencer
+Le volume source doit être en ligne.
+
+.Description de la tâche
+* Lorsque vous effectuez une resynchronisation inverse, le contenu du volume source est écrasé par le contenu du volume de destination.
++
+[NOTE]
+====
+L'opération de resynchronisation inverse peut entraîner une perte de données sur le volume source.
+
+====
+* Lorsque vous effectuez une resynchronisation inverse, la stratégie de la relation est définie sur MirrorAndVault et la planification est définie sur aucun.
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez inverser, puis cliquez sur *Operations* > *Reverse Resync*.
+. Cochez la case de confirmation, puis cliquez sur *Reverse Resync*.
+
+
+
+
+== Rompre les relations
+
+Vous pouvez utiliser System Manager pour interrompre une relation de miroir et de coffre-fort si un volume source est indisponible et que vous souhaitez que les applications client puissent accéder aux données à partir du volume de destination. Vous pouvez utiliser le volume de destination pour transmettre des données pendant que vous réparez ou remplacez le volume source, mettez à jour le volume source et rétablissez la configuration d'origine des systèmes.
+
+.Avant de commencer
+* La relation miroir et coffre-fort doit être à l'état suspendu ou inactif.
+* Le volume de destination doit être monté sur l'espace de noms du serveur virtuel de stockage de destination.
+
+
+.Description de la tâche
+Vous pouvez briser les relations en miroir entre les systèmes ONTAP et les systèmes de stockage SolidFire.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez rompre, puis cliquez sur *opérations* > *Break*.
+. Cochez la case de confirmation, puis cliquez sur *Break*.
+
+
+.Résultats
+La relation miroir et coffre-fort est rompue. Le type de volume de destination passe de la protection des données (DP) en lecture seule à la lecture/écriture. Le système stocke la copie Snapshot de base pour les relations miroir et coffre-fort pour une utilisation ultérieure.
+
+
+
+== Reprenez les relations
+
+Si vous disposez d'une relation de mise en miroir et de coffre-fort mise en veille, vous pouvez utiliser System Manager pour reprendre la relation. Lorsque vous reprenez la relation, le transfert de données normal vers le volume de destination reprend et toutes les activités de protection sont redémarrées.
+
+.Description de la tâche
+Si vous avez suspendu une relation de miroir et de coffre-fort défaillante à partir de l'interface de ligne de commande, vous ne pouvez pas reprendre la relation depuis System Manager. Vous devez utiliser l'interface de ligne de commandes pour reprendre la relation.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez reprendre, puis cliquez sur *Operations* > *Resume*.
+. Cochez la case de confirmation, puis cliquez sur *reprendre*.
+
+
+.Résultats
+Les transferts de données normaux sont repris. En cas de transfert planifié pour la relation, le transfert est démarré à partir du prochain planning.
+
+
+
+== Supprimer les relations
+
+Vous pouvez utiliser System Manager pour mettre fin à une relation de miroir et de copie miroir entre un volume source et un volume de destination, et libérer les copies Snapshot à partir du volume source.
+
+.Description de la tâche
+* Il est recommandé de rompre les relations miroir et coffre-fort avant de supprimer la relation.
+* Pour recréer la relation, vous devez exécuter l'opération de resynchronisation à partir du volume source à l'aide de l'interface de ligne de commande (CLI).
+
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez supprimer et cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
++
+Vous pouvez également cocher la case copies Snapshot de la base de diffusion pour supprimer les copies Snapshot de base utilisées par la relation de miroir et d'archivage sécurisé sur le volume source.
+
++
+Si la relation n'est pas libérée, vous devez utiliser l'interface de ligne de commande pour exécuter l'opération de version sur le cluster source afin de supprimer les copies Snapshot de base créées pour la relation de miroir et de copie à distance du volume source.
+
+
+
+.Résultats
+La relation est supprimée et les copies Snapshot de base du volume source sont supprimées définitivement.
+
+
+
+== Mise en veille des relations
+
+Vous pouvez utiliser System Manager pour suspendre un volume de destination afin de stabiliser la destination avant de créer une copie Snapshot. L'opération de mise en attente permet aux transferts de données actifs de se terminer et désactive les transferts futurs pour la relation miroir et coffre-fort.
+
+.Avant de commencer
+La relation miroir et coffre-fort doit être à l'état Snapmirrored.
+
+.Étapes
+. Cliquez sur *protection* > *relations de volume*.
+. Sélectionnez la relation miroir et coffre-fort que vous souhaitez mettre en attente, puis cliquez sur *opérations* > *Quiesce*.
+. Cochez la case de confirmation, puis cliquez sur *Quiesce*.
+
+
+.Résultats
+Si aucun transfert n'est en cours, l'état du transfert s'affiche comme `Quiesced`. Si un transfert est en cours, le transfert n'est pas affecté et l'état du transfert est affiché comme `Quiescing` jusqu'à ce que le transfert soit terminé.

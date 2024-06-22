@@ -1,0 +1,288 @@
+---
+permalink: online-help-96-97/concept_storage_pools.html 
+sidebar: sidebar 
+keywords: system, manager, storage, pools, ssd, flash, pool, aggregates, online, help, create, 
+summary: Vous pouvez utiliser System Manager pour créer des pools de stockage afin que les disques SSD soient partagés par plusieurs agrégats Flash Pool. 
+---
+= Gérez les pools de stockage avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de créer des pools de stockage afin que les disques SSD puissent être partagés par plusieurs agrégats Flash Pool.
+
+
+
+== Créer un pool de stockage
+
+Un pool de stockage est un ensemble de disques SSD (disques cache). System Manager peut être utilisé pour combiner des disques SSD afin de créer un pool de stockage. Vous pouvez ainsi partager les disques SSD et les réserves SSD entre une paire haute disponibilité afin d'être alloués à deux agrégats Flash Pool ou plus en même temps.
+
+.Avant de commencer
+* Les deux nœuds de la paire haute disponibilité doivent être opérationnels pour allouer des SSD et des SSD de rechange par le biais d'un pool de stockage.
+* Les pools de stockage doivent disposer d'un minimum de 3 SSD.
+* Tous les disques SSD d'un pool de stockage doivent être détenus par la même paire haute disponibilité.
+
+
+.Description de la tâche
+System Manager applique la règle de rechange à chaud aux groupes RAID SSD lorsque vous utilisez des disques SSD pour ajouter des disques à un pool de stockage. Par exemple, si le groupe SSD RAID est doté de 10 disques SSD et de l'option `raid.min_spare_count` est défini sur `1` Au niveau du nœud, System Manager laisse 1 SSD comme unité de rechange à chaud et utilise les 9 autres disques SSD pour les opérations liées aux SSD.
+
+Vous ne pouvez pas utiliser de disques SSD partitionnés lors de la création d'un pool de stockage à l'aide de System Manager.
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *pools de stockage*.
+. Dans la fenêtre *Storage pools*, cliquez sur *Create*.
+. Dans la boîte de dialogue *Create Storage Pool*, indiquez le nom du pool de stockage, la taille du disque et le nombre de disques.
+. Cliquez sur *Créer*.
+
+
+
+
+== Ajouter des disques à un pool de stockage
+
+System Manager permet d'ajouter des disques SSD à un pool de stockage existant et d'augmenter la taille du cache.
+
+.Avant de commencer
+Les deux nœuds de la paire haute disponibilité doivent être opérationnels pour allouer des SSD et des SSD de rechange par le biais d'un pool de stockage.
+
+.Description de la tâche
+* Les disques SSD que vous ajoutez à un pool de stockage sont répartis proportionnellement entre les agrégats utilisant le cache du pool de stockage et vers l'espace libre du pool de stockage.
+* System Manager applique la règle de rechange à chaud aux groupes RAID SSD lorsque vous utilisez des disques SSD pour ajouter des disques à un pool de stockage.
++
+Par exemple, si le groupe SSD RAID est doté de 10 disques SSD et de l'option `raid.min_spare_count` est défini sur `1` Au niveau du nœud, System Manager laisse 1 SSD comme unité de rechange à chaud et utilise les 9 autres disques SSD pour les opérations liées aux SSD.
+
+* Vous ne pouvez pas utiliser de disques SSD partitionnés lors de l'ajout de disques dans un pool de stockage à l'aide de System Manager.
+
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *pools de stockage*.
+. Dans la fenêtre *Storage pools*, sélectionnez le pool de stockage, puis cliquez sur *Add Disks*.
+. Dans la boîte de dialogue *Ajouter des disques*, indiquez le nombre de disques que vous souhaitez ajouter.
+. Cliquez sur *Suivant*.
+. Dans la boîte de dialogue *Résumé*, vérifiez comment le cache est réparti entre les différents agrégats et l'espace libre du pool de stockage.
+. Cliquez sur *Ajouter*.
+
+
+
+
+== Supprimez les pools de stockage
+
+Il peut être intéressant de supprimer un pool de stockage lorsque le cache du pool de stockage n'est pas optimal ou lorsqu'il n'est plus utilisé par un agrégat ou un agrégat Flash Pool. Vous pouvez supprimer un pool de stockage à l'aide de la boîte de dialogue Supprimer le pool de stockage de System Manager.
+
+.Avant de commencer
+Le pool de stockage ne doit pas être utilisé par un agrégat.
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *pools de stockage*.
+. Dans la fenêtre *pools de stockage*, sélectionnez le pool de stockage à supprimer, puis cliquez sur *Supprimer*.
+. Dans la boîte de dialogue *Supprimer le pool de stockage*, cliquez sur *Supprimer*.
+
+
+
+
+== Utilisation des pools de stockage SSD
+
+Pour permettre le partage des SSD par plusieurs agrégats Flash Pool, vous pouvez ajouter des disques SSD à un _pool_. Après avoir ajouté un disque SSD à un pool de stockage, vous ne pouvez plus gérer ce disque en tant qu'entité autonome. Vous devez utiliser le pool de stockage pour attribuer ou allouer le stockage fourni par le disque SSD.
+
+Vous pouvez créer des pools de stockage pour une paire haute disponibilité spécifique. Vous pouvez ensuite ajouter des unités d'allocation de ce pool de stockage à un ou plusieurs agrégats Flash Pool détenus par la même paire haute disponibilité. De même que les disques doivent être détenus par le même nœud que celui disposant d'un agrégat avant qu'ils ne puissent lui être alloués, les pools de stockage ne peuvent fournir de stockage qu'aux agrégats Flash Pool détenus par l'un des nœuds propriétaire du pool de stockage.
+
+Si vous devez augmenter la quantité de cache Flash Pool sur votre système, vous pouvez ajouter d'autres disques SSD à un pool de stockage, jusqu'à la taille de groupe RAID maximale pour le type RAID des caches Flash Pool qui utilisent le pool de stockage. Lorsque vous ajoutez un disque SSD à un pool de stockage existant, vous augmentez la taille des unités d'allocation du pool de stockage, y compris les unités d'allocation déjà allouées à un agrégat Flash Pool.
+
+Vous ne pouvez utiliser qu'un disque SSD de secours pour un pool de stockage. Si un disque SSD de ce pool de stockage n'est plus disponible, ONTAP peut utiliser le disque de réserve pour reconstruire les partitions du disque SSD défaillant. Il n'est pas nécessaire de réserver des unités d'allocation pour la capacité disponible. Les ONTAP n'utilisent qu'un SSD complet et non partitionné comme unité de stockage SSD dans un pool de stockage.
+
+Une fois que vous avez ajouté un disque SSD à un pool de stockage, vous ne pouvez pas supprimer le disque SSD, comme vous ne pouvez pas le supprimer d'un agrégat. Si vous souhaitez réutiliser les disques SSD d'un pool de stockage comme disques distincts, vous devez détruire tous les agrégats Flash Pool auxquels les unités d'allocation du pool de stockage ont été allouées, puis détruire le pool de stockage.
+
+
+
+== Configuration requise et meilleures pratiques pour l'utilisation des pools de stockage SSD
+
+Certaines technologies ne peuvent pas être associées à des agrégats Flash Pool qui utilisent des pools de stockage SSD.
+
+Vous ne pouvez pas utiliser les technologies suivantes avec des agrégats Flash Pool qui utilisent des pools de stockage SSD pour leur stockage en cache :
+
+* MetroCluster
+* Fonctionnalité SyncMirror
++
+Les agrégats en miroir peuvent coexister avec des agrégats Flash Pool qui utilisent des pools de stockage, mais les agrégats Flash Pool ne peuvent pas être mis en miroir.
+
+* Disques SSD physiques
++
+Les agrégats Flash Pool peuvent utiliser des pools de stockage SSD ou des disques SSD physiques, mais pas les deux.
+
+
+
+Les pools de stockage SSD doivent être conformes aux règles suivantes :
+
+* Les pools de stockage SSD ne peuvent contenir que des disques SSD ; ceux-ci ne peuvent pas être ajoutés à un pool de stockage SSD.
+* Tous les disques SSD d'un pool de stockage SSD doivent être détenus par la même paire haute disponibilité.
+* Vous ne pouvez pas utiliser des disques SSD partitionnés pour le partitionnement données-racines dans un pool de stockage.
+
+
+Si vous fournissez l'espace de stockage d'un pool de stockage à deux caches avec des types RAID différents et si vous étendez la taille du pool de stockage au-delà de la taille de groupe RAID maximale pour RAID4, les partitions supplémentaires des unités d'allocation RAID4 sont inutilisées. Par conséquent, il est une meilleure pratique de garder vos types RAID de cache homogènes pour un pool de stockage.
+
+Vous ne pouvez pas modifier le type RAID des groupes RAID de cache alloués à partir d'un pool de stockage. Vous définissez le type RAID du cache avant d'ajouter les premières unités d'allocation et vous ne pouvez pas modifier le type RAID ultérieurement.
+
+Lorsque vous créez un pool de stockage ou ajoutez des disques SSD à un pool de stockage existant, vous devez utiliser des disques SSD de la même taille. En cas de panne et si aucun disque SSD de secours n'est disponible pour la taille correcte, ONTAP peut utiliser un disque SSD plus grand pour remplacer le disque SSD défectueux. Toutefois, la taille d'un disque SSD est adaptée à la taille des autres disques SSD du pool de stockage, ce qui entraîne une perte de capacité SSD.
+
+Vous ne pouvez utiliser qu'un seul disque SSD de rechange pour un pool de stockage. Si le pool de stockage fournit des unités d'allocation aux agrégats Flash Pool qui appartiennent aux deux nœuds de la paire haute disponibilité, le disque SSD de spare peut être détenu par l'un des nœuds. Toutefois, si le pool de stockage fournit des unités d'allocation uniquement aux agrégats Flash Pool qui sont détenus par l'un des nœuds de la paire haute disponibilité, le disque de secours SSD doit être détenu par ce même nœud.
+
+
+
+== Considérations relatives à la date d'utilisation des pools de stockage SSD
+
+Les pools de stockage SSD offrent de nombreux avantages, mais ils introduisent également des restrictions qui vous seront imposées lorsque vous décidez d'utiliser ou non les pools de stockage SSD ou les disques SSD dédiés.
+
+Les pools de stockage SSD n'ont de sens que si ils fournissent un cache à deux agrégats Flash Pool ou plus. Les pools de stockage SSD offrent les avantages suivants :
+
+* Meilleure utilisation du stockage pour les disques SSD utilisés dans les agrégats Flash Pool
++
+Les pools de stockage SSD réduisent le pourcentage global de disques SSD requis pour la parité, en vous permettant de partager les SSD de parité entre deux agrégats Flash Pool ou plus.
+
+* Partage des pièces de rechange entre les partenaires haute disponibilité
++
+Étant donné que le pool de stockage est possédé de manière efficace par la paire haute disponibilité, un disque de secours, appartenant à l'un des partenaires haute disponibilité, peut servir de réserve pour l'intégralité du pool de stockage SSD si nécessaire.
+
+* Une meilleure utilisation des performances des disques SSD
++
+Les performances élevées fournies par les disques SSD prennent en charge l'accès des deux contrôleurs d'une paire haute disponibilité.
+
+
+
+Ces avantages doivent être comparé au coût de l'utilisation de pools de stockage SSD, qui incluent les éléments suivants :
+
+* Isolation des pannes réduite
++
+La perte d'un disque SSD affecte tous les groupes RAID qui incluent l'une de ses partitions. Dans ce cas, chaque agrégat Flash Pool dont le cache est alloué depuis le pool de stockage SSD contenant le disque SSD affecté dispose d'un ou de plusieurs groupes RAID dans la reconstruction.
+
+* Isolation réduite des performances
++
+Si le cache Flash Pool n'est pas correctement dimensionné, il peut être conflit pour le cache entre les agrégats Flash Pool qui le partagent. Ce risque peut être réduit avec des contrôles de qualité de service et un dimensionnement appropriés du cache.
+
+* Flexibilité de gestion réduite
++
+Lorsque vous ajoutez du stockage à un pool de stockage, vous augmentez la taille de tous les caches Flash Pool incluant une ou plusieurs unités d'allocation de ce pool de stockage. Vous ne pouvez pas déterminer de quelle manière la capacité supplémentaire est répartie.
+
+
+
+
+
+== Considérations relatives à l'ajout de disques SSD à un pool de stockage existant plutôt que d'en créer un nouveau
+
+Deux méthodes sont possibles pour augmenter la taille du cache SSD : en ajoutant des disques SSD à un pool de stockage SSD existant ou en créant un nouveau pool de stockage SSD. La meilleure méthode dépend de votre configuration et de vos plans pour le stockage.
+
+La possibilité de choisir entre la création d'un nouveau pool de stockage et l'ajout de capacité de stockage à un pool existant est similaire à la décision de créer un nouveau groupe RAID ou d'ajouter du stockage à un groupe existant :
+
+* Si vous ajoutez de nombreux SSD, la création d'un nouveau pool de stockage offre davantage de flexibilité, car vous pouvez allouer le nouveau pool de stockage différemment du pool existant.
+* Si vous ajoutez uniquement quelques disques SSD et que vous augmentez la taille des groupes RAID de vos caches Flash Pool existants ne pose pas de problème, l'ajout de disques SSD au pool de stockage existant permet de réduire les coûts de parité et de réserve pour attribuer automatiquement le nouveau stockage.
+
+
+Si votre pool de stockage fournit des unités d'allocation aux agrégats Flash Pool dont les caches ont des types RAID différents et que vous étendez la taille du pool de stockage au-delà de la taille de groupe RAID RAID4 maximale, les partitions qui ont été ajoutées aux unités d'allocation RAID4 sont inutilisées.
+
+
+
+== Pourquoi ajouter des disques aux pools de stockage
+
+Vous pouvez ajouter des disques SSD à un pool de stockage existant et augmenter la taille du cache. Lorsque vous ajoutez des disques SSD à un pool de stockage sur lequel des unités d'allocation sont déjà allouées aux agrégats Flash Pool, vous augmentez la taille du cache de chacun de ces agrégats et le cache total du pool de stockage.
+
+Si les unités d'allocation du pool de stockage ne sont pas encore allouées, l'ajout de disques SSD à ce pool de stockage n'affecte pas la taille du cache SSD.
+
+Lorsque vous ajoutez des disques SSD à un pool de stockage existant, les disques SSD doivent appartenir à un nœud ou à l'autre de la même paire haute disponibilité qui possédait déjà les disques SSD existants du pool de stockage. Vous pouvez ajouter des disques SSD qui sont détenus par l'un ou l'autre nœuds de la paire HA.
+
+
+
+== Fonctionnement du pool de stockage
+
+Un _pool de stockage_ est un ensemble de SSD. Vous pouvez combiner des disques SSD pour créer un pool de stockage, ce qui vous permet de partager simultanément les disques SSD et les disques de secours SSD sur plusieurs agrégats Flash Pool.
+
+Les pools de stockage sont des unités d'allocation, qui peuvent être utilisées pour fournir des SSD et des disques de secours SSD aux agrégats ou pour augmenter la taille de SSD existante.
+
+Après avoir ajouté un disque SSD à un pool de stockage, vous ne pouvez plus utiliser ce disque comme disque individuel. Vous devez utiliser le pool de stockage pour attribuer ou allouer le stockage fourni par le disque SSD.
+
+
+
+== Fenêtre Storage pools
+
+Vous pouvez utiliser la fenêtre Storage pools pour créer, afficher et gérer un cache dédié de disques SSD, également appelé _Storage pools_. Ces pools de stockage peuvent être associés à un agrégat sans racine pour fournir un cache SSD et à un agrégat Flash Pool afin d'augmenter sa taille.
+
+Cette page n'est pas disponible pour un cluster contenant des nœuds disposant d'une configuration entièrement optimisée pour la technologie Flash.
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre la boîte de dialogue Créer un pool de stockage, qui permet de créer un pool de stockage.
+
+* *Ajouter des disques*
++
+Ouvre la boîte de dialogue Ajouter des disques, qui permet d'ajouter des disques cache à un pool de stockage.
+
+* *Supprimer*
++
+Supprime le pool de stockage sélectionné.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des pools de stockage
+
+* *Nom*
++
+Affiche le nom du pool de stockage.
+
+* *Cache total*
++
+Affiche la taille totale du cache du pool de stockage.
+
+* *Cache de rechange*
++
+Affiche la taille de la mémoire cache disponible du pool de stockage.
+
+* *Cache utilisé (%)*
++
+Affiche le pourcentage de taille de cache utilisée du pool de stockage.
+
+* *Unité d'allocation*
++
+Affiche l'unité d'allocation minimale de la taille totale du cache que vous pouvez utiliser pour augmenter la taille de votre pool de stockage.
+
+* *Propriétaire*
++
+Affiche le nom de la paire haute disponibilité ou du nœud sur lequel le pool de stockage est associé.
+
+* *État*
++
+Affiche l'état du pool de stockage, qui peut être Normal, dégradé, création, Suppression, réattribution, Ou en pleine expansion.
+
+* * Est sain*
++
+Indique si le pool de stockage est en bon état ou non.
+
+
+
+
+
+=== Onglet Détails
+
+Affiche des informations détaillées sur le pool de stockage sélectionné, telles que le nom, l'état de santé, le type de stockage, le nombre de disques, le cache total, cache libre, taille de cache utilisée (en pourcentage) et unité d'allocation. L'onglet affiche également les noms des agrégats provisionnés par le pool de stockage.
+
+
+
+=== Onglet disques
+
+Affiche des informations détaillées sur les disques du pool de stockage sélectionné, telles que les noms, les types de disque, la taille utilisable et la taille totale.
+
+*Informations connexes*
+
+xref:task_provisioning_storage_by_creating_flash_pool_aggregate_manually.adoc[Le provisionnement du stockage via la création manuelle d'un agrégat Flash Pool]
+
+xref:task_provisioning_cache_by_adding_disks.adoc[Provisionnez le cache en ajoutant des disques SSD]
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestion des disques et des agrégats"]

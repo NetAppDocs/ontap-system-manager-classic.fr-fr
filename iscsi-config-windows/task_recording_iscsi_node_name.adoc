@@ -1,0 +1,45 @@
+---
+permalink: iscsi-config-windows/task_recording_iscsi_node_name.html 
+sidebar: sidebar 
+keywords: record, iscsi, initiator, node, program, windows, host, record the iscsi intiator node name, name 
+summary: 'Vous devez enregistrer le nom du nœud d"initiateur iSCSI dans le programme initiateur iSCSI sur l"hôte Windows.' 
+---
+= Notez le nom du nœud de l'initiateur iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez enregistrer le nom du nœud d'initiateur iSCSI dans le programme initiateur iSCSI sur l'hôte Windows.
+
+.Étapes
+. Ouvrez la boîte de dialogue *iSCSI Initiator Properties* :
++
+|===
+| Si vous utilisez... | Accédez à... 
+
+
+ a| 
+Windows Server 2012, Windows Server 2012 R2 ou Windows Server 2016
+ a| 
+*Gestionnaire de serveur* > *Tableau de bord* > *Outils* > *initiateur iSCSI* > *Configuration*
+
+
+
+ a| 
+Windows Server 2008, Windows Server 2008 R2
+ a| 
+*Démarrer* > *Outils d'administration* > *initiateur iSCSI*
+
+|===
+. Copiez la valeur *Nom de l'initiateur* ou *Nom du nœud initiateur* dans un fichier texte ou notez-la.
++
+Le libellé exact de la boîte de dialogue diffère selon la version de Windows. Le nom du nœud initiateur iSCSI doit ressembler à l'exemple suivant :
+
++
+[listing]
+----
+iqn.1991-05.com.microsoft:server3
+----
+

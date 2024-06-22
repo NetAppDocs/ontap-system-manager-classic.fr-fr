@@ -1,0 +1,157 @@
+---
+permalink: online-help-96-97/concept_svm_user_accounts.html 
+sidebar: sidebar 
+keywords: system, manager, create, manage, online, help, storage, virtual, machine, svm, user, account, password, change, lock, unlock , command, button 
+summary: 'Vous pouvez utiliser System Manager pour créer et gérer des comptes utilisateur de machine virtuelle de stockage (SVM).' 
+---
+= Créez et gérez des comptes utilisateur SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des comptes utilisateur de machines virtuelles de stockage (SVM).
+
+
+
+== Ajouter des comptes utilisateur de SVM
+
+System Manager permet d'ajouter un compte utilisateur SVM (Storage Virtual machine) et de spécifier une méthode de connexion utilisateur pour accéder au système de stockage.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Détails utilisateur SVM*, cliquez sur *utilisateurs*.
+. Cliquez sur *Ajouter*.
+. Spécifiez un nom d'utilisateur et un mot de passe pour la connexion au système de stockage, puis confirmez le mot de passe.
+. Ajoutez une ou plusieurs méthodes de connexion utilisateur, puis cliquez sur *Ajouter*.
++
+Une méthode de connexion pour le nouveau compte vsadmin est automatiquement incluse, qui utilise HTTP comme application et est authentifiée avec un certificat.
+
+
+
+
+
+== Modifier le mot de passe des comptes utilisateur du SVM
+
+Vous pouvez utiliser System Manager pour réinitialiser le mot de passe d'un compte utilisateur de machine virtuelle de stockage (SVM).
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Détails utilisateur SVM*, cliquez sur *utilisateurs*.
+. Sélectionnez le compte d'utilisateur pour lequel vous souhaitez modifier le mot de passe, puis cliquez sur *Réinitialiser le mot de passe*.
+. Dans la boîte de dialogue *Réinitialiser le mot de passe*, saisissez le nouveau mot de passe, confirmez le nouveau mot de passe, puis cliquez sur *Modifier*.
+
+
+
+
+== Modifier les comptes utilisateur SVM
+
+System Manager peut être utilisé pour modifier un compte utilisateur de machine virtuelle de stockage (SVM) en modifiant les méthodes de connexion utilisateur permettant d'accéder au système de stockage.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Détails utilisateur SVM*, cliquez sur *utilisateurs*.
+. Sélectionnez le compte utilisateur que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Modifiez une ou plusieurs méthodes de connexion utilisateur, puis cliquez sur *Modifier*.
+
+
+
+
+== Verrouiller ou déverrouiller des comptes utilisateur SVM
+
+System Manager peut être utilisé pour verrouiller ou déverrouiller des comptes utilisateur de machine virtuelle de stockage (SVM).
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Dans le volet *Détails utilisateur SVM*, cliquez sur *utilisateurs*.
+. Dans la fenêtre *Users*, sélectionnez le compte d'utilisateur pour lequel vous souhaitez modifier l'état du compte, puis cliquez sur *Lock* ou *Unlock*, selon les besoins.
+
+
+
+
+== Fenêtre utilisateurs
+
+Vous pouvez utiliser la fenêtre utilisateurs pour gérer les comptes d'utilisateur, réinitialiser le mot de passe d'un utilisateur et afficher les informations relatives à tous les comptes d'utilisateur.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Ajouter un utilisateur qui vous permet d'ajouter des comptes d'utilisateur.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier l'utilisateur, qui permet de modifier les méthodes de connexion utilisateur.
+
++
+[NOTE]
+====
+Il est recommandé d'utiliser un rôle unique pour toutes les méthodes d'accès et d'authentification d'un compte utilisateur.
+
+====
+* *Supprimer*
++
+Permet de supprimer un compte utilisateur sélectionné.
+
+* *Changer le mot de passe*
++
+Ouvre la boîte de dialogue Modifier le mot de passe, qui permet de réinitialiser le mot de passe d'un utilisateur sélectionné.
+
+* *Verrouillage*
++
+Verrouille le compte utilisateur.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des utilisateurs
+
+La zone située sous la liste des utilisateurs affiche des informations détaillées sur l'utilisateur sélectionné.
+
+* *Utilisateur*
++
+Affiche le nom du compte utilisateur.
+
+* *Compte verrouillé*
++
+Indique si le compte utilisateur est verrouillé.
+
+
+
+
+
+=== Zone méthodes de connexion utilisateur
+
+* *Application*
++
+Affiche la méthode d'accès qu'un utilisateur peut utiliser pour accéder au système de stockage. Les méthodes d'accès prises en charge sont les suivantes :
+
++
+** Console système (console)
+** HTTP(S) (http)
+** API ONTAP (ontapi)
+** Processeur de service
+** SSH (ssh)
+
+
+* *Authentification*
++
+Affiche la méthode d'authentification par défaut prise en charge, qui est « mot de passe ».
+
+* *Rôle*
++
+Affiche le rôle d'un utilisateur sélectionné.
+
+

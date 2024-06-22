@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_running_deduplication_operations.html 
+sidebar: sidebar 
+keywords: run, deduplication, operation, system, manager, online, help, flexvol, volume 
+summary: 'Vous pouvez utiliser System Manager pour exécuter la déduplication immédiatement après la création d"un volume FlexVol ou pour planifier l"exécution de la déduplication à une heure donnée.' 
+---
+= Exécutez les opérations de déduplication avec System Manager - ONTAP 9.7 et les versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour exécuter la déduplication immédiatement après la création d'un volume FlexVol ou pour planifier l'exécution de la déduplication à un moment donné.
+
+.Avant de commencer
+* La déduplication doit être activée sur le volume.
+* Le volume doit être en ligne et monté.
+
+
+.Description de la tâche
+La déduplication est un processus d'arrière-plan qui consomme des ressources système pendant l'opération. Par conséquent, elle peut avoir un impact sur d'autres opérations en cours. Vous devez annuler la déduplication avant d'effectuer toute autre opération.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume pour lequel vous souhaitez exécuter la déduplication.
+. Cliquez sur *plus d'actions* > *efficacité du stockage*.
+. Si vous exécutez la déduplication sur le volume pour la première fois, exécutez la déduplication sur l'intégralité des données du volume en sélectionnant *analyser le volume entier* dans la boîte de dialogue *efficacité du stockage*.
+. Cliquez sur *Démarrer*.
+. Affichez les détails du processus de déduplication pour la dernière exécution dans l'onglet *Storage Efficiency* de la fenêtre *volumes*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

@@ -1,0 +1,99 @@
+---
+permalink: online-help-96-97/concept_roles.html 
+sidebar: sidebar 
+keywords: system, manager, role, create, user, access, control, online, help 
+summary: 'Vous pouvez utiliser System Manager pour créer des rôles utilisateur contrôlés par l"accès.' 
+---
+= Gérez les rôles avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer des rôles utilisateur contrôlés par l'accès.
+
+
+
+== Ajouter des rôles
+
+Vous pouvez utiliser System Manager pour ajouter un rôle de contrôle d'accès et spécifier la commande ou le répertoire de commande auxquels les utilisateurs du rôle peuvent accéder. Vous pouvez également contrôler le niveau d'accès du rôle à la commande ou au répertoire de commande, et spécifier une requête qui s'applique à la commande ou au répertoire de commande.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Management*, cliquez sur *Roles*.
+. Dans la fenêtre *rôles*, cliquez sur *Ajouter*.
+. Dans la boîte de dialogue *Ajouter un rôle*, saisissez le nom du rôle et ajoutez les attributs du rôle.
+. Cliquez sur *Ajouter*.
+
+
+
+
+== Modifier les rôles
+
+Vous pouvez utiliser System Manager pour modifier l'accès d'un rôle de contrôle d'accès à une commande ou à un répertoire de commandes et limiter l'accès des utilisateurs à un ensemble spécifié de commandes. Vous pouvez également supprimer l'accès d'un rôle au répertoire de commande par défaut.
+
+.Étapes
+. Cliquez sur *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*.
+. Dans le volet *Management*, cliquez sur *Roles*.
+. Dans la fenêtre *rôles*, sélectionnez le rôle que vous souhaitez modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier le rôle*, modifiez les attributs du rôle, puis cliquez sur *Modifier*.
+. Vérifiez les modifications que vous avez effectuées dans la fenêtre *Roles*.
+
+
+
+
+== Rôles et autorisations
+
+L'administrateur du cluster peut restreindre l'accès d'un utilisateur à un seul ensemble de commandes en créant un rôle de contrôle d'accès restreint, puis en attribuant le rôle à un utilisateur.
+
+Vous pouvez gérer les rôles de contrôle d'accès de la manière suivante :
+
+* En créant un rôle de contrôle d'accès, puis en spécifiant la commande ou le répertoire de commande auquel les utilisateurs du rôle peuvent accéder.
+* En contrôlant le niveau d'accès du rôle pour le répertoire de commande ou de commande, puis en spécifiant une requête qui s'applique au répertoire de commande ou de commande.
+* En modifiant l'accès d'un rôle de contrôle d'accès à un répertoire de commande ou de commande.
+* En affichant des informations sur les rôles de contrôle d'accès, tels que le nom du rôle, la commande ou le répertoire de commande auquel un rôle peut accéder, le niveau d'accès et la requête.
+* En supprimant un rôle de contrôle d'accès.
+* En limitant l'accès d'un utilisateur à un seul ensemble de commandes.
+* En affichant des API ONTAP et leurs commandes d'interface de ligne de commandes correspondantes.
+
+
+
+
+== Rôles
+
+Vous pouvez utiliser la fenêtre rôles pour gérer les rôles associés aux comptes d'utilisateur.
+
+
+
+=== Boutons de commande
+
+* *Ajouter*
++
+Ouvre la boîte de dialogue Ajouter un rôle, qui permet de créer un rôle de contrôle d'accès et de spécifier la commande ou le répertoire de commande auquel les utilisateurs du rôle peuvent accéder.
+
+* *Modifier*
++
+Ouvre la boîte de dialogue Modifier le rôle, qui permet d'ajouter ou de modifier des attributs de rôle.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des rôles
+
+La liste des rôles fournit une liste des rôles disponibles à attribuer aux utilisateurs.
+
+
+
+=== Zone attributs de rôle
+
+La zone de détails affiche les attributs de rôle, tels que le répertoire de commande ou de commande auquel le rôle sélectionné peut accéder, le niveau d'accès et la requête qui s'applique au répertoire de commande ou de commande.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/authentication/index.html["Authentification de l'administrateur et RBAC"^]

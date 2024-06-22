@@ -1,0 +1,47 @@
+---
+permalink: fc-config-windows/index.html 
+sidebar: sidebar 
+keywords: describe, fc, service, storage virtual machine, svm, provision, lun, hba, windows, host 
+summary: 'Vous pouvez rapidement configurer le service FC sur une machine virtuelle de stockage, provisionner une LUN et mettre la LUN à disposition à l"aide d"un HBA FC sur un ordinateur hôte Windows.' 
+---
+= Présentation de la configuration FC pour Windows
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez rapidement configurer le service FC sur un SVM, provisionner une LUN et mettre le LUN à disposition à l'aide d'une HBA FC sur un ordinateur hôte Windows via l'interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures).
+
+Utilisez cette procédure pour configurer le service FC sur un SVM si :
+
+* Vous utilisez des HBA et des commutateurs FC traditionnels.
+
+
+Cette procédure ne couvre pas les situations où :
+
+* Vous disposez d'au moins deux ports FC target disponibles sur chaque nœud du cluster.
+Ports FC et UTA2 intégrés (également appelés `CNA`) les ports, ainsi que certains adaptateurs sont configurables. La configuration de ces ports s'effectue sur l'interface de ligne de commandes de ONTAP et n'est pas traitée dans cette procédure.
+* Vous ne configurez pas le démarrage SAN FC.
+* Vous n'utilisez pas de protocole VFC (Virtual Fibre Channel) avec les invités Hyper-V ou ESX.
+
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+|===
+
+
+| Pour effectuer ces tâches avec... | Reportez-vous à... 
+
+
+| System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures) | link:https://docs.netapp.com/us-en/ontap/task_san_provision_windows.html["Provisionnement du stockage SAN pour Windows Server"^] 
+
+
+| Interface de ligne de commande ONTAP | link:https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html["Workflow de configuration de LUN avec l'interface de ligne de commandes"^] 
+|===
+.Ressources supplémentaires
+* https://docs.netapp.com/us-en/ontap-sanhost/index.html["Documentation NetApp : utilitaires hôtes"^]
+

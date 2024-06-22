@@ -1,0 +1,44 @@
+---
+permalink: online-help-96-97/concept_options_for_resizing_volumes.html 
+sidebar: sidebar 
+keywords: option, resize, volume, wizard, snapshot, reserve, snapshot, copy, results, view, online, help 
+summary: 'L"assistant de redimensionnement de volume vous permet de modifier la taille du volume, d"ajuster la réserve Snapshot, de supprimer les copies Snapshot et d"afficher de manière dynamique les résultats de vos modifications.' 
+---
+= Options de redimensionnement des volumes avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'assistant de redimensionnement de volume dans ONTAP System Manager classique (disponible dans ONTAP 9.7 et version antérieure) pour modifier la taille de votre volume, ajuster la réserve Snapshot, supprimer des copies Snapshot et afficher de manière dynamique les résultats de vos modifications.
+
+L'assistant de redimensionnement de volume affiche un graphique à barres qui affiche les allocations d'espace actuelles au sein du volume, y compris la quantité d'espace utilisé et l'espace libre. Lorsque vous modifiez la taille ou la réserve Snapshot du volume, ce graphique est mis à jour de manière dynamique pour refléter les modifications apportées.
+
+Vous pouvez également utiliser le bouton *calculer l'espace* pour déterminer la quantité d'espace libéré en supprimant les copies Snapshot sélectionnées.
+
+L'assistant de redimensionnement de volume vous permet d'apporter les modifications suivantes à votre volume :
+
+* *Modifiez la taille du volume*
++
+Vous pouvez modifier la taille totale du volume pour augmenter ou réduire l'espace de stockage.
+
+* *Ajuster la réserve d'instantanés*
++
+Vous pouvez ajuster la quantité d'espace réservé aux copies Snapshot afin d'augmenter ou de réduire l'espace de stockage.
+
+* *Supprimer les copies snapshot*
++
+Vous pouvez supprimer des copies Snapshot pour récupérer de l'espace volume.
+
++
+[NOTE]
+====
+Les copies Snapshot en cours d'utilisation ne peuvent pas être supprimées.
+
+====
+* *Croissance automatique*
++
+Vous pouvez spécifier la limite à laquelle le volume peut être étendu automatiquement, si nécessaire.
+
+

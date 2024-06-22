@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_configuring_nvme_protocol_on_svms.html 
+sidebar: sidebar 
+keywords: configure, nvme, protocol, svm, system, manager, namespaces, online, help 
+summary: 'Le protocole NVMe peut être configuré sur une machine virtuelle de stockage (SVM) à l"aide de System Manager. Vous pouvez ensuite créer des espaces de noms et les affecter à un sous-système et un hôte NVMe.' 
+---
+= Configurez le protocole NVMe sur les SVM avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) permet de configurer le protocole NVMe sur une machine virtuelle de stockage (SVM). Vous pouvez ensuite créer des espaces de noms et les affecter à un sous-système et un hôte NVMe.
+
+.Description de la tâche
+Le SVM avec NVMe ne doit pas posséder d'autre protocole. Si vous sélectionnez NVMe, le reste des protocoles est désactivé. Vous pouvez également configurer NVMe lors de la création de la SVM.
+
+.Étapes
+. Si vous n'avez pas configuré le protocole NVMe lors de la création du SVM, cliquez sur *Storage* > *SVM*
+. Sélectionner la SVM, puis cliquer sur *Paramètres de la SVM*.
+. Dans le volet *protocoles*, cliquez sur *NVMe*.
+. Cliquez sur le lien pour configurer le protocole, le cas échéant.
++
+[NOTE]
+====
+Si d'autres protocoles sont activés, vous devez les désélectionner pour que NVMe soit disponible. NVMe ne peut pas être associé à un autre protocole.
+
+====
+. Dans le volet *Modifier la machine virtuelle de stockage*, cliquez sur *affectation des ressources*.
+. Dans l'onglet *Resource allocation*, vous pouvez choisir de ne pas déléguer la création de volume ou de sélectionner un agrégat pour provisionner les volumes automatiquement.
+. Cliquez sur l'onglet *Services* pour configurer les détails du commutateur de service de noms.
+. Cliquez sur *Enregistrer et fermer*
++
+Le protocole NVMe est configuré sur le SVM. Une fois le protocole configuré, vous pouvez démarrer ou arrêter le service en utilisant *Paramètres SVM*
+
+
+
+*Informations connexes*
+
+xref:concept_setting_up_nvme.adoc[Configuration de NVMe]

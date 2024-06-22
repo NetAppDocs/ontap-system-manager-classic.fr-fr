@@ -1,0 +1,45 @@
+---
+permalink: online-help-96-97/task_performing_switchback.html 
+sidebar: sidebar 
+keywords: metrocluster, perform, switchback, system, manager, online, help 
+summary: 'Depuis System Manager 9.6, vous pouvez effectuer une opération de rétablissement qui restaure le contrôle sur le site MetroCluster d"origine (site B) une fois que le système a terminé une opération de basculement.' 
+---
+= Exécution d'un rétablissement
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depuis System Manager 9.6, vous pouvez effectuer une opération de rétablissement qui restaure le contrôle sur le site MetroCluster d'origine (site B) une fois que le système a terminé une opération de basculement.
+
+.Avant de commencer
+Avant d'effectuer une opération de rétablissement, vous devez effectuer les tâches suivantes :
+
+* Vous devez préparer les sites MetroCluster par xref:task_performing_negotiated_planned_switchover.adoc[Effectuer un basculement négocié (planifié)] ou xref:task_performing_unplanned_switchover.adoc[Effectuer un basculement non planifié].
+* Si des erreurs se sont produites pendant l'opération de correction, vous devez suivre les instructions affichées pour les corriger.
+* Si l'état du site distant est affiché comme « prêt pour le rétablissement », les agrégats sont toujours en cours de resynchronisation. Vous devez patienter jusqu'à ce que l'état du site distant indique que celui-ci est prêt pour le rétablissement.
+
+
+.Description de la tâche
+Si le basculement est réussi, la fenêtre MetroCluster Switchback Operations s'affiche. La fenêtre affiche l'état des deux sites et affiche un message vous indiquant que l'opération a réussi.
+
+.Étapes
+. Cliquez sur *Retour du site A vers le site B* pour lancer l'opération de rétablissement.
++
+Un message d'avertissement vous indique que l'opération de rétablissement renvoie le contrôle MetroCluster au site B et que le processus peut prendre un certain temps.
+
+. Si vous souhaitez continuer, cliquez sur *Oui*.
+. Effectuez l'une des sous-étapes suivantes lorsque le processus de rétablissement est terminé :
++
+** Si l'opération de rétablissement réussit, cliquez sur *Done* pour confirmer l'achèvement des opérations MetroCluster.
++
+[NOTE]
+====
+Jusqu'à ce que vous ayez reconnu la fin de l'opération de rétablissement, System Manager continue à afficher un message indiquant que l'opération est terminée. Vous ne pouvez pas lancer une autre opération ni surveiller les opérations de basculement ou de rétablissement suivantes tant que vous n'avez pas accusé réception de l'opération de rétablissement.
+
+====
+** Si l'opération de rétablissement ne réussit pas, des messages d'erreur s'affichent en haut de la zone d'état. Apportez les corrections nécessaires, puis cliquez sur *Retour du site A au site B* pour recommencer le processus.
+
+
+

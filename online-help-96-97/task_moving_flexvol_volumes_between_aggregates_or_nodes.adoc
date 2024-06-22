@@ -1,0 +1,63 @@
+---
+permalink: online-help-96-97/task_moving_flexvol_volumes_between_aggregates_or_nodes.html 
+sidebar: sidebar 
+keywords: move, flexcol, volume, aggregate, node, online, help, system, manager 
+summary: 'Vous pouvez déplacer, sans interruption, un volume FlexVol vers un autre agrégat ou un nœud différent pour optimiser l"utilisation de la capacité et améliorer les performances à l"aide de System Manager.' 
+---
+= Déplacez les volumes FlexVol entre les agrégats ou les nœuds avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour déplacer, sans interruption, un volume FlexVol vers un autre agrégat ou un nœud différent pour optimiser l'utilisation de la capacité et les performances.
+
+.Avant de commencer
+Si vous déplacez un volume de protection des données (DP), vous devez initialiser les relations de miroir de protection des données avant de déplacer le volume.
+
+.Description de la tâche
+Vous ne pouvez pas déplacer les volumes SnapLock entre les agrégats et les nœuds.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionnez le volume que vous souhaitez déplacer.
+. Cliquez sur *plus d'actions* > *déplacer*.
+. Dans la boîte de dialogue *Move Volume*, sélectionnez l'agrégat ou le nœud de destination du volume, puis modifiez la règle de hiérarchisation.
++
+[NOTE]
+====
+** Vous ne pouvez pas modifier la règle de hiérarchisation d'un volume racine.
+** Vous ne pouvez pas déplacer le volume racine vers FabricPool.
+** Pour les volumes en lecture/écriture, vous pouvez définir la règle de Tiering comme « sauvegarder » pendant le déplacement du volume.
++
+La stratégie de hiérarchisation passe à "snapshot-Only" après le déplacement.
+
+** Les valeurs de niveau de capacité affichées dans le champ « utilisé après le déplacement » de l'agrégat source et de l'agrégat de destination sont des valeurs estimées.
++
+Pour les valeurs exactes, vous devez naviguer jusqu'à la fenêtre agrégat et afficher les détails d'un agrégat spécifique.
+
+
+
+====
+. Cliquez sur *déplacer*.
+
+
+
+
+== Déclenchement manuel de la mise en service pour le déplacement des volumes
+
+Pour une opération de déplacement de volume, System Manager peut déclencher manuellement la mise en service lorsque le volume entre dans la phase différée de la mise en service. Vous pouvez définir la durée de la mise en service et l'action de mise en service à exécuter par le système si l'opération échoue dans cette durée.
+
+.Étapes
+. Cliquez sur *Storage* > *SVM*.
+. Sélectionner la SVM, puis cliquer sur *SVM Settings*.
+. Cliquez sur l'onglet *volumes*.
+. Développez le volume pour lequel l'opération de déplacement de volume a été lancée.
+. Cliquez sur le lien *Afficher plus de détails* pour afficher plus d'informations sur le volume.
+. Dans l'onglet *Présentation*, cliquez sur *mise en service*.
+. Dans la boîte de dialogue *mise en service*, cliquez sur *Options avancées*.
+. *Facultatif:* spécifiez l'action de mise en service et la période de mise en service.
+. Cliquez sur *OK*.
+

@@ -1,0 +1,219 @@
+---
+permalink: iscsi-config-esxi/reference_completing_iscsi_configuration_worksheet.html 
+sidebar: sidebar 
+keywords: network, address, storage, configuration, information, perform, iscsi, task, complete, complete the iscsi configuration worksheet 
+summary: 'Pour effectuer les tâches de configuration iSCSI, vous devez disposer d"adresses réseau et d"informations de configuration de stockage.' 
+---
+= Remplir la fiche de configuration iSCSI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour effectuer les tâches de configuration iSCSI, vous devez disposer d'adresses réseau et d'informations de configuration de stockage.
+
+
+
+== Adresses réseau cibles
+
+La machine virtuelle de stockage (SVM) est la cible iSCSI.
+
+Vous avez besoin d'un sous-réseau doté de deux adresses IP pour les LIF de données iSCSI pour chaque nœud du cluster. Pour assurer la haute disponibilité, il doit y avoir deux réseaux distincts. Les adresses IP spécifiques sont attribuées par ONTAP lorsque vous créez les LIFs dans le cadre de la création du SVM.
+
+Si possible, séparez le trafic iSCSI sur des réseaux physiques distincts ou sur des VLAN.
+
+image::../media/network_fc_or_iscsi_express_iscsi_esxi.gif[La figure montre quatre nœuds,two switches,and a host. Each node has two LIFs]
+
+Sous-réseau des LIF :
+
+|===
+| Ou LIF avec port pour le commutateur | Adresse IP | Masque de réseau | Passerelle | ID VLAN | Port de départ 
+
+
+ a| 
+Nœud 1 / LIF vers le commutateur 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 2 / LIF vers le commutateur 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 3 / LIF vers le commutateur 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 4 / LIF vers le commutateur 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 1 / LIF vers le commutateur 2
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 2 / LIF vers le commutateur 2
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 3 / LIF vers le commutateur 2
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+Nœud 4 / LIF vers le commutateur 2
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+|===
+
+
+== Configuration de stockage sous-jacente
+
+Si l'agrégat et le SVM sont déjà créés, enregistrer leurs noms ici ; sinon, vous pouvez les créer comme requis :
+
+|===
+| Nœud vers son propre LUN 
+
+
+ a| 
+Nom de l'agrégat
+
+
+
+ a| 
+Nom du SVM
+
+|===
+
+
+== Informations sur les LUN
+
+|===
+| Taille de la LUN 
+
+
+ a| 
+Nom de LUN (facultatif)
+
+
+
+ a| 
+Description des LUN (facultatif)
+
+|===
+
+
+== Informations sur les SVM
+
+Si vous n'utilisez pas un SVM existant, vous devez demander les informations suivantes :
+
+[cols="1a,1a"]
+|===
+2+| Nom du SVM 
+
+
+ a| 
+SVM IPspace
+
+
+
+ a| 
+Agrégat pour volume root SVM
+
+
+
+ a| 
+Nom d'utilisateur SVM (facultatif)
+
+
+
+ a| 
+Mot de passe SVM (facultatif)
+
+
+
+ a| 
+LIF de gestion SVM (en option)
+
+
+
+ a| 
+ a| 
+Sous-réseau :
+
+
+
+ a| 
+ a| 
+Adresse IP :
+
+
+
+ a| 
+ a| 
+Masque de réseau :
+
+
+
+ a| 
+ a| 
+Passerelle :
+
+
+
+ a| 
+ a| 
+Nœud de départ :
+
+
+
+ a| 
+ a| 
+Port de départ :
+
+|===

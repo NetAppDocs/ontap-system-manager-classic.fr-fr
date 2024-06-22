@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/concept_ipspaces.html 
+sidebar: sidebar 
+keywords: ipspace, edit,rename, system, manager, manage, online, help 
+summary: System Manager permet de créer et de gérer des IPspaces. 
+---
+= Gérez les IPspaces avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer et gérer des IPspaces.
+
+
+
+== Modifiez les IPspaces
+
+Vous pouvez utiliser System Manager pour renommer un IPspace.
+
+.Description de la tâche
+* Tous les noms IPspace doivent être uniques dans un cluster et ne doivent pas se composer de noms réservés par le système, tels que local ou localhost.
+* L'IPspace « Default » et l'IPspace « Cluster » définis par le système ne peuvent pas être modifiés.
+
+
+.Étapes
+. Cliquez sur *réseau* > *IPSpaces*.
+. Sélectionnez l'IPspace à modifier, puis cliquez sur *Modifier*.
+. Dans la boîte de dialogue *Modifier l’IPspace*, spécifiez un nouveau nom pour l’IPspace.
+. Cliquez sur *Renommer*.
+
+
+
+
+== Supprimez les IPspaces
+
+Vous pouvez utiliser System Manager pour supprimer un IPspace si vous n'avez plus besoin de l'IPspace.
+
+.Avant de commencer
+L'IPspace à supprimer ne doit pas être associé à des domaines de diffusion, des interfaces réseau, des relations entre pairs et des machines virtuelles de stockage (SVM).
+
+.Description de la tâche
+Les IPspace « Default » et « Cluster » définis par le système ne peuvent pas être supprimés.
+
+.Étapes
+. Cliquez sur *réseau* > *IPSpaces*.
+. Sélectionnez l'IPspace à supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Oui*.
+
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["Gestion du réseau"]

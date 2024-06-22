@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_obtaining_ontap_software_images.html 
+sidebar: sidebar 
+keywords: online, help, obtain, ontap, software, image, netapp, support, site, online, help 
+summary: 'Pour ONTAP 9.4 et versions ultérieures, vous pouvez copier l"image du logiciel ONTAP depuis le site de support NetApp vers un dossier local. Pour les mises à niveau à partir de ONTAP 9.3 ou d"une version antérieure, vous devez copier l"image du logiciel ONTAP sur un serveur HTTP ou FTP de votre réseau.' 
+---
+= Procurez-vous les images du logiciel ONTAP avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez obtenir des images du logiciel ONTAP avec ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures). Pour ONTAP 9.4 et versions ultérieures, vous pouvez copier l'image du logiciel ONTAP depuis le site de support NetApp vers un dossier local. Pour les mises à niveau à partir de ONTAP 9.3 ou d'une version antérieure, vous devez copier l'image du logiciel ONTAP sur un serveur HTTP ou FTP de votre réseau.
+
+.Description de la tâche
+Pour mettre à niveau le cluster vers la version cible de ONTAP, vous devez accéder aux images logicielles. Le site de support NetApp propose les images logicielles, les informations de version du firmware et la dernière version du firmware pour votre modèle de plateforme. Notez les informations importantes suivantes :
+
+* Les images logicielles sont spécifiques aux modèles de plate-forme.
++
+Vous devez obtenir l'image correcte pour votre cluster.
+
+* Les images logicielles incluent la dernière version du micrologiciel système disponible lorsqu'une version donnée de ONTAP a été publiée.
+* Si vous mettez à niveau un système avec NetApp Volume Encryption vers ONTAP 9.5 ou une version ultérieure, vous devez télécharger l'image logicielle de ONTAP pour les pays non soumis à des restrictions, notamment NetApp Volume Encryption.
++
+Si vous utilisez l'image logicielle ONTAP pour des pays limités pour mettre à niveau un système avec NetApp Volume Encryption, le système fonctionne de façon incohérente et l'accès aux volumes est perdu.
+
+* Si vous effectuez une mise à niveau de ONTAP 9.3 vers 9.7, vous devez copier l'image logicielle pour ONTAP 9.5 et 9.7.
+
+
+.Étapes
+. Recherchez le logiciel ONTAP cible dans la section *téléchargements de logiciels* du site de support NetApp.
+. Copiez l'image logicielle.
++
+** Pour ONTAP 9.3 ou une version antérieure, copiez l'image logicielle (par exemple, `93_q_image.tgz`) Du site de support NetApp vers le répertoire du serveur HTTP ou FTP à partir duquel l'image sera traitée
+** Pour ONTAP 9.4 ou version ultérieure, copiez l'image logicielle (par exemple, `97_q_image.tgz`) Du site de support NetApp vers le répertoire du serveur HTTP ou FTP à partir duquel l'image sera traitée ou dans un dossier local.
+
+
+

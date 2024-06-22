@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_setting_up_support_page.html 
+sidebar: sidebar 
+keywords: set, up, support, page, cluster, setup, online, help 
+summary: 'La configuration de la page de support termine la configuration du cluster, implique la configuration des notifications d"événement et, pour les clusters à un seul nœud, la configuration de la sauvegarde du système.' 
+---
+= Configurez une page de support avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer une page de support. La configuration de la page de support termine la configuration du cluster, implique la configuration des notifications d'événement et, pour les clusters à un seul nœud, la configuration de la sauvegarde du système.
+
+.Avant de commencer
+Vous devez avoir configuré le cluster et le réseau.
+
+.Étapes
+. Configurez les notifications d'événements à l'aide de l'hôte de messagerie, de l'hôte d'interruption SNMP ou du serveur Syslog.
++
+[NOTE]
+====
+Vous devez configurer au moins un système de notification d'événement.
+
+====
+. Si vous disposez d'un cluster à un seul nœud, configurez une sauvegarde système sur un serveur FTP ou sur un serveur HTTP.
++
+[NOTE]
+====
+La sauvegarde du système s'applique uniquement aux clusters à un seul nœud.
+
+====
+. Cliquez sur *Envoyer et continuer*.
+
+
+
+
+== Que faire ensuite
+
+Afficher les recommandations relatives au stockage et créer des SVM pour poursuivre la configuration du cluster.

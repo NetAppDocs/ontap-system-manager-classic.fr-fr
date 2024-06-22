@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_assigning_disks_to_nodes.html 
+sidebar: sidebar 
+keywords: system, manager, assign, disk, node, online, help 
+summary: 'Vous pouvez utiliser System Manager pour attribuer la propriété d"un disque non attribué à un nœud spécifique afin d"augmenter la capacité d"un agrégat ou d"un pool de stockage.' 
+---
+= Affectez des disques aux nœuds à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour attribuer la propriété d'un disque non affecté à un nœud spécifique afin d'augmenter la capacité d'un agrégat ou d'un pool de stockage.
+
+.Description de la tâche
+* Vous pouvez affecter des disques si les conditions suivantes sont vraies :
++
+** Le type de conteneur des disques sélectionnés doit être « non attribué ».
+** Les disques doivent être connectés aux nœuds dans une paire haute disponibilité.
+** Les disques doivent être visibles pour le nœud.
+
+
+* Pour les configurations MetroCluster, System Manager ne permet pas d'attribuer des disques.
++
+Vous devez plutôt utiliser l'interface de ligne de commandes.
+
+
+
+.Étapes
+. Cliquez sur *stockage* > *agrégats et disques* > *disques*.
+. Dans la fenêtre *disques*, sélectionnez l'onglet *Inventaire*.
+. Sélectionnez les disques à affecter, puis cliquez sur *affecter*.
+. Dans la boîte de dialogue *affecter des disques*, sélectionnez le nœud auquel vous souhaitez affecter les disques.
+. Cliquez sur *attribuer*.
+

@@ -1,0 +1,348 @@
+---
+permalink: online-help-96-97/concept_quotas.html 
+sidebar: sidebar 
+keywords: system, manager, quota, online, help, view, activate, deactivate, information, types, targets, default, limits, space, files, manage, tree, group 
+summary: System Manager permet de créer, modifier et supprimer des quotas. 
+---
+= Gérez les quotas avec System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer, modifier et supprimer des quotas.
+
+
+
+== Créer des quotas
+
+Les quotas vous permettent de limiter ou de suivre l'espace disque et le nombre de fichiers utilisés par un utilisateur, un groupe ou un qtree. L'assistant Ajouter un quota dans System Manager permet de créer un quota et d'appliquer le quota à un volume ou qtree spécifique.
+
+.Description de la tâche
+À l'aide de System Manager, la valeur minimale que vous pouvez spécifier pour la limite matérielle et la limite soft sur le nombre de fichiers que le quota peut posséder est de 1000. Si vous souhaitez spécifier une valeur inférieure à 1000, vous devez utiliser l'interface de ligne de commandes.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans le menu déroulant du champ *SVM*, sélectionner la machine virtuelle de stockage (SVM) sur laquelle vous souhaitez créer un quota.
+. Dans l'onglet *quotas définis par l'utilisateur*, cliquez sur *Créer*.
++
+L'assistant de création de quota s'affiche.
+
+. Saisissez ou sélectionnez les informations demandées par l'assistant.
+. Confirmez les détails, puis cliquez sur *Terminer* pour terminer l'assistant.
+
+
+
+
+=== Que faire ensuite
+
+Vous pouvez utiliser le nom d'utilisateur local ou RID pour créer des quotas d'utilisateur. Si vous créez le quota d'utilisateur ou le quota de groupe en utilisant le nom d'utilisateur ou le nom de groupe, alors le ``/etc/passwd``fichier et le``/etc/group``le fichier doit être mis à jour, respectivement.
+
+
+
+== Supprimez des quotas
+
+Vous pouvez utiliser System Manager pour supprimer un ou plusieurs quotas lorsque vos utilisateurs et leurs exigences et limites de stockage changent.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez la machine virtuelle de stockage (SVM) sur laquelle résident les quotas à supprimer.
+. Sélectionnez un ou plusieurs quotas à supprimer, puis cliquez sur *Supprimer*.
+. Cochez la case de confirmation, puis cliquez sur *Supprimer*.
+
+
+
+
+== Modifier les limites des quotas
+
+Vous pouvez utiliser System Manager pour modifier le seuil d'espace disque, la limite matérielle et la limite soft de la quantité d'espace disque que la cible de quota peut utiliser, ainsi que la limite matérielle et la limite soft du nombre de fichiers que la cible de quota peut posséder.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans le menu déroulant du champ *SVM*, sélectionner la machine virtuelle de stockage (SVM) sur laquelle réside le quota que vous souhaitez modifier.
+. Sélectionnez le quota à modifier et cliquez sur *Modifier les limites*.
+. Dans la boîte de dialogue *Modifier les limites*, modifiez les paramètres de quota selon les besoins.
++
+Cent (100) est la valeur minimale que vous pouvez spécifier pour la limite stricte et la limite soft sur le nombre de fichiers que le quota peut posséder. Si vous souhaitez spécifier une valeur inférieure à 100, vous devez utiliser l'interface de ligne de commande (CLI).
+
+. Cliquez sur *Enregistrer et fermer*.
+. Vérifiez les modifications apportées au quota sélectionné dans l'onglet *quotas définis par l'utilisateur*.
+
+
+
+
+== Activer ou désactiver des quotas
+
+Vous pouvez utiliser System Manager pour activer ou désactiver des quotas sur un ou plusieurs volumes que vous sélectionnez sur votre système de stockage. Vous pouvez activer ou désactiver des quotas lorsque vos utilisateurs et leurs exigences et limites de stockage changent.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans le menu déroulant du champ SVM, sélectionner la machine virtuelle de stockage (SVM) sur laquelle les quotas que vous souhaitez activer ou désactiver résider.
+. Dans l'onglet *quota Status on volumes*, sélectionnez un ou plusieurs volumes pour lesquels vous souhaitez activer ou désactiver des quotas.
+. Cliquez sur *Activer* ou *Désactiver*, selon les besoins.
+. Si vous désactivez un quota, cochez la case de confirmation, puis cliquez sur *OK*.
+. Vérifiez l'état du quota sur les volumes dans la colonne *Status*.
+
+
+
+
+== Redimensionner les quotas
+
+Vous pouvez utiliser la boîte de dialogue Redimensionner le quota dans System Manager pour ajuster les quotas actifs dans le volume spécifié afin qu'ils reflètent les modifications que vous avez apportées à un quota.
+
+.Avant de commencer
+Les quotas doivent être activés pour les volumes pour lesquels vous souhaitez redimensionner les quotas.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans l'onglet *quota Status on volumes* de la fenêtre *quotas*, sélectionnez un ou plusieurs volumes pour lesquels vous souhaitez redimensionner les quotas.
+. Cliquez sur *Redimensionner*.
+
+
+
+
+== Afficher les informations sur les quotas
+
+Vous pouvez utiliser la fenêtre quotas dans System Manager pour afficher les détails de quota, notamment le volume et les qtrees vers lesquels le quota est appliqué, le type de quota, l'utilisateur ou le groupe auquel le quota est appliqué, ainsi que l'espace et l'utilisation du fichier.
+
+.Étapes
+. Cliquez sur *Storage* > *quotas*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez la machine virtuelle de stockage (SVM) sur laquelle vous souhaitez afficher les informations relatives à réside.
+. Effectuez l'action appropriée :
++
+[cols="1a,1a"]
+|===
+| Si... | Alors... 
+
+
+ a| 
+Vous souhaitez afficher les détails de tous les quotas que vous avez créés
+ a| 
+Cliquez sur l'onglet *quotas définis par l'utilisateur*.
+
+
+
+ a| 
+Vous souhaitez afficher les détails des quotas actuellement actifs
+ a| 
+Cliquez sur l'onglet *Rapport de quota*.
+
+|===
+. Sélectionnez le quota dont vous souhaitez afficher les informations à propos de dans la liste des quotas affichée.
+. Vérifier les détails du quota.
+
+
+
+
+== Types de quotas
+
+Les quotas peuvent être classés en fonction des cibles auxquelles ils sont appliqués.
+
+Les types de quotas basés sur les cibles auxquelles ils sont appliqués sont les suivants :
+
+* *Quota d'utilisateurs*
++
+La cible est un utilisateur.
+
++
+L'utilisateur peut être représenté par un nom d'utilisateur UNIX, un UID UNIX, un SID Windows, un fichier ou un répertoire dont l'UID correspond à l'utilisateur, un nom d'utilisateur Windows au format pré-Windows 2000 et un fichier ou répertoire dont l'ACL appartient au SID de l'utilisateur. Vous pouvez l'appliquer à un volume ou à un qtree.
+
+* *Quota de groupe*
++
+La cible est un groupe.
+
++
+Le groupe est représenté par un nom de groupe UNIX, un GID ou un fichier ou répertoire dont le GID correspond au groupe. ONTAP ne s'applique pas aux quotas de groupe basés sur un ID Windows. Vous pouvez appliquer un quota à un volume ou à un qtree.
+
+* *Quota qtree*
++
+La cible est un qtree, spécifié par le chemin d'accès au qtree.
+
++
+Vous pouvez déterminer la taille du qtree cible.
+
+* *Quota par défaut*
++
+Applique automatiquement une limite de quota à un ensemble important de cibles de quota sans créer de quotas distincts pour chaque cible.
+
++
+Les quotas par défaut peuvent être appliqués aux trois types de cibles de quota (utilisateurs, groupes et qtrees). Le type de quota est déterminé par la valeur du champ type.
+
+
+
+
+
+== Limites des quotas
+
+Vous pouvez appliquer une limite d'espace disque ou limiter le nombre de fichiers pour chaque type de quota. Si vous ne spécifiez pas de limite pour un quota, aucune n'est appliquée.
+
+Les quotas peuvent être conditionnels ou inconditionnels. Lors du dépassement de limites définies, les quotas conditionnels entraînent l'envoi d'une notification par Data ONTAP, tandis que les quotas inconditionnels empêcheront toute opération d'écriture.
+
+Les quotas matériels imposent une limite stricte aux ressources système, toute opération qui entraînerait un dépassement de la limite. Les paramètres suivants créent des quotas matériels :
+
+* Paramètre de limite de disque
+* Paramètre de limite de fichiers
+
+
+Les quotas conditionnels envoient un message d'avertissement lorsque l'utilisation des ressources atteint un certain niveau, mais n'affectent pas les opérations d'accès aux données. Vous pouvez ainsi prendre les mesures appropriées avant le dépassement du quota. Les paramètres suivants créent des quotas conditionnels :
+
+* Seuil du paramètre limite de disque
+* Paramètre limite de disque logiciel
+* Paramètre de limite des fichiers logiciels
+
+
+Les quotas Threshold et Soft Disk permettent aux administrateurs de recevoir plus d'une notification concernant un quota. En général, les administrateurs définissent le seuil de limite de disque sur une valeur légèrement inférieure à la limite de disque, de sorte que le seuil fournit un « avertissement final » avant que les écritures ne commencent à échouer.
+
+* *Limite matérielle d'espace disque*
++
+La limite d'espace disque appliquée aux quotas matériels.
+
+* *Limite souple d'espace disque*
++
+La limite d'espace disque s'applique aux quotas conditionnels.
+
+* *Limite de seuil*
++
+La limite d'espace disque s'applique aux quotas de seuil.
+
+* *Limite matérielle fichiers*
++
+Le nombre maximal de fichiers sur un Hard quota.
+
+* *Limite soft fichiers*
++
+Le nombre maximal de fichiers sur un soft quota.
+
+
+
+
+
+== La gestion des quotas
+
+System Manager comprend plusieurs fonctions qui vous aident à créer, modifier ou supprimer des quotas. Vous pouvez créer un quota utilisateur, groupe ou arborescence et spécifier des limites de quota au niveau du disque et du fichier. Tous les quotas sont établis par volume.
+
+Après avoir créé un quota, vous pouvez effectuer les tâches suivantes :
+
+* Activez et désactivez les quotas
+* Redimensionner les quotas
+
+
+
+
+== Fenêtre quotas
+
+Vous pouvez utiliser la fenêtre quotas pour créer, afficher et gérer des informations sur les quotas.
+
+
+
+=== Onglets
+
+* *Quotas définis par l'utilisateur*
++
+Vous pouvez utiliser l'onglet *quotas définis par l'utilisateur* pour afficher les détails des quotas que vous créez et pour créer, modifier ou supprimer des quotas.
+
+* *Rapport de quota*
++
+Vous pouvez utiliser l'onglet Rapport de quota pour afficher l'utilisation de l'espace et des fichiers et pour modifier les limites d'espace et de fichier des quotas actifs.
+
+* *Quota Status sur volumes*
++
+Vous pouvez utiliser l'onglet quota Status (État du quota) dans volumes pour afficher l'état d'un quota et activer ou désactiver les quotas et redimensionner les quotas.
+
+
+
+
+
+=== Boutons de commande
+
+* *Créer*
++
+Ouvre l'assistant Créer un quota qui vous permet de créer des quotas.
+
+* *Modifier les limites*
++
+Ouvre la boîte de dialogue Modifier les limites, qui permet de modifier les paramètres du quota sélectionné.
+
+* *Supprimer*
++
+Supprime le quota sélectionné de la liste quotas.
+
+* * Actualiser*
++
+Met à jour les informations dans la fenêtre.
+
+
+
+
+
+=== Liste des quotas définis par l'utilisateur
+
+La liste quotas affiche le nom et les informations de stockage pour chaque quota.
+
+* *Volume*
++
+Spécifie le volume auquel le quota est appliqué.
+
+* *Qtree*
++
+Spécifie le qtree associé au quota. « Tous les qtrees » indique que le quota est associé à tous les qtrees.
+
+* *Type*
++
+Spécifie le type de quota : utilisateur, ou groupe, ou arborescence.
+
+* *Utilisateur/Groupe*
++
+Spécifie un utilisateur ou un groupe associé au quota. « Tous les utilisateurs » indique que le quota est associé à tous les utilisateurs. « Tous les groupes » indique que le quota est associé à tous les groupes.
+
+* *Quota cible*
++
+Spécifie le type de cible auquel le quota est affecté. La cible peut être qtree, utilisateur ou groupe.
+
+* *Limite stricte d'espace*
++
+Spécifie la limite d'espace disque appliquée aux quotas matériels.
+
++
+Ce champ est masqué par défaut.
+
+* *Limite souple d'espace*
++
+Spécifie la limite d'espace disque appliquée aux quotas conditionnels.
+
++
+Ce champ est masqué par défaut.
+
+* *Seuil*
++
+Spécifie la limite d'espace disque appliquée aux quotas de seuil.
+
++
+Ce champ est masqué par défaut.
+
+* *Limite matérielle de fichier*
++
+Spécifie le nombre maximal de fichiers dans un quota dur.
+
++
+Ce champ est masqué par défaut.
+
+* *Limite logicielle de fichier*
++
+Spécifie le nombre maximal de fichiers dans un quota logiciel.
+
++
+Ce champ est masqué par défaut.
+
+
+
+
+
+=== Zone de détails
+
+La zone sous la liste des quotas affiche les détails des quotas tels que l'erreur de quota, l'utilisation et les limites de l'espace, ainsi que l'utilisation et les limites du fichier.
+
+*Informations connexes*
+
+https://docs.netapp.com/us-en/ontap/volumes/index.html["Gestion du stockage logique"^]

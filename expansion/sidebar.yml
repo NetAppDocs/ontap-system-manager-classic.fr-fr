@@ -1,0 +1,62 @@
+---
+section: expansion
+title: Administration du cluster
+entries:
+- title: Administration de l'extension de cluster
+  entries:
+  - title: Présentation
+    url: "/expansion/index.html"
+  - title: Flux de production d'extension de cluster
+    url: "/expansion/concept_cluster_expansion_workflow.html"
+    entries:
+    - title: Vérifiez que le cluster est prêt pour l'extension
+      url: "/expansion/task_verifying_cluster_is_ready_for_expansion.html"
+      entries:
+      - title: Vérifiez la configuration planifiée
+        url: "/expansion/task_verifying_planned_configuration.html"
+      - title: Collectez les informations réseau requises
+        url: "/expansion/task_gathering_required_information.html"
+      - title: Ajouter ou remplacer des commutateurs
+        url: "/expansion/task_adding_or_replacing_switches.html"
+    - title: Préparation du cluster pour l'extension de celui-ci
+      url: "/expansion/task_preparing_cluster_for_expansion.html"
+      entries:
+      - title: Ajoutez des licences verrouillées par des nœuds
+        url: "/expansion/task_adding_node_locked_licenses.html"
+      - title: Vérification de l'état du système
+        url: "/expansion/task_verifying_health_system.html"
+      - title: Sauvegarder la configuration du cluster
+        url: "/expansion/task_backing_up_cluster_configuration.html"
+      - title: Générer un message AutoSupport sur le démarrage de l'extension
+        url: "/expansion/task_generating_autosupport_message_about_starting_expansion.html"
+    - title: Installez les nouveaux nœuds
+      url: "/expansion/task_installing_new_nodes.html"
+      entries:
+      - title: Installez les contrôleurs
+        url: "/expansion/task_installing_controllers.html"
+      - title: Configuration des LIF node-management
+        url: "/expansion/concept_configuring_node_management_lifs.html"
+      - title: Mettre à niveau ou rétrograder les nœuds
+        url: "/expansion/task_upgrading_or_downgrading_nodes.html"
+      - title: Assurez-vous que la haute disponibilité au niveau matériel est activée
+        url: "/expansion/task_ensuring_hardware_level_ha_is_enabled.html"
+      - title: Ajout de nœuds à un cluster à l'aide de System Manager
+        url: "/expansion/task_adding_nodes_to_cluster_using_system_manager.html"
+      - title: Connectez les nœuds au cluster à l'aide de l'interface de ligne de
+          commande
+        url: "/expansion/concept_joining_nodes_to_cluster_using_cli.html"
+    - title: Terminez l'extension
+      url: "/expansion/task_completing_expansion.html"
+      entries:
+      - title: Configurez les détails de nœud dans System Manager
+        url: "/expansion/task_configuring_node_details_system_manager.html"
+      - title: Configurez AutoSupport sur les nouveaux nœuds
+        url: "/expansion/task_configuring_autosupport_on_new_nodes_using_cli.html"
+      - title: Configurez le réseau du processeur de service
+        url: "/expansion/task_configuring_service_processor_network_cli.html"
+      - title: Validation de la configuration du cluster étendu
+        url: "/expansion/task_validating_configuration_expanded_cluster.html"
+      - title: Générer un message AutoSupport sur la fin de l'expansion
+        url: "/expansion/task_generating_autosupport_message_about_completing_expansion.html"
+      - title: Mettre à jour les chemins de LUN pour les nouveaux nœuds
+        url: "/expansion/task_updating_lun_paths_for_new_nodes.html"

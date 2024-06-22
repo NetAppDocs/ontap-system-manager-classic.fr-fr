@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_changing_deduplication_schedule.html 
+sidebar: sidebar 
+keywords: change, deduplication, schedule, online, help, system, manager 
+summary: 'Vous pouvez utiliser System Manager pour modifier la planification de la déduplication en choisissant d"exécuter la déduplication manuellement, automatiquement ou selon un planning que vous spécifiez.' 
+---
+= Modifier la planification de la déduplication à l'aide de System Manager - ONTAP 9.7 et versions antérieures
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour modifier la planification de la déduplication en choisissant d'exécuter la déduplication manuellement, automatiquement ou selon la planification que vous spécifiez.
+
+.Étapes
+. Cliquez sur *Storage* > *volumes*.
+. Dans le menu déroulant du champ *SVM*, sélectionnez *tous les SVM*.
+. Sélectionner le volume read/write pour lequel vous souhaitez modifier la planification de la déduplication.
+. Cliquez sur *Modifier*, puis sur l'onglet *efficacité du stockage*.
+. Modifiez la planification de la déduplication selon vos besoins.
+. Cliquez sur *Enregistrer et fermer*.
+
+
+*Informations connexes*
+
+xref:reference_volumes_window.adoc[Fenêtre volumes]

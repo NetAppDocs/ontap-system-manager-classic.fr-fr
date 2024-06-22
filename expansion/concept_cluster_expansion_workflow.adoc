@@ -1,0 +1,16 @@
+---
+permalink: expansion/concept_cluster_expansion_workflow.html 
+sidebar: sidebar 
+keywords: cluster, expansion, workflow 
+summary: 'Flux de production d"extension de cluster' 
+---
+= Flux de production d'extension de cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'ajout de deux nœuds à un cluster existant implique de vérifier que le cluster est prêt pour l'extension, de préparer le cluster, d'installer les nouveaux nœuds et de terminer l'extension.
+
+image::../media/cluster_expansion_workflow.gif[Cette image est expliquée par le texte qui l'entoure.]

@@ -1,0 +1,54 @@
+---
+permalink: expansion/task_installing_controllers.html 
+sidebar: sidebar 
+keywords: install, controller, exist, cluster, installation, setup, instruction, install the controllers 
+summary: 'Lors de l"installation des contrôleurs qui seront ajoutés à un cluster existant, vous devez suivre les trois premières étapes des instructions d"installation et de configuration appropriées.' 
+---
+= Installez les contrôleurs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous installez des contrôleurs qui seront ajoutés à un cluster existant, vous devez suivre les trois premières étapes des _instructions d'installation et de configuration appropriées_.
+
+[NOTE]
+.Description de la tâche
+====
+À partir de ONTAP 9.0, le mode HA est activé par défaut sur le nouveau matériel.
+
+====
+.Étapes
+. Obtenez les instructions _installation and Setup_ pour le numéro de modèle FAS du module de contrôleur que vous envisagez d'ajouter au cluster.
++
+** Pour un nouveau module de contrôleur, le document est disponible dans la boîte.
+** Pour un module de contrôleur reconverti, vous pouvez télécharger le document.
+https://mysupport.netapp.com/site/docs-and-kb["Documentation NetApp"]
+
+
+. Suivez la section _Prepare for installation_ avec les exceptions suivantes :
++
+** Vous pouvez ignorer les instructions de téléchargement du logiciel ou d'une fiche.
+** Vous devez fournir une connexion console série même si elle n'est pas mentionnée dans les instructions _installation et Configuration_.
++
+Vous avez besoin d'une console série, car vous devez utiliser l'interface de ligne de commande du nodeshell pour configurer les LIF de node-management.
+
++
+Si la section ONTAP ne mentionne pas la console série, vous pouvez voir la section 7-mode.
+
+
+
+. Suivez la section _Install hardware_.
+. Suivez la section _rangement du câble_.
+. Ignorez la plupart des sections _Complete System Setup_ avec les exceptions suivantes :
++
+** Si vous y êtes invité, vous devez mettre tous les tiroirs disques sous tension et vérifier les ID.
+** Vous devez connecter le câble de la console série pour accéder au nœud.
++
+Si la section ONTAP ne mentionne pas la console série, vous pouvez voir la section 7-mode.
+
+
+
+. Ignorer la section _Complete configuration_.
+

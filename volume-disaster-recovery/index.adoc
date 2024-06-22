@@ -1,0 +1,41 @@
+---
+permalink: volume-disaster-recovery/index.html 
+sidebar: sidebar 
+keywords: content, destination, activate, volume, disaster, reactivate, source, ontap, volume disaster recovery overview 
+summary: 'Après un incident, vous pouvez rapidement activer un volume de destination, puis réactiver le volume source dans ONTAP à l"aide de l"interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures).' 
+---
+= Présentation de la reprise après incident de volume
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après un incident, vous pouvez rapidement activer un volume de destination, puis réactiver le volume source dans ONTAP à l'aide de l'interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures).
+
+Utilisez cette procédure pour effectuer une reprise sur incident au niveau des volumes de la manière suivante :
+
+* Vous travaillez avec des clusters exécutant ONTAP 9.
+* Vous êtes un administrateur de cluster.
+* Vous avez configuré la relation SnapMirror suivante xref:../volume-disaster-prep/index.html[Préparation de la reprise après incident de volume]
+* L'administrateur du cluster du cluster source a déclaré que les données du volume source ne sont pas disponibles en raison d'événements tels qu'une infection virale qui provoque une corruption des données ou une suppression accidentelle des données.
+* Vous souhaitez utiliser System Manager, pas l'interface de ligne de commandes ONTAP ou un outil de script automatisé.
+* Vous souhaitez utiliser l'interface classique de System Manager pour ONTAP 9.7 et les versions antérieures, et non l'interface de ONTAP System Manager pour ONTAP 9.7 et les versions ultérieures.
+* Vous voulez appliquer les bonnes pratiques, pas explorer toutes les options disponibles.
+* Vous ne voulez pas lire beaucoup de contexte conceptuel.
+
+
+
+
+== D'autres façons de le faire dans ONTAP
+
+[cols="2"]
+|===
+| Pour effectuer ces tâches avec... | Voir ce contenu... 
+
+
+| System Manager redessiné (disponible avec ONTAP 9.7 et versions ultérieures) | link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html["Service des données à partir d'une destination SnapMirror"^] 
+
+
+| Interface de ligne de commande ONTAP | link:https://docs.netapp.com/us-en/ontap/data-protection/make-destination-volume-writeable-task.html["Activer le volume de destination"^] 
+|===

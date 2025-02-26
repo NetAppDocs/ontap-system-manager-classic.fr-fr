@@ -32,8 +32,6 @@ Il s'agit de périphériques qui ne s'affichent pas lorsque vous entrez dans le 
 
 +
 *** Si l'on exclut des périphériques SCSI autres que NetApp, entrez l'identifiant WWN (WWID) des périphériques dans la section « liste noire » du `multipath.conf` fichier.
-
-
 +
 Pour afficher le WWID d'un périphérique SCSI non NetApp, entrez la commande suivante sur le périphérique que vous souhaitez exclure, où `SCSI_device_name` est un périphérique que vous spécifiez :
 
@@ -62,7 +60,6 @@ blacklist {
             devnode     "^cciss.*"
 }
 ----
-+
 *** S'il n'y a aucun périphérique à exclure, supprimez la ligne _wwid_ du `multipath.conf` fichier.
 
 

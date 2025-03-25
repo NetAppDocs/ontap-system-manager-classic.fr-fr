@@ -1,0 +1,10 @@
+---
+section: networking
+title: Rubriques générales sur la mise en réseau (ONTAP 9.7 et versions antérieures)
+entries:
+- title: Suppression d'une carte réseau du nœud (ONTAP 9.7 ou version antérieure)
+  url: "/networking/remove_a_nic_from_the_node_97.html"
+- title: Rôles LIF (ONTAP 9.5 et versions antérieures)
+  url: "/networking/lif_roles95.html"
+- title: Configuration des services DNS (ONTAP 9.7 et versions antérieures)
+  url: "/networking/configure_dns_services_manual.html"

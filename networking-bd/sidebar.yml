@@ -1,0 +1,23 @@
+---
+section: networking-bd
+title: Domaines de diffusion (ONTAP 9.7 ou version antérieure)
+entries:
+- title: Présentation du domaine de diffusion (ONTAP 9.7 et versions antérieures)
+  url: "/networking-bd/configure_broadcast_domains_97_overview.html"
+- title: Détermination des ports pouvant être utilisés pour un domaine de diffusion
+    (ONTAP 9.7 et versions antérieures)
+  url: "/networking-bd/determine_which_ports_can_be_used_for_a_broadcast_domains.html"
+- title: Créer un domaine de diffusion (ONTAP 9.7 et versions antérieures)
+  url: "/networking-bd/create_a_broadcast_domain97.html"
+- title: Ajouter ou supprimer des ports d'un domaine de diffusion (ONTAP 9.7 et versions
+    antérieures)
+  url: "/networking-bd/add_or_remove_ports_from_a_broadcast_domain97.html"
+- title: Domaines de diffusion divisés (ONTAP 9.7 ou version antérieure)
+  url: "/networking-bd/split_broadcast_domains97.html"
+- title: Fusionner les domaines de diffusion (ONTAP 9.7 et versions antérieures)
+  url: "/networking-bd/merge_broadcast_domains97.html"
+- title: Modifier la valeur MTU pour les ports d'un domaine de diffusion (ONTAP 9.7
+    et versions antérieures)
+  url: "/networking-bd/change_the_mtu_value_for_ports_in_a_broadcast_domain97.html"
+- title: Afficher les domaines de diffusion (ONTAP 9.7 et versions antérieures)
+  url: "/networking-bd/display_broadcast_domains97.html"

@@ -17,7 +17,6 @@ Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 e
 
 == Modifier les paramètres de sous-réseau
 
-[role="lead"]
 System Manager peut être utilisé pour modifier les attributs de sous-réseau tels que le nom, l'adresse de sous-réseau, la plage d'adresses IP et l'adresse de passerelle du sous-réseau.
 
 .Description de la tâche

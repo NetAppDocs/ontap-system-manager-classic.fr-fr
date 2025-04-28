@@ -14,7 +14,7 @@ summary: Lorsque vous créez un volume FlexGroup, vous pouvez spécifier les opt
 Lorsque vous créez un volume FlexGroup, vous pouvez utiliser ONTAP System Manager classic (disponible dans ONTAP 9.7 et versions antérieures) pour spécifier les options que vous souhaitez associer au volume FlexGroup.
 
 .Étapes
-. *Facultatif :* dans la fenêtre *Créer FlexGroup*, cliquez sur image:../media/advanced_options.gif[""] pour spécifier les options avancées.
+. *Facultatif:* dans la fenêtre *Créer FlexGroup*, cliquez image:../media/advanced_options.gif["icône options avancées"] pour spécifier les options avancées.
 +
 La fenêtre Options avancées s'affiche. Il contient des sections (les en-têtes de la colonne de gauche), dans lesquelles vous pouvez spécifier différentes options.
 

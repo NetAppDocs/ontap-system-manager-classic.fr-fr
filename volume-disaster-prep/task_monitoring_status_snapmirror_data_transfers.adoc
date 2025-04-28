@@ -44,7 +44,7 @@ Vous devez résoudre tous les problèmes liés aux relations SnapMirror.
 http://www.netapp.com/us/media/tr-4015.pdf["Rapport technique NetApp 4015 : configuration de SnapMirror et meilleures pratiques pour ONTAP 9.1, 9.2"^]
 
 +
-image::../media/snapmirror_monitor_3_health_state_lag.gif[snapmirror contrôle le décalage de l'état de santé de 3]
+image::../media/snapmirror_monitor_3_health_state_lag.gif[état du transfert des données SnapMirror]
 
 
 

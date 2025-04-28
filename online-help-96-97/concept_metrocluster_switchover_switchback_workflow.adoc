@@ -56,4 +56,4 @@ Lors de la deuxième phase, le site est prêt pour le processus de rétablisseme
 
 L'organigramme suivant illustre les phases et les processus qui se produisent lors de l'exécution des opérations de basculement et de rétablissement.
 
-image::../media/switchover_switchback_workflow.jpg[workflow de rétablissement du basculement]
+image::../media/switchover_switchback_workflow.jpg[organigramme du workflow de basculement et de rétablissement de MetroCluster]

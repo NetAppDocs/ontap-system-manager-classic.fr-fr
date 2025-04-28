@@ -13,4 +13,4 @@ summary: 'Vous pouvez créer un cluster via System Manager ou l"interface de lig
 [role="lead"]
 Vous pouvez créer un cluster via System Manager ou l'interface de ligne de commandes. Pour créer un cluster à l'aide de System Manager, vous devez configurer l'adresse IP de gestion de nœud sur n'importe quel nœud du réseau de cluster. Si vous avez créé un cluster à l'aide de l'interface de ligne de commandes, vous pouvez configurer le cluster à l'aide de System Manager.
 
-image::../media/guided_cluster_setup.gif[configuration assistée de clusters]
+image::../media/guided_cluster_setup.gif[workflow de configuration de l'environnement de cluster]

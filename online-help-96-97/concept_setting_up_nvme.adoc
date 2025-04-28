@@ -17,4 +17,4 @@ Depuis ONTAP 9.5, vous devez configurer au moins une LIF NVMe pour chaque nœud 
 
 L'illustration suivante présente le workflow de configuration de NVMe :
 
-image::../media/nvme_setup_workflow.gif[workflow d'installation nvme]
+image::../media/nvme_setup_workflow.gif[workflow de configuration de nvme]

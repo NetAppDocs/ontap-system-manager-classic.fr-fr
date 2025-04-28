@@ -15,7 +15,7 @@ Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 e
 * Vous devez disposer d'agrégats 100 % Flash (100 % SSD)
 
 
-image::../media/fabricpool_workflow.gif[workflow FabricPool]
+image::../media/fabricpool_workflow.gif[workflow de configuration et de gestion des tiers cloud avec system manager]
 
 
 
@@ -69,7 +69,7 @@ En fonction de votre sélection, le champ *Nom de service (FQDN)* est automatiqu
 +
 Si vous avez sélectionné le type AWS commercial Cloud Service (C2S), vous devez spécifier l'URL CAP, les certificats d'autorité de certification de serveur et les certificats client.
 
-. Si vous souhaitez modifier l'un des paramètres suivants, cliquez sur l'icône Options avancées image:../media/advanced_options.gif[""] Pour afficher la boîte de dialogue *Options avancées* dans laquelle vous pouvez effectuer les modifications :
+. Si vous souhaitez modifier l'un des paramètres suivants, cliquez sur l'icône Options avancées image:../media/advanced_options.gif["icône options avancées"]pour afficher la boîte de dialogue *Options avancées* dans laquelle vous pouvez effectuer les modifications :
 +
 ** Numéro de port utilisé pour accéder au niveau de Cloud
 ** Activez ou désactivez l'option *SSL* qui vous permet de transférer les données en toute sécurité vers le niveau cloud

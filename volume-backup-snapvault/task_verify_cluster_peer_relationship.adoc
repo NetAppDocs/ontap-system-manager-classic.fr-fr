@@ -25,7 +25,7 @@ Vous devez effectuer cette tâche à partir du cluster *source*.
 .. Cliquez sur *Configuration* > *Cluster pairs*.
 .. Vérifier que le cluster de peering est authentifié et disponible.
 +
-image::../media/cluster_pper_930_backup.gif[sauvegarde pper 930 cluster]
+image::../media/cluster_pper_930_backup.gif[vérification du cluster peering]
 
 .. Cliquez sur *Configuration* > *SVM pairs*.
 .. Vérifier que le SVM de destination est peering avec le SVM source.
@@ -37,7 +37,7 @@ image::../media/cluster_pper_930_backup.gif[sauvegarde pper 930 cluster]
 .. Dans le volet *Détails du cluster*, cliquez sur *homologues du cluster*.
 .. Vérifier que le cluster de peering est authentifié et disponible.
 +
-image::../media/cluster_peer_health_backup.gif[sauvegarde de l'état des pairs de cluster]
+image::../media/cluster_peer_health_backup.gif[volet détails du cluster affichant la section homologues du cluster pour vérifier que le cluster en cours est authentifié et disponible]
 
 .. Cliquer sur l'onglet *SVM* et sélectionner le SVM source.
 .. Dans la zone *Peer Storage Virtual machines*, vérifiez que le SVM de destination est associé au SVM source.

@@ -13,7 +13,7 @@ summary: 'Vous pouvez configurer l"authentification SAML (Security assertion Mar
 [role="lead"]
 Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer l'authentification SAML. Les utilisateurs distants sont authentifiés par un fournisseur d'identités sécurisé avant de se connecter à System Manager.
 
-image::../media/mfa_workflow.gif[flux de travail mfa]
+image::../media/mfa_workflow.gif[workflow de configuration de l'authentification saml avec system manager]
 
 
 

@@ -22,7 +22,7 @@ Avant de configurer un volume pour la reprise sur incident, vérifiez que les cl
 .. Cliquez sur *Configuration* > *Cluster pairs*.
 .. Vérifier que le cluster de peering est authentifié et disponible.
 +
-image::../media/cluster_pper_930_disaster.gif[catastrophe pper 930 du cluster]
+image::../media/cluster_pper_930_disaster.gif[vérification que le cluster de peering est authentifié et disponible]
 
 .. Cliquez sur *Configuration* > *SVM pairs*.
 .. Vérifier que le SVM de destination est peering avec le SVM source.
@@ -34,7 +34,7 @@ image::../media/cluster_pper_930_disaster.gif[catastrophe pper 930 du cluster]
 .. Dans le volet *Détails du cluster*, cliquez sur *homologues du cluster*.
 .. Vérifier que le cluster de peering est authentifié et disponible.
 +
-image::../media/cluster_peer_health_disaster.gif[incident de santé des pairs de cluster]
+image::../media/cluster_peer_health_disaster.gif[section clusters homologues montrant que le cluster en peering est authentifié et disponible]
 
 .. Cliquer sur l'onglet *SVM* et sélectionner le SVM source.
 .. Dans la zone *Peer Storage Virtual machines*, vérifiez que le SVM de destination est associé au SVM source.

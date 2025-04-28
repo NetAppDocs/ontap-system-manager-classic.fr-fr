@@ -37,7 +37,7 @@ Depuis System Manager 9.6, vous pouvez également renommer des volumes FlexGroup
 Cette option n'est disponible que si vous avez activé la licence Volume Encryption et si la plate-forme correspondante prend en charge le chiffrement.
 
 . Spécifiez le pourcentage de la réserve de copie Snapshot.
-. *Facultatif:* cliquez image:../media/advanced_options.gif[""] Pour modifier les paramètres du volume FlexGroup. Reportez-vous à la section link:task_specifying_advanced_options_for_flexgroup_volume.html["Définition des options avancées pour un volume FlexGroup"].
+. *Facultatif:* cliquez image:../media/advanced_options.gif["icône options avancées"] pour modifier les paramètres du volume FlexGroup. Reportez-vous à la link:task_specifying_advanced_options_for_flexgroup_volume.html["Définition des options avancées pour un volume FlexGroup"].
 . Indiquez la taille à laquelle vous souhaitez redimensionner le volume FlexGroup.
 +
 Par défaut, les agrégats existants sont utilisés pour redimensionner le volume FlexGroup. La taille minimale autorisée pour le volume s'affiche en regard des champs de taille.
@@ -45,7 +45,7 @@ Par défaut, les agrégats existants sont utilisés pour redimensionner le volum
 +
 [NOTE]
 ====
-Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur image:../media/advanced_options.gif[""] (options avancées). Reportez-vous à la section link:task_specifying_advanced_options_for_flexgroup_volume.html["Définition des options avancées pour un volume FlexGroup"].
+Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur  (options avancées).image:../media/advanced_options.gif["icône options avancées"] Reportez-vous à la link:task_specifying_advanced_options_for_flexgroup_volume.html["Définition des options avancées pour un volume FlexGroup"].
 
 ====
 . Cliquez sur *Enregistrer* pour enregistrer les modifications.

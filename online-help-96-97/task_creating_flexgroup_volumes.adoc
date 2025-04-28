@@ -70,7 +70,7 @@ Empêche le déplacement des données du volume vers un Tier cloud.
 ** S'il existe uniquement des agrégats FabricPool dans le SVM, le bouton *FabricPool* s'affiche en position « activé » et ne peut pas être modifié.
 
 
-. Pour spécifier des agrégats spécifiques, cliquez sur image:../media/advanced_options.gif[""] (options avancées).
+. Pour spécifier des agrégats spécifiques, cliquez sur  (options avancées).image:../media/advanced_options.gif["icône options avancées"]
 +
 Les agrégats associés au volume FlexGroup que vous créez sont sélectionnés par défaut selon les meilleures pratiques. Ils sont affichés en regard de l'étiquette *Aggregates*.
 

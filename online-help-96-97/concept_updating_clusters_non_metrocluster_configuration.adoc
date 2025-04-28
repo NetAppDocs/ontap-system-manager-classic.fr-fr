@@ -13,7 +13,7 @@ summary: Vous pouvez utiliser System Manager pour mettre à jour un cluster ou l
 [role="lead"]
 Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour un cluster ou des nœuds individuels dans une paire haute disponibilité. Pour effectuer une mise à jour, sélectionnez une image ONTAP, vérifiez que votre cluster ou les nœuds individuels de la paire haute disponibilité sont prêts pour la mise à jour, puis effectuez la mise à jour.
 
-image::../media/updating_cluster.gif[mise à jour du cluster]
+image::../media/updating_cluster.gif[mise à jour des clusters dans une configuration non MetroCluster avec system manager]
 
 *Informations connexes*
 

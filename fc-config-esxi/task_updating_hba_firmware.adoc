@@ -26,7 +26,3 @@ Les pilotes, micrologiciels, BIOS et utilitaires HBA sont fournis par les fourni
 Les instructions d'installation et tous les utilitaires d'installation requis sont disponibles avec le téléchargement.
 
 
-
-*Informations connexes*
-
-http://kb.vmware.com/kb/1002413["Article 1002413 de la base de connaissances VMware : identification du firmware d'un HBA Qlogic ou Emulex FC"]

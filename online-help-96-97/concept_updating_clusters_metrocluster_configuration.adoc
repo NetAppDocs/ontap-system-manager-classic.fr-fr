@@ -13,7 +13,7 @@ summary: 'Vous pouvez utiliser System Manager pour mettre à jour un cluster dan
 [role="lead"]
 Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour un cluster dans les configurations MetroCluster. Vous devez effectuer chaque opération sur les deux clusters, à l'exception de la mise à jour du cluster.
 
-image::../media/updating_cluster_mcc_configuration.gif[mise à jour de la configuration mcc du cluster]
+image::../media/updating_cluster_mcc_configuration.gif[mise à jour des clusters dans une configuration MetroCluster avec system manager]
 
 *Informations connexes*
 

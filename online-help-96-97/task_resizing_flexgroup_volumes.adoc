@@ -29,7 +29,7 @@ Par défaut, les agrégats existants sont utilisés pour redimensionner le volum
 +
 [NOTE]
 ====
-Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur image:../media/advanced_options.gif[""] (options avancées).
+Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur  (options avancées).image:../media/advanced_options.gif["icône options avancées"]
 
 ====
 . Spécifiez le pourcentage de la réserve de copie Snapshot.

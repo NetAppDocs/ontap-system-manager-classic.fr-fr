@@ -46,3 +46,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 == Source ouverte
 
 Les fichiers de notification fournissent des informations sur les droits d'auteur et les licences de tiers utilisés dans le logiciel NetApp.
+
+Fournit des informations sur les droits d'auteur tiers et les licences utilisées dans ce produit.
+
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2860921["Avis pour ONTAP 9.7"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2855145["Avis pour ONTAP 9.6"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2850702["Avis pour ONTAP 9.5"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2844310["Avis pour ONTAP 9.4"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2839209["Avis pour ONTAP 9.3"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2702054["Avis pour ONTAP 9.2"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2516795["Avis pour ONTAP 9.1"^]

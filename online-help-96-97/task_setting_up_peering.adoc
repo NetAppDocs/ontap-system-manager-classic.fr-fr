@@ -13,7 +13,7 @@ summary: 'La configuration du peering implique la création d"interfaces logique
 [role="lead"]
 Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le peering. La configuration du peering implique la création d'interfaces logiques (LIF) intercluster sur chaque nœud, la création de ce type de peering de cluster et la création de celui-ci.
 
-image::../media/peering_workflow.gif[flux de travail de peering]
+image::../media/peering_workflow.gif[workflow de configuration du peering]
 
 
 

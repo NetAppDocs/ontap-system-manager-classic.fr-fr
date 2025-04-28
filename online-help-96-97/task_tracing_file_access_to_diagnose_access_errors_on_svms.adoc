@@ -26,7 +26,7 @@ La fenêtre Trace File Access du SVM sélectionné affiche les prérequis et les
 . Cliquez sur *Continuer* pour lancer le processus de traçage des fichiers.
 . Sélectionner le protocole utilisé pour accéder aux fichiers ou aux partages sur la SVM sélectionnée.
 . Dans le champ *Nom d'utilisateur*, entrez le nom de l'utilisateur qui tente d'accéder au fichier ou au partage.
-. *Facultatif:* cliquez image:../media/advanced_options.gif[""] pour spécifier plus de détails pour restreindre l'étendue du tracé.
+. *Facultatif:* cliquez image:../media/advanced_options.gif["icône options avancées"] pour spécifier plus de détails pour réduire la portée de la trace.
 +
 La boîte de dialogue Options avancées vous permet de spécifier les détails suivants :
 

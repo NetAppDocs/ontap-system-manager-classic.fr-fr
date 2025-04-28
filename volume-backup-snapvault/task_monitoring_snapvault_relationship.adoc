@@ -44,7 +44,7 @@ Vous devez résoudre tous les problèmes liés aux relations SnapVault. Les proc
 http://www.netapp.com/us/media/tr-4015.pdf["Rapport technique NetApp 4015 : configuration de SnapMirror et meilleures pratiques pour ONTAP 9.1, 9.2"^]
 
 +
-image::../media/monitor_sv.gif[moniteur sv]
+image::../media/monitor_sv.gif[état de la relation SnapVault]
 
 
 

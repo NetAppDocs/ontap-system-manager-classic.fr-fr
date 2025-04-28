@@ -178,7 +178,3 @@ Affiche le nom du pool auquel la LUN de matrice sélectionnée est affectée.
 === Zone de détails
 
 La zone située sous la liste LUN de la matrice affiche des informations détaillées sur la LUN de la baie sélectionnée.
-
-*Informations connexes*
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["Conditions requises pour l'installation et référence de la virtualisation FlexArray"]

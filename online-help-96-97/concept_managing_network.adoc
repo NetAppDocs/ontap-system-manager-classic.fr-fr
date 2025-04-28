@@ -17,7 +17,6 @@ Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 e
 
 == Fenêtre réseau
 
-[role="lead"]
 Vous pouvez utiliser la fenêtre réseau pour afficher la liste des composants réseau, tels que les sous-réseaux, les interfaces réseau, les ports Ethernet, les domaines de diffusion, Les adaptateurs FC/FCoE et NVMe, ainsi que les IPspaces, et pour créer, modifier ou supprimer ces composants dans votre système de stockage.
 
 

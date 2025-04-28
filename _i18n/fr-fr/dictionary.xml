@@ -24,11 +24,9 @@
   <block id="0329d06e24e712fa93416a0dd6c5b7fc" category="summary">Une fois le cluster prêt, vous devez installer les contrôleurs et configurer les LIF node-management.</block>
   <block id="6659a60f476a4bc6bb0fb4f4102757a3" category="doc">Installez les nouveaux nœuds</block>
   <block id="82b39557b0069bd98188100e91cfae2e" category="paragraph">Une fois le cluster prêt, vous devez installer les contrôleurs et configurer les LIF node-management. Si les contrôleurs n'exécutent pas la même version de ONTAP que le cluster existant, ou si ils ne sont pas reconvertis et ne disposent pas d'une haute disponibilité au niveau matériel, vous devez résoudre ces problèmes en mode de maintenance. Enfin, vous pouvez relier les nœuds au cluster.</block>
-  <block id="e9f56eb126455869bdb213c6b8827217" category="summary">Copyright, marques commerciales et traduction automatique</block>
   <block id="ca4d696c3c3d4566b032bf5cba740486" category="summary">Une fois que les deux nœuds sont reliés au cluster, vous devez terminer la configuration des nouveaux nœuds ajoutés en configurant le AutoSupport et en complétant le réseau du processeur de service.</block>
   <block id="e1fc6c6b1bea9d0f3e8bfcf9946ae71f" category="doc">Terminez l'extension</block>
   <block id="ad683faa511f565152842bf2cc28c270" category="paragraph">Une fois que les deux nœuds sont reliés au cluster, vous devez terminer la configuration des nouveaux nœuds ajoutés en configurant le AutoSupport et en complétant le réseau du processeur de service. Vous devez ensuite valider le cluster étendu et générer un message AutoSupport pour terminer l'extension. Si le cluster utilise des SAN, mettre à jour les chemins des LUN.</block>
-  <block id="b1ff5704b48e42d700d43961dd415064" category="summary">Marques commerciales</block>
   <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp, le logo NETAPP et les marques mentionnées sur la page des marques commerciales NetApp sont des marques commerciales de NetApp, Inc. Les autres noms de sociétés et de produits peuvent être des marques commerciales de leurs propriétaires respectifs.</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-link"></block>
   <block id="f99aa604031e5049799e73b5c3748a98" category="paragraph"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
@@ -219,9 +217,6 @@ Dans la sortie suivante, le sous-réseau sous-1 a 2 adresses disponibles :</bloc
   <block id="3f710cadb0123c693533da68aaf5b596" category="section-title">Que faire ensuite</block>
   <block id="6871e5e77d1bbcfaf45a526f739ae1c4" category="list-text">Si votre cluster est protégé, vous devez créer le nombre requis de LIF intercluster dans les nœuds récemment ajoutés afin d'éviter un peering partiel et une protection non défectueuse.</block>
   <block id="e5e21644bd8ca1cdc7c44d822e6b5d7e" category="list-text">Si les protocoles de données SAN sont activés dans le cluster, vous devez créer le nombre requis de LIF de données SAN pour le service des données.</block>
-  <block id="b4de17ead867a3cf0b9d11e57e562672" category="summary">Traduction automatique</block>
-  <block id="6b6c87870bfc5260f4e7282bb5b52dd6" category="paragraph">Pour plus d'informations sur le contenu localisé, consultez la page netapp.com.</block>
-  <block id="db9bfd81e26275c9db26e2db3ac172c3" category="paragraph"><block ref="db9bfd81e26275c9db26e2db3ac172c3" category="inline-link-rx"></block></block>
   <block id="3e1d317678e6347a5fa13b4bd9a4b314" category="summary">Une fois le cluster déployé, envoyez un message AutoSupport pour indiquer que le processus d'extension est terminé.</block>
   <block id="4c31c3d540d717a12e42d373054f9834" category="doc">Générer un message AutoSupport sur la fin de l'expansion</block>
   <block id="04bf035c552b790ab05fa106250f7bbd" category="paragraph">Une fois le cluster déployé, envoyez un message AutoSupport pour indiquer que le processus d'extension est terminé. Ce message indique au personnel de support interne et externe que l'extension est terminée et qu'elle sert d'horodatage pour tout dépannage ultérieur nécessaire.</block>
@@ -262,13 +257,6 @@ System Manager recherche les nouveaux nœuds ajoutés. Si des avertissements s'a
   <block id="47107fc361977e371fe1b26cb1308b1a" category="list-text">Affichez les licences existantes à l'aide de<block ref="684590f66f47755afa88d3f70f9f25ad" prefix=" " category="inline-code"></block> commande.</block>
   <block id="7ace006c80a00947bf34b0fff7fa0b84" category="list-text">Vérifiez le résultat de cette commande pour vous assurer qu'une licence verrouillée par nœud s'affiche pour tous les numéros de série, y compris les numéros de série des nœuds existants et nouveaux.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="summary">Droits d'auteur</block>
-  <block id="e10b5b38785c3a24ec75723ab75b4360" category="paragraph">Copyright © 2021 NetApp, Inc. Tous droits réservés. Imprimé aux États-Unis</block>
-  <block id="2275e007ee598cef266c877f9c52ee25" category="paragraph">Aucune partie de ce document protégé par copyright ne peut être reproduite sous quelque forme que ce soit ou par quelque moyen que ce soit (graphique, électronique ou mécanique, y compris par photocopie, enregistrement, bande ou stockage dans un système de récupération électronique--sans l'autorisation écrite préalable du détenteur du droit de copyright.</block>
-  <block id="ce4ad2236c56cc11a838f29c8c261bf7" category="paragraph">Les logiciels issus du matériel NetApp soumis à un copyright sont soumis aux conditions de non-responsabilité suivantes :</block>
-  <block id="b110bc9db113b3149cb9e2ed905d4c6c" category="paragraph">CE LOGICIEL EST FOURNI PAR NETAPP « EN L'ÉTAT » ET SANS GARANTIES EXPRESSES OU TACITES, Y COMPRIS LES GARANTIES TACITES DE QUALITÉ MARCHANDE ET D'ADÉQUATION À UN USAGE PARTICULIER, QUI SONT EXCLUES PAR LA PRÉSENTE. EN AUCUN CAS NETAPP NE SERA TENU POUR RESPONSABLE DE DOMMAGES DIRECTS, INDIRECTS, ACCESSOIRES, PARTICULIERS OU EXEMPLAIRES (Y COMPRIS L'ACHAT DE BIENS ET DE SERVICES DE SUBSTITUTION, LA PERTE DE JOUISSANCE, DE DONNÉES OU DE PROFITS) OU UNE INTERRUPTION D'ACTIVITÉ) QUELLES QU'EN SOIENT LA CAUSE ET LA DOCTRINE DE RESPONSABILITÉ, QU'IL S'AGISSE DE RESPONSABILITÉ CONTRACTUELLE, STRICTE OU DÉLICTUELLE (Y COMPRIS LA NÉGLIGENCE OU AUTRE) DÉCOULANT DE L'UTILISATION DE CE LOGICIEL, MÊME SI LA SOCIÉTÉ A ÉTÉ INFORMÉE DE LA POSSIBILITÉ DE TELS DOMMAGES.</block>
-  <block id="4fc9b260d15698bbd988f76ca839c5b6" category="paragraph">NetApp se réserve le droit de modifier les produits décrits dans le présent document à tout moment et sans préavis. NetApp n'accepte aucune responsabilité découlant de l'utilisation des produits décrits dans le présent document, sauf accord explicite écrit de NetApp. L'utilisation ou l'achat de ce produit ne concède pas de licence dans le cadre de droits de brevet, de droits de marque commerciale ou de tout autre droit de propriété intellectuelle de NetApp.</block>
-  <block id="87bfcb691f34a9e3fdda83480f0acf78" category="paragraph">Le produit décrit dans ce manuel peut être protégé par un ou plusieurs brevets américains étrangers ou par une demande en attente.</block>
-  <block id="464821ce353b86f770de0d09b5f5aabe" category="paragraph">Les données contenues dans le présent manuel se rapportent à un objet commercial (tel que défini par LA CLAUSE FAR 2.101). Il s'agit de données propriétaires de NetApp Inc. Le gouvernement des États-Unis Américain dispose d'une licence non exclusive, non transférable, non sous-licence, mondiale et limitée, irrévocable pour utiliser les données uniquement dans le cadre des États-Unis et en soutien Contrat du gouvernement en vertu duquel les données ont été fournies. Sauf dispositions contraires aux présentes, les données ne peuvent être utilisées, divulguées, reproduites, modifiées, exécutées, Ou affiché sans l'accord écrit préalable de NetApp, Inc. Les droits de licence du gouvernement des États-Unis pour le ministère de la Défense se limitent aux droits identifiés dans la clause 252.227-7015(b) du DFARS.</block>
   <block id="edf395b0a461287b50491dbaa383b1b6" category="summary">Avant de développer un cluster, vous devez utiliser le privilège avancé pour créer un fichier de sauvegarde afin d'enregistrer les informations de configuration du cluster et éventuellement enregistrer les configurations du nœud.</block>
   <block id="4e96c94f849071959f33f30f4f95bf2b" category="doc">Sauvegarder la configuration du cluster</block>
   <block id="486e131c42bd68bf6f1d4c477a83b1dc" category="list-text">Définissez le niveau de privilège sur avancé à l'aide du<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block> commande.</block>
@@ -553,14 +541,12 @@ Décrit comment activer rapidement un volume de destination après un incident, 
   <block id="d3d98fa048d258c0324e828c27353505" category="list-text">Si vous exécutez ONTAP 9.3 ou une version ultérieure, effectuez les opérations suivantes pour vérifier la relation entre clusters et SVM peer :</block>
   <block id="b7ea99ac89364f94c13349479a294349" category="list-text">Cliquez sur *Configuration* &gt; *Cluster pairs*.</block>
   <block id="804ed1169721f9a31d45ac25dea9d3b7" category="list-text">Vérifier que le cluster de peering est authentifié et disponible.</block>
-  <block id="210fc08adc8ff148771c97038e36e4a2" category="image-alt">catastrophe pper 930 du cluster</block>
   <block id="b00b5a06a64eaf7c4f42870166a2aad2" category="list-text">Cliquez sur *Configuration* &gt; *SVM pairs*.</block>
   <block id="2cd2d1c721231aba4b1ddb6e9d895651" category="list-text">Vérifier que le SVM de destination est peering avec le SVM source.</block>
   <block id="99836e3678844f90eef5cb688f7465e9" category="list-text">Si vous exécutez ONTAP 9.2 ou une version antérieure, effectuez les opérations suivantes pour vérifier la relation entre clusters et SVM peer :</block>
   <block id="90db7210ac0f4f1ad1b4dd4cfcfac5da" category="list-text">Cliquez sur l'onglet *configurations*.</block>
   <block id="2a2e870fff30043f3c9dcb4197a26ef5" category="list-text">Dans le volet *Détails du cluster*, cliquez sur *homologues du cluster*.</block>
   <block id="c21fd7a1920921211438047acb8b050d" category="list-text">Vérifier que le cluster de peering est authentifié et disponible.</block>
-  <block id="0b15c5403001871b8dc99e6667f1290a" category="image-alt">incident de santé des pairs de cluster</block>
   <block id="2be054e35e4d5560ca990a7e9e6268aa" category="list-text">Cliquer sur l'onglet *SVM* et sélectionner le SVM source.</block>
   <block id="b6df2d1162d761beba29ffb0a8acc5cd" category="list-text">Dans la zone *Peer Storage Virtual machines*, vérifiez que le SVM de destination est associé au SVM source.</block>
   <block id="e0bdda06757b2ddd302f0b23a4dc96c3" category="paragraph">Si vous ne voyez pas de SVM peering dans ce domaine, vous pouvez créer la relation de SVM peer-to-peer en créant la relation SnapMirror.</block>
@@ -595,7 +581,6 @@ Décrit comment activer rapidement un volume de destination après un incident, 
   <block id="fb0a81662f28f92400a38a3fc7257c04" category="paragraph">Vous devez résoudre tous les problèmes liés aux relations SnapMirror.</block>
   <block id="73b78c43309e115e0e384388b5b2344a" category="inline-link">Rapport technique NetApp 4015 : configuration de SnapMirror et meilleures pratiques pour ONTAP 9.1, 9.2</block>
   <block id="0d3e0428120e2a5f798ccb69e7a1a227" category="paragraph"><block ref="0d3e0428120e2a5f798ccb69e7a1a227" category="inline-link-rx"></block></block>
-  <block id="d5acc2bd87e2b4fbcc92386c8cb98621" category="image-alt">snapmirror contrôle le décalage de l'état de santé de 3</block>
   <block id="505604a7f60ed1132f33db4c6fc8dc9e" category="summary">Pour un fonctionnement fiable, vous devez vérifier que la configuration FC complète est prise en charge.</block>
   <block id="b8dca5a9dd8bb2f421089717f16a3b2f" category="doc">Vérifiez que la configuration FC est prise en charge</block>
   <block id="db7238e539bbe82343523aa524ac5d58" category="list-text">Accédez à la matrice d'interopérabilité pour vérifier que vous disposez d'une combinaison de composants prise en charge :</block>
@@ -883,13 +868,7 @@ Ports FC et UTA2 intégrés (également appelés<block ref="68b3177cae966fde225c
   <block id="93b944d05af7d54cba8d7dc1adc744b1" category="list-text">Téléchargez la version appropriée de Windows Unified Host Utilities sur le site de support NetApp.</block>
   <block id="1190124555424f6326b153d14c7adeb6" category="list-text">Exécutez le fichier exécutable et suivez les instructions à l'écran.</block>
   <block id="257dcf2363da5a069ec4e8bae654f70b" category="list-text">Redémarrez l'hôte Windows lorsque vous y êtes invité.</block>
-  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
-  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
-  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
-  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="6de6f1db3c6d9273da9d8e254b666753" category="paragraph">Fournit des informations sur les droits d'auteur tiers et les licences utilisées dans ce produit.</block>
-  <block id="1e6000d4849ef9f3e08d1d9908e9f163" category="inline-link-macro">Notification relative à ONTAP 9.9.1</block>
-  <block id="6f408b9c999245c7aa32bc9cb1a020f6" category="inline-link-macro">Notification relative à ONTAP 9.8</block>
   <block id="04b0bd5b1b4d414fdde93f809162d36d" category="inline-link-macro">Avis pour ONTAP 9.7</block>
   <block id="0c1d7dffcba488555d5eb39b8991e822" category="inline-link-macro">Avis pour ONTAP 9.6</block>
   <block id="a11ac6880e72412c0f54ae19bea3d191" category="inline-link-macro">Avis pour ONTAP 9.5</block>
@@ -897,15 +876,6 @@ Ports FC et UTA2 intégrés (également appelés<block ref="68b3177cae966fde225c
   <block id="bf7dcf6467a8a03b05b2d37d31d6eccd" category="inline-link-macro">Avis pour ONTAP 9.3</block>
   <block id="0328352fdfda84af6968462d1a67d3a6" category="inline-link-macro">Avis pour ONTAP 9.2</block>
   <block id="83904100c7d6fe0102e8b2b5bd8ec4bb" category="inline-link-macro">Avis pour ONTAP 9.1</block>
-  <block id="e34c6bf4588770e60093fd241f4c94cd" category="paragraph"><block ref="5d7354cfb327d65286a65782f8490ba6" category="inline-link-macro-rx"></block>
-<block ref="9c55eb1e0fbbd6c443bf0436871639ef" category="inline-link-macro-rx"></block>
-<block ref="84ee5be262ba420366f62cfd722d0bb9" category="inline-link-macro-rx"></block>
-<block ref="c4fa97eae3fc7b7bfd1757818737f725" category="inline-link-macro-rx"></block>
-<block ref="863fc1cf1c4ef06b9dbeab0269fcbe22" category="inline-link-macro-rx"></block>
-<block ref="bc609cdc163eb15a127f1d8965ceeebf" category="inline-link-macro-rx"></block>
-<block ref="91c2725aac92b0d17a3a041b2764f68c" category="inline-link-macro-rx"></block>
-<block ref="60d4a45fe1b65b8f6ff1a4825a003443" category="inline-link-macro-rx"></block>
-<block ref="0da6a5a2ec0e0b0adc52f0c7d86b1f9c" category="inline-link-macro-rx"></block></block>
   <block id="1efe07eef4e047f77d97d7a9521fe678" category="summary">L'interface classique de ONTAP System Manager (ONTAP 9.7 et versions antérieures) vous permet de configurer rapidement l'accès NFS pour les hôtes ESXi vers les datastores à l'aide de volumes ONTAP.</block>
   <block id="9fbe728d7eb2adabf531ccdcf064bc53" category="doc">Présentation de la configuration NFS pour ESXi à l'aide de VSC</block>
   <block id="039d2d1f92ed5762bd1672bf32bb614a" category="paragraph">Utiliser cette procédure si :</block>
@@ -2042,8 +2012,6 @@ Les ports FC et UTA2 intégrés (également appelés « CNA »), ainsi que certa
   <block id="291619053227579fae6d00b2bcfab62f" category="paragraph">Si les adaptateurs de bus hôte FC (HBA) de l'hôte ESX n'exécutent pas les versions de pilote, de micrologiciel et de BIOS prises en charge, vous devez les mettre à jour.</block>
   <block id="710de516c6cbad99668973bb1f4c3c0d" category="paragraph">Vous devez avoir identifié les versions de pilote, de micrologiciel et de BIOS prises en charge pour votre configuration à partir du<block ref="ae0acc7a1cf35a69eb7b42685c902841" category="inline-link-rx"></block>.</block>
   <block id="982aef1e07fe09b104ef69dc47d79d37" category="list-text">Répertorie les versions du pilote HBA, du micrologiciel et du BIOS installés à l'aide des commandes de la console hôte VMware ESXi correspondant à votre version d'ESXi.</block>
-  <block id="49b4e6a2e5626cd5db40b840d6113bed" category="inline-link">Article 1002413 de la base de connaissances VMware : identification du firmware d'un HBA Qlogic ou Emulex FC</block>
-  <block id="a12ed0f6188622691e50debf584fcdcf" category="paragraph"><block ref="a12ed0f6188622691e50debf584fcdcf" category="inline-link-rx"></block></block>
   <block id="2157ff4fa230c3478676d1a9841d6742" category="summary">Si vous choisissez d'utiliser une machine virtuelle de stockage existante, vérifiez que le service FC s'exécute sur la SVM à l'aide de ONTAP System Manager. Vous devez également vérifier que les interfaces logiques FC sont déjà créées.</block>
   <block id="27045e1024ed1f1f4ea149b9fcfc4e8f" category="summary">Virtual Storage Console pour VMware vSphere automatise la plupart des tâches de configuration et de provisionnement requises pour utiliser le stockage NetApp FC avec un hôte ESXi. Virtual Storage Console est un plug-in de vCenter Server.</block>
   <block id="4593e2432306bcea64d49dcce3ddc04b" category="paragraph">Si l'un des tests échoue, vérifiez que le service FC s'exécute sur le cluster de stockage et vérifiez les chemins FC sur la segmentation LUN et commutateur FC.</block>
@@ -2128,7 +2096,6 @@ Les ports FC et UTA2 intégrés (également appelés « CNA »), ainsi que certa
   <block id="462b95590d7acd7152240693f2733651" category="doc">Vérifiez l'état du volume source</block>
   <block id="c59a59058714f4c78669e823c620680c" category="list-text">Sélectionnez le volume source, puis vérifiez que le volume source est hors ligne.</block>
   <block id="fdc1c760c29ca327926071ef4ce12c0d" category="list-text">Identifier le volume de destination dans la relation SnapMirror</block>
-  <block id="7c99e1c96275e73971c3274eea4bfc6a" category="image-alt">destination snapmirror 93</block>
   <block id="54b184892f23afa68d9eab493ac216da" category="list-text">ONTAP 9.2 ou version antérieure : cliquez sur l'onglet *Data protection* en bas de la page volumes pour identifier le volume de destination dans la relation SnapMirror et le nom du SVM qui contient le volume.</block>
   <block id="7bba42ab30c3eef639318c4cbe6cb31e" category="image-alt">L'image montre le volume de destination</block>
   <block id="4b7d4ac6c63d48c124530d952203e03c" category="summary">Vous devez arrêter et interrompre la relation SnapMirror pour activer le volume de destination. Après la suspension, les futurs transferts de données SnapMirror sont désactivés.</block>
@@ -2728,10 +2695,8 @@ Lorsque la validation est terminée et que la mise à jour est en cours, la mise
   <block id="5afc224ecb9fcc7f50684353cdfccb80" category="paragraph">Pour créer un cluster, vous devez vous connecter via la console et configurer l'adresse IP de gestion de nœuds sur n'importe quel nœud du réseau de clusters. Une fois l'adresse IP de gestion des nœuds configurée sur un nœud, vous pouvez ajouter d'autres nœuds et créer un cluster à l'aide de ONTAP System Manager.</block>
   <block id="990bb85c5a67a4d1782a863aa6cc1497" category="paragraph">L'opération de configuration du cluster n'est pas prise en charge sur les configurations MetroCluster pour le logiciel ONTAP.</block>
   <block id="4dfcde39ef2f0b93b09f7b13052dd23f" category="paragraph">Vous pouvez configurer le cluster à l'aide d'un fichier modèle ou en saisissant manuellement les valeurs dans l'assistant de configuration du cluster.</block>
-  <block id="7d9a08439c0869dea94d925777b7aba3" category="image-alt">workflow de configuration du cluster</block>
   <block id="f1dc21dc6179a3fdff96b7b031c7ae81" category="summary">Vous pouvez créer un cluster via System Manager ou l'interface de ligne de commandes. Pour créer un cluster à l'aide de System Manager, vous devez configurer l'adresse IP de gestion de nœud sur n'importe quel nœud du réseau de cluster. Si vous avez créé un cluster à l'aide de l'interface de ligne de commandes, vous pouvez configurer le cluster à l'aide de System Manager.</block>
   <block id="1c867bc949570263498e870403b0e61a" category="doc">Configuration de l'environnement du cluster</block>
-  <block id="58369fe03b8cca246bfd9acff3681041" category="image-alt">configuration assistée de clusters</block>
   <block id="7c5c5dd8c983200f4658fbc653960629" category="summary">Depuis System Manager 9.6, vous pouvez supprimer un volume FlexCache lorsque vous n'en avez plus besoin.</block>
   <block id="2d911a2e75192035a8c705e9139ab46f" category="doc">Suppression de volumes FlexCache</block>
   <block id="32eb59d1751d73c381a2d8a05a29e10e" category="list-text">La Junction path du volume FlexCache doit être démonté.</block>
@@ -2873,118 +2838,8 @@ Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pa
   <block id="c43a320001422c6e6555386d6eb7ffa4" category="list-text">Cliquez sur *plus d'actions* &gt; *Redimensionner*.</block>
   <block id="5e7f2bb84ab8fc2c252782cc441d2850" category="list-text">Saisissez ou sélectionnez les informations demandées par l'assistant.</block>
   <block id="baf8d3396b691e5b2244efc835a2c55b" category="list-text">Vérifiez les modifications que vous avez apportées à l'espace disponible et à l'espace total du volume dans la fenêtre *volumes*.</block>
-  <block id="f210a25eaf89fa55ced5c9c77e0b242b" category="summary">System Manager permet de créer, modifier et gérer des partages.</block>
-  <block id="258afb30ae69ea72441de6bfa02ded92" category="doc">Gérez les partages avec System Manager - ONTAP 9.7 et versions antérieures</block>
-  <block id="47e145cac11e2ed21e19d35136895102" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer, modifier et gérer des partages.</block>
-  <block id="a218828013e03d9b77f9be08cba59cdd" category="section-title">Créer un partage CIFS</block>
-  <block id="cdcdccf6b4cea67b1649f64dfc42ff76" category="paragraph">Vous pouvez utiliser System Manager pour créer un partage CIFS qui vous permet de spécifier le dossier, qtree ou volume auquel les utilisateurs CIFS peuvent accéder.</block>
-  <block id="3e859c820cd401f603bf6eb4bb47e006" category="paragraph">Vous devez avoir installé la licence CIFS avant de configurer et de démarrer CIFS.</block>
-  <block id="36e4c7125d339b895d4735d2ebc3c84b" category="list-text">Cliquez sur *Storage* &gt; *Shares*.</block>
-  <block id="3c6b636b52f4ee0b5d619d487135638c" category="list-text">Dans le menu déroulant du champ *SVM*, sélectionnez la SVM sur laquelle vous souhaitez créer un partage CIFS.</block>
-  <block id="a5b98ff7955f554a6ab08c3a07b3fb83" category="list-text">Dans la fenêtre *Créer un partage*, cliquez sur *Parcourir*, puis sélectionnez le dossier, le qtree ou le volume qui doit être partagé.</block>
-  <block id="b4f2a0dfcf3a06588721c3cf46426f55" category="list-text">Spécifiez un nom pour le nouveau partage CIFS.</block>
-  <block id="ede7f1ea5f8033a3ddc8b303e6c3fe16" category="list-text">*Facultatif:* cochez la case *Activer la disponibilité continue pour Hyper-V et SQL* pour permettre aux clients qui prennent en charge SMB 3.0 et versions ultérieures d'ouvrir les fichiers de manière persistante pendant la continuité de l'activité.</block>
-  <block id="81c3a43e87c04aa4f2867930228320dd" category="paragraph">Les fichiers ouverts à l'aide de cette option sont protégés contre les événements perturbateur tels que le basculement, le rétablissement et la migration de LIF.</block>
-  <block id="174695729a46aa0db160108074800cc8" category="paragraph">Depuis la version System Manager 9.6, la disponibilité continue est prise en charge pour les volumes FlexGroup.</block>
-  <block id="44ec628d221f20d3a532dfdc1a49b9cc" category="list-text">Cochez la case *crypter les données lors de l'accès à ce partage* pour activer le cryptage SMB 3.0.</block>
-  <block id="c11f0d9c886f553934dce4b687e69569" category="list-text">Fournissez une description ou un commentaire pour le partage, puis cliquez sur *Créer*.</block>
-  <block id="546e6304bd126985d219dddabcbf5774" category="paragraph">Le partage CIFS est créé avec les autorisations d'accès définies sur « contrôle total pour tous » dans le groupe.</block>
-  <block id="4edcc08cf152edc7b42b029db1ecc67b" category="section-title">Arrêtez l'accès au partage</block>
-  <block id="a4c1c7b32cb8db1bee81e7e0947286fe" category="paragraph">System Manager peut être utilisé pour arrêter un partage lorsque vous souhaitez supprimer l'accès réseau partagé à un dossier, qtree ou volume.</block>
-  <block id="97ab5031ba61fa20c45fa57196e475eb" category="paragraph">Vous devez avoir installé la licence CIFS.</block>
-  <block id="ca31348e1f2b9f2491ba1ae68c0b31f4" category="list-text">Dans le menu déroulant du champ *SVM*, sélectionnez la SVM sur laquelle réside le partage CIFS que vous souhaitez arrêter.</block>
-  <block id="8e97fc4679f75b5eedb5c8820c4301f1" category="list-text">Dans la liste des partages, sélectionnez le partage que vous souhaitez arrêter le partage, puis cliquez sur *Arrêter le partage*.</block>
-  <block id="cae7974fde4c42dc22986eda0127cd15" category="list-text">Cochez la case de confirmation, puis cliquez sur *Stop*.</block>
-  <block id="6a780d4d415bbd377aa9fdc38651f67f" category="list-text">Vérifiez que le partage n'est plus répertorié dans la fenêtre *partages*.</block>
-  <block id="c6d1ab85546f960ef1908682152ddb98" category="section-title">Créer des partages de répertoire personnel</block>
-  <block id="2ded840bb0d149049d94d6cc27cd4eb9" category="paragraph">Vous pouvez utiliser System Manager pour créer un partage de home Directory et gérer les chemins de recherche des home Directory.</block>
-  <block id="07b21b3751e97e8be0734694465e1a54" category="paragraph">Le protocole CIFS doit être configuré et démarré.</block>
-  <block id="8833b993932917d5dc821b8ddc12292f" category="list-text">Cliquez sur *Create Home Directory*, puis fournissez les informations de motif qui déterminent la manière dont un utilisateur est mappé à un répertoire.</block>
-  <block id="05f43ec9f04690f81f77fec126b3f286" category="list-text">Vérifiez que le répertoire personnel que vous avez créé est répertorié dans la fenêtre *partages*.</block>
-  <block id="653ecc56780e9ae45a3425b21f179e73" category="section-title">Modifier les paramètres de partage</block>
-  <block id="8b8233970ae93cddab3fcb0f038a19cf" category="paragraph">Vous pouvez utiliser System Manager pour modifier les paramètres d'un partage, tels que les paramètres du lien symbolique, les autorisations d'accès de partage des utilisateurs ou groupes et le type d'accès au partage. Vous pouvez également activer ou désactiver la disponibilité continue d'un partage sur Hyper-V et activer ou désactiver l'énumération basée sur l'accès (ABE). Depuis la version System Manager 9.6, la disponibilité continue est prise en charge pour les volumes FlexGroup.</block>
-  <block id="7246a01d2a352fc6450f7f466d58dac5" category="list-text">Sélectionnez le partage que vous souhaitez modifier dans la liste des partages, puis cliquez sur *Modifier*.</block>
-  <block id="28d42a3f5ce4234a5cb6b5eda7721b12" category="list-text">Dans la boîte de dialogue *Modifier les paramètres de partage*, modifiez les paramètres de partage comme requis :</block>
-  <block id="b187cf812109744ed2a6197d64b4c287" category="list-text">Dans l'onglet *général*, activez la disponibilité continue d'un partage sur Hyper-V.</block>
-  <block id="24e24350d0c2bbfe6239c8cda68a9fdd" category="paragraph">L'activation de la disponibilité continue permet à SMB 3.0 et aux clients qui prennent en charge SMB 3.0 d'ouvrir les fichiers de manière persistante lors de la continuité de l'activité. Les fichiers ouverts de manière persistante sont protégés contre les événements perturbateurs tels que le basculement, le retour et la migration de LIF.</block>
-  <block id="c422043bdc2f7971f0ae6747690d03c7" category="list-text">Dans l'onglet *permissions*, ajoutez des utilisateurs ou des groupes, puis attribuez des autorisations pour spécifier le type d'accès.</block>
-  <block id="5c0287506e18b638d89ba4098983d76a" category="list-text">Dans l'onglet *Options*, sélectionnez les options requises.</block>
-  <block id="d5ba1e032c63c476f97b1f0bded5e2ed" category="list-text">Vérifiez les modifications que vous avez apportées au partage sélectionné dans la fenêtre *partages*.</block>
-  <block id="1f06c32e4284c548639b045d1a680c1f" category="section-title">Comment ONTAP rend possible les répertoires locaux dynamiques</block>
-  <block id="ddb6804ce83c0756809d4eaa0da80de7" category="paragraph">Les home directories ONTAP vous permettent de configurer un partage SMB qui correspond à différents répertoires en fonction de l'utilisateur qui se connecte à celui-ci et d'un ensemble de variables. Au lieu de créer des partages distincts pour chaque utilisateur, vous pouvez configurer un partage avec quelques paramètres de home Directory afin de définir la relation d'un utilisateur entre un point d'entrée (le partage) et le home Directory (un répertoire sur la SVM).</block>
-  <block id="47d8b0af5d2931cb4e847ec858c73ecf" category="paragraph">Un utilisateur connecté en tant qu'utilisateur invité ne dispose pas d'un répertoire personnel et ne peut pas accéder aux répertoires d'accueil d'autres utilisateurs. Il existe quatre variables qui déterminent la manière dont un utilisateur est mappé à un répertoire :</block>
-  <block id="e61e15ac8c5f8d0b85109886001adfad" category="list-text">*Nom de partage*</block>
-  <block id="bc684c6854b9c8f2cb609b73ffac4b9c" category="paragraph">Il s'agit du nom du partage que vous créez et auquel l'utilisateur se connecte. Vous devez définir la propriété du répertoire personnel pour ce partage.</block>
-  <block id="9cec6f3479185182d510faeb5c88e095" category="paragraph">Le nom du partage peut utiliser les noms dynamiques suivants :</block>
-  <block id="cf46804cd7f94ff0f06229165a1e08bc" category="list-text"><block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block> (Nom d'utilisateur Windows de l'utilisateur)</block>
-  <block id="c7d7c222f5eb544bb7a6e17489d16fb1" category="list-text"><block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix="" category="inline-code"></block> (Nom de domaine Windows de l'utilisateur)</block>
-  <block id="c3e0b780eb59c719da0f62c0418963e2" category="list-text"><block ref="b4e514e05859a94a7c7d3404f63dca8d" prefix="" category="inline-code"></block> (Nom d'utilisateur UNIX mappé de l'utilisateur)</block>
-  <block id="053021b69a316a9b62283baaca04bdee" category="paragraph">Pour que le nom du partage soit unique dans tous les répertoires d'accueil, le nom du partage doit contenir soit<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> ou le<block ref="b4e514e05859a94a7c7d3404f63dca8d" prefix=" " category="inline-code"></block> variable. Le nom du partage peut contenir les deux<block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix=" " category="inline-code"></block> et le<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> variable (par exemple,<block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix=" " category="inline-code"></block><block ref="61fdc52186559b1681736cfb53393d7a" prefix="/" category="inline-code"></block>), ou le nom du partage peut contenir une partie statique et une partie variable (par exemple, home_<block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block>).</block>
-  <block id="0521b4a71a02a28d9873367a66e9d83a" category="list-text">*Chemin de partage*</block>
-  <block id="7f794a8325e108e30caf0916da9858f8" category="paragraph">Il s'agit du chemin relatif, défini par le partage, et donc associé à l'un des noms de partage, qui est ajouté à chaque chemin de recherche pour générer le chemin d'accès complet du home Directory de l'utilisateur, à partir de la racine de la SVM. Il peut être statique (par exemple,<block ref="106a6c241b8797f52e1e77317b96a201" prefix=" " category="inline-code"></block>), dynamique (par exemple,<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block>), ou une combinaison des deux (par exemple,<block ref="a2b6508e05db4948da997e79c88b26c6" prefix=" " category="inline-code"></block>).</block>
-  <block id="6fcc718fd1fe6c61104b90deb1cf42a2" category="list-text">*Chemins de recherche*</block>
-  <block id="2401c90889b207694e0799fda5109a63" category="paragraph">Il s'agit de l'ensemble des chemins absolus depuis la racine du SVM que vous spécifiez qui dirigent la recherche ONTAP pour les répertoires locaux. Vous pouvez spécifier un ou plusieurs chemins de recherche à l'aide du<block ref="5a6a8dfa9830413979e30e9a232a26b9" prefix=" " category="inline-code"></block> commande. Si vous spécifiez plusieurs chemins de recherche, ONTAP les essaie dans l'ordre spécifié jusqu'à ce qu'il trouve un chemin valide.</block>
-  <block id="b8247bb8487a381712f3b1e7f9afee38" category="list-text">*Répertoire*</block>
-  <block id="94476d0b91f52a04ef07ba6853a8fe57" category="paragraph">Il s'agit du répertoire de base de l'utilisateur que vous créez pour l'utilisateur. Le nom du répertoire est généralement le nom de l'utilisateur. Vous devez créer le répertoire personnel dans l'un des répertoires définis par les chemins de recherche.</block>
-  <block id="d87a9db633a6535cd29bd2e3ceb1c8dd" category="paragraph">Prenons l'exemple de la configuration suivante :</block>
-  <block id="7180a0452db924e5e8285ae78d6355b2" category="list-text">Utilisateur : John Smith</block>
-  <block id="03fdb6c3f4384c6171e95f71401eb5e0" category="list-text">Domaine utilisateur : acme</block>
-  <block id="1a0691e264e3961203ea0cfedc4e5d2b" category="list-text">Nom d'utilisateur: Jsmith</block>
-  <block id="33e9d5aa58536f2b75b2e74481b6da5f" category="list-text">Nom du SVM : vs1</block>
-  <block id="67542d137c252a447549f5aea3bdae37" category="list-text">Nom de partage du répertoire de base n°1 : Home_<block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block> - chemin de partage :<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block></block>
-  <block id="af46ee21386ad593388ff8e626ff1d79" category="list-text">Nom de partage du répertoire racine #2 :<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> - chemin de partage :<block ref="4b4be07fc24b62eb35c983adef6588a7" prefix=" " category="inline-code"></block></block>
-  <block id="8bdaad80963ec7997b9171bbde3ccf58" category="list-text">Chemin de recherche n°1 :<block ref="f1fef4e82588d65ba30cd9aa01821bb8" prefix=" " category="inline-code"></block></block>
-  <block id="d5de8e98475d82f92b73735119bbb86e" category="list-text">Chemin de recherche n°2 :<block ref="516141bba2650fcf50f472110df9bbb3" prefix=" " category="inline-code"></block></block>
-  <block id="17a2b091f4b18b78a643898b857c0b7b" category="list-text">Chemin de recherche n°3 :<block ref="32467dc27b5c1dc6fdb3be6be9e0d4bd" prefix=" " category="inline-code"></block></block>
-  <block id="f79a499c73fbab60e0656b54d92e9a15" category="list-text">Home Directory :<block ref="92fb357e2e22d96fcbb3dc91b7ad3c44" prefix=" " category="inline-code"></block></block>
-  <block id="364487be3ccdb0ddb95024d179f03f3e" category="paragraph">Scénario 1 : l'utilisateur se connecte à<block ref="4e9da487017687cc0e20849436bbd1ea" prefix=" " category="inline-code"></block>. Ceci correspond au premier nom de partage du répertoire racine et génère le chemin relatif<block ref="39ce7e2a8573b41ce73b5ba41617f8f7" prefix=" " category="inline-code"></block>. ONTAP recherche désormais un répertoire nommé<block ref="39ce7e2a8573b41ce73b5ba41617f8f7" prefix=" " category="inline-code"></block> en vérifiant chaque chemin de recherche dans l'ordre suivant :</block>
-  <block id="da31e9584c464660c8d01fdcce993262" category="list-text"><block ref="99f56e83581477446df1f3c1ced8c2b0" prefix="" category="inline-code"></block> n'existe pas ; passer au chemin de recherche n°2.</block>
-  <block id="3ea0fe8fc6a7f1b43185c7059aa5790c" category="list-text"><block ref="92fb357e2e22d96fcbb3dc91b7ad3c44" prefix="" category="inline-code"></block> existe ; par conséquent, le chemin de recherche #3 n'est pas coché ; l'utilisateur est maintenant connecté à son répertoire de base.</block>
-  <block id="a5e47d213ee8b7b800451b243c5340e3" category="paragraph">Scénario 2 : l'utilisateur se connecte à<block ref="2cb9e3fa2f4a596f846cef78a337560b" prefix=" " category="inline-code"></block>. Ceci correspond au deuxième nom de partage du répertoire de base et génère le chemin relatif<block ref="8e5f8e3dcb23383e32f49e7a055826f4" prefix=" " category="inline-code"></block>. ONTAP recherche désormais un répertoire nommé<block ref="8e5f8e3dcb23383e32f49e7a055826f4" prefix=" " category="inline-code"></block> en vérifiant chaque chemin de recherche dans l'ordre suivant :</block>
-  <block id="ba77d086e3046fd832fb4fe3435a490d" category="list-text"><block ref="e5eb2f73a2e9980fc90e088246bf2a31" prefix="" category="inline-code"></block> n'existe pas ; passer au chemin de recherche n°2.</block>
-  <block id="4a0368d08fff02c4b3d2ceeffbb4d136" category="list-text"><block ref="8211f5e2f4fb295058ab715023554df1" prefix="" category="inline-code"></block> n'existe pas ; passer au chemin de recherche #3.</block>
-  <block id="47cf52fe22b54398467dba6a9a1e4a7b" category="list-text"><block ref="8a86a2c448e1f60496b94e4c1a846e60" prefix="" category="inline-code"></block> n'existe pas ; le répertoire personnel n'existe pas ; la connexion échoue donc.</block>
-  <block id="4918741feccad41b42cd99aa33e42f28" category="section-title">Fenêtre partages</block>
-  <block id="a7c99ceadac4e4924151c84d763c467f" category="paragraph">Vous pouvez utiliser la fenêtre partages pour gérer vos partages et afficher des informations sur les partages.</block>
-  <block id="fda574f52a0c012e098901afa3932b69" category="list-text">*Créer un partage*</block>
-  <block id="d852a51701ee8f10a9ca310896bd4554" category="paragraph">Ouvre la boîte de dialogue Créer un partage qui permet de créer un partage.</block>
-  <block id="78051d4bf07107990835bebcaff82f9c" category="list-text">*Créer répertoire d'accueil*</block>
-  <block id="73ebeda6b0e6d0bdc61b3514087f98b2" category="paragraph">Ouvre la boîte de dialogue Créer un partage de répertoire d'accueil, qui permet de créer un nouveau partage de répertoire d'accueil.</block>
-  <block id="165ea29705bdce07533240e5baf023d6" category="paragraph">Ouvre la boîte de dialogue Modifier les paramètres, qui permet de modifier les propriétés d'un partage sélectionné.</block>
-  <block id="78970f78ae18db72c079df474a70cac5" category="list-text">*Arrêter le partage*</block>
-  <block id="9e4ba745eb5929a46ac85a66bbde51ec" category="paragraph">Empêche le partage de l'objet sélectionné.</block>
-  <block id="c871110fae62093309dc98c9c0f64df9" category="section-title">Liste des partages</block>
-  <block id="729863cbd7aed54d8a3908488c22b0a6" category="paragraph">La liste partages affiche le nom et le chemin de chaque partage.</block>
-  <block id="9c29b201d911f46f3d4ec9a15dc66cc6" category="list-text">*Nom de partage*</block>
-  <block id="3aba51888e43a206b38531d1ba5da58f" category="paragraph">Affiche le nom du partage.</block>
   <block id="973c986d28beec057d1064afec603777" category="list-text">*Chemin*</block>
-  <block id="e80af012f9ce34e9ab0beba04371d194" category="paragraph">Affiche le chemin d'accès complet d'un dossier, qtree ou volume existant partagé. Les séparateurs de chemin peuvent être des barres obliques inverses ou des barres obliques inverses, bien que ONTAP affiche tous les séparateurs de chemin sous forme de barres obliques inverses.</block>
-  <block id="7b22a3952681ecb4cdbd6fe703765dae" category="list-text">*Répertoire personnel*</block>
-  <block id="cbc95fa902a86727e89b85af3f19d0fb" category="paragraph">Affiche le nom du partage du répertoire racine.</block>
   <block id="9bdc480955b350f1fe8089392ad36cbe" category="list-text">*Commentaire*</block>
-  <block id="c9b73398fbc4618f61034f91e3a7daec" category="paragraph">Affiche des descriptions supplémentaires du partage, le cas échéant.</block>
-  <block id="dd8a5de672229fa8ff58411a6a3e41ff" category="list-text">*Partage disponible en continu*</block>
-  <block id="2d6ca664e165a57792b1b59ede4c3890" category="paragraph">Indique si le partage est activé pour la disponibilité continue. Depuis la version System Manager 9.6, la disponibilité continue est prise en charge pour les volumes FlexGroup.</block>
-  <block id="97469443dfc3695c09f70f7590eeac08" category="paragraph">La zone située sous la liste partages affiche les propriétés de partage et les droits d'accès pour chaque partage.</block>
-  <block id="e6ce8998f0d4cbe5a38c523c958f4162" category="list-text">* Propriétés*</block>
-  <block id="217a0172345c647bc3f6a354cd7b6108" category="list-text">État des oplocks</block>
-  <block id="cf6115c8d6bbdd2a732e670a8a63edc1" category="paragraph">Indique si le partage utilise des verrous opportunistes (oplocks).</block>
-  <block id="3a63af1322a4a738092f2dc891ab6afb" category="list-text">Browsable</block>
-  <block id="14fda0af9c46576b371ec3b6e1fb623d" category="paragraph">Indique si le partage peut être consulté par les clients Windows.</block>
-  <block id="18bfc8152a3e795a4008c07d0c432528" category="list-text">Affiche un instantané</block>
-  <block id="d111a1648cc63acf08b9954ea5d1c5fb" category="paragraph">Indique si les copies Snapshot peuvent être affichées par les clients.</block>
-  <block id="b8c91392a068a4dbf0999fb089045c52" category="list-text">Partage disponible en continu</block>
-  <block id="41aef6f60f95609aa7b5ca4777bfe44c" category="paragraph">Indique si le partage est activé ou désactivé pour la disponibilité continue. Depuis la version System Manager 9.6, la disponibilité continue est prise en charge pour les volumes FlexGroup.</block>
-  <block id="ced58c7b6a62adeb9dff9028fa5cf9db" category="list-text">Énumération basée sur l'accès</block>
-  <block id="3af978aaedd422de2f12de5f6b53767e" category="paragraph">Indique si l'énumération basée sur l'accès (ABE) est activée ou désactivée sur le partage.</block>
-  <block id="601881e1c15a5899164ae1415fa564f9" category="list-text">BranchCache</block>
-  <block id="c042c62a5b971b02ac210ea6cea9f49b" category="paragraph">Indique si BranchCache est activé ou désactivé sur le partage.</block>
-  <block id="5ba189119209879ea0338f2967d8829a" category="list-text">Chiffrement SMB</block>
-  <block id="a8e8461d71a3b3c9c05c1ca0cab3bf26" category="paragraph">Spécifie si le chiffrement des données avec SMB 3.0 est activé au niveau du SVM (Storage Virtual machine) ou au niveau du partage. Si le chiffrement SMB est activé au niveau du SVM, le chiffrement SMB s'applique à tous les partages et la valeur est indiquée comme activé (au niveau du SVM).</block>
-  <block id="361ba3dce11fe3e84d163ed8a377ee53" category="list-text">Versions précédentes</block>
-  <block id="b9aa6e095ab5ade3b6a47afb5635c76f" category="paragraph">Indique si les versions précédentes peuvent être affichées et restaurées à partir du client.</block>
-  <block id="6330d7da9b567d52cb7f38d3b59cad4c" category="list-text">*Partage de contrôle d'accès*</block>
-  <block id="5ecdcfa6df2b43f1cd8b09359c0e9628" category="paragraph">Affiche les droits d'accès des utilisateurs du domaine, des groupes de domaines, des utilisateurs locaux et des groupes locaux pour le partage.</block>
   <block id="b1f7b0489956884280bdba01a96b051b" category="inline-xref-macro">Configuration de CIFS</block>
   <block id="e017ec9aae777eea6bb4e0e623c50b13" category="paragraph"><block ref="e017ec9aae777eea6bb4e0e623c50b13" category="inline-xref-macro-rx"></block></block>
   <block id="fc5c41a08a339689427e86a62085d18e" category="summary">Après avoir configuré un SVM (Storage Virtual machine) fonctionnel ou des SVM avec une configuration réseau de base, vous pouvez choisir de déléguer l'administration du SVM aux administrateurs du SVM.</block>
@@ -3041,7 +2896,6 @@ Cette valeur est sensible à la casse. L'unité que vous spécifiez n'affecte pa
   <block id="1bcaa70ba0011203f6ed88fca02c0c7e" category="list-text">Si vous conservez *FabricPool* en position « non activé », seuls les agrégats non FabricPool sont inclus dans le volume FlexGroup créé et la règle de Tiering est définie sur « aucun ».</block>
   <block id="280912f92ac8838961caf4bcdd792e10" category="list-text">Si aucun agrégat FabricPool n'existe dans le SVM, *FabricPool* s'affiche en position « non activé » et ne peut pas être modifié.</block>
   <block id="2bdfe1e585cb4707ff4ee5a03fe0d58b" category="list-text">S'il existe uniquement des agrégats FabricPool dans le SVM, le bouton *FabricPool* s'affiche en position « activé » et ne peut pas être modifié.</block>
-  <block id="03552d367764e7839a614933f825001e" category="list-text">Pour spécifier des agrégats spécifiques, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> (options avancées).</block>
   <block id="54cea90da7b4369891eee22f858ad14b" category="paragraph">Les agrégats associés au volume FlexGroup que vous créez sont sélectionnés par défaut selon les meilleures pratiques. Ils sont affichés en regard de l'étiquette *Aggregates*.</block>
   <block id="b7145e84aa34f2e12721b0af370554c0" category="list-text">Dans la section *protection*, effectuez les opérations suivantes :</block>
   <block id="8d51cd39a18c87bf1f3c125efbb15875" category="list-text">Activez l'option *Volume protection*.</block>
@@ -3414,14 +3268,11 @@ Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont 
   <block id="32032cf60e20cb1e13004a35c19895f0" category="list-text">*Facultatif :* Entrez une nouvelle taille pour le volume FlexCache dans le champ *taille* sous *Volume FlexCache*, puis sélectionnez l'unité de mesure dans le menu déroulant.</block>
   <block id="390c84eadfb369c9bba59931c7fc2b02" category="list-text">*Facultatif:* Activer ou désactiver le cryptage.</block>
   <block id="fa8ddae57fb0b13c4eb7a2f3b7deaa99" category="inline-link-macro">Définition des options avancées pour un volume FlexCache</block>
-  <block id="4db6d5da67865342306912fad857400f" category="list-text">*Facultatif:* cliquez <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> Pour modifier les paramètres avancés du volume FlexCache. Reportez-vous à la section <block ref="01d1f9ee7eafcb47c4d200eceb73ffd6" category="inline-link-macro-rx"></block>.</block>
   <block id="8491b775711be80e6a608ef1ebb96121" category="list-text">Cliquez sur *Enregistrer* pour enregistrer les modifications.</block>
   <block id="a56e31822510cde8f8a20d6f36849aa7" category="summary">Vous pouvez utiliser System Manager pour gérer les disques.</block>
   <block id="d7a551057ba910463c17513387122618" category="doc">Gérez les disques avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="4408c783f4f77dad27b39a90a5feb7d2" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les disques.</block>
   <block id="edda3972d1bc3950c540b7172745645c" category="paragraph"><block ref="edda3972d1bc3950c540b7172745645c" category="inline-link-rx"></block></block>
-  <block id="70894d5c0a41692947485c0d0a19e60a" category="inline-link">Conditions requises pour l'installation et référence de la virtualisation FlexArray</block>
-  <block id="b42d776faedad51898dbe5bf906051a2" category="paragraph"><block ref="b42d776faedad51898dbe5bf906051a2" category="inline-link-rx"></block></block>
   <block id="9dd326a487d106b896106eeadb347626" category="summary">Depuis System Manager 9.6, vous pouvez afficher les informations relatives à un volume FlexCache. Vous pouvez afficher une représentation graphique de l'espace alloué et des performances d'un volume FlexCache.</block>
   <block id="af94d293d65ac05aba778e00e3ba5510" category="doc">Affichage des informations de volume FlexCache</block>
   <block id="d5a19af6bd480993ed2b7a77e9921ee4" category="list-text">Dans la liste de volumes affichée, sélectionnez le volume FlexCache dont vous souhaitez afficher les informations.</block>
@@ -3602,7 +3453,6 @@ Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont 
   <block id="11633eb84d1995cfa5bc65cc29e7c23a" category="list-text">Cliquez sur *Ajouter des commentaires* pour ajouter des commentaires supplémentaires pour la stratégie.</block>
   <block id="f51d83be71182a7a9735e02d70d57f6e" category="list-text">Dans le cas d'une règle de type coffre-fort ou coffre-fort miroir, spécifiez une étiquette SnapMirror et un compte de rétention de la destination.</block>
   <block id="114168a53a6b42c89026b910fc64289f" category="summary">Depuis System Manager 9.6, lorsque vous modifiez un volume FlexCache, vous pouvez spécifier les options avancées à associer au volume FlexCache.</block>
-  <block id="8f51b4e853f8f8190d9ce869e3f71555" category="list-text">*Facultatif:* dans la fenêtre *Modifier le volume FlexCache*, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> pour spécifier les options avancées.</block>
   <block id="cc6147bf70776e78f1689c5b5ec50cdf" category="paragraph">La fenêtre Options avancées s'affiche. Il contient des sections (les en-têtes de la colonne de gauche), dans lesquelles vous pouvez spécifier différentes options.</block>
   <block id="1f272132f306cd712954818240769549" category="list-text">*Facultatif:* dans la section *Détails généraux*, vous pouvez modifier les autorisations pour le volume.</block>
   <block id="ffe0fe06e388737190c902ee2d01f847" category="list-text">Dans la section *Aggregates*, vous pouvez activer le bouton bascule *Select Aggregates* pour remplacer les meilleures pratiques par défaut et sélectionner vos choix dans une liste d'agrégats.</block>
@@ -3736,14 +3586,6 @@ Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont 
   <block id="cafdb1219cee48c72aefb4a06983873c" category="list-text">Mettez à jour le nom dans la zone de texte, puis cliquez sur *Envoyer*.</block>
   <block id="e801d2be7b11bcc8807e4f9a7c173b7f" category="paragraph">Vous pouvez afficher le nom mis à jour lorsque l'état du site MetroCluster A s'affiche.</block>
   <block id="e9551f243e2860df3b1dfddc05a6cf7f" category="list-text">Pour afficher le nom mis à jour du site MetroCluster A lors de sa consultation depuis le site distant (site B), exécutez la commande suivante dans l'interface de ligne de commandes du site distant (site B) :<block ref="53866ad7e92443056aec27897d674600" prefix=" " category="inline-code"></block></block>
-  <block id="936df13c62816bb541c8c569a83692db" category="summary">Vous pouvez utiliser System Manager pour créer des agrégats afin de prendre en charge diverses exigences de sécurité, de sauvegarde, de performance et de partage de données de vos utilisateurs.</block>
-  <block id="aab5e3cd425b154cb96d27c6f7249138" category="doc">Gérez les agrégats avec System Manager - ONTAP 9.7 et versions antérieures</block>
-  <block id="9a37af394d1d31dd77ff0d7043b0269b" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour créer des agrégats afin de prendre en charge les exigences de sécurité, de sauvegarde, de performance et de partage de données de vos utilisateurs.</block>
-  <block id="cd6f186b58ad08a0aa15702a06871670" category="paragraph">La fenêtre Aggregates permet de créer, d'afficher et de gérer les informations sur les agrégats.</block>
-  <block id="35381a31106f6d9e3114d4b4d6d38f12" category="paragraph">Ouvre la boîte de dialogue Créer un agrégat, qui permet de créer un agrégat.</block>
-  <block id="6f63d1aa5fa8cb0919b9d381b827eefb" category="paragraph">Ouvre la boîte de dialogue Modifier l'agrégat, qui vous permet de modifier le nom d'un agrégat ou le niveau de protection RAID que vous souhaitez fournir à l'agrégat.</block>
-  <block id="6ddf98429421db1c79baf89c8d15ebc2" category="paragraph">Supprime l'agrégat sélectionné.</block>
-  <block id="f990940885a7262711c74616e1416ff6" category="paragraph">Ce bouton est désactivé pour l'agrégat root.</block>
   <block id="b0f857586a11d1835d63ccfd5a7c94b0" category="list-text">*Plus d'actions*</block>
   <block id="d9fec617ec0f6c9621190b472ac59feb" category="paragraph">Offre les options suivantes :</block>
   <block id="60f070e92e3980a1a93a915ce99841fb" category="list-text">*Changer le statut en*</block>
@@ -3753,58 +3595,25 @@ Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont 
   <block id="8d9da4bc0e49a50e09ac9f7e56789d39" category="list-text">Hors ligne</block>
   <block id="0974133f9628072341df79d62c53b92a" category="paragraph">L'accès en lecture et en écriture n'est pas autorisé.</block>
   <block id="034d70b46e41ec9d0306b0001e04cae7" category="list-text">Limiter</block>
-  <block id="b3144de0ef9237ecb5a3cb8485c2060a" category="paragraph">Certaines opérations telles que la reconstruction de parité sont autorisées, mais l'accès aux données n'est pas autorisé.</block>
   <block id="4d20253a0478c684c2de0a0fb803cc03" category="list-text">*Ajouter capacité*</block>
   <block id="4edae08fff3ee88387fcd0576d349d16" category="paragraph">Ajout de capacité (disques durs ou SSD) à des agrégats existants</block>
   <block id="ac25e29b281c5fe7e5c94b7d0ab40aee" category="list-text">*Ajouter cache*</block>
   <block id="918ca2a2678c961296588bb076c8f0f6" category="paragraph">Permet d'ajouter des disques cache (SSD) aux agrégats HDD existants ou aux agrégats Flash Pool.</block>
-  <block id="3c14e506fc727ed3380560dc7037ad5c" category="paragraph">Ce bouton n'est pas disponible pour un cluster contenant des nœuds qui offrent une personnalité optimisée pour la technologie Flash.</block>
   <block id="5ccaf135104488a13f1ac23cc6143691" category="list-text">*Miroir*</block>
   <block id="ddc1efb6fc657900eeb3bd6ee540d25c" category="paragraph">Permet de mettre en miroir les agrégats.</block>
   <block id="07728bee97105d471c3ab19da1966201" category="list-text">*Déplacement de volume*</block>
   <block id="69e5c422ce83897e32ce0b9ec4d7c9a8" category="paragraph">Permet de déplacer un volume FlexVol.</block>
-  <block id="339a40b6a613ea3ec552b5339bc261a8" category="list-text">*Attacher un Tier cloud*</block>
-  <block id="87d2c400e633ce33a2a67a308be5bdda" category="paragraph">Permet d'associer un Tier cloud à l'agrégat.</block>
-  <block id="c877851beb23e96091e8562c8d1b88a7" category="section-title">Liste d'agrégats</block>
-  <block id="5e78bc7f662cab6891c8ff38cb07a068" category="paragraph">Affiche le nom et les informations d'utilisation de l'espace pour chaque agrégat.</block>
   <block id="eb2dc6157e951f6bdf5569b2c253a984" category="list-text">*Statut*</block>
-  <block id="986e97d621ddbef8a3235d5c6b7d4096" category="paragraph">Affiche le statut de l'agrégat.</block>
   <block id="496ee322ba138fdbc777e5ab2e30145e" category="list-text">*Nom*</block>
-  <block id="5ce9fff649cdfda9f94e4cc7011234a9" category="paragraph">Affiche le nom de l'agrégat.</block>
   <block id="04eaef0c64f7604067332b0b05e598d3" category="list-text">*Nœud*</block>
-  <block id="99001178cd0cb6fa6787aef67cb2cba7" category="paragraph">Affiche le nom du nœud sur lequel sont affectés les disques de l'agrégat.</block>
   <block id="e8a10e1832156c48d05e40d44124a4f9" category="paragraph">Ce champ est disponible uniquement au niveau du cluster.</block>
-  <block id="28e42dd5833ce63bcac5edc7f48a152d" category="paragraph">Affiche le type de l'agrégat.</block>
-  <block id="b7d06b5b2888bd0cbb9cb0b77d8925c7" category="paragraph">Ce champ ne s'affiche pas pour un cluster contenant des nœuds qui ont une personnalité optimisée pour la technologie Flash.</block>
-  <block id="25444e13e1490cfb73e044b4e98cba6b" category="list-text">*Utilisé (%)*</block>
-  <block id="e48543894493fb7fd6d6320e3e3fe0b6" category="paragraph">Affiche le pourcentage d'espace utilisé dans l'agrégat.</block>
   <block id="17451b8c728d0bc6a4f3dafe44501ab3" category="list-text">*Espace disponible*</block>
-  <block id="b45bc28e9ea320c35412c90a6da0817f" category="paragraph">Affiche l'espace disponible dans l'agrégat.</block>
   <block id="effd2fa0311563a1e224e6c36de775bb" category="list-text">*Espace utilisé*</block>
-  <block id="7750bf7a821da6870eb3fa224f646d87" category="paragraph">Affiche la quantité d'espace utilisée pour les données de l'agrégat.</block>
   <block id="de68ee7ea3dbee1b91084b9a54b3f334" category="list-text">*Espace total*</block>
-  <block id="31b39c8fce21f1bdc9a05f612c2d7f92" category="paragraph">Affiche l'espace total de l'agrégat.</block>
-  <block id="ad194123577ad25914a0ad436f83d256" category="list-text">*FabricPool*</block>
-  <block id="c26194d8f7d34b5001790e724f7bc44e" category="paragraph">Indique si l'agrégat sélectionné est associé à un Tier cloud.</block>
-  <block id="0cd040a51684da558c6c12a9a3c4ec13" category="list-text">*Tier cloud*</block>
-  <block id="6d84d0d086fc6ac4cd08fb009eb3afff" category="paragraph">Si l'agrégat sélectionné est associé à un Tier cloud, il affiche le nom du Tier cloud.</block>
-  <block id="b9d57360a621fd7b1e32b17490f2c32b" category="list-text">*Volume Count*</block>
-  <block id="f06ad6fa54f2513703034b7dfd6cab6d" category="paragraph">Affiche le nombre de volumes associés à l'agrégat.</block>
-  <block id="300f5ad4dc018c74937eef89a804af57" category="list-text">*Nombre de disques*</block>
-  <block id="887d1cc61a498f51a05d9edde203d8a0" category="paragraph">Affiche le nombre de disques utilisés pour créer l'agrégat.</block>
-  <block id="2dcf6cf8b63d51754222cbe105d055f9" category="list-text">*Flash Pool*</block>
-  <block id="7cf88a2e216a75f251bc3fb4939e9874" category="paragraph">Affiche la taille totale de cache de l'agrégat Flash Pool. Une valeur de NA indique que l'agrégat n'est pas un agrégat Flash Pool.</block>
-  <block id="2377b182d295db38042880797b0706eb" category="list-text">*Mis en miroir*</block>
-  <block id="3669b26c14adf1b8df923887205025df" category="paragraph">Indique si l'agrégat est mis en miroir.</block>
   <block id="db0ee96118986edbb435bada8a7b6ae4" category="list-text">*Type SnapLock*</block>
-  <block id="03239fde94c3a6403d92ebc7e4d47ae3" category="paragraph">Affiche le type SnapLock de l'agrégat.</block>
-  <block id="8e0f7fc5c91a651d41ace5ca9df686d2" category="paragraph">Sélectionner un agrégat pour afficher les informations relatives à l'agrégat sélectionné. Vous pouvez cliquer sur Afficher plus de détails pour afficher des informations détaillées sur l'agrégat sélectionné.</block>
   <block id="9228c96f976b189d00d20754d7057173" category="list-text">*Onglet vue d'ensemble*</block>
-  <block id="41baae8263adb4ec516ef9c10284e931" category="paragraph">Affiche des informations détaillées sur l'agrégat sélectionné et affiche une représentation graphique de l'allocation d'espace de l'agrégat, des économies d'espace de l'agrégat et des performances de l'agrégat en IOPS et des transferts de données totaux.</block>
   <block id="53da544587b12f299b5208bfa37c41dd" category="list-text">*Onglet informations sur le disque*</block>
-  <block id="7684669141bc1d61ff12daea729dbbd5" category="paragraph">Affiche les informations relatives à la disposition du disque telles que le nom du disque, le type de disque, la taille physique, la taille utilisable, la position du disque, État du disque, nom plex, état plex, groupe RAID, type RAID, et de pool de stockage (le cas échéant) pour l'agrégat sélectionné. Le port de disque associé au chemin primaire du disque et le nom du disque avec le chemin secondaire du disque dans le cadre d'une configuration multivoie sont également affichés.</block>
   <block id="3c62a3dcff986acc24aef37165a45e95" category="list-text">*Onglet volumes*</block>
-  <block id="68f887cbc24995b778d4f33a8db8a5ef" category="paragraph">Affiche des informations détaillées sur le nombre total de volumes sur l'agrégat, l'espace total de l'agrégat et l'espace attribué à l'agrégat.</block>
   <block id="e6a419981c51552ec6ad5c8357bab911" category="list-text">*Onglet performances*</block>
   <block id="1b485d0caa650bce2a01d08ddaa170f3" category="paragraph">Affiche les graphiques qui affichent les mesures de performance des agrégats, y compris le débit et les opérations d'entrée/sortie par seconde. Les données de mesure de performance pour les transferts en lecture, écriture et total sont affichées pour le débit et les IOPS. Les données pour les disques SSD et HDD sont enregistrées séparément.</block>
   <block id="e6d518267af76dc4ce9e2fadd8c3f25a" category="paragraph">La modification du fuseau horaire du client ou du fuseau horaire du cluster a un impact sur les graphiques de mesures de performance. Vous devez actualiser votre navigateur pour afficher les graphiques mis à jour.</block>
@@ -3961,7 +3770,6 @@ Vous pouvez accéder à la fenêtre volumes pour afficher les volumes qui n'ont 
   <block id="1d226977e25ff0748c81b0ef9156e807" category="summary">Lorsque vous créez un volume FlexGroup, vous pouvez spécifier les options à associer au volume FlexGroup.</block>
   <block id="402229f8ce0167d0a78bbd044f5164cf" category="doc">Spécifiez les options avancées pour un volume FlexGroup avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="97da1d3682fa19cce007f55dd00e9257" category="paragraph">Lorsque vous créez un volume FlexGroup, vous pouvez utiliser ONTAP System Manager classic (disponible dans ONTAP 9.7 et versions antérieures) pour spécifier les options que vous souhaitez associer au volume FlexGroup.</block>
-  <block id="033b2063dda0545cbfd4fa75d02943a7" category="list-text">*Facultatif :* dans la fenêtre *Créer FlexGroup*, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> pour spécifier les options avancées.</block>
   <block id="771c51fdfe14e209bbf3372e85216fc9" category="list-text">Dans la section *Détails généraux*, sélectionnez la réserve d'espace et le style de sécurité, puis définissez l'autorisation UNIX pour le volume.</block>
   <block id="e722561c54240493896eff618531d51d" category="paragraph">Notez les limites suivantes :</block>
   <block id="6a02b35da34c235f387235cad63d8572" category="list-text">L'option Space Reserve n'est pas disponible pour les agrégats FabricPool.</block>
@@ -4431,7 +4239,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="53b4513f2c85f3042617d06afa7e6787" category="list-text">*Piscine*</block>
   <block id="a239d33c7781f7db89a7f5b78175b890" category="paragraph">Affiche le nom du pool auquel la LUN de matrice sélectionnée est affectée.</block>
   <block id="208cfd8d72838668e354af8a85fd9dcf" category="paragraph">La zone située sous la liste LUN de la matrice affiche des informations détaillées sur la LUN de la baie sélectionnée.</block>
-  <block id="cefd59017a4a065f49d52af021a7df7a" category="paragraph"><block ref="cefd59017a4a065f49d52af021a7df7a" category="inline-link-rx"></block></block>
   <block id="ff0f224e8e84ff31060820637ead03d3" category="summary">Vous pouvez utiliser System Manager pour gérer les modules de cache matériel.</block>
   <block id="fc127a3a51a884e1e04b66f7100eb154" category="doc">Gérez le cache matériel avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="7b9cdbb20d7b7f588086eab7aa5c2913" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour gérer les modules de cache matériel.</block>
@@ -4482,7 +4289,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="1302257e569da026aa67b8e89db540a7" category="summary">Vous pouvez utiliser System Manager pour mettre à jour un cluster dans les configurations MetroCluster. Vous devez effectuer chaque opération sur les deux clusters, à l'exception de la mise à jour du cluster.</block>
   <block id="a36ead175efb45759fee5f11ce0d539b" category="doc">Mettre à jour les clusters dans une configuration MetroCluster avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="5b53589c41b3f02720bf43be353e0006" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour un cluster dans les configurations MetroCluster. Vous devez effectuer chaque opération sur les deux clusters, à l'exception de la mise à jour du cluster.</block>
-  <block id="e21d029f0ed2c65ab82ac9c0fa962f8d" category="image-alt">mise à jour de la configuration mcc du cluster</block>
   <block id="06ad2274f297ab67ff2225385dc0f3e8" category="paragraph"><block ref="06ad2274f297ab67ff2225385dc0f3e8" category="inline-link-rx"></block></block>
   <block id="dbe63deae24a1ac56f258042500b3305" category="summary">Vous pouvez configurer le protocole iSCSI sur une machine virtuelle de stockage \(SVM\) afin de fournir un accès aux données au niveau des blocs en utilisant System Manager. Vous pouvez créer les LIF et les ensembles de ports iSCSI, puis ajouter les LIF aux ensembles de ports. Les LIF sont créées sur les adaptateurs les plus appropriés et sont attribuées aux ensembles de ports pour assurer la redondance des chemins d'accès aux données.</block>
   <block id="f5db4f9448aaa78931200f9e088d969e" category="doc">Configurez le protocole iSCSI sur les SVM avec System Manager - ONTAP 9.7 et versions antérieures</block>
@@ -5330,7 +5136,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="13c1b8619e5d72fc421632cfdcc39164" category="summary">Vous pouvez utiliser System Manager pour mettre à jour un cluster ou les nœuds individuels dans une paire haute disponibilité. Pour effectuer une mise à jour, sélectionnez une image ONTAP, vérifiez que votre cluster ou les nœuds individuels de la paire haute disponibilité sont prêts pour la mise à jour, puis effectuez la mise à jour.</block>
   <block id="41900314c94464c2e9abd692d4c2e94a" category="doc">Mettre à jour les clusters dans une configuration non MetroCluster avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="7c32eebc5c66a11a9625082f47b48aae" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour mettre à jour un cluster ou des nœuds individuels dans une paire haute disponibilité. Pour effectuer une mise à jour, sélectionnez une image ONTAP, vérifiez que votre cluster ou les nœuds individuels de la paire haute disponibilité sont prêts pour la mise à jour, puis effectuez la mise à jour.</block>
-  <block id="a641131755584229b6a82aeeabc83cdb" category="image-alt">mise à jour du cluster</block>
   <block id="d27a348a8a5fed8494cd123b1de658a7" category="summary">System Manager permet d'ajouter, de modifier et de supprimer des configurations client LDAP.</block>
   <block id="6bdc6e23cb590c92f04dbf87942b2526" category="doc">Configurez les services client LDAP avec System Manager - ONTAP 9.7 et les versions antérieures</block>
   <block id="1cc58ec3ba2b0eaeaf517b9ada71d80a" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour ajouter, modifier et supprimer des configurations de client LDAP.</block>
@@ -5342,7 +5147,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="d59c6b980e5f10012e7a6a8f810e2b53" category="list-text">Niveau SVM : cliquez sur *SVM* &gt; *Paramètres SVM* &gt; *client LDAP*.</block>
   <block id="8edf4fdc0a99903668ac5dc754e21f43" category="list-text">Saisissez le nom du client LDAP.</block>
   <block id="0c5163f0f9f5192027f456fddded55c8" category="list-text">Ajoutez le domaine Active Directory ou le serveur LDAP.</block>
-  <block id="7c8b08ce095003f9a8b15aef9ca913bf" category="list-text">Cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> (Options avancées), sélectionnez *Schema*, puis cliquez sur *appliquer*.</block>
   <block id="819aa7db437f104cac55b21e1b98c91f" category="list-text">Spécifiez le *DN de base* et *Port TCP*.</block>
   <block id="fa19e45f0c7971c2a0a4dfe83b8694ac" category="list-text">Cliquez sur *liaison*, puis spécifiez les détails d'authentification.</block>
   <block id="c076e7171f87bf601582215d048e77ea" category="list-text">Vérifiez que le client LDAP que vous avez ajouté s'affiche.</block>
@@ -5572,7 +5376,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="503e6a1d24532cf16b90068dcf9d0814" category="list-text">Dans la fenêtre *Redimensionner le volume FlexCache*, spécifiez la taille à laquelle vous souhaitez redimensionner le volume FlexCache.</block>
   <block id="2c228870bc26117c2bcc38d47fed7cbb" category="paragraph">Par défaut, les agrégats existants sont utilisés pour redimensionner le volume FlexCache. Depuis System Manager 9.6, la taille maximale autorisée pour le volume est affichée en regard du champ size.</block>
   <block id="ee06c3a75d2f90d528d0bdad6ee8b794" category="inline-link-macro">Spécification des options avancées pour les volumes FlexCache</block>
-  <block id="0141b877fcf49f33b47400dd7edb78c1" category="paragraph">Pour développer le volume FlexCache en ajoutant de nouvelles ressources, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> (options avancées). Reportez-vous à la section <block ref="4f3fc931d92f22f55a489e2373f71d6c" category="inline-link-macro-rx"></block>.</block>
   <block id="689dc6ae2f8d54723af8baa6aff39f7d" category="list-text">Cliquez sur *Enregistrer* pour redimensionner le volume FlexCache.</block>
   <block id="921b80fe6e8cca2c6db98a54b19efc65" category="summary">System Manager peut être utilisé pour définir une planification pour la création automatique de copies Snapshot d'un volume. Vous pouvez spécifier l'heure et la fréquence de création des copies. Vous pouvez également indiquer le nombre de copies Snapshot enregistrées.</block>
   <block id="836f907e1a3a35e35703941bae06b845" category="doc">Planifiez la création automatique de copies Snapshot avec System Manager - ONTAP 9.7 et versions antérieures</block>
@@ -5896,7 +5699,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="da167c465aa599598b528deacafa47eb" category="list-text">Sélectionnez le volume FlexGroup que vous souhaitez redimensionner, puis cliquez sur *plus d'actions* &gt; *Redimensionner*.</block>
   <block id="fb7e107fc632fc3b47e98f65a2b1026f" category="list-text">Dans la fenêtre *Redimensionner le volume FlexGroup*, spécifiez la taille à laquelle vous souhaitez redimensionner le volume FlexGroup.</block>
   <block id="42812d45e8b6d5528bed4f0e674b503f" category="paragraph">Par défaut, les agrégats existants sont utilisés pour redimensionner le volume FlexGroup. Depuis System Manager 9.6, la taille minimale autorisée pour le volume est affichée en regard des champs de taille.</block>
-  <block id="8fc29799fa5d7d61b9fce4781993418c" category="paragraph">Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> (options avancées).</block>
   <block id="dae0d20dbc1649cc1e11aab7858b03f2" category="list-text">Spécifiez le pourcentage de la réserve de copie Snapshot.</block>
   <block id="30743dc8da0a0156886a97e9699f314a" category="list-text">Cliquez sur *Redimensionner* pour redimensionner le volume FlexGroup.</block>
   <block id="e6ade167bc69389f90ba21383b403cee" category="summary">Pour ONTAP 9.4 et versions ultérieures, vous pouvez copier l'image du logiciel ONTAP depuis le site de support NetApp vers un dossier local. Pour les mises à niveau à partir de ONTAP 9.3 ou d'une version antérieure, vous devez copier l'image du logiciel ONTAP sur un serveur HTTP ou FTP de votre réseau.</block>
@@ -5984,7 +5786,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="77cce86a4e36ee7f8b1df43dfe7261f3" category="list-text">Toutes les modifications de la configuration précédente doivent être effectuées avant d'effectuer une opération de rétablissement. Cela empêche ces modifications de rivaliser avec l'opération de basculement ou de rétablissement négociée.</block>
   <block id="e05feb27d4f334232dd375e6020c3b53" category="section-title">Organigramme du workflow de basculement et de rétablissement MetroCluster</block>
   <block id="8e33bcb19b3ebee0d06e874b21519678" category="paragraph">L'organigramme suivant illustre les phases et les processus qui se produisent lors de l'exécution des opérations de basculement et de rétablissement.</block>
-  <block id="d2433a156dea88c5bc9b3fe8dbe2183e" category="image-alt">workflow de rétablissement du basculement</block>
   <block id="5a80ad07474cac4dee95efc76e8c6388" category="summary">Vous pouvez créer un agrégat suivant des recommandations de stockage ou manuellement, selon vos besoins. Vous pouvez créer des agrégats Flash Pool, des agrégats SnapLock et des agrégats compatibles FabricPool pour fournir du stockage à un ou plusieurs volumes à l'aide de System Manager.</block>
   <block id="d08159a440a303f7b3b7c94dc1935c5a" category="doc">Provisionnement du stockage via des agrégats avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="f87363de91a44888ba803f5cb7e20111" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour créer un agrégat basé sur des recommandations de stockage ou manuellement, selon vos besoins. Vous pouvez créer des agrégats Flash Pool, des agrégats SnapLock et des agrégats compatibles FabricPool pour fournir du stockage à un ou plusieurs volumes à l'aide de System Manager.</block>
@@ -6215,7 +6016,6 @@ Si aucune route n'existe, une nouvelle route est automatiquement créée en fonc
   <block id="9e007cde0294836d49fce82a0770d6fa" category="summary">La configuration du peering implique la création d'interfaces logiques (LIF) intercluster sur chaque nœud, la création de ce type de peering de cluster et la création de celui-ci.</block>
   <block id="829111bc2f9e8438581c99c65c273ac5" category="doc">Configuration du peering avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="7e1817ade72aa48bb92d7c2ab07e88a1" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le peering. La configuration du peering implique la création d'interfaces logiques (LIF) intercluster sur chaque nœud, la création de ce type de peering de cluster et la création de celui-ci.</block>
-  <block id="6af8acc69bcdc16b7f8e5adeec4d8b16" category="image-alt">flux de travail de peering</block>
   <block id="48f1b7cd8c5e771ef4ce929e95a1d530" category="section-title">[[prérequis-peering, conditions préalables pour le peering de cluster]] prérequis pour le peering de cluster</block>
   <block id="6b6ad8c82295777d87897d52b0fa88f0" category="paragraph">Avant de configurer le peering de cluster, vous devez vérifier que la connectivité, le port, l'adresse IP, le sous-réseau, le pare-feu, et les exigences de nommage des clusters sont respectées.</block>
   <block id="a8416e889da6102accaf0c0db08552a7" category="list-text">Le sous-réseau doit appartenir au broadcast domain qui contient les ports utilisés pour la communication intercluster.</block>
@@ -6528,7 +6328,6 @@ L'unité que vous spécifiez n'affecte pas le débit maximal.</block>
   <block id="7d613ace3ff4e6c511496c52961bf228" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour configurer et gérer des tiers cloud. Le stockage des données en niveaux peut améliorer l'efficacité de votre système de stockage. Vous gérez les niveaux de stockage à l'aide d'agrégats compatibles avec FabricPool. Les niveaux cloud stockent les données dans un Tier selon que la fréquence d'accès aux données est élevée.</block>
   <block id="ef3e2551fede2086c67b6a8bf70db3c4" category="list-text">Vous devez exécuter ONTAP 9.2 ou version ultérieure.</block>
   <block id="d93c7ae1d0a683437e8cdf90782faccd" category="list-text">Vous devez disposer d'agrégats 100 % Flash (100 % SSD)</block>
-  <block id="1d4f7d5b7c436f0c489b78bb854907f9" category="image-alt">workflow FabricPool</block>
   <block id="3ea40fea2e95ba7ab2a868e8a7d9fb54" category="section-title">Ajouter un Tier cloud</block>
   <block id="6b7613736554701bbd26dc07c42dfa16" category="paragraph">System Manager peut être utilisé pour ajouter un niveau cloud à un agrégat SSD ou à un agrégat de disques de machine virtuelle (VMDK). Le Tier cloud fournit un stockage pour les données rarement utilisées.</block>
   <block id="98ee5417a1c5fcb1c3bee4ce46f259b8" category="list-text">Vous devez disposer de l'ID de clé d'accès et de la clé secrète pour vous connecter au magasin d'objets.</block>
@@ -6547,7 +6346,6 @@ L'unité que vous spécifiez n'affecte pas le débit maximal.</block>
   <block id="da5a736d7934ea0fda310527ffdb4d23" category="paragraph">En fonction de votre sélection, le champ *Nom de service (FQDN)* est automatiquement renseigné avec le noeud final du serveur.</block>
   <block id="a1e9aeb6148784e4a0c8a4f989ead80b" category="list-text">Spécifiez l'ID de clé d'accès du Tier cloud, la clé secrète du Tier cloud et le nom du conteneur.</block>
   <block id="bd14d3410b286c3b639ecc238d233ca2" category="paragraph">Si vous avez sélectionné le type AWS commercial Cloud Service (C2S), vous devez spécifier l'URL CAP, les certificats d'autorité de certification de serveur et les certificats client.</block>
-  <block id="71bffb6a33e98f88fab832116ed7dced" category="list-text">Si vous souhaitez modifier l'un des paramètres suivants, cliquez sur l'icône Options avancées <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> Pour afficher la boîte de dialogue *Options avancées* dans laquelle vous pouvez effectuer les modifications :</block>
   <block id="466c4f4287d2b270a412473911428058" category="list-text">Numéro de port utilisé pour accéder au niveau de Cloud</block>
   <block id="f2a1cbf8ea8f7901f12aa799b104a80d" category="list-text">Activez ou désactivez l'option *SSL* qui vous permet de transférer les données en toute sécurité vers le niveau cloud</block>
   <block id="ff0167481b8bdc3a1e0af03f1a713dfa" category="list-text">*Facultatif :* si vous souhaitez ajouter un Tier cloud pour StorageGRID ou utiliser un environnement de stockage objet cloud IBM (tel que Cleversafe) avec FabricPool, vous devez spécifier un certificat d'autorité de certification. Spécifiez le certificat de l'autorité de certification en déplaçant le bouton bascule *certificat de magasin d'objets* et en copiant le contenu du certificat. Collez ensuite le contenu du certificat dans la certification signée.</block>
@@ -6694,7 +6492,6 @@ L'unité que vous spécifiez n'affecte pas le débit maximal.</block>
   <block id="e074b06c6bcffc41130111700ce589f4" category="summary">Vous pouvez configurer l'authentification SAML (Security assertion Markup Language) pour que les utilisateurs distants soient authentifiés via un fournisseur d'identités sécurisé avant de se connecter à System Manager.</block>
   <block id="a30fa0b5cb2afd6f435aa35fc7ca5745" category="doc">Configuration de l'authentification SAML avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="782f1156076101990b814a229110b078" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer l'authentification SAML. Les utilisateurs distants sont authentifiés par un fournisseur d'identités sécurisé avant de se connecter à System Manager.</block>
-  <block id="a1c17e9e89d922e43d5aa0884477d0b3" category="image-alt">flux de travail mfa</block>
   <block id="bec16219366d2631eb9ed04aecabc005" category="section-title">Activez l'authentification SAML</block>
   <block id="a1e6388446604ac005b86b7f11abf1b0" category="paragraph">Vous pouvez utiliser System Manager pour configurer l'authentification SAML afin que les utilisateurs distants puissent se connecter à l'aide d'un fournisseur d'identités sécurisé.</block>
   <block id="a1036b59d73505365ef378243a1e483a" category="list-text">Le IDP que vous envisagez d'utiliser pour l'authentification à distance doit être configuré.</block>
@@ -6944,7 +6741,6 @@ L'unité que vous spécifiez n'affecte pas le débit maximal.</block>
   <block id="2fd31c025fae94406db26f660b0bcce6" category="list-text">Cliquez sur *Continuer* pour lancer le processus de traçage des fichiers.</block>
   <block id="10e8bbfe3840d1904e9ee75029024bb1" category="list-text">Sélectionner le protocole utilisé pour accéder aux fichiers ou aux partages sur la SVM sélectionnée.</block>
   <block id="0fddf3ba5354d0302fcdd3f1a444e4ab" category="list-text">Dans le champ *Nom d'utilisateur*, entrez le nom de l'utilisateur qui tente d'accéder au fichier ou au partage.</block>
-  <block id="243f1fd197bf7fa79315a076feaf79fa" category="list-text">*Facultatif:* cliquez <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> pour spécifier plus de détails pour restreindre l'étendue du tracé.</block>
   <block id="a1d52fca6609f6ceae1e7b0dc368c1a2" category="paragraph">La boîte de dialogue Options avancées vous permet de spécifier les détails suivants :</block>
   <block id="9430c8c9455d0a71e88758d5f0cb5f9c" category="list-text">*Adresse IP du client* : spécifiez l'adresse IP du client.</block>
   <block id="0a2be69058c2dadb60ef8bd4f7128b12" category="list-text">*Fichier* : spécifiez le nom du fichier ou le chemin du fichier à tracer.</block>
@@ -7779,7 +7575,6 @@ Seul le protocole HTTPS est pris en charge pour l'accès au navigateur de ONTAP 
   <block id="96ef680007b9b6a4ed27f07ba3a181df" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer le protocole NVMe pour une SVM. Lorsque le protocole NVMe est activé sur le SVM, il est alors possible de provisionner un espace de noms ou de les attribuer à un hôte et à un sous-système.</block>
   <block id="e23275ea7297d3239b7dd72d554793b1" category="paragraph">Depuis ONTAP 9.5, vous devez configurer au moins une LIF NVMe pour chaque nœud d'une paire HA qui utilise le protocole NVMe. Vous pouvez également définir un maximum de deux LIF NVMe par nœud. Lorsque vous créez ou modifiez les paramètres du SVM à l'aide de System Manager, vous configurez les LIF NVMe.</block>
   <block id="1a169b0c93fde678e7545eea664d622c" category="paragraph">L'illustration suivante présente le workflow de configuration de NVMe :</block>
-  <block id="f986c0d1608453a3100a148119f1f6d3" category="image-alt">workflow d'installation nvme</block>
   <block id="c8e9033e5faaaadf3419887a2963fcd3" category="summary">System Manager peut être utilisé pour activer et configurer les serveurs CIFS de façon à permettre aux clients CIFS d'accéder aux fichiers sur le cluster.</block>
   <block id="76a6394ebba69d649eac839a06da71d9" category="doc">Configurez le protocole CIFS avec System Manager - ONTAP 9.7 et les versions antérieures</block>
   <block id="8ddabe3ae143d491ee852f8d59f2a3dd" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour activer et configurer les serveurs CIFS de façon à permettre aux clients CIFS d'accéder aux fichiers sur le cluster.</block>
@@ -7921,10 +7716,8 @@ Seul le protocole HTTPS est pris en charge pour l'accès au navigateur de ONTAP 
   <block id="7afec9c2554738ce7a7de58297d6c030" category="paragraph">Depuis System Manager 9.6, vous pouvez également renommer des volumes FlexGroup DP.</block>
   <block id="a3bd68f70522585bc51163fa9590fa4e" category="list-text">*Facultatif:* activez l'option *crypté* pour activer le cryptage du volume.</block>
   <block id="82420e9f127f5641742dbb7e880fabbe" category="inline-link-macro">Définition des options avancées pour un volume FlexGroup</block>
-  <block id="9ee319675caed914c3f8a3702fba2502" category="list-text">*Facultatif:* cliquez <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> Pour modifier les paramètres du volume FlexGroup. Reportez-vous à la section <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>.</block>
   <block id="4e5dab7015140f89b3c6813a37296dca" category="list-text">Indiquez la taille à laquelle vous souhaitez redimensionner le volume FlexGroup.</block>
   <block id="dc9d37a202e296240d704411fe802886" category="paragraph">Par défaut, les agrégats existants sont utilisés pour redimensionner le volume FlexGroup. La taille minimale autorisée pour le volume s'affiche en regard des champs de taille.</block>
-  <block id="6992875b19c0688c37cf36118301e391" category="paragraph">Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> (options avancées). Reportez-vous à la section <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>.</block>
   <block id="36336ab4893fca29807b6c8d48e5d614" category="summary">Vous pouvez utiliser System Manager pour spécifier des entrées de mappage de noms afin de mapper les utilisateurs de différentes plates-formes.</block>
   <block id="94b62c27be996324d0173ca83ba2629b" category="doc">Mappage de nom avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="cee4c228dbc1bd4065b40bb31f18464c" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour spécifier des entrées de mappage de noms afin de mapper les utilisateurs de différentes plateformes.</block>
@@ -8367,68 +8160,6 @@ Vous devez utiliser l'interface de ligne de commande pour ajouter des disques du
   <block id="6554454b0b446406d68531c90f523542" category="paragraph">Si les options de mélange RAID, telles que la combinaison de type disque et la combinaison de disques/tours/min, sont activées pour le groupe RAID, Le type de disque et les disques RPM des disques existants de l'agrégat sont associés au type de disque effectif et aux tours/min effectifs des disques libres afin d'obtenir des disques de secours compatibles.</block>
   <block id="3c7ac17931d7b7b66cf7c263fc1c828c" category="inline-xref-macro">Ajout de disques de capacité</block>
   <block id="b43496159a45e73d14c7489b1036d050" category="paragraph"><block ref="b43496159a45e73d14c7489b1036d050" category="inline-xref-macro-rx"></block></block>
-  <block id="17b6d0d254f588212107e44b9311cacd" category="summary">Vous pouvez utiliser System Manager pour configurer des notifications AutoSupport qui vous aideront à surveiller l'état de votre système de stockage.</block>
-  <block id="a75e8acf7cda75c2cae76c182cea9cc1" category="doc">Gérez les notifications AutoSupport avec System Manager - ONTAP 9.7 et versions antérieures</block>
-  <block id="65cb7b95d3e9511248e4d454f7a1000b" category="paragraph">Vous pouvez utiliser ONTAP System Manager Classic (disponible dans ONTAP 9.7 et versions antérieures) pour configurer les notifications AutoSupport afin de surveiller l'état du système de stockage.</block>
-  <block id="f53ffe37b23382fbc1ab9e0ff74a9ca1" category="section-title">Configurez les notifications AutoSupport</block>
-  <block id="899866a691c80f26e2daef7ca4226aa1" category="paragraph">Vous pouvez utiliser la boîte de dialogue Modifier les paramètres AutoSupport dans System Manager pour configurer les notifications AutoSupport en spécifiant une adresse e-mail à partir de laquelle les notifications par e-mail sont envoyées et en ajoutant plusieurs noms d'hôtes de messagerie.</block>
-  <block id="5201d100a8e314b3fbeeacae19e521d3" category="list-text">Sélectionnez le nœud, puis cliquez sur *Modifier*.</block>
-  <block id="687a771b0731f71db5005ea461393c80" category="list-text">Dans l'onglet *destinataire d'e-mail*, saisissez l'adresse e-mail à partir de laquelle les notifications d'e-mail sont envoyées, indiquez les destinataires et le contenu du message pour chaque destinataire d'e-mail, puis ajoutez les hôtes de messagerie.</block>
-  <block id="b3993d767356f296d9ae01951029b2e8" category="paragraph">Vous pouvez ajouter jusqu'à cinq adresses e-mail des noms d'hôte.</block>
-  <block id="256162f8692cabf4b90ce635f28d203d" category="list-text">Dans l'onglet *autres*, sélectionnez un protocole de transport pour la transmission des e-mails dans la liste déroulante et spécifiez les détails du serveur proxy HTTP ou HTTPS.</block>
-  <block id="f8095d0bd0b763a9801c727b7b9c9e2c" category="list-text">Vérifiez que la configuration que vous avez définie pour la notification AutoSupport est correctement configurée dans la fenêtre *AutoSupport*.</block>
-  <block id="7cfccaa9582383c3fb3502dee8cd8fa0" category="section-title">Activez ou désactivez les paramètres AutoSupport</block>
-  <block id="4a25ae18d6356c3e2e94389495282dca" category="paragraph">Vous pouvez activer ou désactiver les paramètres AutoSupport sur votre système de stockage à l'aide de System Manager. Les messages AutoSupport vous permettent de surveiller l'état de santé de votre système de stockage ou d'envoyer des notifications au support technique et à votre organisation de support interne.</block>
-  <block id="0403edc618662f219efdb5cec6ce921d" category="paragraph">L'option AutoSupport est activée par défaut.</block>
-  <block id="a178fec1a73600346ab5639de318ab04" category="list-text">Sélectionnez le nœud, puis cliquez sur *Activer* ou *Désactiver*.</block>
-  <block id="8a9933d1b53dd6f17d6ec97c4891fc28" category="list-text">Vérifiez que le statut de la AutoSupport affiche correctement la modification que vous avez effectuée.</block>
-  <block id="05e7844ebc444b6fad146ea35ed30693" category="section-title">Ajouter des destinataires de messagerie AutoSupport</block>
-  <block id="d16928f0be7c6d00043db7f8f698713f" category="paragraph">Vous pouvez utiliser l'onglet *destinataire d'e-mail* de la boîte de dialogue Modifier les paramètres AutoSupport du Gestionnaire système pour ajouter des adresses électroniques des destinataires des notifications AutoSupport.</block>
-  <block id="2fb66b8ac10e5a7bcdd7a6b1230f7634" category="list-text">Dans l'onglet *destinataire de l'e-mail*, saisissez l'adresse du destinataire de l'e-mail, indiquez si le destinataire reçoit un message complet ou un message court, puis cliquez sur *Ajouter*.</block>
-  <block id="12ddeca8b6e6bc6719229aed2ca28f10" category="list-text">Vérifiez que les détails que vous avez spécifiés s'affichent dans la fenêtre *AutoSupport*.</block>
-  <block id="59141343290d3909b8aaa7db97777945" category="section-title">Tester les paramètres AutoSupport</block>
-  <block id="32568cbbe429ec99cc04958091170933" category="paragraph">Vous pouvez utiliser la boîte de dialogue Test AutoSupport de System Manager pour vérifier que vous avez correctement configuré les paramètres AutoSupport.</block>
-  <block id="ecdef053776ef467659a2f7843d75970" category="list-text">Sélectionnez le nœud, puis cliquez sur *Test*.</block>
-  <block id="e8fd5a221ba9aaf9f296550b6f84c874" category="list-text">Dans la boîte de dialogue *Test AutoSupport*, entrez le texte de l'objet AutoSupport « Test AutoSupport » ou tout texte qui avertit les destinataires que vous testez les paramètres AutoSupport.</block>
-  <block id="e5e2f833538b1021bce60cd294a0b820" category="list-text">Cliquez sur *Test*.</block>
-  <block id="b4df96ee5421c196535d968ddf8dcdbf" category="paragraph">Un e-mail contenant l'objet « AutoSupport test » ou le texte que vous avez saisi dans le champ *AutoSupport Subject* est envoyé aux destinataires spécifiés.</block>
-  <block id="f8ac418fe34a9d032d82e1a5fe1cc538" category="section-title">Générez des données AutoSupport</block>
-  <block id="d7c288e747ce8081bd029cb8110b915a" category="paragraph">Vous pouvez utiliser System Manager pour générer des données AutoSupport pour un ou plusieurs nœuds afin de contrôler leur état et d'envoyer des notifications au support technique.</block>
-  <block id="560b99032ab2ade2fd44293f30542881" category="list-text">Sélectionnez le nœud, puis cliquez sur *demande AutoSupport* &gt; *générer AutoSupport*.</block>
-  <block id="b4c58686dbd257d5a4c2cfc900c2fffe" category="paragraph">Par défaut, les données AutoSupport sont générées pour tous les nœuds.</block>
-  <block id="66901fe22b1302d615fd6a33ce3ed2a1" category="list-text">Dans la boîte de dialogue *Generate AutoSupport*, effectuez les opérations suivantes :</block>
-  <block id="907fe6e970abae806b1c310cc8ebfe5b" category="list-text">Si vous souhaitez générer des données AutoSupport pour un noeud spécifique, décochez la case *générer des données AutoSupport pour tous les noeuds*, puis sélectionnez le noeud.</block>
-  <block id="fe9737666daea356168fe09824dd7c16" category="list-text">Saisissez le numéro de dossier.</block>
-  <block id="cf4ac7ce33a0d726953e3d5617ce159f" category="list-text">Dans la boîte de dialogue *Confirmation*, cliquez sur *OK*.</block>
-  <block id="44922bc3fbbb78111c1b1d7f3f6a16d5" category="section-title">Afficher la synthèse AutoSupport</block>
-  <block id="180585c2bf107777563ef87199b3a128" category="paragraph">System Manager vous permet d'afficher l'état et les détails de toutes les données AutoSupport précédentes afin de vérifier les données envoyées au support technique. Vous pouvez également consulter ces informations pour connaître l'état et les performances de votre système de stockage.</block>
-  <block id="40e9b033a605f4b9e70b7533dbe4cc68" category="list-text">Sélectionnez le nœud, puis cliquez sur *demande AutoSupport* &gt; *Afficher le résumé précédent*.</block>
-  <block id="ec319ea6d5029219f5360564e39bce20" category="paragraph">Les données AutoSupport de tous les nœuds sont affichées.</block>
-  <block id="7cd2400c36efced648da662ee35c50db" category="section-title">Types de gravité AutoSupport</block>
-  <block id="481b198660a6150c43056f34d7e2cf2e" category="paragraph">Les messages AutoSupport ont des types de gravité qui vous aident à comprendre l'objet de chaque message : par exemple, pour attirer l'attention immédiate sur un problème d'urgence ou uniquement pour fournir des informations.</block>
-  <block id="696cbc725f30685e5fa8ce370d6f6954" category="paragraph">Les messages ont l'un des niveaux de gravité suivants :</block>
-  <block id="581092a5673e91e014d76b69ceebdf33" category="list-text">*Alerte* : les messages d'alerte indiquent qu'un événement de niveau supérieur peut se produire si vous ne prenez pas d'action.</block>
-  <block id="e2187f9725fb45cce9f73beddfb887f4" category="paragraph">Vous devez prendre une action contre les messages d'alerte dans les 24 heures.</block>
-  <block id="742c1bb29d3105108b3c147111efab2e" category="list-text">*Urgence* : les messages d'urgence sont affichés lorsqu'une interruption s'est produite.</block>
-  <block id="deadcded381dc54c5b4315a60e438efb" category="paragraph">Vous devez agir immédiatement contre les messages d'urgence.</block>
-  <block id="0f8ace2d00677452acebed4ac5f08f28" category="list-text">*Erreur* : les conditions d'erreur indiquent ce qui peut se produire si vous ignorez.</block>
-  <block id="bda1600937310f07d4e989c02fc850f5" category="list-text">*Avis* : condition normale mais significative.</block>
-  <block id="915f01d0c8edc0c91010fd08de60d06e" category="list-text">*Info*: Message d'information fournit des détails sur le problème, que vous pouvez ignorer.</block>
-  <block id="5c1133334cd09acd3c04f0c1c5901533" category="list-text">*Debug* : les messages au niveau du débogage fournissent des instructions que vous devez effectuer.</block>
-  <block id="da1e3514a2d926808d163915057fbecc" category="paragraph">Si votre service de support interne reçoit des messages AutoSupport par e-mail, la gravité apparaît dans l'objet de l'e-mail.</block>
-  <block id="6bcf33de034389db3d5853162953d505" category="section-title">La fenêtre AutoSupport</block>
-  <block id="1a7d77c8e798bc441a5334c9355a45d5" category="paragraph">La fenêtre AutoSupport vous permet d'afficher les paramètres AutoSupport actuels de votre système. Vous pouvez également modifier les paramètres AutoSupport de votre système.</block>
-  <block id="359380a3c78af945b2ae90f815244396" category="paragraph">Active la notification AutoSupport. *Activer* est la valeur par défaut.</block>
-  <block id="da870272b32f4cbfade1d5a90b8e3f29" category="paragraph">Désactive la notification AutoSupport.</block>
-  <block id="2e7e65a7e342af7e8e9f4a5bd5546e80" category="list-text">*Test*</block>
-  <block id="e5ff12d5fe310fb00a01d79c857e3012" category="paragraph">Ouvre la boîte de dialogue Test AutoSupport, qui permet de générer un message de test AutoSupport.</block>
-  <block id="c17beda1e1f2784da4409798c0b828aa" category="list-text">*Demande AutoSupport*</block>
-  <block id="9efb97efa656bf8b294b9560fa48f2e3" category="paragraph">Fournit les requêtes AutoSupport suivantes :</block>
-  <block id="f7b81a92807ea0daac699e3be8d2f1a8" category="list-text">*Générer AutoSupport*</block>
-  <block id="5f6eee0f282fb718d0b02e1081963d06" category="paragraph">Génère les données AutoSupport pour un nœud sélectionné ou tous les nœuds.</block>
-  <block id="4db536d8e0d23affd53ff50f18315229" category="list-text">*Afficher le résumé précédent*</block>
-  <block id="49edbf7f86eb853da37612c4c1c8c81b" category="paragraph">Affiche l'état et les détails de toutes les données AutoSupport précédentes.</block>
-  <block id="85d7a739c6bad7aa6a52aeb9d15d8dc7" category="paragraph">La zone de détails affiche des informations sur les paramètres AutoSupport, telles que le nom du nœud, l'état AutoSupport, le protocole de transport utilisé et le nom du serveur proxy.</block>
   <block id="cf18771d2723aa8f45b649802cca21bb" category="summary">Vous pouvez utiliser System Manager pour protéger vos données et améliorer la résilience en mettant en miroir des données en temps réel dans un seul agrégat. La mise en miroir des agrégats supprime les points de défaillance uniques lors de la connexion aux disques et aux LUN de baies.</block>
   <block id="082fcd43395a78c9af7e1c1aede841c9" category="doc">Mise en miroir des agrégats avec System Manager - ONTAP 9.7 et versions antérieures</block>
   <block id="7320e70f830697cfb3f68adab3cec989" category="paragraph">Vous pouvez utiliser ONTAP System Manager classique (disponible dans ONTAP 9.7 et versions antérieures) pour protéger vos données et améliorer la résilience en mettant en miroir les données en temps réel dans un agrégat unique. La mise en miroir des agrégats supprime les points de défaillance uniques lors de la connexion aux disques et aux LUN de baies.</block>
@@ -9021,7 +8752,6 @@ LDAP est la principale source d'informations utilisateur pour les services de no
   <block id="56f7090374da6c285faf44a2d3d36387" category="paragraph">Pour la plupart des échecs de transfert de données, le champ s'affiche<block ref="bafd7322c6e97d25b6299b5d6fe8920b" prefix=" " category="inline-code"></block>. Toutefois, dans certains cas de défaillance, le champ continue à s'afficher<block ref="93cba07454f06a4a960172bbd6e2a435" prefix=" " category="inline-code"></block>. Vous devez vérifier les erreurs de transfert dans la section Détails pour vous assurer qu'aucun échec de transfert de données ne s'est produit.</block>
   <block id="d984d9c45d9cc749d08f539d70415f1c" category="list-text">Le temps de décalage ne doit pas dépasser l'intervalle de planification de transfert.</block>
   <block id="84ab02685a1be3ebfb0d9fdcdebd3620" category="paragraph">Par exemple, si la planification de transfert est quotidienne, le temps de décalage ne doit pas être supérieur à un jour.</block>
-  <block id="1eeba1edb754efde0f9cecd9c594e61f" category="image-alt">moniteur sv</block>
   <block id="f54fe60c5cda1542fbcb4223ed181b1a" category="summary">Vous devez créer une relation SnapVault entre le volume source sur un cluster et le volume de destination sur le cluster peering pour créer une sauvegarde SnapVault.</block>
   <block id="681b555578c6300aa44915faa6e62624" category="doc">Création d'une relation SnapVault (à partir de ONTAP 9.3)</block>
   <block id="111d55d127c8b160f91a1ed2a3d66659" category="list-text">Sélectionnez le volume à sauvegarder, puis cliquez sur *actions* &gt; *protéger*.</block>
@@ -9035,17 +8765,13 @@ LDAP est la principale source d'informations utilisateur pour les services de no
   <block id="0e4bdb912795a75f20bb4cf92e12ede0" category="list-text">Sélectionnez *Programme de protection*.</block>
   <block id="8a29542fd88167bed5c273f4dfaf8a32" category="paragraph">Par défaut, le<block ref="bea79186fd7af2da67e59b4b15df5a26" prefix=" " category="inline-code"></block> la planification est sélectionnée.</block>
   <block id="a2c37d2ba543d4b2fa6945958d1b06a6" category="paragraph">Toutes les relations de protection des données sont initialisées par défaut.</block>
-  <block id="cdce3cfd69d3c04640402322214fbd7b" category="image-alt">options avancées de SnapVault</block>
   <block id="ad4cee41b42d5d1487fc368bacee9035" category="list-text">Dans la page *volumes : Protect volumes*, cliquez sur *Validate* pour vérifier si les volumes disposent d'étiquettes SnapMirror correspondantes.</block>
   <block id="15b9d1ba7d09ca92877eccf7c8dc834c" category="list-text">Cliquez sur *Enregistrer* pour créer la relation SnapVault.</block>
   <block id="8692227f3e95b2f8bebdf8e94baa86d2" category="list-text">Vérifier que l'état de la relation SnapVault se trouve dans<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> état.</block>
   <block id="9c53011af7d95ac75de04cec46ecb8d2" category="list-text">Accédez à la fenêtre *volumes*, puis sélectionnez le volume sauvegardé.</block>
   <block id="94b31a2df9b136cec0223f40179bf9fa" category="list-text">Développez le volume et cliquez sur *PROTECTION* pour afficher l'état de protection des données du volume.</block>
-  <block id="0acbaa58e2a15a8cfdca743b66a7589f" category="image-alt">SnapVault 9 3</block>
   <block id="7b1a6834c9e6f565e0e67a08da561eb0" category="summary">Avant de configurer un volume pour la protection des données à l'aide de la technologie SnapVault, vérifiez que le cluster source et le cluster de destination sont mis en relation et communiquent entre eux via les relations entre eux. On doit également vérifier que le SVM source et le SVM de destination sont peering et communiquent entre eux par le biais de la relation entre pairs.</block>
   <block id="1d2c5f3cf91a6ac4437d06b0d35f22aa" category="doc">Vérifier la relation entre les clusters et la relation entre les pairs de SVM</block>
-  <block id="9aaabaf6b02ac9896ad51eeefe73cf8f" category="image-alt">sauvegarde pper 930 cluster</block>
-  <block id="c78e5ac9d023c52ba5fef3f2b6285cf3" category="image-alt">sauvegarde de l'état des pairs de cluster</block>
   <block id="d9754d70c58cd9e08660aa07fe333726" category="paragraph">Si vous ne voyez pas de SVM peering dans ce domaine, vous pouvez créer la relation de SVM peer en créant la relation SnapVault.</block>
   <block id="71d1ddff7dfe7c5d5d498435abd07d64" category="inline-xref-macro">Création de la relation SnapVault (ONTAP 9.2 ou version antérieure)</block>
   <block id="7aba3f692e5d868662f8bb21f2d6b326" category="paragraph"><block ref="7aba3f692e5d868662f8bb21f2d6b326" category="inline-xref-macro-rx"></block></block>
@@ -9053,17 +8779,13 @@ LDAP est la principale source d'informations utilisateur pour les services de no
   <block id="7b54a4baecee8025c7a584063b284860" category="list-text">Sélectionnez le volume à sauvegarder, puis cliquez sur *protéger*.</block>
   <block id="46a75c55e1d18259e0d99ca1a2d6e6dc" category="list-text">Utilisez le nom de volume par défaut ou entrez un nouveau nom de volume.</block>
   <block id="290b5b3199ef348f9cbd79b99c5bb958" category="list-text">Assurez-vous que la case *Activer la déduplication* est cochée.</block>
-  <block id="31cb8a9c222dc79d8a607e91c2ec5087" category="image-alt">dest vol SnapVault</block>
   <block id="853eaceca4495bec215242975ab75a5c" category="list-text">Dans la section *Détails de la configuration*, sélectionnez<block ref="a56c1780b810accc7f0bc23193dc16aa" prefix=" " category="inline-code"></block> comme la politique de protection.</block>
   <block id="aff39a5b1ae1c8209559a8d4f0ddc867" category="list-text">Assurez-vous que la case *Initialize Relationship* est cochée pour transférer la copie Snapshot de base, puis cliquez sur *Create*</block>
-  <block id="0d1bc641bee3f79300dd2bd71a01cd61" category="image-alt">détails de configuration SnapVault</block>
   <block id="02a06f3e8dce89d13793f3516c1397b5" category="paragraph">L'assistant crée la relation avec la stratégie de coffre-fort et la planification spécifiées. La relation est initialisée en démarrant un transfert de base des données du volume source vers le volume de destination.</block>
   <block id="9ed2c9c51f61eff07d1309d3b0a092ab" category="paragraph">La section État indique l'état de chaque travail.</block>
-  <block id="571a6fbf06fcab2eacce2bf9f22f7d14" category="image-alt">créez SnapVault</block>
   <block id="12e1c92f78e02c7c7176879151b9f047" category="list-text">Vérifier que l'état de la relation SnapVault se trouve dans le<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> état.</block>
   <block id="0a1f8ccbf1c3a92e6cf0a2fab027e9d7" category="list-text">Sélectionnez le volume dans la liste volumes, puis cliquez sur *Data protection*.</block>
   <block id="ede5499c007334976c473361dd3cae93" category="list-text">Dans l'onglet du bas *Data protection*, vérifiez que la relation SnapMirror que vous avez créée est répertoriée et que l'état de la relation est<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> et le type est<block ref="5b70a213f150f01f0776fa9481ef2ddf" prefix=" " category="inline-code"></block>.</block>
-  <block id="88a39d6a7af7f65fcb4ad6f3ff576d67" category="image-alt">fenêtre de protection des données sv</block>
   <block id="0dda7a83024c1a48482d48cb5cc0197e" category="summary">La configuration d'une relation de sauvegarde SnapVault comprend la vérification de la relation entre clusters, la création de la relation SnapVault entre les volumes source et de destination, ainsi que le contrôle de la relation SnapVault.</block>
   <block id="2f17efffc575aac669d2b6d5b6e3ce0c" category="doc">Workflow de configuration de sauvegarde SnapVault</block>
   <block id="33d698c5405b59cf282a091b0fab54f4" category="image-alt">Cette illustration représente un organigramme du flux de production de la configuration de sauvegarde de SnapVault. Les étapes du workflow correspondent aux rubriques.</block>
@@ -9097,7 +8819,6 @@ LDAP est la principale source d'informations utilisateur pour les services de no
   <block id="6a1430dbf84d6dc23f417c150bfc22be" category="sidebar">Documents classiques de System Manager</block>
   <block id="8cd255c7908d433af7a81a9f59fbc06b" category="sidebar">Gestion du cluster via System Manager 9.6 et 9.7</block>
   <block id="c8db31d0d38042ea4fd10dd6bdfd347e" category="sidebar">Documentation ONTAP</block>
-  <block id="d648f2a68a54fd1b3329efc3cf24d29c" category="sidebar">Mentions légales</block>
   <block id="0fe674cba26a6125717793de11bb3096" category="sidebar">Administration de l'extension de cluster</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Présentation</block>
   <block id="28ed8622e2b3c95e29e6f443b5b6cd84" category="sidebar">Initialiser et formater la LUN</block>
@@ -9946,4 +9667,39 @@ LDAP est la principale source d'informations utilisateur pour les services de no
   <block id="b1ddb251aa66bea48e797b1ba2490583" category="sidebar">Rubriques générales sur la mise en réseau (ONTAP 9.7 et versions antérieures)</block>
   <block id="a29d5547f6b6a3eb59e3d47cdb1c8b3e" category="sidebar">Domaines de diffusion (ONTAP 9.7 ou version antérieure)</block>
   <block id="d7f29243972dcd66136a878c3167ee3a" category="sidebar">À propos du basculement de chemin NAS (ONTAP 9.7 et versions antérieures)</block>
+  <block id="31a492c1ac21a132d45144f6d5949a5a" category="paragraph"><block ref="2cd65b4a044075cfd9ad4a91f42fdff4" category="inline-link-macro-rx"></block> <block ref="5e764cc3fdcc19ff667796e414159bdc" category="inline-link-macro-rx"></block> <block ref="561451f09c7bca700ea0d7833cd9e92e" category="inline-link-macro-rx"></block> <block ref="d23d341a344216fbf99a91152429d49c" category="inline-link-macro-rx"></block> <block ref="b35e8fbd7b0369b23734510994911ec4" category="inline-link-macro-rx"></block> <block ref="41d4305cf7a6acb595086f123121a781" category="inline-link-macro-rx"></block> <block ref="ea685649fabe77da53e843fec56f72b8" category="inline-link-macro-rx"></block></block>
+  <block id="021e58ded68582927279871a5a249d56" category="inline-image-macro">icône options avancées</block>
+  <block id="e942e17609bdfacf699e4326db9a5c6c" category="list-text">Cliquez sur <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> (options avancées), sélectionnez le *Schéma*, puis cliquez sur *appliquer*.</block>
+  <block id="71d3f2fbd3f099e5e4004ce407520fc5" category="image-alt">organigramme du workflow de basculement et de rétablissement de MetroCluster</block>
+  <block id="0a8898c3a5c1c7dfcdf9a1ea89ba1371" category="image-alt">workflow de configuration de nvme</block>
+  <block id="c92735279096095430f4ba8938a4625a" category="image-alt">workflow de configuration de l'environnement de cluster</block>
+  <block id="0932f3e300e26042e0464118925831e7" category="image-alt">mise à jour des clusters dans une configuration MetroCluster avec system manager</block>
+  <block id="2138adc51055649c980ae237aae09678" category="image-alt">mise à jour des clusters dans une configuration non MetroCluster avec system manager</block>
+  <block id="58eb14d339cce9656dd664894d1bed13" category="image-alt">workflow de configuration et de gestion des tiers cloud avec system manager</block>
+  <block id="0f996dc5a102ad4590e9c4a6a1b2bea6" category="list-text">Si vous souhaitez modifier l'un des paramètres suivants, cliquez sur l'icône Options avancées <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>pour afficher la boîte de dialogue *Options avancées* dans laquelle vous pouvez effectuer les modifications :</block>
+  <block id="b9749ab015e0a86ac53cf1e8355b0463" category="list-text">Pour spécifier des agrégats spécifiques, cliquez sur  (options avancées).<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6b4f7970ed14ffcd2cd01a5bcad00df4" category="list-text">*Facultatif:* cliquez <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> pour modifier les paramètres avancés du volume FlexCache. Reportez-vous à la <block ref="01d1f9ee7eafcb47c4d200eceb73ffd6" category="inline-link-macro-rx"></block>.</block>
+  <block id="66a8e1c221410e093d9f8952f96aa718" category="list-text">*Facultatif:* cliquez <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> pour modifier les paramètres du volume FlexGroup. Reportez-vous à la <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>.</block>
+  <block id="12f0ba62a35184ad78e46495aed599c3" category="paragraph">Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur  (options avancées).<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> Reportez-vous à la <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>.</block>
+  <block id="bd2994eecdfc948859d61e5e8af39d76" category="paragraph">Pour développer le volume FlexCache en ajoutant de nouvelles ressources, cliquez sur  (options avancées).<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> Reportez-vous à la <block ref="4f3fc931d92f22f55a489e2373f71d6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="1c2bb56fbb6f256a844ce48503a61592" category="paragraph">Pour développer le volume FlexGroup en ajoutant de nouvelles ressources, cliquez sur  (options avancées).<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4f0cd92236bc3ee5c59393dcb1cd46c4" category="image-alt">workflow de configuration du cluster avec ONTAP system manager</block>
+  <block id="34db6f0144d3faddcec6503e7b19a934" category="image-alt">workflow de configuration du peering</block>
+  <block id="10fb5742f027d94f2d9a2be7a521980a" category="image-alt">workflow de configuration de l'authentification saml avec system manager</block>
+  <block id="ac406f7b3ac832289490a9928155e573" category="list-text">*Facultatif:* dans la fenêtre *Edit FlexCache volume*, cliquez <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> pour spécifier les options avancées.</block>
+  <block id="22c88cbfb69451eb5b1700c79078a2e8" category="list-text">*Facultatif:* dans la fenêtre *Créer FlexGroup*, cliquez <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> pour spécifier les options avancées.</block>
+  <block id="a4f2dcacb59f6247563b33c78abb9af7" category="list-text">*Facultatif:* cliquez <block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block> pour spécifier plus de détails pour réduire la portée de la trace.</block>
+  <block id="98ff9d400ff71b78fe9bd8396d181d0c" category="image-alt">onglet du volume de destination de la configuration avec la case à cocher activer la déduplication</block>
+  <block id="c8c7c1580ea9ee0164932b98ebbba6e9" category="image-alt">onglet détails de la configuration avec case à cocher initialiser la relation</block>
+  <block id="a39ef4a00faaede12888a132ba359f72" category="image-alt">onglet créer une relation de protection avec une section d'état indiquant l'état de chaque travail</block>
+  <block id="0ff83997287948cdae3d09fc1f872456" category="image-alt">onglet inférieur de la protection des données</block>
+  <block id="39c95ce3156249f19819bd55058330d0" category="image-alt">onglet options avancées SnapVault</block>
+  <block id="7574361a6adbb68646e2913372161dd6" category="image-alt">fenêtre volumes affichant l'état de protection des données du volume</block>
+  <block id="d0ab8e4cbb595e3b42eea0ebaa196387" category="image-alt">état de la relation SnapVault</block>
+  <block id="b49af746329694d471b02754b346b2e1" category="image-alt">vérification du cluster peering</block>
+  <block id="f1708c3087f0b9656f84ffb11ef5f176" category="image-alt">volet détails du cluster affichant la section homologues du cluster pour vérifier que le cluster en cours est authentifié et disponible</block>
+  <block id="f143a26d3aa1a2ec09915e966ba2e79d" category="image-alt">état du transfert des données SnapMirror</block>
+  <block id="2cb784360ea1f63614d3f5bcaa598a3f" category="image-alt">vérification que le cluster de peering est authentifié et disponible</block>
+  <block id="da91c7a4b0770d58391de5b02e703da7" category="image-alt">section clusters homologues montrant que le cluster en peering est authentifié et disponible</block>
+  <block id="9a1ae1f025bf3468de6eafb8382a5104" category="image-alt">image de l'onglet protection montrant le volume de destination dans la relation SnapMirror</block>
 </blocks>

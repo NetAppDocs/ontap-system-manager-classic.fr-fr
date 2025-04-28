@@ -29,7 +29,7 @@ Par défaut, les agrégats existants sont utilisés pour redimensionner le volum
 +
 [NOTE]
 ====
-Pour développer le volume FlexCache en ajoutant de nouvelles ressources, cliquez sur image:../media/advanced_options.gif[""] (options avancées). Reportez-vous à la section link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html["Spécification des options avancées pour les volumes FlexCache"].
+Pour développer le volume FlexCache en ajoutant de nouvelles ressources, cliquez sur  (options avancées).image:../media/advanced_options.gif["icône options avancées"] Reportez-vous à la link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html["Spécification des options avancées pour les volumes FlexCache"].
 
 ====
 . Cliquez sur *Enregistrer* pour redimensionner le volume FlexCache.

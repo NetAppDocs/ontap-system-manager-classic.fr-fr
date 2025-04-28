@@ -100,7 +100,6 @@ Spécifiez les options avancées de cron en mois, jours, jours de semaine (le ca
 
 == Supprimer des planifications
 
-[role="lead"]
 System Manager peut être utilisé pour supprimer les planifications qui exécutent des tâches de gestion de stockage spécifiques.
 
 .Étapes

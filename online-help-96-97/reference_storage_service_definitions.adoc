@@ -88,13 +88,6 @@ valeur
 
 
  a| 
-LUN FlexArray
- a| 
-valeur
-
-
-
- a| 
 Hybride
  a| 
 valeur
